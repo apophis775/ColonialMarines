@@ -1,0 +1,25 @@
+lucyz: Lucy Isherwood: /obj/item/clothing/suit/storage/labcoat/cmo
+lucyz: Lucy Isherwood: /obj/item/clothing/under/dress/dress_hop
+sandcom: Jenna 'Love' Black: /obj/item/clothing/under/dress/dress_firepink
+theflagbearer: Lee Everett: /obj/item/clothing/under/leeeverett
+ningajai: Anthony Carmine: /obj/item/clothing/head/helmet/marine/fluff/anthonycarmine
+wrightthewrong: John Wright: /obj/item/clothing/under/fluff/turtleneck
+lestatanderson: Ryder Mitchell: /obj/item/clothing/suit/storage/marine/fluff/cia
+kilinger: Danny Barrett: /obj/item/clothing/head/helmet/marine/fluff/goldshieldberet
+commandercookies: Elliot Renold: /obj/item/clothing/head/helmet/marine/fluff/elliotberet
+commandercookies: Elliot Renold: /obj/item/clothing/suit/storage/marine/fluff/armorammo
+sasoperative: Joseph Skinner: /obj/item/clothing/mask/gas/swat
+sasoperative: Joseph Skinner: /obj/item/clothing/under/fluff/turtleneck
+sasoperative: Joseph Skinner: /obj/item/clothing/suit/armor/fluff/sas
+sasoperative: Joseph Skinner: /obj/item/clothing/head/fluff/sas
+tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/helmet/marine/fluff/santahat
+tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/storage/marine/fluff/santa
+tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/fluff/penguin
+docdemo: Kristofferson: /obj/item/clothing/head/helmet/marine/fluff/goldtrimberet
+obeystylez: Marshall Mathers: /obj/item/clothing/under/fluff/turtleneck
+obeystylez: Marshall Mathers: /obj/item/clothing/mask/balaclava/obey
+obeystylez: Marshall Mathers: /obj/item/clothing/gloves/black/obey
+obeystylez: Marshall Mathers: /obj/item/clothing/suit/armor/fluff/obey
+tophatpenguin: Osalaa Wooki: /obj/item/clothing/under/fluff/turtleneck
+wrightthewrong: John Wright /obj/item/clothing/glasses/eyepatch/fluff/wright
+wrightthewrong: John Wright /obj/item/clothing/suit/armor/swat/fluff/wright

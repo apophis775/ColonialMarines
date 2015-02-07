@@ -1,0 +1,6 @@
+loading baystation12.dme
+loading interface\skin.dmf
+code\game\machinery\computer\marine_card.dm:267:warning: jobdatum: variable defined but not used
+loading maps\tgstation3.dmm
+saving baystation12.dmb (DEBUG mode)
+baystation12.dmb - 0 errors, 1 warning
