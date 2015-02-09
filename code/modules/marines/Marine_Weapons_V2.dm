@@ -155,8 +155,6 @@
 		return 0
 
 
-
-
 ///***RIFLES***///
 
 /obj/item/weapon/gun/twohanded/projectile/Assault/m41 //M41 Assault Rifle
