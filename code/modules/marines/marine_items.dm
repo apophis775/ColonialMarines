@@ -167,7 +167,8 @@ obj/item/device/radio/headset/mdelta
 /obj/item/weapon/storage/box/beanbags
 	name = "box of beanbag shells"
 	desc = "It has a picture of a shotgun and several warning symbols on the front."
-
+	icon_state = "shells"
+	w_class=2
 	New()
 		..()
 		new /obj/item/ammo_casing/shotgun/beanbag(src)
@@ -182,7 +183,8 @@ obj/item/device/radio/headset/mdelta
 /obj/item/weapon/storage/box/shotguns
 	name = "box of shotgun shells"
 	desc = "It has a picture of a combat shotgun and several warning symbols on the front."
-
+	icon_state = "shells"
+	w_class=2
 	New()
 		..()
 		new /obj/item/ammo_casing/shotgun(src)
