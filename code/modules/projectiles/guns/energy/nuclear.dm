@@ -40,6 +40,8 @@
 	origin_tech = "combat=3;materials=5;powerstorage=3"
 	var/lightfail = 0
 	var/charge_tick = 0
+	unacidable = 0
+	delay = 1
 
 	New()
 		..()
@@ -58,7 +60,7 @@
 		if(!power_supply) return 0
 		if((power_supply.charge / power_supply.maxcharge) != 1)
 			if(!failcheck())	return 0
-			power_supply.give(100)
+			power_supply.give(250)
 			update_icon()
 		return 1
 

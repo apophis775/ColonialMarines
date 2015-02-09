@@ -81,18 +81,18 @@
 					affected_mob << "\red <b>You black out.</b>"
 					affected_mob.paralysis = 5
 			if(4)
-				if(prob(50))
+				if(prob(10))
 					affected_mob.emote("sneeze")
-				if(prob(50))
+				if(prob(10))
 					affected_mob.emote("cough")
-				if(prob(20))
+				if(prob(30))
 					affected_mob << "\red Your chest hurts."
-					if(prob(70))
+					if(prob(50))
 						if(istype(affected_mob, /mob/living/carbon/human))
 							affected_mob.take_organ_damage(10)
 				if(prob(20))
 					affected_mob << "\red Your stomach hurts."
-					if(prob(20))
+					if(prob(50))
 						if(istype(affected_mob, /mob/living/carbon/human))
 							affected_mob.adjustToxLoss(1)
 							affected_mob.updatehealth()
