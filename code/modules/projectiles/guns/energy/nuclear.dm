@@ -41,7 +41,7 @@
 	var/lightfail = 0
 	var/charge_tick = 0
 	unacidable = 0
-	delay = 1
+	fire_delay = 1
 
 	New()
 		..()

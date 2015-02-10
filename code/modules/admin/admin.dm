@@ -991,7 +991,7 @@ var/global/floorIsLava = 0
 	log_admin("[key_name(usr)] spawned [chosen] at ([usr.x],[usr.y],[usr.z])")
 	feedback_add_details("admin_verb","SA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-//APOPHS BREACH FIXIN PROC 05FEB2015
+//APOPHIS BREACH FIXIN PROC 05FEB2015
 /datum/admins/proc/breach_fix()
 	set category = "Debug"
 	set desc = "Quickly repair a breach"
@@ -1001,6 +1001,19 @@ var/global/floorIsLava = 0
 
 	log_admin("[key_name(usr)] used the Breach Fix verb at ([usr.x],[usr.y],[usr.z])")
 	message_admins("\blue [key_name(usr)]Breach Fix verb at ([usr.x],[usr.y],[usr.z])", 1)
+
+//APOPHIS RIOT CONTROL PROC 09FEB2015
+/datum/admins/proc/riot_control()
+	set category = "Admin"
+	set desc = "Pacify ALL the marines"
+	set name = "Riot Control"
+
+	new /obj/item/weapon/grenade/flashbang/clusterbang/segment(usr.loc)
+	new /obj/item/weapon/grenade/flashbang/clusterbang/segment(usr.loc)
+	new /obj/item/weapon/grenade/flashbang/clusterbang/segment(usr.loc)
+
+	log_admin("[key_name(usr)] has used the riot control command at ([usr.x],[usr.y],[usr.z])")
+	message_admins("\blue [key_name(usr)] is using the riot control command at ([usr.x],[usr.y],[usr.z])", 1)
 
 
 
