@@ -474,3 +474,18 @@
 		new /obj/item/weapon/light/tube(src)
 	for(var/i = 0; i < 7; i++)
 		new /obj/item/weapon/light/bulb(src)
+
+/obj/item/weapon/storage/box/medals
+	name = "Marine Medals"
+	desc = "Made with polished wood and sterling silver etchings, this box looks like a prized possession."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "excavation"
+
+	New()
+		..()
+		new /obj/item/clothing/tie/medal/conduct(src)
+		new /obj/item/clothing/tie/medal/bronze_heart(src)
+		new /obj/item/clothing/tie/medal/nobel_science(src)
+		new /obj/item/clothing/tie/medal/silver/valor(src)
+		new /obj/item/clothing/tie/medal/silver/security(src)
+		new /obj/item/clothing/tie/medal/gold/captain(src)
