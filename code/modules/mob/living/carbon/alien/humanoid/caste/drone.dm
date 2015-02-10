@@ -1,4 +1,4 @@
-//ALIEN DRONE - UPDATED 07JAN2015 - APOPHIS
+//ALIEN DRONE - UPDATED 08FEB2015 - APOPHIS
 /mob/living/carbon/alien/humanoid/drone
 	name = "alien drone"
 	caste = "Drone"
@@ -98,10 +98,10 @@
 	if(src.stat != CONSCIOUS)
 		src << "You are unable to do that now."
 		return
-	if(jellyProgress >= jellyProgressMax)	//TODO ~Carn
+	if(jellyProgress >= jellyProgressMax)
 		//green is impossible to read, so i made these blue and changed the formatting slightly
 		src << "<B>Hivelord</B> \blue The ULTIMATE hive construction alien.  Capable of building massive hives, that's to it's tremendous Plasma reserve.  However, it is very slow and weak."
-		src << "<B>Carrier</B> \blue The latest advance in Alien Evolution.  Capable of holding upto 6 runners, and throwing them a far distance, directly to someones face."
+		src << "<B>Carrier</B> \blue The latest advance in Alien Evolution.  Capable of holding upto 6 Facehugger, and throwing them a far distance, directly to someones face."
 		var/alien_caste = alert(src, "Please choose which alien caste you shall belong to.",,"Hivelord","Carrier")
 
 		var/mob/living/carbon/alien/humanoid/new_xeno
