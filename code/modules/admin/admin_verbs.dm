@@ -227,6 +227,7 @@ var/list/admin_verbs_hideable = list(
 	)
 var/list/admin_verbs_mod = list(
 	/datum/admins/proc/breach_fix,			//Verb for quickly repairing breaches APOPHIS775 05FEB2015
+	/datum/admins/proc/riot_control,		//Verb for quickly pacifying the retarded marines at LO office
 	/client/proc/admin_call_shuttle,
 	/client/proc/admin_cancel_shuttle,
 	/client/proc/infantry_team, // Response Teams admin verb

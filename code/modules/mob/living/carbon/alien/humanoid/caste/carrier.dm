@@ -4,7 +4,7 @@
 	maxHealth = 200
 	health = 200
 	storedPlasma = 50
-	max_plasma = 50
+	max_plasma = 250
 	icon_state = "Carrier Walking"
 	plasma_rate = 5
 	heal_rate = 2
