@@ -88,37 +88,37 @@
 							del(src)
 						return
 
-				if(/obj/item/stack/sheet/plasteel)
-					if(!anchored)
-						if(S.amount < 2) return
-						S.use(2)
-						user << "\blue You create a false wall! Push on it to open or close the passage."
-						new /obj/structure/falserwall (src.loc)
-						del(src)
-					else
-						if (src.icon_state == "reinforced") //I cant believe someone would actually write this line of code...
-							if(S.amount < 1) return ..()
-							user << "\blue Now finalising reinforced wall."
-							if(do_after(user, 50))
-								if(!src || !S || S.amount < 1) return
-								S.use(1)
-								user << "\blue Wall fully reinforced!"
-								var/turf/Tsrc = get_turf(src)
-								Tsrc.ChangeTurf(/turf/simulated/wall/r_wall)
-								for(var/turf/simulated/wall/r_wall/X in Tsrc.loc)
-									if(X)	X.add_hiddenprint(usr)
-								del(src)
-							return
-						else
-							if(S.amount < 1) return ..()
-							user << "\blue Now reinforcing girders"
-							if (do_after(user,60))
-								if(!src || !S || S.amount < 1) return
-								S.use(1)
-								user << "\blue Girders reinforced!"
-								new/obj/structure/girder/reinforced( src.loc )
-								del(src)
-							return
+				// if(/obj/item/stack/sheet/plasteel)
+					// if(!anchored)
+						// if(S.amount < 2) return
+						// S.use(2)
+						// user << "\blue You create a false wall! Push on it to open or close the passage."
+						// new /obj/structure/falserwall (src.loc)
+						// del(src)
+					// else
+						// if (src.icon_state == "reinforced") //I cant believe someone would actually write this line of code...
+							// if(S.amount < 1) return ..()
+							// user << "\blue Now finalising reinforced wall."
+							// if(do_after(user, 50))
+								// if(!src || !S || S.amount < 1) return
+								// S.use(1)
+								// user << "\blue Wall fully reinforced!"
+								// var/turf/Tsrc = get_turf(src)
+								// Tsrc.ChangeTurf(/turf/simulated/wall/r_wall)
+								// for(var/turf/simulated/wall/r_wall/X in Tsrc.loc)
+									// if(X)	X.add_hiddenprint(usr)
+								// del(src)
+							// return
+						// else
+							// if(S.amount < 1) return ..()
+							// user << "\blue Now reinforcing girders"
+							// if (do_after(user,60))
+								// if(!src || !S || S.amount < 1) return
+								// S.use(1)
+								// user << "\blue Girders reinforced!"
+								// new/obj/structure/girder/reinforced( src.loc )
+								// del(src)
+							// return
 
 			if(S.sheettype)
 				var/M = S.sheettype
