@@ -36,6 +36,7 @@
 /proc/log_access(text)
 	if (config.log_access)
 		diary << "\[[time_stamp()]]ACCESS: [text]"
+		loginLog << "\[[time_stamp()]]ACCESS: [text]"
 
 /proc/log_say(text)
 	if (config.log_say)

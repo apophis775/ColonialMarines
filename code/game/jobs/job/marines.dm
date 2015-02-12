@@ -75,7 +75,7 @@
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/mmpo(H), slot_l_ear)
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/marine/mp(H), slot_w_uniform)
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/marine/full(H), slot_belt)
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/marine, slot_belt)
 		return 1
 
 //Logistics Officer
