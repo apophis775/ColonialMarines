@@ -61,6 +61,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \te = equip
 \tr = throw
 \tt = say
+\ty = me
 \tx = swap-hand
 \tz = activate held object (or y)
 \tf = cycle-intents-left
