@@ -36,6 +36,9 @@
 /proc/log_access(text)
 	if (config.log_access)
 		diary << "\[[time_stamp()]]ACCESS: [text]"
+
+/proc/admin_log(text) //To see when admins login/logout
+	if (config.log_access)
 		loginLog << "\[[time_stamp()]]ACCESS: [text]"
 
 /proc/log_say(text)
