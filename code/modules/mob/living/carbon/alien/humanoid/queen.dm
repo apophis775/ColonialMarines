@@ -38,7 +38,7 @@
 				if(active_queen.stat == DEAD)
 					psychicstrength = round(psychicstrength / 2)
 					for(var/mob/living/carbon/alien in living_mob_list)
-						xeno << "\red The queen has died! You feel the strength of your hivemind decrease greatly."
+						alien << "\red The queen has died! You feel the strength of your hivemind decrease greatly."
 					active_queen = null
 			sleep(50)
 
