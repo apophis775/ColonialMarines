@@ -151,6 +151,19 @@
 	force = 9.0
 	ejectshell = 0 //Caseless
 
+	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
+		..()
+		if(!loaded.len && empty_mag)
+			empty_mag.loc = get_turf(src.loc)
+			empty_mag = null
+		return
+
+	New()
+		..()
+		empty_mag = new /obj/item/ammo_magazine/m39/empty(src)
+		update_icon()
+		return
+
 	isHandgun()
 		return 0
 
