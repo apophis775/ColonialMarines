@@ -38,6 +38,27 @@
 		new /obj/item/weapon/reagent_containers/pill/kelotane( src ) //Replaced ointment with these since they actually work --Errorage
 		return
 
+/obj/item/weapon/storage/firstaid/surgery_kit
+	name="Surgery Kit"
+	desc="Suitable case for holding your <I>murderous</I> medical tools"
+	icon_state = "surgerycase"
+	storage_slots=11
+	max_combined_w_class=22 //storage_slots*2?
+	New()
+		..()
+		if(empty) return
+		new /obj/item/weapon/scalpel(src)
+		new /obj/item/weapon/FixOVein(src)
+		new /obj/item/weapon/bonegel(src)
+		new /obj/item/weapon/bonesetter(src)
+		new /obj/item/weapon/cautery(src)
+		new /obj/item/weapon/circular_saw(src)
+		new /obj/item/weapon/hemostat(src)
+		new /obj/item/weapon/retractor(src)
+		new /obj/item/weapon/surgicaldrill(src)
+		new /obj/item/device/healthanalyzer(src)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+		return
 
 /obj/item/weapon/storage/firstaid/regular
 	icon_state = "firstaid"
