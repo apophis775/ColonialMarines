@@ -56,6 +56,7 @@ var/list/assistant_occupations = list(
 
 var/list/command_positions = list(
 	"Commander",
+	"Logistics Officer",
 	"Captain",
 	"Head of Personnel",
 	"Head of Security",
@@ -74,6 +75,7 @@ var/list/engineering_positions = list(
 
 var/list/medical_positions = list(
 	"Chief Medical Officer",
+	"Sulaco Medic",
 	"Medical Doctor",
 	"Geneticist",
 	"Psychiatrist",
@@ -83,6 +85,7 @@ var/list/medical_positions = list(
 
 var/list/science_positions = list(
 	"Research Director",
+	"Researcher",
 	"Scientist",
 	"Geneticist",	//Part of both medical and science
 	"Roboticist",
@@ -108,17 +111,50 @@ var/list/civilian_positions = list(
 
 var/list/security_positions = list(
 	"Head of Security",
+	"Military Police",
 	"Warden",
 	"Detective",
 	"Security Officer",
 )
 
 
-var/list/marine_positions = list(
-	"Military Police",
-	"Logistics Officer",
+var/list/marine_alpha_positions = list(
+	"Alpha Squad Leader",
+	"Alpha Squad Standard",
+	"Alpha Squad Engineer",
+	"Alpha Squad Medic"
+)
+
+
+var/list/marine_bravo_positions = list(
+	"Bravo Squad Leader",
+	"Bravo Squad Standard",
+	"Bravo Squad Engineer",
+	"Bravo Squad Medic"
+)
+
+
+var/list/marine_charlie_positions = list(
+	"Charlie Squad Leader",
+	"Charlie Squad Standard",
+	"Charlie Squad Engineer",
+	"Charlie Squad Medic"
+)
+
+
+var/list/marine_delta_positions = list(
+	"Delta Squad Leader",
+	"Delta Squad Standard",
+	"Delta Squad Engineer",
+	"Delta Squad Medic"
+)
+
+
+var/list/mar_unassigned = list(
 	"Marine"
 )
+
+
 var/list/nonhuman_positions = list(
 	"AI",
 	"Cyborg",
