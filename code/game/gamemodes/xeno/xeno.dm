@@ -22,8 +22,8 @@
 	var/aliensurvivors = 0
 	uplink_welcome = "Infestation Uplink Console:"
 	uplink_uses = 0
-	var/numaliens = 2
-	var/numsurvivors = 1
+	var/numaliens = 0
+	var/numsurvivors = 0
 
 ///////////////////////////
 //Announces the game type//
@@ -38,6 +38,13 @@
 ////////////////////
 
 /datum/game_mode/infestation/can_start()
+	var/players = num_players()
+	for(var/C = 0, C<players, C+=5)
+		numaliens++
+	for(var/C = 0, C<players, C+=10)
+		numsurvivors++
+
+/*  //OLD COUNTING CODE - DELETE 20FEB2015
 	if(num_players() < 10)
 		numsurvivors = 0
 		if(prob(10))
@@ -63,6 +70,7 @@
 		numaliens = 5
 	if(num_players() > 50)
 		numaliens = 6
+		*/
 	var/list/datum/mind/possible_survivors = get_players_for_survivor()
 	if(possible_survivors.len==0)
 		return 0

@@ -48,11 +48,10 @@
 
 
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
-
+	var/obj/item/ammo_magazine/AM = A
 	var/num_loaded = 0
 	if(istype(A, /obj/item/ammo_magazine))
 		if((load_method == MAGAZINE) && loaded.len)	return
-		var/obj/item/ammo_magazine/AM = A
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
 			if(loaded.len >= max_shells)
 				break
@@ -61,6 +60,8 @@
 				AM.stored_ammo -= AC
 				loaded += AC
 				num_loaded++
+				empty_mag = AM	//a temporary solution to get rid of magazines from mob hand
+				user.remove_from_mob(AM) //
 		if(load_method == MAGAZINE)
 			user.remove_from_mob(AM)
 			empty_mag = AM
@@ -73,7 +74,7 @@
 			loaded += AC
 			num_loaded++
 	if(num_loaded)
-		user << "\blue You load [num_loaded] shell\s into the gun!"
+		user << "\blue You load [num_loaded] shell\s out of [AM.max_ammo] into the gun!"
 	A.update_icon()
 	update_icon()
 	return
