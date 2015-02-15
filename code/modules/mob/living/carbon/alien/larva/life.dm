@@ -355,20 +355,20 @@ FUCK YOU MORE FAT CODE -Hawk*/
 		else
 			nightvision = 1
 
-		var/AHF = maxHealth/5 //Alien Health Fraction
+		var/HP = (health/maxHealth)*100
 
 		if (healths)
 			if (stat != 2)
-				switch(health)
-					if(AHF*4 to INFINITY)
+				switch(HP)
+					if(100 to INFINITY)
 						healths.icon_state = "health0"
-					if(AHF*3 to AHF*4)
+					if(75 to 100)
 						healths.icon_state = "health1"
-					if(AHF*2 to AHF*3)
+					if(50 to 75)
 						healths.icon_state = "health2"
-					if(AHF to AHF*2)
+					if(25 to 50)
 						healths.icon_state = "health3"
-					if(0 to AHF)
+					if(0 to 25)
 						healths.icon_state = "health4"
 					else
 						healths.icon_state = "health5"
