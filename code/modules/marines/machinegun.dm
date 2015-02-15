@@ -60,7 +60,7 @@
 			User << "This machine gun is out of ammo!"
 
 		return
-	if(T && User && User.stat == CONSCIOUS)
+	if(T && User && User.stat == CONSCIOUS && !User.stunned && !User.weakened)
 		var/row = 0
 		if(row1.Find(T))
 			row = 1

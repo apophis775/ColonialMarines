@@ -41,7 +41,7 @@
 	var/players = num_players()
 	for(var/C = 0, C<players, C+=5)
 		numaliens++
-	for(var/C = 0, C<players, c+=10)
+	for(var/C = 0, C<players, C+=10)
 		numsurvivors++
 
 /*  //OLD COUNTING CODE - DELETE 20FEB2015

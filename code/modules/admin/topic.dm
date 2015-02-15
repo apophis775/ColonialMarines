@@ -439,7 +439,7 @@
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 		jobs += "<tr bgcolor='ffddf0'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban3=securitydept;jobban4=\ref[M]'>Marine Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in marine_positions)
+		for(var/jobPos in marine_alpha_positions || marine_bravo_positions || marine_charlie_positions || marine_delta_positions)
 			if(!jobPos)	continue
 			var/datum/job/job = job_master.GetJob(jobPos)
 			if(!job) continue
