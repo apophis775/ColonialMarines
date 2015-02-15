@@ -86,31 +86,3 @@
 
 
 	return
-
-
-
-/mob/living/carbon/alien/humanoid/spitter
-
-
-	handle_regular_hud_updates()
-
-		..() //-Yvarov
-		var/HP = (health/maxHealth)*100
-
-		if (healths)
-			if (stat != 2)
-				switch(HP)
-					if(80 to INFINITY)
-						healths.icon_state = "health0"
-					if(60 to 80)
-						healths.icon_state = "health1"
-					if(40 to 60)
-						healths.icon_state = "health2"
-					if(20 to 40)
-						healths.icon_state = "health3"
-					if(0 to 20)
-						healths.icon_state = "health4"
-					else
-						healths.icon_state = "health5"
-			else
-				healths.icon_state = "health6"
