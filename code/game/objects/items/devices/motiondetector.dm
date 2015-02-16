@@ -68,7 +68,7 @@ mob/var/current_detector = null
 				flick("blip", o)
 			detected = null
 			if(detector_ping)
-				playsound(src.loc, 'detector.ogg', 150, 0, 2) //If player isn't the only blip, play ping
+				playsound(src.loc, 'detector.ogg', 150, 0, 3) //If player isn't the only blip, play ping
 		playsound(src.loc, 'tick.ogg', 125)
 		flick("", detector_image)
 		sleep(4)
