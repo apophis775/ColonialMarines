@@ -6,7 +6,6 @@
 
 	New()
 		..()
-		workobj()
 
 
 /mob/living/carbon/alien/larva/Life()
@@ -219,27 +218,6 @@ FUCK YOU MORE FAT CODE -Hawk*/
 
 		return //TODO: DEFERRED
 
-	var/locating = 0
-	proc/queen_locator()
-		if(locate_queen)
-			for(var/mob/living/carbon/alien/humanoid/queen/M in mob_list)
-				if(M && M.stat != DEAD)
-					target = M
-				else
-					target = null
-		if(!target)
-			locate_queen.icon_state = "trackoff"
-			return
-
-		locate_queen.dir = get_dir(src,target)
-		if(target && target != src)
-			if(get_dist(src, target) != 0)
-				locate_queen.icon_state = "trackon"
-			else
-				locate_queen.icon_state = "trackondirect"
-
-		spawn(10) .()
-
 	proc/handle_regular_status_updates()
 		updatehealth()
 
@@ -315,33 +293,32 @@ FUCK YOU MORE FAT CODE -Hawk*/
 				druggy = max(druggy-1, 0)
 		return 1
 
+	var/locating = 0
 	var/obj/target = null
-	proc/workobj()
+	proc/queen_locator()
 		if(locate_queen)
-			if(!target)
-				locate_queen.icon_state = "trackoff"
-				return
-			locate_queen.dir = get_dir(src,target)
-			if(target)
+			for(var/mob/living/carbon/alien/humanoid/queen/M in mob_list)
+				if(M && M.stat != DEAD)
+					target = M
+				else
+					target = null
+		if(!target)
+			locate_queen.icon_state = "trackoff"
+			return
+
+		locate_queen.dir = get_dir(src,target)
+		if(target && target != src)
+			if(get_dist(src, target) != 0)
 				locate_queen.icon_state = "trackon"
+			else
+				locate_queen.icon_state = "trackondirect"
 
-			switch(get_dist(src,target))
-				if(0)
-					locate_queen.icon_state = "trackondirect"
-	/*			if(1 to 8)
-					locate_queen.icon_state = "trackonclose"
-				if(9 to 16)
-					locate_queen.icon_state = "trackonmedium"
-				if(16 to INFINITY)
-					locate_queen.icon_state = "trackonfar"
-	*/
-			if(target == src)
-				locate_queen.icon_state = "trackoff"
-
-			spawn(50) .()
+		spawn(10) .()
 
 	proc/handle_regular_hud_updates()
-
+		if(locating != 1)
+			queen_locator()
+			locating = 1
 		if (nightvision == 2)
 			sight |= SEE_MOBS
 			see_in_dark = 8
