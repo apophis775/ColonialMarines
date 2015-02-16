@@ -15,16 +15,19 @@ obey_stylez - Moderator
 Doctor Clockwork - Moderator
 CampinKiller - Moderator
 tristan1333 - Moderator
-Rovernic - Trial Moderator
-Razerwing - Trial Moderator
-Chief_Executive - Trial Moderator
-OliverCarswell - Trial Moderator
+OliverCarswell - Moderator
+Rovernic - Moderator
+Razerwing - Moderator
+Chief_Executive - Moderator
+
 
 
 
 Rahlzel - Developer
 Allan1234 - Mapper
 Infernus44 - Mapper
+mewth - Mapper
 Dre9889 - Auditor
 Slayerplayer99 - Coder
 Aztectornado - Coder
+SailorDave - Coder
