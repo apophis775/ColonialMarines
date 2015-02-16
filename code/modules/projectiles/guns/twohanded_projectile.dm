@@ -236,17 +236,19 @@
 
 /obj/item/weapon/gun/twohanded/projectile/dropped(mob/user as mob)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
-	if(user)
-		var/obj/item/weapon/gun/twohanded/projectile/O = user.get_inactive_hand()
-		if(istype(O))
+	if(user && wielded)
+		unwield()
+		var/obj/item/weapon/twohanded/projectile/offhand/O = user.get_inactive_hand()
+		if(O && istype(O))
 			O.unwield()
-	return	unwield()
+	return
 
 /obj/item/weapon/gun/twohanded/projectile/update_icon()
 	return
 
 /obj/item/weapon/gun/twohanded/projectile/pickup(mob/user)
 	unwield()
+	return
 
 /obj/item/weapon/gun/twohanded/projectile/attack_self(mob/user as mob)
 	if( istype(user,/mob/living/carbon/monkey) )
