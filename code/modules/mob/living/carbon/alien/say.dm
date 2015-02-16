@@ -26,7 +26,11 @@
 		return
 
 	var/message_a = say_quote(message)
-	var/rendered = "<i><span class='game say'>Hivemind, <span class='name'>[name]</span> <span class='message'>[message_a]</span></span></i>"
+	var/rendered
+	if(istype(src, /mob/living/carbon/alien/humanoid/queen))
+		rendered = "<font size='3' font color='purple'><i><span class='game say'>Hivemind, <span class='name'>[name]</span> <span class='message'>[message_a]</span></span></i></font>"
+	else
+		rendered = "<i><span class='game say'>Hivemind, <span class='name'>[name]</span> <span class='message'>[message_a]</span></span></i>"
 	for (var/mob/living/S in player_list)
 		if(!S.stat)
 			if(S.alien_talk_understand)
