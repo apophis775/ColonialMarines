@@ -1,6 +1,10 @@
 #ignore misc BYOND files
 scripts/voicequeue.txt
 *.log
+*.rsc
+*.dmb
+*.lk
 baystation12.int
 COLONIAL.int
 icons/Xeno/Xeno.int
+
