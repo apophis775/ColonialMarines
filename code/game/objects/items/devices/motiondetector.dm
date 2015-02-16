@@ -41,7 +41,7 @@ mob/var/current_detector = null
 			user.client.screen-=o //Remove all blips from the tracker, then..
 			pool("detector_blips", o)	//Store all removed blips in the pool
 
-		for(var/mob/living/t in range(10,M))
+		for(var/mob/living/t in range(14,M))
 			if(t != M)
 				if(istype(t, /mob/living/carbon/human))
 					var/mob/living/carbon/human/C = t
@@ -53,7 +53,7 @@ mob/var/current_detector = null
 					t.tracker_position = t.loc
 
 		sleep(3) //Amount of time to "check" for movement
-		for(var/mob/living/t in range(10,M))
+		for(var/mob/living/t in range(14,M))
 			if((t.tracker_position != null) && (get_dist(t.tracker_position, t.loc) >= 1))
 				spawn(3) t.tracker_position = null
 				detected += t
@@ -61,14 +61,14 @@ mob/var/current_detector = null
 		if(detected.len>=1)
 			for(var/mob/living/t in detected)
 				var/obj/Blip/o = unpool("detector_blips", /obj/Blip) // Get a blip from the blip pool
-				o.pixel_x = (t.x-M.x)*6-4 // Make the blip in the right position on the radar (multiplied by the icon dimensions)
-				o.pixel_y = (t.y-M.y)*6-4 //-4 is a slight offset south and west
+				o.pixel_x = (t.x-M.x)*4-4 // Make the blip in the right position on the radar (multiplied by the icon dimensions)
+				o.pixel_y = (t.y-M.y)*4-4 //-4 is a slight offset south and west
 				o.screen_loc = "detector:3:[o.pixel_x],3:[o.pixel_y]" // Make it appear on the radar map
 				user.client.screen+=o // Add it to the radar
 				flick("blip", o)
 			detected = null
 			if(detector_ping)
-				playsound(src.loc, 'detector.ogg', 150, 0, 2) //If player isn't the only blip, play ping
+				playsound(src.loc, 'detector.ogg', 150, 0, 3) //If player isn't the only blip, play ping
 		playsound(src.loc, 'tick.ogg', 125)
 		flick("", detector_image)
 		sleep(4)
