@@ -58,11 +58,13 @@
 		usr << "\red You foolishly look at where the flashlight would be, if it was attached..."
 
 /obj/item/weapon/gun/twohanded/projectile/Assault/pickup(mob/user)//Transfers the lum to the user when picked up
+	..()
 	if(islighton)
 		SetLuminosity(0)
 		usr.SetLuminosity(gun_light)
 
 /obj/item/weapon/gun/twohanded/projectile/Assault/dropped(mob/user)//Transfers the Lum back to the gun when dropped
+	..()
 	if(islighton)
 		SetLuminosity(gun_light)
 		usr.SetLuminosity(0)
