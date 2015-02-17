@@ -183,7 +183,7 @@ var/list/toldstory = list()
 	//For each survivor, add one to the count. Should work accurately enough.
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H) //Prevent any runtime errors
-			if(H.client && H.brain_op_stage != 4 && H.stat != DEAD) // If they're connected/unghosted and alive and not debrained
+			if(H.client && H.brain_op_stage != 4 && H.stat != DEAD && !(H.status_flags & XENO_HOST)) // If they're connected/unghosted and alive and not debrained
 				humansurvivors += 1 //Add them to the amount of people who're alive.
 	for(var/mob/living/carbon/alien/A in living_mob_list)
 		if(A) //Prevent any runtime errors
