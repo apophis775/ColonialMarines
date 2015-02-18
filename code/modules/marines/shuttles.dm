@@ -6,6 +6,8 @@ var/marine_a_shuttle_moving = 0
 var/marine_b_shuttle_moving = 0
 var/marine_a_shuttle_location = 0
 var/marine_b_shuttle_location = 0
+var/a_cooldown = 0
+var/b_cooldown = 0
 
 proc/move_marine_a_shuttle()
 	if(marine_a_shuttle_moving)	return
@@ -63,6 +65,10 @@ proc/move_marine_a_shuttle()
 						M.weakened = 3
 
 		marine_a_shuttle_moving = 0
+		a_cooldown = 1
+		spawn(600)//60 seconds
+			a_cooldown = 0
+
 	return
 
 proc/move_marine_b_shuttle()
@@ -120,6 +126,10 @@ proc/move_marine_b_shuttle()
 						M.weakened = 3
 
 		marine_b_shuttle_moving = 0
+		b_cooldown = 1
+		spawn(600)//60 seconds
+			b_cooldown = 0
+
 	return
 
 /obj/machinery/computer/marine_a_shuttle
@@ -193,10 +203,15 @@ proc/move_marine_b_shuttle()
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 	if(href_list["move"])
+		
+		if(a_cooldown)
+			usr << "\red Shuttle is recharging. Please wait."
+			return
 
 		if (!marine_a_shuttle_moving)
-			usr << "\blue Shuttle recieved message and will be sent shortly."
+			usr << "\blue Shuttle will be sent shortly."
 			move_marine_a_shuttle()
+
 		else
 			usr << "\blue Shuttle is already moving."
 
@@ -304,9 +319,13 @@ proc/move_marine_b_shuttle()
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 	if(href_list["move"])
+		
+		if(b_cooldown)
+			usr << "\red Shuttle is recharging. Please wait."
+			return
 
 		if (!marine_b_shuttle_moving)
-			usr << "\blue Shuttle recieved message and will be sent shortly."
+			usr << "\blue Shuttle will be sent shortly."
 			move_marine_b_shuttle()
 		else
 			usr << "\blue Shuttle is already moving."

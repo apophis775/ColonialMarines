@@ -12,7 +12,7 @@
 	for(var/client/C in clients)
 		if(ishuman(C.mob) && (C.mob.stat == 0 || C.mob.stat == 1))
 			count_humans++
-		if(ishuman(C.mob) && C.mob.status_flags & XENO_HOST)
+		if(ishuman(C.mob) && (C.mob.stat == 0 || C.mob.stat == 1) && C.mob.status_flags & XENO_HOST)
 			count_infectedhumans++
 	var/count_aliens = 0
 	for(var/client/C in clients)
