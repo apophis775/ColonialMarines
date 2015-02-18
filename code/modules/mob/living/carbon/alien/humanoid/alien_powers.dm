@@ -203,32 +203,51 @@ Doesn't work on other aliens/AI.*/
 	if(usedneurotox >= 1)
 		src << "\red Our spit is not ready.."
 		return
-	//Stealing the ninja star code.
-	if(powerc(100))
-		var/targets[] = list()//So yo can shoot while yo throw dawg
-		for(var/mob/living/carbon/human/M in oview(loc))
-			if(M.stat)	continue//Doesn't target corpses or paralyzed persons.
-			targets.Add(M)
-		if(targets.len)
-			var/mob/living/carbon/human/target=pick(targets)//The point here is to pick a random, living mob in oview to shoot stuff at.
 
-			var/turf/curloc = src.loc
-			var/atom/targloc = get_turf(target)
-			if (!targloc || !istype(targloc, /turf) || !curloc)
+	if(powerc(100))
+		var/list/moblist = new/list()
+		var/mob/living/L
+		var/mob/living/carbon/alien/M
+		for(L in view())
+			moblist += L
+		for(M in moblist)
+			moblist -= M
+		moblist += "Cancel"
+
+		target = input("Spits neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear.", "Spit Neurotoxin (100)") in moblist
+		if(target && target != "Cancel")
+			src << "\green You spit neurotoxin at [target]."
+
+			for(var/mob/O in oviewers())
+				if (O.client && !O.blinded)
+					O << "\red [src] spits neurotoxin at [target]!"
+
+			var/turf/T = loc
+			var/turf/U = (istype(target, /atom/movable) ? target.loc : target)
+
+			if(!U || !T)
 				return
-			if (targloc == curloc)
+			while(U && !istype(U,/turf))
+				U = U.loc
+			if(!istype(T, /turf))
 				return
-			var/obj/item/projectile/energy/neurotoxin/A = new /obj/item/projectile/energy/neurotoxin(src.loc)
-			A.current = curloc
-			A.yo = targloc.y - curloc.y
-			A.xo = targloc.x - curloc.x
-			adjustToxLoss(-100)
+			if (U == T)
+				usr.bullet_act(new /obj/item/projectile/energy/neurotoxin(usr.loc), get_organ_target())
+				return
+			if(!istype(U, /turf))
+				return
+
+			var/obj/item/projectile/energy/neurotoxin/A = new /obj/item/projectile/energy/neurotoxin(usr.loc)
+			A.current = U
+			A.yo = U.y - T.y
+			A.xo = U.x - T.x
 			A.process()
+			adjustToxLoss(-100)
 			usedneurotox = 6
 		else
-			src << "\red We see no prey.."
+			src << "\red We see no prey."
+			return
 	return
-
 
 /mob/living/carbon/alien/humanoid/proc/weak_neurotoxin()
 	set name = "Spit Weak Neurotoxin (75)"
@@ -237,97 +256,104 @@ Doesn't work on other aliens/AI.*/
 	if(usedneurotox >= 1)
 		src << "\red Our spit is not ready.."
 		return
-	//Stealing the ninja star code.
-	if(powerc(75))
-		var/targets[] = list()//So yo can shoot while yo throw dawg
-		for(var/mob/living/carbon/human/M in oview(loc))
-			if(M.stat)	continue//Doesn't target corpses or paralyzed persons.
-			targets.Add(M)
-		if(targets.len)
-			var/mob/living/carbon/human/target=pick(targets)//The point here is to pick a random, living mob in oview to shoot stuff at.
 
-			var/turf/curloc = src.loc
-			var/atom/targloc = get_turf(target)
-			if (!targloc || !istype(targloc, /turf) || !curloc)
+	if(powerc(75))
+		var/list/moblist = new/list()
+		var/mob/living/L
+		var/mob/living/carbon/alien/M
+		for(L in view())
+			moblist += L
+		for(M in moblist)
+			moblist -= M
+		moblist += "Cancel"
+
+		target = input("Spits a weak neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear.", "Spit Neurotoxin (100)") in moblist
+		if(target && target != "Cancel")
+			src << "\green You spit neurotoxin at [target]."
+
+			for(var/mob/O in oviewers())
+				if (O.client && !O.blinded)
+					O << "\red [src] spits neurotoxin at [target]!"
+
+			var/turf/T = loc
+			var/turf/U = (istype(target, /atom/movable) ? target.loc : target)
+
+			if(!U || !T)
 				return
-			if (targloc == curloc)
+			while(U && !istype(U,/turf))
+				U = U.loc
+			if(!istype(T, /turf))
 				return
-			var/obj/item/projectile/energy/weak_neurotoxin/A = new /obj/item/projectile/energy/weak_neurotoxin(src.loc)
-			A.current = curloc
-			A.yo = targloc.y - curloc.y
-			A.xo = targloc.x - curloc.x
-			adjustToxLoss(-100)
+			if (U == T)
+				usr.bullet_act(new /obj/item/projectile/energy/neurotoxin(usr.loc), get_organ_target())
+				return
+			if(!istype(U, /turf))
+				return
+
+			var/obj/item/projectile/energy/weak_neurotoxin/A = new /obj/item/projectile/energy/weak_neurotoxin(usr.loc)
+			A.current = U
+			A.yo = U.y - T.y
+			A.xo = U.x - T.x
 			A.process()
+			adjustToxLoss(-100)
 			usedneurotox = 3
 		else
-			src << "\red We see no prey.."
+			src << "\red We see no prey."
+			return
 	return
 
 /mob/living/carbon/alien/humanoid/proc/super_neurotoxin()
 	set name = "Spit Super Neurotoxin (150)"
-	set desc = "Spits a weak neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear."
+	set desc = "Spits a strong neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear."
 	set category = "Alien"
 	if(usedneurotox >= 1)
 		src << "\red Our spit is not ready.."
 		return
-	//Stealing the ninja star code.
-	if(powerc(150))
-		var/targets[] = list()//So yo can shoot while yo throw dawg
-		for(var/mob/living/carbon/human/M in oview(loc))
-			if(M.stat)	continue//Doesn't target corpses or paralyzed persons.
-			targets.Add(M)
-		if(targets.len)
-			var/mob/living/carbon/human/target=pick(targets)//The point here is to pick a random, living mob in oview to shoot stuff at.
 
-			var/turf/curloc = src.loc
-			var/atom/targloc = get_turf(target)
-			if (!targloc || !istype(targloc, /turf) || !curloc)
+	if(powerc(150))
+		var/list/moblist = new/list()
+		var/mob/living/L
+		var/mob/living/carbon/alien/M
+		for(L in view())
+			moblist += L
+		for(M in moblist)
+			moblist -= M
+		moblist += "Cancel"
+
+		target = input("Spits a strong neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear.", "Spit Neurotoxin (100)") in moblist
+		if(target && target != "Cancel")
+			src << "\green You spit neurotoxin at [target]."
+
+			for(var/mob/O in oviewers())
+				if (O.client && !O.blinded)
+					O << "\red [src] spits neurotoxin at [target]!"
+
+			var/turf/T = loc
+			var/turf/U = (istype(target, /atom/movable) ? target.loc : target)
+
+			if(!U || !T)
 				return
-			if (targloc == curloc)
+			while(U && !istype(U,/turf))
+				U = U.loc
+			if(!istype(T, /turf))
 				return
-			var/obj/item/projectile/energy/super_neurotoxin/A = new /obj/item/projectile/energy/super_neurotoxin(src.loc)
-			A.current = curloc
-			A.yo = targloc.y - curloc.y
-			A.xo = targloc.x - curloc.x
-			adjustToxLoss(-150)
+			if (U == T)
+				usr.bullet_act(new /obj/item/projectile/energy/neurotoxin(usr.loc), get_organ_target())
+				return
+			if(!istype(U, /turf))
+				return
+
+			var/obj/item/projectile/energy/super_neurotoxin/A = new /obj/item/projectile/energy/super_neurotoxin(usr.loc)
+			A.current = U
+			A.yo = U.y - T.y
+			A.xo = U.x - T.x
 			A.process()
+			adjustToxLoss(-150)
 			usedneurotox = 10
 		else
-			src << "\red We see no prey.."
+			src << "\red We see no prey."
+			return
 	return
-/*	if(powerc(100))
-		if(isalien(target))
-			src << "\green Your allies are not a valid target."
-			return
-		adjustToxLoss(-50)
-		src << "\green You spit neurotoxin at [target]."
-		for(var/mob/O in oviewers())
-			if ((O.client && !( O.blinded )))
-				O << "\red [src] spits neurotoxin at [target]!"
-		//I'm not motivated enough to revise this. Prjectile code in general needs update.
-		var/turf/T = loc
-		var/turf/U = (istype(target, /atom/movable) ? target.loc : target)
-
-		if(!U || !T)
-			return
-		while(U && !istype(U,/turf))
-			U = U.loc
-		if(!istype(T, /turf))
-			return
-		if (U == T)
-			usr.bullet_act(new /obj/item/projectile/energy/neurotoxin(usr.loc), get_organ_target())
-			return
-		if(!istype(U, /turf))
-			return
-
-		var/obj/item/projectile/energy/neurotoxin/A = new /obj/item/projectile/energy/neurotoxin(usr.loc)
-		A.current = U
-		A.yo = U.y - T.y
-		A.xo = U.x - T.x
-		A.process()
-		usedneurotox = 4
-	return
-*/
 
 /mob/living/carbon/alien/humanoid/proc/resin() // -- TLE
 	set name = "Secrete Resin (75)"

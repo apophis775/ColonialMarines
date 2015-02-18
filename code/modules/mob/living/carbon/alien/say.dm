@@ -63,7 +63,11 @@
 
 	message = say_quote(message)
 
-	rendered = "<i><span class='game say'>Hivemind, <span class='name'>[name]</span> <span class='message'>[message_a]</span></span></i>"
+
+	if(istype(src, /mob/living/carbon/alien/humanoid/queen))
+		rendered = "<font size='3' font color='purple'><i><span class='game say'>Hivemind, <span class='name'>[name]</span> <span class='message'>[message_a]</span></span></i></font>"
+	else
+		rendered = "<i><span class='game say'>Hivemind, <span class='name'>[name]</span> <span class='message'>[message_a]</span></span></i>"
 
 	for (var/mob/M in player_list)
 		if (istype(M, /mob/new_player))
