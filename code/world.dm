@@ -288,7 +288,7 @@
 	*/
 
 	if (!host && config && config.hostedby)
-		features += "hosted by <b>Jaggerestep</b>"
+		features += "hosted by <b>Verbose Lucidity</b>"
 
 	if (features)
 		s += ": [dd_list2text(features, ", ")]"
