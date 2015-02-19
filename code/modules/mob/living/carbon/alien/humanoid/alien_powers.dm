@@ -194,12 +194,23 @@ Doesn't work on other aliens/AI.*/
 			src << "\green Target is too far away."
 	return
 
-
+/mob/living/carbon/alien/humanoid/proc/quickspit()
+	set name = "Toggle Quick Spit"
+	set desc = "Switch to a faster neurotoxin spit mode, allowing you to spit at the nearest mob instead of choosing your target."
+	set category = "Alien"
+	if(quickspit)
+		quickspit = 0
+		src << "\red Quick spit disabled."
+	else
+		quickspit = 1
+		src << "\red Quick spit enabled."
 
 /mob/living/carbon/alien/humanoid/proc/neurotoxin()
 	set name = "Spit Neurotoxin (100)"
 	set desc = "Spits neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear."
 	set category = "Alien"
+	var/mob/target = null
+
 	if(usedneurotox >= 1)
 		src << "\red Our spit is not ready.."
 		return
@@ -208,13 +219,18 @@ Doesn't work on other aliens/AI.*/
 		var/list/moblist = new/list()
 		var/mob/living/L
 		var/mob/living/carbon/alien/M
-		for(L in view())
+		for(L in range())
 			moblist += L
 		for(M in moblist)
 			moblist -= M
-		moblist += "Cancel"
 
-		target = input("Spits neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear.", "Spit Neurotoxin (100)") in moblist
+		if(quickspit)
+			target = pick(moblist)
+		else
+			moblist += "Cancel"
+			target = input("Spits neurotoxin at someone, paralyzing them for a short time.", "Spit Neurotoxin (100)") in moblist
+
+
 		if(target && target != "Cancel")
 			src << "\green You spit neurotoxin at [target]."
 
@@ -253,6 +269,8 @@ Doesn't work on other aliens/AI.*/
 	set name = "Spit Weak Neurotoxin (75)"
 	set desc = "Spits a weak neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear."
 	set category = "Alien"
+	var/mob/target = null
+
 	if(usedneurotox >= 1)
 		src << "\red Our spit is not ready.."
 		return
@@ -261,13 +279,17 @@ Doesn't work on other aliens/AI.*/
 		var/list/moblist = new/list()
 		var/mob/living/L
 		var/mob/living/carbon/alien/M
-		for(L in view())
+		for(L in range())
 			moblist += L
 		for(M in moblist)
 			moblist -= M
-		moblist += "Cancel"
 
-		target = input("Spits a weak neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear.", "Spit Neurotoxin (100)") in moblist
+		if(quickspit)
+			target = pick(moblist)
+		else
+			moblist += "Cancel"
+			target = input("Spits neurotoxin at someone, paralyzing them for a short time.", "Spit Neurotoxin (100)") in moblist
+
 		if(target && target != "Cancel")
 			src << "\green You spit neurotoxin at [target]."
 
@@ -285,7 +307,7 @@ Doesn't work on other aliens/AI.*/
 			if(!istype(T, /turf))
 				return
 			if (U == T)
-				usr.bullet_act(new /obj/item/projectile/energy/neurotoxin(usr.loc), get_organ_target())
+				usr.bullet_act(new /obj/item/projectile/energy/weak_neurotoxin(usr.loc), get_organ_target())
 				return
 			if(!istype(U, /turf))
 				return
@@ -306,6 +328,8 @@ Doesn't work on other aliens/AI.*/
 	set name = "Spit Super Neurotoxin (150)"
 	set desc = "Spits a strong neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear."
 	set category = "Alien"
+	var/mob/target = null
+
 	if(usedneurotox >= 1)
 		src << "\red Our spit is not ready.."
 		return
@@ -314,13 +338,17 @@ Doesn't work on other aliens/AI.*/
 		var/list/moblist = new/list()
 		var/mob/living/L
 		var/mob/living/carbon/alien/M
-		for(L in view())
+		for(L in range())
 			moblist += L
 		for(M in moblist)
 			moblist -= M
-		moblist += "Cancel"
 
-		target = input("Spits a strong neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear.", "Spit Neurotoxin (100)") in moblist
+		if(quickspit)
+			target = pick(moblist)
+		else
+			moblist += "Cancel"
+			target = input("Spits neurotoxin at someone, paralyzing them for a short time.", "Spit Neurotoxin (100)") in moblist
+
 		if(target && target != "Cancel")
 			src << "\green You spit neurotoxin at [target]."
 
@@ -338,7 +366,7 @@ Doesn't work on other aliens/AI.*/
 			if(!istype(T, /turf))
 				return
 			if (U == T)
-				usr.bullet_act(new /obj/item/projectile/energy/neurotoxin(usr.loc), get_organ_target())
+				usr.bullet_act(new /obj/item/projectile/energy/super_neurotoxin(usr.loc), get_organ_target())
 				return
 			if(!istype(U, /turf))
 				return

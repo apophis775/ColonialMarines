@@ -37,7 +37,12 @@
 	if(name == "alien praetorian")
 		name = text("alien praetorian ([rand(1, 1000)])")
 	real_name = name
-	verbs.Add(/mob/living/carbon/alien/humanoid/proc/corrosive_acid_super,/mob/living/carbon/alien/humanoid/proc/corrosive_acid,/mob/living/carbon/alien/humanoid/proc/neurotoxin,/mob/living/carbon/alien/humanoid/proc/super_neurotoxin)
+	verbs.Add(/mob/living/carbon/alien/humanoid/proc/corrosive_acid_super,
+	/mob/living/carbon/alien/humanoid/proc/corrosive_acid,
+	/mob/living/carbon/alien/humanoid/proc/neurotoxin,
+	/mob/living/carbon/alien/humanoid/proc/super_neurotoxin,
+	/mob/living/carbon/alien/humanoid/proc/quickspit)
+
 	verbs -= /mob/living/carbon/alien/verb/ventcrawl
 	verbs -= /mob/living/carbon/alien/humanoid/verb/plant
 	//var/matrix/M = matrix()

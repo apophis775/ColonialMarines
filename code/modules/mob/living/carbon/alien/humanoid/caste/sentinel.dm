@@ -45,7 +45,10 @@
 	if(name == "alien sentinel")
 		name = text("alien sentinel ([rand(1, 1000)])")
 	real_name = name
-	verbs.Add(/mob/living/carbon/alien/humanoid/proc/weak_acid,/mob/living/carbon/alien/humanoid/proc/weak_neurotoxin)
+	verbs.Add(/mob/living/carbon/alien/humanoid/proc/weak_acid,
+	/mob/living/carbon/alien/humanoid/proc/weak_neurotoxin,
+	/mob/living/carbon/alien/humanoid/proc/quickspit
+	)
 	verbs -= /mob/living/carbon/alien/humanoid/verb/plant
 	growJelly()
 	..()

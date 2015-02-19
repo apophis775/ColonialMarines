@@ -31,6 +31,7 @@
 	var/heat_protection = 0.5
 	var/nightvision = 2 //1 = off | 2 = on
 	var/usedneurotox = 0
+	var/quickspit = 0
 	var/psychiccost = 1
 
 /mob/living/carbon/alien/adjustToxLoss(amount)
