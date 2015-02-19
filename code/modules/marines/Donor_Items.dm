@@ -38,20 +38,20 @@
 
 /obj/item/clothing/suit/armor/fluff/obey
 	name = "Black Ops Ablative Armor Vest"
-	desc = "Some fancy looking armor, that probably won't help in combat.  DONOR ITEM"
+	desc = "Some fancy looking armor.  DONOR ITEM"
 	icon_state = "armor_reflec"
 	item_state = "armor_reflec"
 	blood_overlay_type = "armor"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/armor/fluff/sas
 	name = "Juggernaut Armor"
-	desc = "Some fancy looking armor, that probably won't help in combat. DONOR ITEM"
+	desc = "Some fancy looking armor. DONOR ITEM"
 	icon_state = "rig-syndi"
 	item_state = "syndie_hardsuit"
 	blood_overlay_type = "armor"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/fluff/sas
@@ -72,16 +72,16 @@
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list()
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/armor/swat/fluff/wright
 	name = "Swat Armor"
-	desc = "Some fancy looking armor, that probably won't help in combat. DONOR ITEM"
+	desc = "Some fancy looking armor. DONOR ITEM"
 	icon_state = "deathsquad"
 	item_state = "swat_suit"
 	blood_overlay_type = "armor"
 	allowed = list()
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0
 	slowdown = 0
 
@@ -90,3 +90,22 @@
 	desc = "Yarr, this be a Donor Item, YARR!"
 	icon_state = "eyepatch"
 	item_state = "eyepatch"
+
+/obj/item/clothing/suit/armor/fluff/tristan
+	name = "Sciency Teleport Armor"
+	desc = "Some fancy looking armor, with lots of lights and buttons.  DONOR ITEM"
+	icon_state = "armor_reflec"
+	item_state = "armor_reflec"
+	blood_overlay_type = "armor"
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0
+
+
+/obj/item/clothing/head/helmet/marine/fluff/tristan
+	name = "Fancy Helmet"
+	desc = "That's not red paint. That's real blood. DONOR ITEM"
+	icon_state = "syndicate"
+	item_state = "syndicate"
+	armor = list(melee = 50, bullet = 80, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
+
+
