@@ -94,8 +94,8 @@
 /obj/item/clothing/suit/armor/fluff/tristan
 	name = "Sciency Teleport Armor"
 	desc = "Some fancy looking armor, with lots of lights and buttons.  DONOR ITEM"
-	icon_state = "armor_reflec"
-	item_state = "armor_reflec"
+	icon_state = "reactive"
+	item_state = "reactive"
 	blood_overlay_type = "armor"
 	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0
@@ -109,3 +109,10 @@
 	armor = list(melee = 50, bullet = 80, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
 
 
+/obj/item/clothing/under/fluff/tristan
+	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
+	name = "captain's jumpsuit"
+	icon_state = "camojump"
+	item_state = "camojump_s"
+	item_color = "camojump"
+	flags = FPRINT | TABLEPASS
