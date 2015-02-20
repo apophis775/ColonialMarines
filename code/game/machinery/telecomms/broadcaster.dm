@@ -562,6 +562,28 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_normal))
 			var/rendered = "[part_a][realname][part_b][quotedmsg][part_c]"
+			var/squada = /obj/item/device/encryptionkey/malphal
+			var/squadb = /obj/item/device/encryptionkey/mbravol
+			var/squadc = /obj/item/device/encryptionkey/mcharliel
+			var/squadd = /obj/item/device/encryptionkey/mdeltal
+			var/command = /obj/item/device/encryptionkey/mcom
+
+			if(istype(radio, /obj/item/device/radio/headset))
+				var/obj/item/device/radio/headset/hradio = radio
+
+				if(display_freq == MSUL_FREQ && !istype(hradio.keyslot2, command))
+					rendered = "[part_a][realname][part_b][quotedmsg][part_c]"
+				else
+					if(istype(hradio.keyslot2, squada))
+						rendered = "[part_a][realname] <b>\[ALead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
+					if(istype(hradio.keyslot2, squadb))
+						rendered = "[part_a][realname] <b>\[BLead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
+					if(istype(hradio.keyslot2, squadd))
+						rendered = "[part_a][realname] <b>\[CLead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
+					if(istype(hradio.keyslot2, squadc))
+						rendered = "[part_a][realname] <b>\[DLead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
+					if(istype(hradio.keyslot2, command))
+						rendered = "<font size='3'>[part_a][realname] <b>\[Command\]</b>[part_b]<b>[quotedmsg]</b>[part_c]</font>"
 
 			for (var/mob/R in heard_normal)
 				aitrack = "<a href='byond://?src=\ref[radio];track2=\ref[R];track=\ref[M]'>"
