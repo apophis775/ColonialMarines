@@ -32,3 +32,10 @@
 	name = "Coconuts"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
+
+obj/effect/overlay/scratch
+	name="Scratched"
+	icon='icons/turf/overlays.dmi'
+	icon_state="scratch"
+	New()
+		src.icon_state=pick("scratch","scratch1","scratch2","scratch3","scratch4","scratch5")

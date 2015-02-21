@@ -11,6 +11,8 @@
 	var/damage_overlay
 	var/global/damage_overlays[8]
 
+	var/scratched=0
+
 	var/max_temperature = 1800 //K, walls will take damage if they're next to a fire hotter than this
 
 	opacity = 1
@@ -132,7 +134,11 @@
 		else
 			usr << text("\blue You punch the wall.")
 			return
-
+	if(scratched==0)
+		user<<"\red You scratched and marked the [src.name]"
+		overlays+=new/obj/effect/overlay/scratch
+		scratched=1
+		return
 	return src.attack_hand(user)
 
 
