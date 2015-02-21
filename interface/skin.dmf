@@ -1479,7 +1479,7 @@ window "outputwindow"
 		is-disabled = false
 		is-transparent = false
 		is-default = true
-		border = none
+		border = sunken
 		drop-zone = false
 		right-click = false
 		saved-params = "max-lines"

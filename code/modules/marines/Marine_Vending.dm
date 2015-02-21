@@ -28,6 +28,7 @@
 //					/obj/item/device/motiondetector = 5,
 					/obj/item/weapon/combat_knife = 5,
 					/obj/item/device/flashlight/flare = 10,
+					/obj/item/device/flashlight = 2,
 					)
 	contraband = list(/*bj/item/weapon/storage/fancy/donut_box = 5,
 					/obj/item/ammo_magazine/a357 = 5,
