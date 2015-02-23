@@ -110,8 +110,8 @@
 	set desc = "Lay an egg to produce huggers to impregnate prey with."
 	set category = "Alien"
 
-	if(locate(/obj/effect/alien/egg) in get_turf(src) || locate(/obj/royaljelly) in get_turf(src))
-		src << "There's already an egg or royal jelly here."
+	if((locate(/obj/effect/alien/egg) in get_turf(src)) || (locate(/obj/royaljelly) in get_turf(src)) || (locate(/obj/structure/mineral_door/resin) in get_turf(src)) || (locate(/obj/effect/alien/resin/wall) in get_turf(src)) || (locate(/obj/effect/alien/resin/membrane) in get_turf(src)) || (locate(/obj/structure/stool/bed/nest) in get_turf(src)))
+		src << "There's already an egg, structure, or royal jelly here."
 		return
 
 	if(powerc(100,1))//Can't plant eggs on spess tiles. That's silly.
