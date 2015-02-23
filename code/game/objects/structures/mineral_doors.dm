@@ -55,7 +55,8 @@
 		if(isSwitchingStates) return
 		if(ismob(user))
 			var/mob/M = user
-			if(world.time - user.last_bumped <= 60) return //NOTE do we really need that?
+			//if(world.time - user.last_bumped <= 60) return //NOTE do we really need that?
+			// ^ This fucking line. Why the hell is this in here? fuck this line. Keeping it just in case. -Dave
 			if(M.client)
 				if(iscarbon(M))
 					var/mob/living/carbon/C = M
