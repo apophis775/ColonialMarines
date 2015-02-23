@@ -13,6 +13,9 @@
 	slot_flags = SLOT_BACK	//ERROOOOO
 	max_w_class = 3
 	max_combined_w_class = 21
+	cant_hold = list(
+		"/obj/item/weapon/storage/belt/marine"
+		)
 
 /obj/item/weapon/storage/backpack/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	playsound(src.loc, "rustle", 50, 1, -5)
