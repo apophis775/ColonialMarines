@@ -216,7 +216,9 @@
 				captain_announce("The emergency shuttle has been called. It will arrive in [round(emergency_shuttle.timeleft()/60)] minutes.")
 				log_admin("[key_name(usr)] called the Emergency Shuttle")
 				message_admins("\blue [key_name_admin(usr)] called the Emergency Shuttle to the station", 1)
-				world << sound('sound/AI/shuttlecalled.ogg')
+				for(var/mob/M in player_list)
+					if(!istype(M, /mob/living/carbon/alien))
+						M << sound('sound/AI/shuttlecalled.ogg')
 
 			if("2")
 				if ((!( ticker ) || emergency_shuttle.location || emergency_shuttle.direction == 0))

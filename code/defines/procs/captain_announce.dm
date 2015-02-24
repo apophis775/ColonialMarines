@@ -1,5 +1,13 @@
 /proc/captain_announce(var/text)
-	world << "<h1 class='alert'>Priority Announcement</h1>"
-	world << "<span class='alert'>[html_encode(text)]</span>"
-	world << "<br>"
-
+	var/p1 = "Priority Announcement"
+	var/p2 = text
+	var/p3 = "<br>"
+	for(var/mob/M in player_list)
+		if(istype(M, /mob/living/carbon/alien))
+			M << "<h1 class='alert'>[stars(p1,10)]</h1>"
+			M << "<span class='alert'>[html_encode(stars(p2,10))]</span>"
+			M << p3
+		else
+			M << "<h1 class='alert'>[p1]</h1>"
+			M << "<span class='alert'>[html_encode(p2)]</span>"
+			M << p3

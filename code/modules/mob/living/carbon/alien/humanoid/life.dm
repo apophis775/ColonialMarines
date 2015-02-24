@@ -19,6 +19,8 @@
 
 	if(usedneurotox <= 0)
 		usedneurotox = 0
+	if(usedneurotox == 1)
+		src << "\green Our spit is ready."
 	usedneurotox--
 
 	if (monkeyizing)

@@ -205,6 +205,7 @@ Doesn't work on other aliens/AI.*/
 		quickspit = 1
 		src << "\red Quick spit enabled."
 
+
 /mob/living/carbon/alien/humanoid/proc/neurotoxin()
 	set name = "Spit Neurotoxin (100)"
 	set desc = "Spits neurotoxin at someone, paralyzing them for a short time if they are not wearing protective gear."
@@ -389,6 +390,10 @@ Doesn't work on other aliens/AI.*/
 	set category = "Alien"
 
 	if(powerc(75))
+		if((locate(/obj/effect/alien/egg) in get_turf(src)) || (locate(/obj/structure/mineral_door/resin) in get_turf(src)) || (locate(/obj/effect/alien/resin/wall) in get_turf(src)) || (locate(/obj/effect/alien/resin/membrane) in get_turf(src)) || (locate(/obj/structure/stool/bed/nest) in get_turf(src)))
+			src << "There is already a structure or egg here."
+			return
+
 		var/choice = input("Choose what you wish to shape.","Resin building") as null|anything in list("resin door","resin wall","resin membrane","resin nest") //would do it through typesof but then the player choice would have the type path and we don't want the internal workings to be exposed ICly - Urist
 		if(!choice || !powerc(75))	return
 		adjustToxLoss(-75)
