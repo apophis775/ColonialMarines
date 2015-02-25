@@ -238,3 +238,19 @@
 	name = "Sheet Snatcher 9000"
 	desc = ""
 	capacity = 500//Borgs get more because >specialization
+
+
+/obj/item/weapon/storage/bag/ammo_bag
+	name="Tactical Ammo Bag"
+	desc = "Designed to fit all types of ammo"
+	icon='icons/obj/ammo_bag.dmi'
+	icon_state="digitalcamo"
+	slot_flags = null
+	storage_slots = 21
+	max_w_class = 2
+	max_combined_w_class = 84
+	w_class = 4
+	can_hold = list("/obj/item/ammo_magazine",
+	"/obj/item/weapon/storage/box/m37",
+	"/obj/item/weapon/storage/box/beanbags",
+	"/obj/item/weapon/storage/box/shotguns")
