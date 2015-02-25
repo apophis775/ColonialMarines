@@ -116,3 +116,28 @@
 	item_state = "camojump_s"
 	item_color = "camojump"
 	flags = FPRINT | TABLEPASS
+
+/obj/item/weapon/lighter/zippo/fluff/ghost
+	name = "Gold zippo lighter"
+	desc = "A Golden Zippo lighter, engraved with the name XXX"
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "bluezippo"
+	icon_on = "GOLDzippoon"
+	icon_off = "GOLDzippo"
+
+/obj/item/clothing/mask/cigarette/fluff/ghost
+	name = "XXX's custom Cigar"
+	desc = "A custom rolled giant, made specifically by XXX in only the hottest and most abuse cuban sweat shops."
+	icon_state = "cigar2off"
+	icon_on = "cigar2on"
+	icon_off = "cigar2off"
+	smoketime = 7200
+	chem_volume = 30
+
+
+//GHOST CIGAR CODE
+/obj/item/clothing/mask/cigarette/cigar/fluff/ghost/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/lighter/zippo/fluff/ghost))
+		..()
+	else
+		user << "<span class='notice'>\The [src] straight out REFUSES to be lit by anything other than a purple zippo.</span>"
