@@ -8,10 +8,12 @@ Caryl - Game Admin
 minimike1220 - Game Admin
 Void00 - Game Admin
 
-chaznoodles - Moderator
-Speedybast - Moderator
-SASoperative - Moderator
-obey_stylez - Moderator
+chaznoodles - Trial Admin
+Speedybast - Trial Admin
+SASoperative - Trial Admin
+obey_stylez - Trial Admin
+
+
 Doctor Clockwork - Moderator
 CampinKiller - Moderator
 tristan1333 - Moderator
