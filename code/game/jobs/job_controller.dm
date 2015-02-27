@@ -1,6 +1,6 @@
 var/global/datum/controller/occupations/job_master
-//var/list/survivorjobs = list("Scientist", "Station Engineer", "Medical Doctor", "Cargo Technician", "Botanist", "Chef", "Assistant", "Clown")
-//var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Research Director")
+var/list/survivorjobs = list("Scientist", "Station Engineer", "Medical Doctor", "Cargo Technician", "Botanist", "Chef", "Assistant", "Clown")
+var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Research Director")
 
 #define GET_RANDOM_JOB 0
 #define BE_ASSISTANT 1
@@ -9,8 +9,6 @@ var/global/datum/controller/occupations/job_master
 /datum/controller/occupations
 		//List of all jobs
 	var/list/occupations = list()
-		//List of civilian jobs
-	var/list/civoccupations = list()
 		//Players who need jobs
 	var/list/unassigned = list()
 		//Debug info
@@ -19,7 +17,6 @@ var/global/datum/controller/occupations/job_master
 
 	proc/SetupOccupations(var/faction = "Station")
 		occupations = list()
-		civoccupations = list()
 		var/list/all_jobs = typesof(/datum/job)
 		if(!all_jobs.len)
 			world << "\red \b Error setting up jobs, no job datums found"
@@ -30,8 +27,6 @@ var/global/datum/controller/occupations/job_master
 			if(job.faction != faction)	continue
 			if(job.title in get_marine_jobs())
 				occupations += job
-			else
-				civoccupations += job
 
 
 		return 1
@@ -357,13 +352,17 @@ var/global/datum/controller/occupations/job_master
 		if(!H)	return 0
 		var/datum/job/job
 		if(rank == "Survivor")
-			job = pick(civoccupations)
-			rank = job.title
-			H.mind.assigned_role = rank
-			H.mind.assigned_job = rank
+			var/role = "Assistant"
+			if(prob(95))
+				role = pick(survivorjobs)
+				survivorjobs.Remove(role)
+			else
+				role = pick(headsurvivorjobs)
+				headsurvivorjobs.Remove(role)
+			H.mind.assigned_role = role
+			H.mind.assigned_job = role
 			job_master.AssignRole(H, rank, 1)
-			job.equip(H)
-			job_master.spawnId(H, rank)
+			job_master.spawnId(H, role)
 			var/obj/S = null
 			if(!S)
 				S = locate("start*Survivor") // use old stype
@@ -473,8 +472,7 @@ var/global/datum/controller/occupations/job_master
 		var/obj/item/weapon/card/id/C = null
 
 		var/datum/job/job = null
-		var/list/all_jobs = typesof(/datum/job)
-		for(var/datum/job/J in all_jobs)
+		for(var/datum/job/J in occupations)
 			if(J.title == rank)
 				job = J
 				break
