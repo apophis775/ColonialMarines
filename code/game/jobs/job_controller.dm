@@ -9,6 +9,8 @@ var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Res
 /datum/controller/occupations
 		//List of all jobs
 	var/list/occupations = list()
+		//List of all civilian jobs
+	var/list/civoccupations = list()
 		//Players who need jobs
 	var/list/unassigned = list()
 		//Debug info
@@ -17,6 +19,7 @@ var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Res
 
 	proc/SetupOccupations(var/faction = "Station")
 		occupations = list()
+		civoccupations = list()
 		var/list/all_jobs = typesof(/datum/job)
 		if(!all_jobs.len)
 			world << "\red \b Error setting up jobs, no job datums found"
@@ -27,6 +30,8 @@ var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Res
 			if(job.faction != faction)	continue
 			if(job.title in get_marine_jobs())
 				occupations += job
+			else
+				civoccupations += job
 
 
 		return 1
@@ -352,17 +357,13 @@ var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Res
 		if(!H)	return 0
 		var/datum/job/job
 		if(rank == "Survivor")
-			var/role = "Assistant"
-			if(prob(95))
-				role = pick(survivorjobs)
-				survivorjobs.Remove(role)
-			else
-				role = pick(headsurvivorjobs)
-				headsurvivorjobs.Remove(role)
-			H.mind.assigned_role = role
-			H.mind.assigned_job = role
+			job = pick(civoccupations)
+			rank = job.title
+			H.mind.assigned_role = rank
+			H.mind.assigned_job = rank
+			job.equip(H)
 			job_master.AssignRole(H, rank, 1)
-			job_master.spawnId(H, role)
+			job_master.spawnId(H, rank)
 			var/obj/S = null
 			if(!S)
 				S = locate("start*Survivor") // use old stype
@@ -470,12 +471,16 @@ var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Res
 	proc/spawnId(var/mob/living/carbon/human/H, rank, title)
 		if(!H)	return 0
 		var/obj/item/weapon/card/id/C = null
-
 		var/datum/job/job = null
-		for(var/datum/job/J in occupations)
-			if(J.title == rank)
-				job = J
+		var/list/all_jobs = typesof(/datum/job)
+		//for(var/datum/job/J in occupations)
+		for(var/J in all_jobs)
+			job = new J()
+			if(job.title == rank)
+				//job = J
 				break
+			else
+				job = null
 
 		if(job)
 			if(job.title == "Cyborg")
