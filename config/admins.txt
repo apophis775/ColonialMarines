@@ -3,10 +3,12 @@ sir octagon - Head Admin
 Apophis775 - Head Developer
 unknownmurder - Head Moderator
 
+
 coroneljones - Game Admin
 Caryl - Game Admin
 minimike1220 - Game Admin
 Void00 - Game Admin
+
 
 chaznoodles - Trial Admin
 Speedybast - Trial Admin
@@ -21,10 +23,13 @@ OliverCarswell - Moderator
 Rovernic - Moderator
 Razerwing - Moderator
 Chief_Executive - Moderator
+
+
 Bruce Norris - Trial Moderator
 mdom - Trial Moderator
-
-
+AncientV25 - Trial Moderator
+Lordekilly - Trial Moderator
+Shadowling1232 - Trial Moderator
 
 
 Rahlzel - Developer
