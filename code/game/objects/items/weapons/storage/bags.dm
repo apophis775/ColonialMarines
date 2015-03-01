@@ -245,6 +245,7 @@
 	desc = "Designed to fit all types of ammo"
 	icon='icons/obj/ammo_bag.dmi'
 	icon_state="digitalcamo"
+	item_state = "ammobox"
 	slot_flags = null
 	storage_slots = 21
 	max_w_class = 2
