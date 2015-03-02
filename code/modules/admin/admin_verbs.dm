@@ -559,6 +559,23 @@ var/list/admin_verbs_donate = list(
 	log_admin("[key_name(usr)] gave [key_name(T)] the disease [D].")
 	message_admins("\blue [key_name_admin(usr)] gave [key_name(T)] the disease [D].", 1)
 
+/client/proc/give_infection(mob/living/target as mob in mob_list)
+	set category = "Fun"
+	set name = "Give Infection"
+	set desc = "Infect a mob with a xeno larva."
+	if(!iscarbon(target) || isalien(target))
+		usr << "\red Fleshy mobs only."
+		return
+	var/obj/item/alien_embryo/E = new (target)
+	target.status_flags |= XENO_HOST
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/T = target
+		var/datum/organ/external/chest/affected = T.get_organ("chest")
+		affected.implants += E
+	feedback_add_details("admin_verb","GI") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	log_admin("[key_name(usr)] gave [key_name(target)] a xeno infection.")
+	message_admins("\blue [key_name_admin(usr)] gave [key_name(target)] a xeno infection.", 1)
+
 /client/proc/make_sound(var/obj/O in world) // -- TLE
 	set category = "Special Verbs"
 	set name = "Make Sound"
