@@ -44,6 +44,8 @@
 			if(is_special_character(C.mob))
 				entry += " - <b><font color='red'>Antagonist</font></b>"
 			entry += " (<A HREF='?_src_=holder;adminmoreinfo=\ref[C.mob]'>?</A>)"
+			if(C.mob.status_flags & XENO_HOST)
+				entry += " <b>INFECTED</b>"
 			Lines += entry
 	else
 		for(var/client/C in clients)
