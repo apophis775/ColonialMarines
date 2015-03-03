@@ -123,13 +123,9 @@ var/bomb_set
 			user << "\red You can not use this yet. Please wait another [round((18000-world.time)/600)] minutes before trying again."
 			return
 			
-	if (src.deployable == 0)
-		if (src.anchored == 0)
-			src.anchored = 1
-			user << "The wheels on [src] have been locked."
-		else if (src.anchored == 1)
-			src.anchored = 0
-			user << "The wheels on [src] have been unlocked."
+	if (src.deployable == 0 && src.anchored == 1)
+		src.anchored = 0
+		user << "The wheels on [src] have been unlocked."
 
 	if (src.extended)
 
