@@ -1,6 +1,6 @@
 /obj/item/clothing/under/marine2
-	name = "marine jumpsuit"
-	desc = "Soft as silk. Light as feather. Protective as Kevlar."
+	name = "Marine jumpsuit"
+	desc = "A standard quilted Colonial Marine jumpsuit. Weaved with armored plates to protect against low-caliber rounds and light impacts."
 	armor = list(melee = 20, bullet = 20, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 	flags = FPRINT | TABLEPASS
 	siemens_coefficient = 0.9
@@ -78,8 +78,10 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 /obj/item/clothing/head/helmet/marine2
 	icon = 'icons/marine_armor.dmi'
 	icon_state = "helmet"
-	item_state = "helmet"
 	icon_override = 'icons/marine_armor.dmi'
+	item_state = "comhelm"
+	name = "M10 Pattern Marine Helmet"
+	desc = "A standard M10 Pattern Helmet. It reads on the label, 'The difference between an open-casket and closed-casket funeral. Wear on head for best results.'."
 	armor = list(melee = 50, bullet = 80, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
 	health = 5
 	flags = FPRINT|TABLEPASS|HEADCOVERSEYES|HEADCOVERSMOUTH
@@ -152,6 +154,7 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 		wornby.update_icons()
 
 
+
 /obj/item/clothing/suit/storage/marine2
 	icon = 'icons/marine_armor.dmi'
 	icon_state = "1"
@@ -162,8 +165,8 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECITON_TEMPERATURE
-	name = "marine armor"
-	desc = "A standard issue marine combat vest designed to protect them from their worst enemies: themselves."
+	name = "M3 Pattern Marine Armor"
+	desc = "A standard Colonial Marines M3 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage."
 	blood_overlay_type = "armor"
 	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
