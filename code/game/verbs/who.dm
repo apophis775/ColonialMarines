@@ -10,13 +10,13 @@
 	var/count_humans = 0
 	var/count_infectedhumans = 0
 	for(var/client/C in clients)
-		if(ishuman(C.mob) && (C.mob.stat == 0 || C.mob.stat == 1))
+		if(ishuman(C.mob) && C.mob.stat != DEAD)
 			count_humans++
-		if(ishuman(C.mob) && (C.mob.stat == 0 || C.mob.stat == 1) && C.mob.status_flags & XENO_HOST)
+		if(ishuman(C.mob) && C.mob.stat != DEAD && C.mob.status_flags & XENO_HOST)
 			count_infectedhumans++
 	var/count_aliens = 0
 	for(var/client/C in clients)
-		if(isalien(C.mob) && (C.mob.stat == 0 || C.mob.stat == 1))
+		if(isalien(C.mob) && C.mob.stat != DEAD)
 			count_aliens++
 
 	var/msg = "<b>Current Players:</b>\n"
@@ -44,6 +44,8 @@
 			if(is_special_character(C.mob))
 				entry += " - <b><font color='red'>Antagonist</font></b>"
 			entry += " (<A HREF='?_src_=holder;adminmoreinfo=\ref[C.mob]'>?</A>)"
+			if(C.mob.status_flags & XENO_HOST)
+				entry += " - <b>INFECTED</b>"
 			Lines += entry
 	else
 		for(var/client/C in clients)
