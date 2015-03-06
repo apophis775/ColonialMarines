@@ -134,7 +134,7 @@
 /obj/item/weapon/reagent_containers/pill/tramadol
 	name = "Tramadol pill"
 	desc = "A simple painkiller."
-	icon_state = "pill8"
+	icon_state = "pill7"
 	New()
 		..()
 		reagents.add_reagent("tramadol", 15)
