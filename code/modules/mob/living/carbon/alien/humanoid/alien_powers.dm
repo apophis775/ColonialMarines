@@ -83,6 +83,9 @@ Doesn't work on other aliens/AI.*/
 	set category = "Alien"
 
 	if(powerc(100))
+		if(locate(/obj/effect/alien/weak_acid) in get_turf(O))
+			src << "There is already acid there."
+			return
 		if(O in oview(1))
 			// OBJ CHECK
 			if(isobj(O))
@@ -126,6 +129,9 @@ Doesn't work on other aliens/AI.*/
 	set category = "Alien"
 
 	if(powerc(200))
+		if(locate(/obj/effect/alien/weak_acid) in get_turf(O))
+			src << "There is already acid there."
+			return
 		if(O in oview(1))
 			// OBJ CHECK
 			if(isobj(O))
@@ -166,6 +172,9 @@ Doesn't work on other aliens/AI.*/
 	set category = "Alien"
 
 	if(powerc(300))
+		if(locate(/obj/effect/alien/weak_acid) in get_turf(O))
+			src << "There is already acid there."
+			return
 		if(O in oview(1))
 			// OBJ CHECK
 			if(isobj(O))
