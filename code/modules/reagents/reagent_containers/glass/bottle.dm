@@ -64,6 +64,17 @@
 		..()
 		reagents.add_reagent("stoxin", 30)
 
+/obj/item/weapon/reagent_containers/glass/bottle/oxycodone_stox
+	name = "oxycodone/sleep-toxin bottle"
+	desc = "A small bottle with a mixture of strong painkiller and sedative. Just the fumes make you sleepy."
+	icon = 'icons/obj/chemical.dmi'
+	icon_state = "bottle7"
+
+	New()
+		..()
+		reagents.add_reagent("stoxin", 12)
+		reagents.add_reagent("oxycodone", 18)
+
 /obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate
 	name = "Chloral Hydrate Bottle"
 	desc = "A small bottle of Choral Hydrate. Mickey's Favorite!"
