@@ -547,6 +547,6 @@
 			dat += "</table>"
 
 		dat += "</body></html>"
-		usr << browse(dat, "window=roundstatus;size=450x500")
+		usr << browse(dat, "window=roundstatus;size=470x500")
 	else
 		alert("The game hasn't started yet!")
