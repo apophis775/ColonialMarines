@@ -117,6 +117,9 @@
 	icon_state = "cabbage"
 	heal_brute = 7
 
+/obj/item/stack/medical/bruise_pack/marine
+	amount = 2
+
 /obj/item/stack/medical/ointment/tajaran
 	name = "\improper Messa's Tear leaf"
 	singular_name = "Messa's Tear leaf"

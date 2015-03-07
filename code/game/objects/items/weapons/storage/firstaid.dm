@@ -42,8 +42,9 @@
 	name="Surgery Kit"
 	desc="Suitable case for holding your <I>murderous</I> medical tools"
 	icon_state = "surgerycase"
-	storage_slots=11
-	max_combined_w_class=22 //storage_slots*2?
+	storage_slots=14
+	w_class = 4.0 // Can't fit in backpacks
+	max_combined_w_class=24 //storage_slots*2?
 	New()
 		..()
 		if(empty) return
@@ -58,6 +59,10 @@
 		new /obj/item/weapon/surgicaldrill(src)
 		new /obj/item/device/healthanalyzer(src)
 		new /obj/item/weapon/reagent_containers/hypospray/autoinjector( src )
+		new /obj/item/weapon/reagent_containers/glass/bottle/oxycodone_stox(src)
+		new /obj/item/weapon/reagent_containers/glass/bottle/oxycodone_stox(src)
+		new /obj/item/weapon/reagent_containers/syringe(src)
+
 		return
 
 /obj/item/weapon/storage/firstaid/regular

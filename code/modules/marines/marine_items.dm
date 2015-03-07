@@ -194,3 +194,19 @@ obj/item/device/radio/headset/mdelta
 		new /obj/item/ammo_casing/shotgun(src)
 		new /obj/item/ammo_casing/shotgun(src)
 		new /obj/item/ammo_casing/shotgun(src)
+
+
+/obj/item/weapon/storage/box/marine/
+	name = "marine box"
+	desc = "It contains necessary equipment for every marine."
+	New()
+		..()
+		contents = list()
+		sleep(1)
+		new /obj/item/clothing/mask/breath( src )
+		new /obj/item/weapon/tank/emergency_oxygen/engi( src )
+		new /obj/item/weapon/crowbar/red( src )
+		new /obj/item/device/flashlight/flare( src )
+		new /obj/item/stack/medical/bruise_pack/marine( src )
+		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
+		return
