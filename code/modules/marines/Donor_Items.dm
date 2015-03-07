@@ -119,7 +119,7 @@
 
 /obj/item/weapon/lighter/zippo/fluff/ghost
 	name = "Gold zippo lighter"
-	desc = "A Golden Zippo lighter, engraved with the name XXX"
+	desc = "A Golden Zippo lighter, engraved with the name John Donable: "
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "bluezippo"
 	icon_on = "GOLDzippoon"
@@ -127,7 +127,7 @@
 
 /obj/item/clothing/mask/cigarette/fluff/ghost
 	name = "XXX's custom Cigar"
-	desc = "A custom rolled giant, made specifically by XXX in only the hottest and most abuse cuban sweat shops."
+	desc = "A custom rolled giant, made specifically for John Donable in the best, hottest, and most abusive of cuban sweat shops."
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
