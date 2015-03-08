@@ -17,7 +17,7 @@
 	desc = "A stationary machine gun."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "mgun+barrier"
-	var/fire_sound = 'sound/weapons/Gunshot_smg.ogg'
+	var/fire_sound = 'sound/weapons/mg.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
 	var/ammo_type = "/obj/item/projectile/bullet/a762"
 	var/ammo = 500
@@ -90,7 +90,7 @@
 						targloc = row3[7]
 				if (!istype(targloc) || !istype(curloc))
 					return
-				playsound(src, fire_sound, 50, 1)
+				playsound(src, fire_sound, 80, 1, -1)
 				var/obj/item/projectile/bullet/a762/bullet = new ammo_type(shootfrom)
 				bullet.firer = User
 				bullet.def_zone = User.zone_sel.selecting

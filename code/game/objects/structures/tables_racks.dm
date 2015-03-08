@@ -432,12 +432,12 @@
 
 	usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")
 
-	if(!do_after(usr,50))
+	if(!do_after(usr,25))
 		return
 
 	usr.loc = get_turf(src)
 	for(var/mob/living/M in get_turf(src))
-		M.Weaken(5)
+		//M.Weaken(5)
 	if (get_turf(usr) == get_turf(src))
 		usr.visible_message("<span class='warning'>[usr] climbs onto \the [src]!</span>")
 
