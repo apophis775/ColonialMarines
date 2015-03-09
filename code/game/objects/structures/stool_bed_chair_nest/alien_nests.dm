@@ -79,6 +79,9 @@
 
 	if(M == usr)
 		return
+	if(!M.weakened)
+		usr<<"\red They must be incapacitated first!"
+		return
 	else
 		M.visible_message(\
 			"<span class='notice'>[user.name] secretes a thick vile goo, securing [M.name] into [src]!</span>",\
