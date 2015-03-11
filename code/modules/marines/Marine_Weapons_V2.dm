@@ -249,3 +249,25 @@
 		return (BRUTELOSS)
 
 
+/obj/item/weapon/throwing_knife
+	name ="Throwing Knife"
+	icon='icons/obj/weapons.dmi'
+	item_state="knife"
+	desc="Danger ahead? Throw one of these sharp knives."
+	flags = FPRINT | TABLEPASS | CONDUCT
+	sharp = 1
+	force = 10
+	w_class = 1.0
+	throwforce = 35
+	throw_speed = 4
+	throw_range = 7
+	hitsound = 'sound/weapons/slash.ogg'
+	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	slot_flags = SLOT_POCKET
+		// Slayerplayer99: Different type of throwing knives if more wanted
+	Carbon_Steel
+		name="Carbon Steel Throwing Knife"
+		throw_speed=5
+		throw_range=8
+		throwforce=40
+		icon_state="temp"
