@@ -12,6 +12,19 @@ var/can_call_ert
 	set category = "Special Verbs"
 	set desc = "Send an emergency response team to the station"
 
+	var/count_observers = 0
+	for(var/client/C in clients)
+		if(isobserver(C.mob) && !C.holder)		
+			count_observers++
+	var/count_humans = 0
+	for(var/client/C in clients)
+		if(ishuman(C.mob) && C.mob.stat != DEAD)
+			count_humans++
+	var/count_aliens = 0
+	for(var/client/C in clients)
+		if(isalien(C.mob) && C.mob.stat != DEAD)
+			count_aliens++
+
 	if(!holder)
 		usr << "\red Only administrators may use this command."
 		return
@@ -24,8 +37,19 @@ var/can_call_ert
 	if(send_infantry_team)
 		usr << "\red Central Command has already dispatched an emergency response team!"
 		return
-	if(alert("Do you want to dispatch a Heavy Infantry Team?",,"Yes","No") != "Yes")
+	if(emergency_shuttle.online)
+		usr << "\red No. The emergency shuttle has been called."
 		return
+	if(count_humans > count_aliens)
+		var/confirm = alert(src, "There are more humans than aliens! This is NOT recommended! Are you POSITIVE?","Confirm","Yes","No") 
+		if(confirm != "Yes")
+			return
+	if(count_observers < 5)
+		var/confirm2 = alert(src, "There are less than 5 observers! This is NOT recommended! Are you ABSOLUTELY SURE?","Confirm","Yes","No") 
+		if(confirm2 != "Yes")
+			return
+	if(alert("FINAL CHANCE - Call the Heavy Infantry Team?",,"Yes","No") != "Yes")
+		return	
 	if(send_infantry_team)
 		usr << "\red Looks like somebody beat you to it!"
 		return
