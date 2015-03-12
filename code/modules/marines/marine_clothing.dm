@@ -371,6 +371,11 @@ v
 		"/obj/item/ammo_casing/m37",
 		"/obj/item/weapon/storage/box/beanbags",
 		"/obj/item/ammo_casing/shotgun/beanbag",
+		"/obj/item/weapon/gun/energy/taser",
+		"/obj/item/weapon/melee/baton",
+		"/obj/item/weapon/melee/stunprod",
+		"/obj/item/weapon/handcuffs",
+		"/obj/item/weapon/restraints",
 
 		)
 
@@ -379,3 +384,19 @@ v
 	new /obj/item/weapon/gun/projectile/pistol/m4a3(src)
 	new /obj/item/ammo_magazine/m4a3(src)
 	new /obj/item/ammo_magazine/m4a3(src)
+
+/obj/item/weapon/storage/belt/knifepouch
+	name="Knife Rig"
+	desc="Storage for your sharp toys"
+	icon_state="knife_rigbelt" // temp
+	item_state="knife_rig" // aslo temp, maybe somebody update these icons with better ones?
+	storage_slots = 3
+	max_w_class = 1
+	max_combined_w_class=3
+	can_hold=list("/obj/item/weapon/throwing_knife")
+
+/obj/item/weapon/storage/belt/knifepouch/Carbon_Steel/New()
+	..()
+	new /obj/item/weapon/throwing_knife/Carbon_Steel(src)
+	new /obj/item/weapon/throwing_knife/Carbon_Steel(src)
+	new /obj/item/weapon/throwing_knife/Carbon_Steel(src)
