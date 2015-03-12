@@ -79,7 +79,7 @@
 
 	if(M == usr)
 		return
-	if(!M.weakened)
+	if(!M.weakened && !M.sleeping)
 		usr<<"\red They must be incapacitated first!"
 		return
 	else
