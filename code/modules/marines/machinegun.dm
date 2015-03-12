@@ -20,14 +20,14 @@
 	var/fire_sound = 'sound/weapons/mg.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
 	var/ammo_type = "/obj/item/projectile/bullet/a762"
-	var/ammo = 500
-	var/ammomax = 500
+	var/ammo = 100
+	var/ammomax = 100
 	var/list/row1 = list()
 	var/list/row2 = list()
 	var/list/row3 = list()
 	var/mob/living/carbon/human/User
 	var/nextshot = 0
-	var/FIRETIME = 1 //tenths of seconds
+	var/FIRETIME = 5 //tenths of seconds
 	density = 1
 	anchored = 0
 	flags = ON_BORDER
@@ -223,6 +223,6 @@
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "mgun_crate"
 	name = "machinegun ammo"
-	desc = "Machine gun ammo. It has 500 rounds remaining"
-	var/count = 500
+	desc = "Machine gun ammo. It has 100 rounds remaining"
+	var/count = 100
 	w_class = 2
