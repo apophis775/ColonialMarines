@@ -194,9 +194,9 @@
 
 		if (2.0)
 			if (!shielded)
-				b_loss += 60
+				b_loss += (rand(60,90))
 
-			f_loss += 60
+			f_loss += (rand(25,40))
 
 			if (prob(getarmor(null, "bomb")))
 				b_loss = b_loss/1.5
@@ -209,14 +209,16 @@
 				Paralyse(10)
 
 		if(3.0)
-			b_loss += 30
+			b_loss += (rand(30,40))
+			f_loss += (rand(10,35))
 			if (prob(getarmor(null, "bomb")))
 				b_loss = b_loss/2
+				f_loss = f_loss/2
 			if (!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				ear_damage += 15
 				ear_deaf += 60
-			if (prob(50) && !shielded)
-				Paralyse(10)
+			if (prob(70) && !shielded)
+				Paralyse(3)
 
 	var/update = 0
 
@@ -1063,11 +1065,11 @@
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)
 		L.damage = L.min_bruised_damage
 
-/*
+
 /mob/living/carbon/human/verb/simulate()
 	set name = "sim"
 	set background = 1
-
+//
 	var/damage = input("Wound damage","Wound damage") as num
 
 	var/germs = 0
@@ -1092,7 +1094,7 @@
 		if (germs == 2500)
 			world << "Reached stage 3 in [ticks] ticks"
 	world << "Mob took [tdamage] tox damage"
-*/
+//
 //returns 1 if made bloody, returns 0 otherwise
 
 /mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)

@@ -128,17 +128,19 @@
 
 		if (2.0)
 			if (!shielded)
-				b_loss += 60
-
-			f_loss += 60
+				b_loss += (rand(150,325))
+				Paralyse(5)
+			f_loss += (rand(50,80))
 
 			ear_damage += 30
 			ear_deaf += 120
 
 		if(3.0)
-			b_loss += 30
-			if (prob(50) && !shielded)
-				Paralyse(1)
+			b_loss += (rand(60,175))
+			f_loss += (rand(20,40))
+			if (prob(70) && !shielded)
+				Paralyse(rand(1,3))
+
 			ear_damage += 15
 			ear_deaf += 60
 

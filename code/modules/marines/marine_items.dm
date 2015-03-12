@@ -210,3 +210,22 @@ obj/item/device/radio/headset/mdelta
 		new /obj/item/stack/medical/bruise_pack/marine( src )
 		new /obj/item/weapon/reagent_containers/pill/tramadol( src )
 		return
+
+/obj/item/weapon/storage/box/explosive_mines
+	name = "mine box"
+	desc = "It contains anti-personell explosive mines"
+	w_class = 3
+	storage_slots = 4
+	can_hold = list(
+		"/obj/item/device/mine"
+		)
+
+	New()
+		..()
+		contents = list()
+		sleep(1)
+		new /obj/item/device/mine(src)
+		new /obj/item/device/mine(src)
+		new /obj/item/device/mine(src)
+		new /obj/item/device/mine(src)
+		return

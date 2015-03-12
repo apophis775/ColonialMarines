@@ -229,6 +229,7 @@ v
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECITON_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECITON_TEMPERATURE
+	armor = list(melee = 20, bullet = 40, laser = 10, energy = 10, bomb = 20, bio = 0, rad = 0)
 
 /obj/item/clothing/gloves/marine/alpha
 	name = "alpha squad gloves"
@@ -281,7 +282,7 @@ v
 	desc = "Standard issue combat boots for combat scenarios or combat situations. All combat, all the time."
 	icon_state = "jackboots"
 	item_state = "jackboots"
-	armor = list(melee = 10, bullet = 80, laser = 10,energy = 10, bomb = 10, bio = 10, rad = 0)
+	armor = list(melee = 20, bullet = 80, laser = 10,energy = 10, bomb = 20, bio = 10, rad = 0)
 	siemens_coefficient = 0.7
 	var/obj/item/weapon/combat_knife/knife //Thank you Apo and LLA~~
 
@@ -372,6 +373,7 @@ v
 		"/obj/item/weapon/storage/box/beanbags",
 		"/obj/item/ammo_casing/shotgun/beanbag",
 		"/obj/item/weapon/gun/energy/taser",
+		"/obj/item/weapon/grenade",
 		"/obj/item/weapon/melee/baton",
 		"/obj/item/weapon/melee/stunprod",
 		"/obj/item/weapon/handcuffs",
