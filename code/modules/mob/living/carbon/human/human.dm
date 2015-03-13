@@ -1065,7 +1065,7 @@
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)
 		L.damage = L.min_bruised_damage
 
-
+/*
 /mob/living/carbon/human/verb/simulate()
 	set name = "sim"
 	set background = 1
@@ -1096,7 +1096,7 @@
 	world << "Mob took [tdamage] tox damage"
 //
 //returns 1 if made bloody, returns 0 otherwise
-
+*/
 /mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
 	if (!..())
 		return 0
