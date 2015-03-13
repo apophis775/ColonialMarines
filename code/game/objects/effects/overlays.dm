@@ -20,6 +20,12 @@
 	layer = 5
 	anchored = 1
 
+/obj/effect/overlay/danger
+	name = "Danger"
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "danger"
+	layer = 6
+
 /obj/effect/overlay/palmtree_l
 	name = "Palm tree"
 	icon = 'icons/misc/beach2.dmi'
