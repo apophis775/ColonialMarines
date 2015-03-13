@@ -154,6 +154,10 @@ var/const/MAX_ACTIVE_TIME = 250
 	health -= Proj.damage
 	return
 
+/obj/item/clothing/mask/facehugger/ex_act(severity)
+	Die()
+	return
+
 /obj/item/clothing/mask/facehugger/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
 		Die()

@@ -108,17 +108,17 @@
 
 		if (2.0)
 
-			b_loss += 60
+			b_loss += 100
 
-			f_loss += 60
+			f_loss += 50
 
 			ear_damage += 30
 			ear_deaf += 120
 
 		if(3.0)
-			b_loss += 30
+			b_loss += 50
 			if (prob(50))
-				Paralyse(1)
+				Paralyse(5)
 			ear_damage += 15
 			ear_deaf += 60
 

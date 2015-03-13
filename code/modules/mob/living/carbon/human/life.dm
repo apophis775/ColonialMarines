@@ -1360,6 +1360,9 @@
 				var/obj/item/clothing/glasses/welding/O = glasses
 				if(!O.up && tinted_weldhelh)
 					client.screen += global_hud.darkMask
+				
+			if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
+				blind.layer = 18
 
 			if(eye_stat > 20)
 				if(eye_stat > 30)	client.screen += global_hud.darkMask
