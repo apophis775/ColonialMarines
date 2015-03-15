@@ -3,15 +3,14 @@ Apophis775 - Head Developer
 unknownmurder - Head Admin
 
 
-sir octagon - Game Admin
 coroneljones - Game Admin
 Caryl - Game Admin
 minimike1220 - Game Admin
 Void00 - Game Admin
+Speedybast - Game Admin
+SASoperative - Game Admin
 
 
-Speedybast - Trial Admin
-SASoperative - Trial Admin
 obey_stylez - Trial Admin
 Rovernic - Trial Admin
 Razerwing - Trial Admin
@@ -36,3 +35,5 @@ mewth - Mapper
 Slayerplayer99 - Coder
 Aztectornado - Coder
 SailorDave - Coder
+
+sir octagon - Retired Admin
