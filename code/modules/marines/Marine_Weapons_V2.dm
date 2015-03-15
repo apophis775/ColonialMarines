@@ -302,6 +302,7 @@
 	throwforce = 5.0
 	throw_range = 6
 	throw_speed = 3
+	unacidable = 1
 	flags = FPRINT | TABLEPASS
 
 	var/triggered = 0
