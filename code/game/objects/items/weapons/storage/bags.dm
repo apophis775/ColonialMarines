@@ -241,8 +241,8 @@
 
 
 /obj/item/weapon/storage/bag/ammo_bag
-	name="Tactical Ammo Bag"
-	desc = "Designed to fit all types of ammo"
+	name="ammo box"
+	desc = "A large metal box used for storing all types of ammunition. Commonly filled with spare ammo at base and placed in the field to allow local sqaud-members to resupply."
 	icon='icons/obj/ammo_bag.dmi'
 	icon_state="digitalcamo"
 	item_state = "ammobox"
