@@ -197,7 +197,7 @@ obj/item/device/radio/headset/mdelta
 
 
 /obj/item/weapon/storage/box/marine/
-	name = "marine box"
+	name = "marine survival kit"
 	desc = "A standard issue survival kit containing an oxygen mask, an oxygen tank, bandages, painkillers, a flare and a crowbar."
 	icon_state = "marinebox"
 	New()
