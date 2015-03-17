@@ -97,7 +97,7 @@
 
 /obj/item/weapon/storage/box/m37 //M37 Shotgun
 	name = "M37 Shotgun shells (box)"
-	desc = "It has a picture of a M37 shotgun on the side."
+	desc = "A box of standard issue high-powered 12 gauge buckshot rounds. Manufactured by Armat Systems for military and civilian use."
 	icon_state = "shells"
 	w_class = 2 //Can fit in belts
 	New()
@@ -115,7 +115,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/m4a3 //45 Pistol
 	name = "\improper M4A3 Service Pistol"
-	desc = "M4A3 Service Pistol. Uses .45 special rounds."
+	desc = "M4A3 Service Pistol, the standard issue sidearm of the Colonial Marines. Uses .45 special rounds."
 	icon_state = "colt"
 	max_shells = 12
 	caliber = "45s"
@@ -131,7 +131,7 @@
 
 /obj/item/weapon/gun/projectile/m44m //mm44 Magnum Peacemaker
 	name = "\improper 44 Magnum"
-	desc = "A 44 Magnum revolver. Uses 44 Magnum rounds"
+	desc = "A bulky 44 Magnum revolver, occasionally carried by assault troops and officers in the Colonial Marines. Uses 44 Magnum rounds"
 	icon_state = "mateba"
 	caliber = "38s"
 	ammo_type = "/obj/item/ammo_casing/m44m"
@@ -141,7 +141,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/Assault/m39 // M39 SMG
 	name = "\improper M39 SMG"
-	desc = " Armat Battlefield Systems M39 SMG. Uses 9mm rounds."
+	desc = " Armat Battlefield Systems M39 SMG. Occasionally carried by light-infantry, scouts or non-combat personnel. Uses 9mm rounds."
 	icon_state = "smg"
 	item_state = "c20r"
 	max_shells = 30
@@ -172,7 +172,7 @@
 
 /obj/item/weapon/gun/twohanded/projectile/Assault/m41 //M41 Assault Rifle
 	name = "\improper M41A Rifle"
-	desc = "M41A Pulse Rifle. Uses 10mm special ammunition."
+	desc = "M41A Pulse Rifle. The standard issue rifle of the Colonial Marines. Commonly carried by most combat personnel. Uses 10mm special ammunition."
 	icon_state = "m41a0"
 	item_state = "m41a"
 	w_class = 3.0
@@ -252,7 +252,7 @@
 	name ="Throwing Knife"
 	icon='icons/obj/weapons.dmi'
 	item_state="knife"
-	desc="Danger ahead? Throw one of these sharp knives."
+	desc="A military knife designed to be thrown at the enemy. Much quieter than a firearm, but requires a steady hand to be used effectively."
 	flags = FPRINT | TABLEPASS | CONDUCT
 	sharp = 1
 	force = 10
@@ -265,7 +265,7 @@
 	slot_flags = SLOT_POCKET
 		// Slayerplayer99: Different type of throwing knives if more wanted
 	Carbon_Steel
-		name="Carbon Steel Throwing Knife"
+		name="Throwing Knife"
 		throw_speed=5
 		throw_range=8
 		throwforce=40
@@ -273,8 +273,8 @@
 
 ///***GRENADES***///
 /obj/item/weapon/grenade/explosive
-	desc = "It is set to detonate in 3 seconds."
-	name = "frag grenade"
+	desc = "A Colonial Marines fragmentation grenade. It explodes 3 seconds after the pin has been pulled."
+	name = "Frag grenade"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "grenade_ex"
 	det_time = 30
@@ -292,8 +292,8 @@
 
 ///***MINES***///
 /obj/item/device/mine
-	name = "mine"
-	desc = "Anti-personnel mine."
+	name = "Proximity Mine"
+	desc = "An anti-personnel mine. Useful for setting traps or for area denial. "
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "mine"
 	force = 5.0
