@@ -821,18 +821,23 @@
 <td>5 minutes</td>
 </tr>
 <tr>
+<td>Damage to Government Property</td>
+<td>Damaging the ship or making unauthorized modifications to it during peacetime.</td>
+<td>5 minutes</td>
+</tr>
+<tr>
 <td>Neglect of duty</td>
 <td>Failure to perform their role to an acceptable standard. For example, a Commander failing to properly organize and ensure his personnel are given orders.</td>
-<td>Demotion/removal of command (if squad leader+), 25 minutes</td>
+<td>Demotion/removal of command (if squad leader+), Up to 25 minutes</td>
 </tr>
 <tr>
 <td>Trespassing</td>
-<td>Unauthorized access of an area restricted by Command personnel and restricted areas of the NMV Sulaco, or of an area of which a person does not have access to.</td>
+<td>Unauthorized access of an area restricted by Command personnel or an area which a person does not have access to.</td>
 <td>10 minutes.</td>
 </tr>
 <tr>
 <td>Contraband</td>
-<td>To retain posession of, distribute, or use contraband items, including drugs and non-standard Nanotrasen issued equipment.</td>
+<td>To retain possession of, distribute, or use contraband items, including drugs and non-standard Nanotrasen issued equipment.</td>
 <td>10 minutes, confiscation of contraband items.</td>
 </tr>
 <tr>
@@ -857,7 +862,7 @@
 </tr>
 <tr>
 <td>Mutiny</td>
-<td>To attempt or succeed in attempts at overpowering or overthrowing your commanding officer without justifiable cause (punishment from a sentence applied by marine law, for example)</td>
+<td>To attempt or succeed at overpowering or overthrowing a commanding officer.</td>
 <td>Execution or permanent detention</td>
 </tr>
 <tr>
