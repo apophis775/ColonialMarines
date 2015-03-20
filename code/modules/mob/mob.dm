@@ -344,8 +344,12 @@ var/list/slot_equipment_priority = list( \
 /mob/verb/abandon_mob()
 	set name = "Respawn"
 	set category = "OOC"
+	var/is_admin = 0
 
-	if (!( abandon_allowed ))
+	if(client.holder && (client.holder.rights & R_ADMIN))
+		is_admin = 1
+	
+	if(!is_admin && !( abandon_allowed ) || !ticker.mode)
 		usr << "\blue Respawn is disabled."
 		return
 	if ((stat != 2 || !( ticker )))
@@ -366,7 +370,7 @@ var/list/slot_equipment_priority = list( \
 			pluralcheck = " [deathtimeminutes] minutes and"
 		var/deathtimeseconds = round((deathtime - deathtimeminutes * 600) / 10,1)
 		usr << "You have been dead for[pluralcheck] [deathtimeseconds] seconds."
-		if (deathtime < 18000)
+		if (deathtime < 18000 && !is_admin)
 			usr << "You must wait 30 minutes to respawn!"
 			return
 		else
