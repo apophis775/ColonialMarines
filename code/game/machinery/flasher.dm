@@ -28,12 +28,11 @@
 	src.sd_SetLuminosity(2)
 */
 /obj/machinery/flasher/power_change()
-	if ( powered() )
-		stat &= ~NOPOWER
+	..()
+	if ( !(stat & NOPOWER) )
 		icon_state = "[base_state]1"
 //		src.sd_SetLuminosity(2)
 	else
-		stat |= ~NOPOWER
 		icon_state = "[base_state]1-p"
 //		src.sd_SetLuminosity(0)
 
@@ -97,7 +96,7 @@
 	..(severity)
 
 /obj/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
-	if ((src.disable) || (src.last_flash && world.time < src.last_flash + 150))
+	if ((src.disable) || (src.last_flash && world.time < src.last_flash + 300))
 		return
 
 	if(istype(AM, /mob/living/carbon))
@@ -144,7 +143,7 @@
 			spawn()
 				M.flash()
 
-	sleep(50)
+	sleep(300)
 
 	icon_state = "launcherbtt"
 	active = 0
