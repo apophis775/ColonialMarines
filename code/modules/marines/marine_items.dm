@@ -166,8 +166,8 @@ obj/item/device/radio/headset/mdelta
 
 /obj/item/weapon/storage/box/beanbags
 	name = "box of beanbag shells"
-	desc = "It has a picture of a shotgun and several warning symbols on the front."
-	icon_state = "shells"
+	desc = "A box of 12 gauge beanbag rounds. Manufactured by Armat Systems for prison guard and police use in non-lethal pacification."
+	icon_state = "beanshells"
 	w_class=2
 	New()
 		..()
@@ -182,7 +182,7 @@ obj/item/device/radio/headset/mdelta
 
 /obj/item/weapon/storage/box/shotguns
 	name = "box of shotgun shells"
-	desc = "It has a picture of a combat shotgun and several warning symbols on the front."
+	desc = "A box of standard issue high-powered 12 gauge buckshot rounds. Manufactured by Armat Systems for military and civilian use."
 	icon_state = "shells"
 	w_class=2
 	New()
@@ -197,8 +197,9 @@ obj/item/device/radio/headset/mdelta
 
 
 /obj/item/weapon/storage/box/marine/
-	name = "marine box"
-	desc = "It contains necessary equipment for every marine."
+	name = "marine survival kit"
+	desc = "A standard issue survival kit containing an oxygen mask, an oxygen tank, bandages, painkillers, a flare and a crowbar."
+	icon_state = "marinebox"
 	New()
 		..()
 		contents = list()
@@ -213,7 +214,8 @@ obj/item/device/radio/headset/mdelta
 
 /obj/item/weapon/storage/box/explosive_mines
 	name = "mine box"
-	desc = "It contains anti-personell explosive mines"
+	desc = "A secure box holding anti-personel proximity mines"
+	icon_state = "minebox"
 	w_class = 3
 	storage_slots = 4
 	can_hold = list(
