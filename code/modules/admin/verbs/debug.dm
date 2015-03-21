@@ -555,7 +555,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		"nanotrasen representative",
 		"nanotrasen officer",
 		"nanotrasen captain",
-		"marine (cyro)",
+		"marine (cryo)",
 		"marine (uniform)",
 		"logistics officer",
 		"military Police",
@@ -570,7 +570,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			continue
 		del(I)
 	switch(dresscode)
-		if("marine (cyro)")
+		if("marine (cryo)")
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/marine/casual(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/marine(M), slot_l_store)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/marine(M), slot_back)
