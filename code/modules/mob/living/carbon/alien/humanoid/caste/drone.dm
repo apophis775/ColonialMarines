@@ -67,6 +67,10 @@
 			if(!Q.key && Q.brain_op_stage != 4)
 				continue
 			no_queen = 0
+		
+		if(queen_died > 0 && queen_died + 6000 > world.time)
+			src << "A new queen cannot evolve for about [round((6000-world.time)/600,1)] minutes."
+			return
 
 		if(no_queen)
 			adjustToxLoss(-500)
