@@ -163,6 +163,13 @@
 	icon_state = "hop"
 	item_color = "hop"
 
+/obj/item/clothing/under/marine/casual
+	name = "marine underwear"
+	desc = "Standard sleepwear issued to Colonial Marines forces. Nobody judged you for wearing these in cryosleep. You are not in cryosleep anymore."
+	icon_state = "cryosuit"
+	item_state = "cryosuit_s"
+	item_color = "cryosuit"
+
 //MARINE CLOTHING 09JAN2015 APOPHIS
 //ARMOR
 /obj/item/clothing/suit/storage/marine
