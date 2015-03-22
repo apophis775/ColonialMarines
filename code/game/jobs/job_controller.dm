@@ -362,6 +362,7 @@ var/list/headsurvivorjobs = list("Chief Medical Officer", "Chief Engineer", "Res
 			H.mind.assigned_role = rank
 			H.mind.assigned_job = rank
 			job.equip(H)
+			H.equip_to_slot_or_del(new /obj/item/device/flashlight(H), slot_r_hand)
 			job_master.AssignRole(H, rank, 1)
 			job_master.spawnId(H, rank)
 			var/obj/S = null
