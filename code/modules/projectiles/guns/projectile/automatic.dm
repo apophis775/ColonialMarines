@@ -80,7 +80,7 @@
 	caliber = "a762"
 	origin_tech = "combat=5;materials=1;syndicate=2"
 	ammo_type = "/obj/item/ammo_casing/a762"
-	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
+	fire_sound = 'sound/weapons/Gunshot.ogg'
 	load_method = 2
 	var/cover_open = 0
 	var/mag_inserted = 1
