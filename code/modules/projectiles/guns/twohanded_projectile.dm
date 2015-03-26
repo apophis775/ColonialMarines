@@ -110,7 +110,7 @@
 			num_loaded++
 	if(num_loaded)
 		user << "\blue You load [num_loaded] shell\s into the gun!"
-		playsound(loc, 'sound/weapons/shotgun_shell_insert.ogg', 60, 1, -1)
+		playsound(loc, 'sound/weapons/unload.ogg', 60, 1, -1)
 	A.update_icon()
 	update_icon()
 

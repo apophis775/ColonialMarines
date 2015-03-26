@@ -98,8 +98,16 @@
 			for(var/client/C in clients)
 				if(isobserver(C.mob) && !C.holder)		
 					count_observers++
-			
-			if(count_observers <= 4)
+			var/count_humans = 0
+			for(var/client/C in clients)
+				if(ishuman(C.mob) && C.mob.stat != DEAD)
+					count_humans++
+			var/count_aliens = 0
+			for(var/client/C in clients)
+				if(isalien(C.mob) && C.mob.stat != DEAD)
+					count_aliens++
+
+			if(count_observers < 5 || count_humans > count_aliens || emergency_shuttle.online)
 				usr << "\red CentComm does not have enough resources to put together a HIT."
 				if(click_cooldown)
 					return

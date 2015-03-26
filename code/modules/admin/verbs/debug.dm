@@ -555,7 +555,8 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		"nanotrasen representative",
 		"nanotrasen officer",
 		"nanotrasen captain",
-		"marine (pajamas)",
+		"marine (cryo)",
+		"marine (uniform)",
 		"logistics officer",
 		"military Police",
 		"marine commander"
@@ -569,12 +570,32 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			continue
 		del(I)
 	switch(dresscode)
-		if("marine (pajamas)")
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/pj/red(M), slot_w_uniform)
-			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/slippers(M), slot_shoes)
-			M.equip_to_slot_or_del(new /obj/item/device/pda(M), slot_belt)
+		if("marine (cryo)")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/marine/casual(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/marine(M), slot_l_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/marine(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/marine(M.back), slot_in_backpack)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.access = list()
+			W.assignment = "Marine"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("marine (uniform)")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/marine2(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine2(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine2(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/marine(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/msulaco(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/marine/full(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/marine(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/twohanded/projectile/Assault/m41(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/combat_knife(M), slot_l_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/marine(M.back), slot_in_backpack)
 
 			var/obj/item/weapon/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
