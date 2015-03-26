@@ -29,7 +29,6 @@
 /obj/item/weapon/gun/projectile/load_into_chamber()
 	if(in_chamber)
 		return 1 //{R}
-
 	if(!loaded.len)
 		return 0
 	var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
@@ -63,9 +62,11 @@
 				empty_mag = AM	//a temporary solution to get rid of magazines from mob hand
 				user.remove_from_mob(AM) //
 		if(load_method == MAGAZINE)
+			playsound(user, 'sound/weapons/unload.ogg', 40, 1)
 			user.remove_from_mob(AM)
 			empty_mag = AM
 			empty_mag.loc = src
+
 	if(istype(A, /obj/item/ammo_casing) && load_method == SPEEDLOADER)
 		var/obj/item/ammo_casing/AC = A
 		if(AC.caliber == caliber && loaded.len < max_shells)
@@ -74,7 +75,9 @@
 			loaded += AC
 			num_loaded++
 	if(num_loaded)
-		user << "\blue You load [num_loaded] shell\s out of [AM.max_ammo] into the gun!"
+		user << "\blue You load [num_loaded] shell\s the gun!"
+		//out of [AM.max_ammo] into
+		playsound(user, 'sound/weapons/unload.ogg', 40, 1)
 	A.update_icon()
 	update_icon()
 	return
@@ -97,6 +100,7 @@
 			empty_mag = null
 			update_icon()
 			user << "\blue You unload magazine from \the [src]!"
+			playsound(user, 'sound/weapons/load.ogg', 40, 1)
 	else
 		user << "\red Nothing loaded in \the [src]!"
 

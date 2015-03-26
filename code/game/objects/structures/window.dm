@@ -377,6 +377,15 @@
 	name = "reinforced window"
 	icon_state = "rwindow"
 	reinf = 1
+	
+/obj/structure/window/reinforced/magic
+	name = "invulnerable window"
+	icon_state = "rwindow"
+	reinf = 0
+	health = 99999
+	unacidable = 1
+	dir = 5
+	color = "#ff0000"
 
 /obj/structure/window/reinforced/tinted
 	name = "tinted window"

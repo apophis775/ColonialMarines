@@ -119,6 +119,7 @@
 	icon_state = "colt"
 	max_shells = 12
 	caliber = "45s"
+	fire_sound = 'sound/weapons/servicepistol.ogg'
 	ammo_type = "/obj/item/ammo_casing/m4a3"
 	recoil = 0
 
@@ -147,9 +148,12 @@
 	max_shells = 30
 	caliber = "9mms"
 	ammo_type = "/obj/item/ammo_casing/m39"
+	fire_sound = 'sound/weapons/Gunshot_m39.ogg'
 	fire_delay = 0
-	force = 9.0
+	force = 8.0
 	ejectshell = 0 //Caseless
+	load_method = 2
+	recoil = 1
 
 	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 		..()
@@ -192,6 +196,7 @@
 		update_icon()
 		return
 
+
 	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 		..()
 		if(!loaded.len && empty_mag)
@@ -210,6 +215,31 @@
 		return
 
 
+	verb/toggle(mob/user)
+		set category = "Object"
+		set name = "Eject current magazine"
+		set src in usr
+		playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
+		user << "\blue You eject the magazine from \the [src]!"
+		empty_mag.desc = "There are [getAmmo()] shells left"
+
+		if(usr.canmove && !usr.stat && !usr.restrained())
+			var/obj/item/ammo_magazine/AM = empty_mag
+			for (var/obj/item/ammo_casing/AC in loaded)
+				AM.stored_ammo += AC
+				loaded -= AC
+				AM.loc = get_turf(src)
+				empty_mag = null
+				update_icon()
+/*
+	verb/toggle(mob/user)
+		set category = "Object"
+		set name = "Fake reload"
+		set src in usr
+		user << "\blue You quickly eject and reload your current magazine from \the [src] to fake a reload!"
+		playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
+*/
+
 ///***SHOTGUNS***///
 
 /obj/item/weapon/gun/twohanded/projectile/shotgun/pump/m37 //M37 Pump Shotgun
@@ -221,6 +251,7 @@
 	ammo_type = "/obj/item/ammo_casing/m37"
 	recoil = 1
 	force = 10.0
+
 
 
 ///***MELEE/THROWABLES***///
