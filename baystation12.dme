@@ -905,6 +905,7 @@
 #include "code\modules\marines\medical.dm"
 #include "code\modules\marines\newarmor.dm"
 #include "code\modules\marines\nonlethals.dm"
+#include "code\modules\marines\PMC.dm"
 #include "code\modules\marines\restraints.dm"
 #include "code\modules\marines\shuttles.dm"
 #include "code\modules\marines\hazresearch\gas_acidic.dm"
