@@ -838,7 +838,7 @@ About the new airlock wires panel:
 			return
 		else
 			user << "\red You force your claws between the doors and begin to pry them open..."
-			playsound(src.loc, 'sound/effects/metal_creaking.ogg', 50, 0)
+			playsound(src.loc, 'sound/effects/metal_creaking.ogg', 30, 1, -4)
 			if (do_after(user,40))
 				if(!src) return
 				open(1)
