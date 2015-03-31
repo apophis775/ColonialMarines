@@ -18,7 +18,6 @@ Razerwing - Trial Admin
 
 
 Chief_Executive - Moderator
-Doctor Clockwork - Moderator
 tristan1333 - Moderator
 Lordekilly - Moderator
 mdom - Moderator
@@ -34,5 +33,3 @@ mewth - Mapper
 Slayerplayer99 - Coder
 Aztectornado - Coder
 SailorDave - Coder
-
-sir octagon - Retired Admin
