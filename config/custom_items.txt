@@ -8,13 +8,14 @@ lestatanderson: Ryder Mitchell: /obj/item/clothing/suit/storage/marine/fluff/cia
 kilinger: Danny Barrett: /obj/item/clothing/head/helmet/marine/fluff/goldshieldberet
 commandercookies: Elliot Renold: /obj/item/clothing/head/helmet/marine/fluff/elliotberet
 commandercookies: Elliot Renold: /obj/item/clothing/suit/storage/marine/fluff/armorammo
-sasoperative: Joseph Skinner: /obj/item/clothing/mask/gas/swat
-sasoperative: Joseph Skinner: /obj/item/clothing/under/fluff/turtleneck
-sasoperative: Joseph Skinner: /obj/item/clothing/suit/armor/fluff/sas
+sasoperative: Joseph Skinner: /obj/item/clothing/mask/balaclava/SAS
+sasoperative: Joseph Skinner: /obj/item/clothing/suit/storage/marine/PMCarmor/leader/fluff/SAS
+sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/PMC/leader/fluff/SAS
 sasoperative: Joseph Skinner: /obj/item/clothing/head/fluff/sas
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/helmet/marine/fluff/santahat
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/storage/marine/fluff/santa
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/fluff/penguin
+tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/fluff/penguin
 docdemo: Kristofferson: /obj/item/clothing/head/helmet/marine/fluff/goldtrimberet
 obeystylez: Marshall Mathers: /obj/item/clothing/under/fluff/turtleneck
 obeystylez: Marshall Mathers: /obj/item/clothing/mask/balaclava/obey
@@ -29,3 +30,7 @@ tristan63: Benjamin Werry: /obj/item/clothing/under/fluff/tristan
 ghostdex: John 'Fixer' Donable: /obj/item/weapon/lighter/zippo/fluff/ghost
 ghostdex: John 'Fixer' Donable: /obj/item/clothing/mask/cigarette/fluff/ghost
 tyran68: Mike Litoris: /obj/item/clothing/suit/armor/swat/fluff/wright
+Feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/under/marine/FLUFF/mycroft
+Feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/suit/storage/fluff/mycroft
+Feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/head/fluff/mycroft
+Feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/shoes/FLUFF/mycroft
