@@ -1430,5 +1430,5 @@
 #include "code\ZAS\Zone.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\tgstation3.2-Sulaco - R WALLS.dmm"
+#include "maps\tgstation3.2-Sulaco - R WALLS - NORESEARCH.dmm"
 // END_INCLUDE
