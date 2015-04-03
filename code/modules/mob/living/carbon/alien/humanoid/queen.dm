@@ -174,21 +174,33 @@
 	return
 //End queen verbs
 
-/mob/living/carbon/alien/humanoid/queen/large
-	icon = 'icons/mob/alienqueen.dmi'
-	icon_state = "queen_s"
-	pixel_x = -16
+/mob/living/carbon/alien/humanoid/queen/empress
+	name = "alien empress"
+	icon = 'icons/Xeno/3x3 Xenos.dmi'
+	icon_state = "Accurate Empress"
+	maxHealth = 1000
+	health = 1000
+	storedPlasma = 300
+	max_plasma = 1000
+	status_flags = null
+	heal_rate = 14
+	plasma_rate = 50
+	damagemin = 60
+	damagemax = 75
+	tacklemin = 7
+	tacklemax = 10
+	tackle_chance = 90 //Should not be above 100%
 
-/mob/living/carbon/alien/humanoid/queen/large/update_icons()
+/mob/living/carbon/alien/humanoid/queen/empress/update_icons()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
 	update_hud()		//TODO: remove the need for this to be here
 	overlays.Cut()
 	if(lying)
-		if(resting)					icon_state = "queen_sleep"
-		else						icon_state = "queen_l"
+		if(resting)					icon_state = "Accurate Empress Sleeping"
+		else						icon_state = "Empress Knocked Down"
 		for(var/image/I in overlays_lying)
 			overlays += I
 	else
-		icon_state = "queen_s"
+		icon_state = "Accurate Empress"
 		for(var/image/I in overlays_standing)
 			overlays += I

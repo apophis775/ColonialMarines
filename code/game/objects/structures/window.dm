@@ -379,7 +379,7 @@
 	reinf = 1
 	
 /obj/structure/window/reinforced/magic
-	name = "invulnerable window"
+	name = "bulletproof window"
 	icon_state = "rwindow"
 	reinf = 0
 	health = 99999
