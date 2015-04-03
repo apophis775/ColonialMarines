@@ -177,8 +177,8 @@
 	flags_inv = 0
 	icon = 'icons/PMC.dmi'
 	icon_override = 'icons/PMC.dmi'
-	item_state = "pmc_mask"
-	icon_state = "pmc_mask"
+	item_state = "officer_mask"
+	icon_state = "officer_mask"
 
 /obj/item/clothing/head/fluff/penguin
 	name = "Top Penguin Hat"
