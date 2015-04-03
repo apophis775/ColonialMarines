@@ -56,8 +56,8 @@
 //Drone verbs
 
 /mob/living/carbon/alien/humanoid/drone/verb/evolve() // -- TLE
-	set name = "Evolve (750)"
-	set desc = "Produce an interal egg sac capable of spawning children. Only one queen can exist at a time."
+	set name = "Evolve (500)"
+	set desc = "Evolve into a Queen. Only one Queen can exist at a time."
 	set category = "Alien"
 
 	if(powerc(500))
@@ -68,8 +68,8 @@
 				continue
 			no_queen = 0
 		
-		if(queen_died > 0 && queen_died + 6000 > world.time)
-			src << "A new queen cannot evolve for about [round((6000-world.time)/600,1)] minutes."
+		if(queen_died > 0 && world.timeofday <= queen_died)
+			src << "A new queen can evolve in about [round((queen_died - world.timeofday)/600,1)] minutes."
 			return
 
 		if(no_queen)
@@ -77,6 +77,8 @@
 			src << "\green You begin to evolve!"
 			for(var/mob/O in viewers(src, null))
 				O.show_message(text("\green <B>[src] begins to twist and contort!</B>"), 1)
+			for(var/mob/living/carbon/alien/A in living_mob_list)
+				A << "\red <font size=3><b>A new queen has evolved!</b></font>"
 			var/mob/living/carbon/alien/humanoid/queen/new_xeno = new (loc)
 			mind.transfer_to(new_xeno)
 			del(src)

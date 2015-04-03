@@ -81,6 +81,7 @@
 #define ui_temp "14:28,6:13"
 #define ui_health "14:28,7:15"
 #define ui_internal "14:28,8:17"
+#define ui_alienplasmadisplay "14:28,8:13"
 
 									//borgs
 #define ui_borg_health "14:28,6:13" //borgs have the health display where humans have the pressure damage indicator.
