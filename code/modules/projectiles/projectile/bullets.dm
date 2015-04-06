@@ -51,3 +51,6 @@
 
 /obj/item/projectile/bullet/a762
 	damage = 25
+
+/obj/item/projectile/bullet/cal50
+	damage = 50

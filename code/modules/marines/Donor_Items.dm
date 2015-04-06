@@ -1,4 +1,4 @@
-////SS13 DONATOR CUSTOM ITEM STORAGE ZONE OF MAGICAL HAPPINESS APOPHIS - LAST UPDATE - 25JAN2015
+////SS13 DONATOR CUSTOM ITEM STORAGE ZONE OF MAGICAL HAPPINESS APOPHIS - LAST UPDATE - 01APR2015
 
 //General Donor Items
 /obj/item/clothing/suit/storage/marine/fluff/santa
@@ -141,3 +141,84 @@
 		..()
 	else
 		user << "<span class='notice'>\The [src] straight out REFUSES to be lit by anything other than a purple zippo.</span>"
+
+
+
+/obj/item/clothing/under/marine/PMC/leader/fluff/SAS
+	name = "Legion Suit"
+	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
+	item_state = "officer_jumpsuit_s"
+	icon_state = "officer_jumpsuit"
+	item_color = "officer_jumpsuit"
+	armor = list(melee = 20, bullet = 20, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+	flags = FPRINT | TABLEPASS
+	siemens_coefficient = 0.9
+
+
+/obj/item/clothing/suit/storage/marine/PMCarmor/leader/fluff/SAS
+	name = "Legion Armor"
+	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
+	icon = 'icons/PMC.dmi'
+	item_state = "officer_armor"
+	icon_state = "officer_armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECITON_TEMPERATURE
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+	allowed = list(/obj/item/weapon/gun/, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/lighter,/obj/item/weapon/grenade)
+
+
+/obj/item/clothing/mask/balaclava/SAS
+	name = "Legion Mask"
+	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
+	flags_inv = 0
+	icon = 'icons/PMC.dmi'
+	icon_override = 'icons/PMC.dmi'
+	item_state = "officer_mask"
+	icon_state = "officer_mask"
+
+/obj/item/clothing/head/fluff/penguin
+	name = "Top Penguin Hat"
+	icon_state = "petehat"
+	item_state = "petehat"
+	desc = "A hat for a penguin, maybe even the TOP Penguin... DONOR ITEM"
+	flags = FPRINT|TABLEPASS
+	siemens_coefficient = 0
+
+/obj/item/clothing/under/marine/FLUFF/mycroft
+	name = "Doom Uniform"
+	desc = "A uniform, of a famous Earth warrior... Donor Item"
+	icon_state = "doom_suit"
+	item_state = "doom_suit"
+
+
+/obj/item/clothing/shoes/FLUFF/mycroft
+	name = "Doom Shoes"
+	desc = "A uniform, of a famous Earth warrior... Donor Item"
+	icon_state = "doom_boots"
+	item_color = "doom_boots"
+
+/obj/item/clothing/head/fluff/mycroft
+	name = "Doom Helmet"
+	icon_state = "doom_helmet"
+	item_state = "doom_helmet"
+	desc = "A uniform, of a famous Earth warrior... Donor Item"
+	flags = FPRINT|TABLEPASS
+	siemens_coefficient = 0
+
+/obj/item/clothing/suit/storage/fluff/mycroft
+	name = "Doom Armor"
+	desc = "A uniform, of a famous Earth warrior... Donor Item"
+	item_state = "doom_armor"
+	icon_state = "doom_armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECITON_TEMPERATURE
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+	allowed = list(/obj/item/weapon/gun/, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/lighter,/obj/item/weapon/grenade)

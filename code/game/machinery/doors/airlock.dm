@@ -834,9 +834,13 @@ About the new airlock wires panel:
 		if(welded || locked)
 			user << "\red The door is sealed, it cannot be pried open."
 			return
+		else if(!density)
+			return
 		else
-			user << "\red You force your claws between the doors and begin to pry them open!"
-			spawn(20)
+			user << "\red You force your claws between the doors and begin to pry them open..."
+			playsound(src.loc, 'sound/effects/metal_creaking.ogg', 30, 1, -4)
+			if (do_after(user,40))
+				if(!src) return
 				open(1)
 	return
 

@@ -22,6 +22,7 @@
 	var/obj/screen/fire = null
 	var/obj/screen/bodytemp = null
 	var/obj/screen/healths = null
+	var/obj/screen/alien_plasma_display = null
 	var/obj/screen/locate_queen = null
 	var/obj/screen/throw_icon = null
 	var/obj/screen/nutrition_icon = null

@@ -163,6 +163,13 @@
 	icon_state = "hop"
 	item_color = "hop"
 
+/obj/item/clothing/under/marine/casual
+	name = "marine underwear"
+	desc = "Standard sleepwear issued to Colonial Marines forces. Nobody judged you for wearing these in cryosleep. You are not in cryosleep anymore."
+	icon_state = "cryosuit"
+	item_state = "cryosuit_s"
+	item_color = "cryosuit"
+
 //MARINE CLOTHING 09JAN2015 APOPHIS
 //ARMOR
 /obj/item/clothing/suit/storage/marine
@@ -292,6 +299,7 @@ v
 			knife.loc = get_turf(src)
 			if(M.put_in_active_hand(knife))
 				M << "<div class='notice'>You slide the [knife] out of [src].</div>"
+				playsound(M, 'sound/weapons/knifedraw.ogg', 40, 1)
 				knife = 0
 				update_icon()
 			return
@@ -304,6 +312,7 @@ v
 			knife = I
 			I.loc = src
 			M << "<div class='notice'>You slide the [I] into [src].</div>"
+			playsound(M, 'shotgun_shell_insert.ogg', 40, 1)
 			update_icon()
 
 	update_icon()

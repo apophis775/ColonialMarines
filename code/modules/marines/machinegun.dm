@@ -19,7 +19,7 @@
 	icon_state = "mgun+barrier"
 	var/fire_sound = 'sound/weapons/mg.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
-	var/ammo_type = "/obj/item/projectile/bullet/a762"
+	var/ammo_type = "/obj/item/projectile/bullet/cal50"
 	var/ammo = 100
 	var/ammomax = 100
 	var/list/row1 = list()
@@ -27,7 +27,7 @@
 	var/list/row3 = list()
 	var/mob/living/carbon/human/User
 	var/nextshot = 0
-	var/FIRETIME = 5 //tenths of seconds
+	var/FIRETIME = 3 //tenths of seconds
 	density = 1
 	anchored = 0
 	flags = ON_BORDER

@@ -555,10 +555,14 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		"nanotrasen representative",
 		"nanotrasen officer",
 		"nanotrasen captain",
-		"marine (pajamas)",
+		"marine (cryo)",
+		"marine (uniform)",
 		"logistics officer",
 		"military Police",
-		"marine commander"
+		"marine commander",
+		"PMC Merc",
+		"PMC Leader",
+		"Weyland Exec"
 		)
 	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in dresspacks
 	if (isnull(dresscode))
@@ -569,12 +573,32 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			continue
 		del(I)
 	switch(dresscode)
-		if("marine (pajamas)")
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/pj/red(M), slot_w_uniform)
-			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/slippers(M), slot_shoes)
-			M.equip_to_slot_or_del(new /obj/item/device/pda(M), slot_belt)
+		if("marine (cryo)")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/marine/casual(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/marine(M), slot_l_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/marine(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/marine(M.back), slot_in_backpack)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.access = list()
+			W.assignment = "Marine"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("marine (uniform)")
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/marine2(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine2(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/marine(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine2(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/marine(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/msulaco(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/marine/full(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/marine(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/twohanded/projectile/Assault/m41(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/combat_knife(M), slot_l_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/marine(M.back), slot_in_backpack)
 
 			var/obj/item/weapon/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
@@ -637,6 +661,86 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			W.name = "[M.real_name]'s ID Card"
 			W.access = get_all_marine_accesses()
 			W.assignment = "Commander"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("PMC Merc")
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate/PMC(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/marine/PMC(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine/PMCarmor(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/PMC(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/weapon/melee/baton(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/Assault/m39/PMCm39(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/PMCmask(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/weapon/tank/emergency_oxygen/engi(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39/toxic(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/explosive/PMC(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39(M), slot_r_store)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.access = list()
+			W.assignment = "Weyland PMC Operative"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("PMC Leader")
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate/PMC(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/marine/PMC/leader(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine/PMCarmor/leader(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/PMC/leader(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/weapon/melee/baton(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/Assault/m39/PMCm39(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/PMCmask/leader(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/weapon/tank/emergency_oxygen/engi(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39/toxic(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/explosive/PMC(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/handcuffs(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/m39(M), slot_r_store)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.access = list()
+			W.assignment = "Weyland PMC Leader"
+			W.registered_name = M.real_name
+			M.equip_to_slot_or_del(W, slot_wear_id)
+
+		if("Weyland Exec")
+			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate/PMC(M), slot_l_ear)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chef/exec(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/hos/jensen(M), slot_wear_suit)
+			//M.equip_to_slot_or_del(new /obj/item/clothing/gloves/white(M), slot_gloves)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/HoS/dermal(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/VP78(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/cigarette(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer/(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/VP78(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/VP78(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/ld50_syringe(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/device/taperecorder(M.back), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/weapon/pen(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/device/pda(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(M), slot_l_hand)
+
+			var/obj/item/weapon/card/id/W = new(M)
+			W.name = "[M.real_name]'s ID Card"
+			W.access = list()
+			W.assignment = "Weyland Yutani Executive"
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 

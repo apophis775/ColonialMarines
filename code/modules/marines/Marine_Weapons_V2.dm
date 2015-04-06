@@ -97,7 +97,7 @@
 
 /obj/item/weapon/storage/box/m37 //M37 Shotgun
 	name = "M37 Shotgun shells (box)"
-	desc = "It has a picture of a M37 shotgun on the side."
+	desc = "A box of standard issue high-powered 12 gauge buckshot rounds. Manufactured by Armat Systems for military and civilian use."
 	icon_state = "shells"
 	w_class = 2 //Can fit in belts
 	New()
@@ -115,10 +115,11 @@
 
 /obj/item/weapon/gun/projectile/pistol/m4a3 //45 Pistol
 	name = "\improper M4A3 Service Pistol"
-	desc = "M4A3 Service Pistol. Uses .45 special rounds."
+	desc = "M4A3 Service Pistol, the standard issue sidearm of the Colonial Marines. Uses .45 special rounds."
 	icon_state = "colt"
 	max_shells = 12
 	caliber = "45s"
+	fire_sound = 'sound/weapons/servicepistol.ogg'
 	ammo_type = "/obj/item/ammo_casing/m4a3"
 	recoil = 0
 
@@ -131,7 +132,7 @@
 
 /obj/item/weapon/gun/projectile/m44m //mm44 Magnum Peacemaker
 	name = "\improper 44 Magnum"
-	desc = "A 44 Magnum revolver. Uses 44 Magnum rounds"
+	desc = "A bulky 44 Magnum revolver, occasionally carried by assault troops and officers in the Colonial Marines. Uses 44 Magnum rounds"
 	icon_state = "mateba"
 	caliber = "38s"
 	ammo_type = "/obj/item/ammo_casing/m44m"
@@ -141,15 +142,18 @@
 
 /obj/item/weapon/gun/projectile/automatic/Assault/m39 // M39 SMG
 	name = "\improper M39 SMG"
-	desc = " Armat Battlefield Systems M39 SMG. Uses 9mm rounds."
+	desc = " Armat Battlefield Systems M39 SMG. Occasionally carried by light-infantry, scouts or non-combat personnel. Uses 9mm rounds."
 	icon_state = "smg"
 	item_state = "c20r"
 	max_shells = 30
 	caliber = "9mms"
 	ammo_type = "/obj/item/ammo_casing/m39"
+	fire_sound = 'sound/weapons/Gunshot_m39.ogg'
 	fire_delay = 0
-	force = 9.0
+	force = 8.0
 	ejectshell = 0 //Caseless
+	load_method = 2
+	recoil = 1
 
 	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 		..()
@@ -172,7 +176,7 @@
 
 /obj/item/weapon/gun/twohanded/projectile/Assault/m41 //M41 Assault Rifle
 	name = "\improper M41A Rifle"
-	desc = "M41A Pulse Rifle. Uses 10mm special ammunition."
+	desc = "M41A Pulse Rifle. The standard issue rifle of the Colonial Marines. Commonly carried by most combat personnel. Uses 10mm special ammunition."
 	icon_state = "m41a0"
 	item_state = "m41a"
 	w_class = 3.0
@@ -192,6 +196,7 @@
 		update_icon()
 		return
 
+
 	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 		..()
 		if(!loaded.len && empty_mag)
@@ -210,6 +215,31 @@
 		return
 
 
+	verb/toggle(mob/user)
+		set category = "Object"
+		set name = "Eject current magazine"
+		set src in usr
+		playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
+		user << "\blue You eject the magazine from \the [src]!"
+		empty_mag.desc = "There are [getAmmo()] shells left"
+
+		if(usr.canmove && !usr.stat && !usr.restrained())
+			var/obj/item/ammo_magazine/AM = empty_mag
+			for (var/obj/item/ammo_casing/AC in loaded)
+				AM.stored_ammo += AC
+				loaded -= AC
+				AM.loc = get_turf(src)
+				empty_mag = null
+				update_icon()
+/*
+	verb/toggle(mob/user)
+		set category = "Object"
+		set name = "Fake reload"
+		set src in usr
+		user << "\blue You quickly eject and reload your current magazine from \the [src] to fake a reload!"
+		playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
+*/
+
 ///***SHOTGUNS***///
 
 /obj/item/weapon/gun/twohanded/projectile/shotgun/pump/m37 //M37 Pump Shotgun
@@ -221,6 +251,7 @@
 	ammo_type = "/obj/item/ammo_casing/m37"
 	recoil = 1
 	force = 10.0
+
 
 
 ///***MELEE/THROWABLES***///
@@ -252,7 +283,7 @@
 	name ="Throwing Knife"
 	icon='icons/obj/weapons.dmi'
 	item_state="knife"
-	desc="Danger ahead? Throw one of these sharp knives."
+	desc="A military knife designed to be thrown at the enemy. Much quieter than a firearm, but requires a steady hand to be used effectively."
 	flags = FPRINT | TABLEPASS | CONDUCT
 	sharp = 1
 	force = 10
@@ -265,7 +296,7 @@
 	slot_flags = SLOT_POCKET
 		// Slayerplayer99: Different type of throwing knives if more wanted
 	Carbon_Steel
-		name="Carbon Steel Throwing Knife"
+		name="Throwing Knife"
 		throw_speed=5
 		throw_range=8
 		throwforce=40
@@ -273,8 +304,8 @@
 
 ///***GRENADES***///
 /obj/item/weapon/grenade/explosive
-	desc = "It is set to detonate in 3 seconds."
-	name = "frag grenade"
+	desc = "A Colonial Marines fragmentation grenade. It explodes 3 seconds after the pin has been pulled."
+	name = "Frag grenade"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "grenade_ex"
 	det_time = 30
@@ -292,8 +323,8 @@
 
 ///***MINES***///
 /obj/item/device/mine
-	name = "mine"
-	desc = "Anti-personnel mine."
+	name = "Proximity Mine"
+	desc = "An anti-personnel mine. Useful for setting traps or for area denial. "
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "mine"
 	force = 5.0
@@ -302,6 +333,7 @@
 	throwforce = 5.0
 	throw_range = 6
 	throw_speed = 3
+	unacidable = 1
 	flags = FPRINT | TABLEPASS
 
 	var/triggered = 0

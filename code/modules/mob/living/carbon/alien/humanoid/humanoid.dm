@@ -136,8 +136,8 @@
 			ear_deaf += 120
 
 		if(3.0)
-			b_loss += (rand(60,175))
-			f_loss += (rand(20,40))
+			b_loss += (rand(60,165))
+			f_loss += (rand(10,35))
 			if (prob(70) && !shielded)
 				Paralyse(rand(1,3))
 

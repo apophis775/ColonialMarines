@@ -17,6 +17,7 @@
 #define FILE_DIR "html"
 #define FILE_DIR "icons"
 #define FILE_DIR "icons/48x48"
+#define FILE_DIR "icons/DONOR"
 #define FILE_DIR "icons/effects"
 #define FILE_DIR "icons/mecha"
 #define FILE_DIR "icons/misc"
@@ -905,6 +906,7 @@
 #include "code\modules\marines\medical.dm"
 #include "code\modules\marines\newarmor.dm"
 #include "code\modules\marines\nonlethals.dm"
+#include "code\modules\marines\PMC.dm"
 #include "code\modules\marines\restraints.dm"
 #include "code\modules\marines\shuttles.dm"
 #include "code\modules\marines\hazresearch\gas_acidic.dm"
@@ -1428,5 +1430,5 @@
 #include "code\ZAS\Zone.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\tgstation3.2-Sulaco.dmm"
+#include "maps\tgstation3.2-Sulaco - R WALLS - NORESEARCH.dmm"
 // END_INCLUDE
