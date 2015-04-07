@@ -3,11 +3,9 @@
 var/list/preferences_datums = list()
 
 var/global/list/special_roles = list( //keep synced with the defines BE_* in setup.dm --rastaf
-//some autodetection here.
-	"alien candidate" = 1, //always show                 // 6
-	"survivor" = 1,								 // 10
-	"pAI candidate" = 1, // -- TLE                       // 7
-	"vampire" = IS_MODE_COMPILED("vampire") 			 // 13
+	"alien candidate" = 1,
+	"survivor" = 1,
+	"pAI candidate" = 1
 )
 
 var/const/MAX_SAVE_SLOTS = 10
