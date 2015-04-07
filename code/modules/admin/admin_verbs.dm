@@ -247,6 +247,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/jobbans,
 	/datum/admins/proc/togglelooc,
 	/datum/admins/proc/toggleooc,
+	/client/proc/shift_memo, // temporary memo
+	/client/proc/show_shift_memo,
 	/client/proc/cmd_admin_subtle_message 	/*send an message to somebody as a 'voice in their head'*/
 )
 var/list/admin_verbs_donate = list(

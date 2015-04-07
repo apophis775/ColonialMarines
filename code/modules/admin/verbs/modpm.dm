@@ -131,3 +131,13 @@
 	for(var/client/X in admins)
 		if(X.key!=key && X.key!=C.key)	//check client/X is an admin and isn't the sender or recipient
 			X << "<B><font color='blue'>PM: [key_name(src, X, 0)]-&gt;[key_name(C, X, 0)]:</B> \blue [msg]</font>" //inform X
+
+//temporary "round" memos
+/client/proc/shift_memo(msg as message)
+	set category = "Admin"
+	set name = "Add Shift Transition Memo"
+	Shift_Transition_Memo += "	<CENTER><font size=+1>([time2text(world.realtime,"(DDD) DD MMM hh:mm")])<BR></font><B>[usr.ckey]([usr.name]):</B></CENTER><BR> [msg] "
+/client/proc/show_shift_memo()
+	set category = "Admin"
+	set name = "Read Shift Transition Memo"
+	usr << browse(Shift_Transition_Memo,"window=Shift_Transition_Memo;size=450x350")
