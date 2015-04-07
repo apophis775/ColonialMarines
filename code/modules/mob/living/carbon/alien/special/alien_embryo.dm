@@ -77,7 +77,7 @@
 				if(prob(10))
 					affected_mob << "\red You feel hungry."
 					affected_mob.nutrition -= 20
-				if(prob(25))
+				if(prob(25) && affected_mob.paralysis == 0)
 					affected_mob << "\red <b>You black out.</b>"
 					affected_mob.paralysis = 5
 			if(4)

@@ -105,6 +105,23 @@
 		M.show_message("<span class='warning'>[user] hits [src] with [W]!</span>", 1)
 	healthcheck()
 
+/obj/structure/stool/bed/nest/attack_paw(mob/user as mob)
+	if(user.a_intent == "hurt")
+		if (islarva(user))//Safety check for larva. /N
+			return
+		user << "\green You claw at the [name]."
+		for(var/mob/O in oviewers(src))
+			O.show_message("\red [user] claws at the resin!", 1)
+		playsound(loc, 'sound/effects/attackblob.ogg', 30, 1, -4)
+		health -= rand(40, 60)
+		if(health <= 0)
+			user << "\green You slice the [name] to pieces."
+			for(var/mob/O in oviewers(src))
+				O.show_message("\red [user] slices the [name] apart!", 1)
+		healthcheck()
+		return
+
+
 /obj/structure/stool/bed/nest/proc/healthcheck()
 	if(health <=0)
 		density = 0
