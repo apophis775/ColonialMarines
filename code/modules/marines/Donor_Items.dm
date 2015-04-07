@@ -192,14 +192,15 @@
 	name = "Doom Uniform"
 	desc = "A uniform, of a famous Earth warrior... Donor Item"
 	icon_state = "doom_suit"
-	item_state = "doom_suit"
+	item_state = "doom_suit_s"
+	item_color = "doom_suit"
 
 
 /obj/item/clothing/shoes/FLUFF/mycroft
 	name = "Doom Shoes"
 	desc = "A uniform, of a famous Earth warrior... Donor Item"
 	icon_state = "doom_boots"
-	item_color = "doom_boots"
+	item_state = "doom_boots"
 
 /obj/item/clothing/head/fluff/mycroft
 	name = "Doom Helmet"
