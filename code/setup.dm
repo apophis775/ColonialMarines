@@ -676,7 +676,7 @@ var/list/TAGGERLOCATIONS = list("Disposals",
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
-/* 
+/*
 #define BE_TRAITOR		1
 #define BE_OPERATIVE	2
 #define BE_CHANGELING	4
@@ -743,6 +743,8 @@ var/list/be_special_flags = list(
 	"Raider" = BE_RAIDER,
 	"Diona" = BE_PLANT,
 	"Vampire" = BE_VAMPIRE,
+	"alien candidate" = BE_ALIEN,
+	"survivor" = BE_SURVIVOR,
 	"Changeling" = BE_CHANGELING
 	)
 

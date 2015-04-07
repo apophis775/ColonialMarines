@@ -289,7 +289,7 @@ Implants;
 	//	if (player.assigned_role == "MODE")  //Checks if the player already has a special role, and it works across all the things.  Checks against nuke ops, wizard, changling, syndie, etc...)
 	//		continue   /// POSSIBLE WAY TO FIX THIS LINE:  have the proc create a candidate list of ALL players, then check it against peeps who are aliums.
 		if (player.client && player.ready)
-			if(!jobban_isbanned(player, "alien candidate"))
+			if(!jobban_isbanned(player, "survivor"))
 				players += player
 
 	players = shuffle(players)
