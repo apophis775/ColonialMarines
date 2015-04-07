@@ -189,6 +189,8 @@
 	ejectshell = 0 //Caseless
 	fire_delay = 4
 	slot_flags = SLOT_BACK
+	var
+		customized=0               //
 
 	New()
 		..()
@@ -196,7 +198,19 @@
 		update_icon()
 		return
 
-
+	attackby(var/obj/item/A as obj, mob/user as mob)
+		if(istype(A,/obj/item/weapon/attachable))
+			if(customized==0)
+				force+=A.force
+				src.contents+=A
+				customized+=1
+				user<<"<font color=teal><I>You attach a [A.name] to your rifle."
+				update_icon()
+				del(A)
+			else
+				user<<"There's already an attachable..."
+		else
+			return
 	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 		..()
 		if(!loaded.len && empty_mag)
@@ -210,8 +224,13 @@
 		..()
 		if(empty_mag)
 			icon_state = "m41a"
+			if(customized>=1)                  //
+				icon_state = "m41ac1"
+
 		else
 			icon_state = "m41a0"
+			if(customized>=1)                //
+				icon_state = "m41a0c1"
 		return
 
 
@@ -231,6 +250,24 @@
 				AM.loc = get_turf(src)
 				empty_mag = null
 				update_icon()
+/*
+	verb/Remove_Customizable()
+		set category ="Object"
+		set src in usr
+		var/obj/item/weapon/attachable/A = locate() in src.contents
+		if(A)
+			var/mob/user
+			force-=A.force
+			user.drop_from_inventory(A)
+			src.contents-=A
+			usr<<"<font color=teal>You remove [A.name] from your rifle."
+			customized-=1
+			if(customized<=0)
+				customized=0
+		else
+			usr<<"You don't have an customizable attachment to your rifle."
+			return
+			*/
 /*
 	verb/toggle(mob/user)
 		set category = "Object"
@@ -252,7 +289,24 @@
 	recoil = 1
 	force = 10.0
 
-
+///***Attachables***///
+obj/item/weapon/attachable
+	Bayonet
+		name="Bayonet"
+		icon = 'icons/obj/weapons.dmi'
+		icon_state="bayonet"
+		item_state="knife"
+		desc="Used a millenium ago when mankind were still bound to planet surface."
+		flags = FPRINT | TABLEPASS | CONDUCT
+		sharp = 1
+		force = 10
+		w_class = 1.0
+		throwforce = 10
+		throw_speed = 3
+		throw_range = 4
+		hitsound = 'sound/weapons/slash.ogg'
+		attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+		slot_flags = SLOT_BELT
 
 ///***MELEE/THROWABLES***///
 
