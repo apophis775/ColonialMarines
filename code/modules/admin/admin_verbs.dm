@@ -70,6 +70,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggledebuglogs,
 	/datum/admins/proc/show_skills,
 	/client/proc/check_customitem_activity,
+	/client/proc/wipe_temp_memo,
 	/client/proc/man_up,
 	/client/proc/global_man_up
 	)
@@ -248,7 +249,6 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/togglelooc,
 	/datum/admins/proc/toggleooc,
 	/client/proc/shift_memo, // temporary memo
-	/client/proc/show_shift_memo,
 	/client/proc/cmd_admin_subtle_message 	/*send an message to somebody as a 'voice in their head'*/
 )
 var/list/admin_verbs_donate = list(
