@@ -263,9 +263,47 @@ Implants;
 		set_security_level(SEC_LEVEL_BLUE)*/
 
 
+//APOPS NEW FANCY ALIEN AND SURVIVOR GENERATORS OF SEXINESS*100  7APR2015
+
+/datum/game_mode/proc/get_players_for_alien()
+	var/list/players = list()
+
+	for(var/mob/new_player/player in player_list)
+		if (!player.client.prefs.be_special & BE_ALIEN)  //Checks if the player wants to be an alien
+			continue
+		if (player.client && player.ready)
+			if(!jobban_isbanned(player, "alien candidate"))
+				players += player
+
+	players = shuffle(players)
+
+	return players
 
 
-datum/game_mode/proc/get_players_for_alien()
+/datum/game_mode/proc/get_players_for_survivor()
+	var/list/players = list()
+
+	for(var/mob/new_player/player in player_list)
+		if (!player.client.prefs.be_special & BE_SURVIVOR)
+			continue
+	//	if (player.assigned_role == "MODE")  //Checks if the player already has a special role, and it works across all the things.  Checks against nuke ops, wizard, changling, syndie, etc...)
+	//		continue   /// POSSIBLE WAY TO FIX THIS LINE:  have the proc create a candidate list of ALL players, then check it against peeps who are aliums.
+		if (player.client && player.ready)
+			if(!jobban_isbanned(player, "survivor"))
+				players += player
+
+	players = shuffle(players)
+
+	return players
+
+
+
+
+
+
+//STAR ALIEN/SURVIVOR OLD CODE
+
+/*datum/game_mode/proc/get_players_for_alien()
 	var/list/players = list()
 	var/list/candidates = list()
 	var/list/drafted = list()
@@ -340,7 +378,7 @@ datum/game_mode/proc/get_players_for_survivor()
 							//			recommended_enemies if the number of people with that role set to yes is less than recomended_enemies,
 							//			Less if there are not enough valid players in the game entirely to make recommended_enemies.
 
-
+*/   //END ALIEN/SURVIVOR OLD CODE
 
 /datum/game_mode/proc/get_players_for_role(var/role, override_jobbans=0)
 	var/list/players = list()
