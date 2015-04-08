@@ -304,7 +304,7 @@
 #include "code\game\gamemodes\wizard\spellbook.dm"
 #include "code\game\gamemodes\wizard\veilrender.dm"
 #include "code\game\gamemodes\wizard\wizard.dm"
-#include "code\game\gamemodes\xeno\xeno - NEW.dm"
+#include "code\game\gamemodes\xeno\xeno.dm"
 #include "code\game\jobs\access.dm"
 #include "code\game\jobs\job_controller.dm"
 #include "code\game\jobs\jobprocs.dm"

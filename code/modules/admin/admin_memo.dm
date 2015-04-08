@@ -52,3 +52,5 @@
 
 #undef MEMOFILE
 #undef ENABLE_MEMOS
+
+var/Shift_Transition_Memo="<body bgcolor=blue>"

@@ -131,3 +131,25 @@
 	for(var/client/X in admins)
 		if(X.key!=key && X.key!=C.key)	//check client/X is an admin and isn't the sender or recipient
 			X << "<B><font color='blue'>PM: [key_name(src, X, 0)]-&gt;[key_name(C, X, 0)]:</B> \blue [msg]</font>" //inform X
+
+//temporary "round" memos
+/client/proc/shift_memo()
+	set category = "Server"
+	set name = "Shift Transition Memo"
+	switch(input("Is this a temporary note? If so, it will auto-erase at the end of the current round.","Shift Transition Memo")in list("Write","Show","Cancel"))
+		if("Write")
+			var/msg = input("","Memo") as message
+			Shift_Transition_Memo += "	<CENTER><font size=+1>([time2text(world.realtime,"(DDD) DD MMM hh:mm")])<BR></font><B>[usr.ckey]([usr.name]):</B></CENTER><BR><I> [msg] "
+		if("Show")
+			show_shift_memo()
+/client/proc/show_shift_memo()
+//	set category = "Admin"
+//	set name = "Read Shift Transition Memo"
+	usr << Shift_Transition_Memo
+//	usr << browse(Shift_Transition_Memo,"window=Shift_Transition_Memo;size=450x350")
+
+/client/proc/wipe_temp_memo()
+	set category = "Server"
+	set name = "Wipe Transition Memo"
+	if(check_rights(R_SERVER,0))
+		Shift_Transition_Memo=""
