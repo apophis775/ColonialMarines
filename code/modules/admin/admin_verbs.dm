@@ -70,6 +70,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggledebuglogs,
 	/datum/admins/proc/show_skills,
 	/client/proc/check_customitem_activity,
+	/client/proc/wipe_temp_memo,
 	/client/proc/man_up,
 	/client/proc/global_man_up
 	)
