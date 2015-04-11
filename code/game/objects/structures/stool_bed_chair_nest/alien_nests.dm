@@ -120,6 +120,15 @@
 				O.show_message("\red [user] slices the [name] apart!", 1)
 		healthcheck()
 		return
+	else
+		buckled_mob.visible_message(\
+			"<span class='notice'>[user.name] pulls [buckled_mob.name] free from the sticky nest!</span>",\
+			"<span class='notice'>[user.name] pulls you free from the gelatinous resin.</span>",\
+			"<span class='notice'>You hear squelching...</span>")
+		buckled_mob.pixel_y = 0
+		buckled_mob.nested = null
+		unbuckle()
+
 
 
 /obj/structure/stool/bed/nest/proc/healthcheck()
