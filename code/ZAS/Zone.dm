@@ -128,6 +128,8 @@ Class Procs:
 		for(var/turf/simulated/T in contents)
 			T.set_graphic(air.graphic)
 
+
+
 /zone/proc/dbg_data(mob/M)
 	M << name
 	M << "O2: [air.oxygen] N2: [air.nitrogen] CO2: [air.carbon_dioxide] P: [air.phoron]"

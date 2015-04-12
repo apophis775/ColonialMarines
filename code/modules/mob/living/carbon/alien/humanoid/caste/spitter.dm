@@ -1,10 +1,10 @@
 /mob/living/carbon/alien/humanoid/spitter
 	name = "alien spitter"
 	caste = "Spitter"
-	maxHealth = 270
-	health = 270
+	maxHealth = 300
+	health = 300
 	storedPlasma = 150
-	max_plasma = 450
+	max_plasma = 600
 	icon_state = "Spitter Walking"
 	plasma_rate = 30
 	var/progress = 0
@@ -12,9 +12,9 @@
 	var/progressmax = 900
 	damagemin = 20
 	damagemax = 26
-	tacklemin = 3
-	tacklemax = 5
-	tackle_chance = 60 //Should not be above 100% old was 65
+	tacklemin = 2
+	tacklemax = 4
+	tackle_chance = 75 //Should not be above 100% old was 65
 	heal_rate = 3
 	psychiccost = 25
 	Stat()
