@@ -144,11 +144,11 @@
 
 
 
-/obj/item/clothing/under/marine/fluff/SAS
+/obj/item/clothing/under/marine/FLUFF/sas
 	name = "Legion Suit"
 	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
-	item_state = "ncr_uni"
-	icon_state = "ncr_s"
+	icon_state = "ncr_uni"
+	item_state = "ncr_s"
 	item_color = "ncr_uni"
 	armor = list(melee = 20, bullet = 20, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 	flags = FPRINT | TABLEPASS
@@ -160,7 +160,7 @@
 	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
 	item_state = "ncrjacket"
 	icon_state = "ncrjacket"
-	icon = 'icons/mob/suit.dmi' //these might be flipped, but i don't care.
+	icon = 'icons/mob/suit.dmi'
 	icon_override = 'icons/obj/clothing/suits.dmi'
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	cold_protection = UPPER_TORSO|LOWER_TORSO
