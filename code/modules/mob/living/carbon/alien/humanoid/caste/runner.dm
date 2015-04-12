@@ -1,9 +1,9 @@
-//ALIEN RUNNER - UPDATED 07JAN2015 - APOPHIS
+//ALIEN RUNNER - UPDATED 11APR2015 - APOPHIS
 /mob/living/carbon/alien/humanoid/runner
 	name = "alien runner"
 	caste = "Runner"
-	maxHealth = 80
-	health = 80
+	maxHealth = 100
+	health = 100
 	storedPlasma = 50
 	max_plasma = 100
 	icon_state = "Runner Walking"
