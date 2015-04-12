@@ -4,8 +4,8 @@
 	caste = "Sentinel"
 	maxHealth = 200
 	health = 200
-	storedPlasma = 100
-	max_plasma = 250
+	storedPlasma = 75
+	max_plasma = 300
 	icon_state = "Sentinal Walking"
 	plasma_rate = 7
 	damagemin = 18
