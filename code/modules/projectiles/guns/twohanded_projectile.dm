@@ -16,6 +16,11 @@
 	var/haslight = 0 //Is there a flashlight attached?
 	var/islighton = 0
 
+
+	//Bayonet
+	var/hasBayonet = 0 //Is there a bayonet?
+	var/bayonetDamage = 40 //Controls the bayonet Damage
+
 /obj/item/weapon/twohanded/projectile/offhand
 	w_class = 5.0
 	icon_state = "offhand"
@@ -114,6 +119,7 @@
 	A.update_icon()
 	update_icon()
 
+//Flashlight and Bayonet Code attachment code - Apophis 11APR2015
 	if(istype(A, /obj/item/device/flashlight))
 		var/obj/item/device/flashlight/F = A
 		if(F.attachable)
@@ -121,7 +127,18 @@
 			user << "\red You attach [A] to [src]."
 			haslight = 1
 			del(A)
+	if(istype(A, /obj/item/weapon/combat_knife))
+		if(src.hasBayonet == 1)
+			user <<"\blue You can't attach another bayonet!"
+			return
+		var/obj/item/weapon/combat_knife/K = A
+		if(K.attachable)
+			src.contents += A
+			user <<"\red You affix your bayonet LIKE A BADASS"
+			hasBayonet = 1
+			src.force+=bayonetDamage
 	return
+
 
 
 /obj/item/weapon/gun/twohanded/projectile/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)//TODO: go over this

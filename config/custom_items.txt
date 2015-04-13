@@ -9,9 +9,9 @@ kilinger: Danny Barrett: /obj/item/clothing/head/helmet/marine/fluff/goldshieldb
 commandercookies: Elliot Renold: /obj/item/clothing/head/helmet/marine/fluff/elliotberet
 commandercookies: Elliot Renold: /obj/item/clothing/suit/storage/marine/fluff/armorammo
 sasoperative: Joseph Skinner: /obj/item/clothing/mask/balaclava/SAS
-sasoperative: Joseph Skinner: /obj/item/clothing/suit/storage/marine/PMCarmor/leader/fluff/SAS
-sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/PMC/leader/fluff/SAS
-sasoperative: Joseph Skinner: /obj/item/clothing/head/fluff/sas
+sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/FLUFF/sas
+sasoperative: Joseph Skinner: /obj/item/clothing/suit/storage/marine/fluff/SAS
+sasoperative: Joseph Skinner: /obj/item/clothing/head/fluff/sas2
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/helmet/marine/fluff/santahat
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/storage/marine/fluff/santa
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/fluff/penguin
@@ -34,3 +34,6 @@ feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/under/marine/FLUFF/mycr
 feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/suit/storage/fluff/mycroft
 feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/head/fluff/mycroft
 feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/shoes/FLUFF/mycroft
+totalanarchy: Leo Backburn: /obj/item/clothing/mask/balaclava/SAS
+totalanarchy: Leo Backburn: /obj/item/clothing/suit/storage/marine/PMCarmor/leader/fluff/SAS
+totalanarchy: Leo Backburn: /obj/item/clothing/under/marine/PMC/leader/fluff/SAS
