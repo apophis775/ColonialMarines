@@ -143,6 +143,7 @@
 	if(holder)
 		add_admin_verbs()
 		admin_memo_show()
+		show_shift_memo()
 
 	log_client_to_db()
 
