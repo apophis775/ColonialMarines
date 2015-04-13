@@ -8,8 +8,17 @@
 	if(!ENABLE_MEMOS)		return
 	if(!check_rights(0))	return
 	switch(task)
-		if("write")		admin_memo_write()
-		if("show")		admin_memo_show()
+		if("write")
+			switch(input("Is this a temporary note? If so, it will auto-erase at the end of the current round.","Memo")in list("Yes","No","Cancel"))
+				if("Yes")
+					var/msg = input("","Memo") as message
+					Shift_Transition_Memo += "	<CENTER><I>([time2text(world.realtime,"(DDD) DD MMM hh:mm")])<BR><B>[usr.ckey]([usr.name]):</B></CENTER><BR> [msg] "
+					message_admins("[key] set a temporary memo.")
+				if("No")	admin_memo_write()
+		if("show")
+			switch(input("Show which memo?","Memo")in list("Admin Memo","Temp Memo","Cancel"))
+				if("Admin Memo")	admin_memo_show()
+				if("Temp Memo")	show_shift_memo()
 		if("delete")	admin_memo_delete()
 
 //write a message
@@ -52,3 +61,15 @@
 
 #undef MEMOFILE
 #undef ENABLE_MEMOS
+
+var/Shift_Transition_Memo="" // Temporary messages added here
+
+/client/proc/show_shift_memo()
+	src << Shift_Transition_Memo  // regular output log
+//	usr << browse(Shift_Transition_Memo,"window=Shif t_Transition_Memo;size=450x350")  //window format
+
+/client/proc/wipe_temp_memo()
+	set category = "Server"
+	set name = "Wipe Transition Memo"
+	if(check_rights(R_SERVER,0))
+		Shift_Transition_Memo="" //Set back to blank

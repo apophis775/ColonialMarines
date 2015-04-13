@@ -35,13 +35,13 @@
 
 /obj/item/weapon/gun/twohanded/projectile/proc/unwield()
 	wielded = 0
-	force = force_unwielded
+	force_unwielded = force
 	name = "[initial(name)]"
 	update_icon()
 
 /obj/item/weapon/gun/twohanded/projectile/proc/wield()
 	wielded = 1
-	force = force_wielded
+	force_wielded = force
 	name = "[initial(name)] (Wielded)"
 	update_icon()
 
