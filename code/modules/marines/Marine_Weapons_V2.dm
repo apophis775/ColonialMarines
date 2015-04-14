@@ -195,8 +195,6 @@
 		empty_mag = new /obj/item/ammo_magazine/m41/empty(src)
 		update_icon()
 		return
-
-
 	afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 		..()
 		if(!loaded.len && empty_mag)
@@ -251,8 +249,6 @@
 	ammo_type = "/obj/item/ammo_casing/m37"
 	recoil = 1
 	force = 10.0
-
-
 
 ///***MELEE/THROWABLES***///
 
