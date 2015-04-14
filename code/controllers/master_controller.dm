@@ -78,6 +78,7 @@ datum/controller/game_controller/proc/setup()
 
 	lighting_controller.Initialize()
 
+	fdel("data/tempmemo.sav") // Erase the temporary memos created by MEMO verb
 
 datum/controller/game_controller/proc/setup_objects()
 	world << "\red \b Initializing objects"
