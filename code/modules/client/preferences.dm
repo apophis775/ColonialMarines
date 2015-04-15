@@ -3,8 +3,8 @@
 var/list/preferences_datums = list()
 
 var/global/list/special_roles = list( //keep synced with the defines BE_* in setup.dm --rastaf
-	"alien candidate" = 1,
-	"survivor" = 1,
+	"Xenomorph" = 1,
+	"Survivor" = 1,
 	"pAI candidate" = 1
 )
 
