@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/twohanded/projectile/Assault
 	name = "\improper C-20r SMG"
-	desc = "A standard issue assault rifle. Uses 12mm ammunition."
+	desc = "A template for the assault rifle"
 	icon_state = "c20r"
 	item_state = "c20r"
 	w_class = 3.0
@@ -68,5 +68,3 @@
 	if(islighton)
 		SetLuminosity(gun_light)
 		usr.SetLuminosity(0)
-
-

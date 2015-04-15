@@ -74,6 +74,7 @@ What are the archived variables for?
 	var/reacting = 0
 
 
+
 	unpooled(var/name)
 		oxygen = 0
 		carbon_dioxide = 0
@@ -92,6 +93,9 @@ What are the archived variables for?
 
 		graphic_archived = initial(graphic_archived)
 		reacting = 0
+
+
+
 
 //FOR THE LOVE OF GOD PLEASE USE THIS PROC
 //Call it with negative numbers to remove gases.

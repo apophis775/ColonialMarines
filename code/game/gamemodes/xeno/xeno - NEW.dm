@@ -4,14 +4,14 @@
 	var/list/datum/mind/survivors = list()
 
 /datum/game_mode/infestation
-	name = "Infestation"
+	name = "infestation"
 	config_tag = "infestation"
-	required_players = 2
+	required_players = 0
 	required_enemies = 1
 	recommended_enemies = 1
 
 //Adjustable Variables
-	var/min_aliens = 2
+	var/min_aliens = 0
 	var/max_aliens = 8
 	var/min_survivors = 0
 	var/max_survivors = 3
@@ -28,7 +28,7 @@
 		return
 
 	var/readyplayers = num_players() //Gets the number of players, to determine the number of aliens and survivors
-	var/list/datum/mind/possible_aliens = get_players_for_alien() //populate a list of people who want to be aliens
+	var/list/datum/mind/possible_aliens = get_players_for_role(BE_ALIEN) //populate a list of people who want to be aliens
 
 	// 1 Alien per 5 players
 	for(var/C = 0, C < readyplayers, C += 5)
@@ -37,7 +37,7 @@
 		alien.assigned_role = "MODE" //so it doesn't get picked for survivor or marine
 		alien.special_role = "drone"
 
-	var/list/datum/mind/possible_survivors = get_players_for_survivor() //populate a list of people who want to be survivors
+	var/list/datum/mind/possible_survivors = get_players_for_role(BE_SURVIVOR) //populate a list of people who want to be survivors
 
 	// 1 survivor per 10 players
 	for(var/C = 0, C < readyplayers, C += 10)

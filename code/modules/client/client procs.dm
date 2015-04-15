@@ -143,6 +143,7 @@
 	if(holder)
 		add_admin_verbs()
 		admin_memo_show()
+		admin_tempmemo_show() // Display temporary memos
 
 	log_client_to_db()
 

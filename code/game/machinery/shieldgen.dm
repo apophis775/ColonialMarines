@@ -6,7 +6,7 @@
 		density = 1
 		opacity = 0
 		anchored = 1
-		unacidable = 1
+		unacidable = 0
 		var/const/max_health = 200
 		var/health = max_health //The shield can only take so much beating (prevents perma-prisons)
 
