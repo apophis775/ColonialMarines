@@ -34,6 +34,6 @@ feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/under/marine/FLUFF/mycr
 feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/suit/storage/fluff/mycroft
 feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/head/fluff/mycroft
 feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/shoes/FLUFF/mycroft
-totalanarchy: Leo Backburn: /obj/item/clothing/mask/balaclava/SAS
-totalanarchy: Leo Backburn: /obj/item/clothing/suit/storage/marine/PMCarmor/leader/fluff/SAS
-totalanarchy: Leo Backburn: /obj/item/clothing/under/marine/PMC/leader/fluff/SAS
+totalanarchy: Leo Backburn: /obj/item/clothing/mask/balaclava/LEO
+totalanarchy: Leo Backburn: /obj/item/clothing/suit/storage/marine/PMCarmor/leader/fluff/LEO
+totalanarchy: Leo Backburn: /obj/item/clothing/under/marine/PMC/leader/fluff/LEO
