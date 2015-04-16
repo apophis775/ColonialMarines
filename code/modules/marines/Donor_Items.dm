@@ -144,15 +144,13 @@
 
 
 
-/obj/item/clothing/under/marine/FLUFF/sas
+
+/obj/item/clothing/under/marine/FLUFF/SAS
 	name = "Legion Suit"
 	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
 	icon_state = "ncr_uni"
-	item_state = "ncr_s"
+	item_state = "ncr_uni_s"
 	item_color = "ncr_uni"
-	armor = list(melee = 20, bullet = 20, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
-	flags = FPRINT | TABLEPASS
-	siemens_coefficient = 0.9
 
 
 /obj/item/clothing/suit/storage/marine/fluff/SAS
