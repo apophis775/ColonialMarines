@@ -94,7 +94,7 @@
 				user << "\red The grenade can not hold more containers."
 				return
 			else
-				if(W.reagents.total_volume)
+				if(W.reagents.total_volume && !W.reagents.has_reagent("blood"))
 					user << "\blue You add \the [W] to the assembly."
 					user.drop_item()
 					W.loc = src
@@ -102,7 +102,7 @@
 					stage = 1
 					name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 				else
-					user << "\red \the [W] is empty."
+					user << "\red \The [W] is empty or it contains unusable reagents."
 
 	examine()
 		set src in usr

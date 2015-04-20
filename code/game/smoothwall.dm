@@ -91,6 +91,12 @@
 	relativewall_neighbours()
 	..()
 
+/turf/simulated/wall/sulacoInside/New()
+	..()
+
+
+
+
 /*/turf/simulated/shuttle/wall/New()
 
 	spawn(20) //testing if this will make /obj/machinery/shuttle and /door count - It does, it stays.

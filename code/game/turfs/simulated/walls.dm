@@ -421,3 +421,11 @@
 /turf/simulated/wall/ChangeTurf(var/newtype)
 	for(var/obj/effect/E in src) if(E.name == "Wallrot") del E
 	..(newtype)
+
+
+/turf/simulated/wall/sulacoInside
+	name = "Sulaco Interior"
+	desc = "Sulaco Interior Walls"
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "wall"
+	walltype = "wall"
