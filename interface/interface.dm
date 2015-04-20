@@ -23,28 +23,13 @@
 		src << "\red The forum URL is not set in the server configuration."
 	return
 
-/client/verb/rbug()
-	set name = " rbug"
-	set desc = "Report a bug."
-	set hidden = 1
-	//src << browse(file(RULES_FILE), "window=rules;size=480x320")
-	src << link("http://newedenstation.com/showthread.php?tid=555")
-
-
 #define RULES_FILE "config/rules.html"
 /client/verb/rules()
 	set name = "Rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
-	//src << browse(file(RULES_FILE), "window=rules;size=480x320")
-	src << link("http://newedenstation.com/showthread.php?tid=1363&pid=10177#pid10177")
+	src << browse(file(RULES_FILE), "window=rules;size=480x320")
 #undef RULES_FILE
-
-/client/verb/donate()
-	set name = "Donate"
-	set category = "OOC"
-
-	src << "Our server runs entirely off of player donations. If you donate, you can receive cosmetic items for your character. Including armor, helmets, boots, and uniforms. The item will be made custom for you.<br>The minimum amount to donate is $5 to receive your item. Our server currently costs $50 a month (extra $20 every 6 months). <br>Here is our donation page:<br>http://newedenstation.com/donate.php<br>If you have any questions regarding donation, you can ahelp and ask.<br><br>Thank you,<br>Lucidity and Apophis."
 
 /client/verb/hotkeys_help()
 	set name = "hotkeys-help"
