@@ -242,14 +242,14 @@
 	var/s = ""
 
 	if (config && config.server_name)
-		s += "<a href=\"http://newedenstation.com/forumdisplay.php?fid=56\"><b>[config.server_name]</b> &#8212; "
+		s += "<a href=\"http://www.colonial-marines.com\"><b>[config.server_name]</b> &#8212; "
 
-	s += "<b>NMV Sulaco</b> | Hosted by New Eden";
+	s += "<b>NMV Sulaco</b> | Hosted by Apophis";
 	//s += " ("
 	//s += "" //Change this to wherever you want the hub to link to.
 	//s += "[config.server_version]"
 	//s += ")"
-	s += "<br><img src=\"http://i.imgur.com/OQ5OIMJ.png\"><br>"
+//	s += "<br><img src=\"http://i.imgur.com/OQ5OIMJ.png\"><br>"   //REPLACE THIS WITH A LOGO EVENTUALLY
 	s += "</a>"
 
 	var/list/features = list()
@@ -288,7 +288,7 @@
 	*/
 
 	if (!host && config && config.hostedby)
-		features += "hosted by <b>Verbose Lucidity</b>"
+		features += "hosted by <b>Apophis775</b>"
 
 	if (features)
 		s += ": [dd_list2text(features, ", ")]"
