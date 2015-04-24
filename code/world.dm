@@ -242,15 +242,15 @@
 	var/s = ""
 
 	if (config && config.server_name)
-		s += "<b>[config.server_name]</b> &#8212; "
+		s += "<a href=\"http://newedenstation.com/forumdisplay.php?fid=56\"><b>[config.server_name]</b> &#8212; "
 
-	s += "<b>[station_name()]</b>";
-	s += " ("
-	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
-//	s += "[game_version]"
-	s += "Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "<b>NMV Sulaco</b> | Hosted by New Eden";
+	//s += " ("
+	//s += "" //Change this to wherever you want the hub to link to.
+	//s += "[config.server_version]"
+	//s += ")"
+	s += "<br><img src=\"http://i.imgur.com/OQ5OIMJ.png\"><br>"
 	s += "</a>"
-	s += ")"
 
 	var/list/features = list()
 
@@ -288,7 +288,7 @@
 	*/
 
 	if (!host && config && config.hostedby)
-		features += "hosted by <b>[config.hostedby]</b>"
+		features += "hosted by <b>Verbose Lucidity</b>"
 
 	if (features)
 		s += ": [dd_list2text(features, ", ")]"

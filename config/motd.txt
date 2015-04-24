@@ -1,5 +1,16 @@
-<h1>Welcome to Space Station 13!</h1>
+</override>
+<hr>
+<h1>Welcome to Colonial Marines!</h1>
+Colonial Marines is a <strong>medium roleplay</strong> server. It's based on the <a href="http://en.wikipedia.org/wiki/Aliens_(film)">Aliens</a> film and heavily modified using <a href="http://baystation12.net/">Baystation 12</a>. If you're not sure how to roleplay, check out the <a href="http://wiki.baystation12.net/index.php?title=A_Crash_Course_In_Roleplaying">Crash Course in Roleplaying</a>.
 
--<i>This server is running <a href="http://baystation12.net/">Baystation 12's</a> modification of the <a href="http://ss13.eu/">/tg/station13</a> SS13 code.</i>
-<br><br>
-<strong>Bugtracker:</strong> <a href="http://baystation12.net/forums/viewtopic.php?f=18&t=8185">http://baystation12.net/forums/viewtopic.php?f=18&t=8185</a>
+<strong><font size="3"><font color="red">Our rules have changed! <a href="http://newedenstation.com/showthread.php?tid=1363&pid=10177#pid10177">Read them here</a>. Ignorance is NOT an excuse!</strong>
+
+<h3>Quick-start guide:</h3>
+* Stop! <a href="http://newedenstation.com/showthread.php?tid=1363&pid=10177#pid10177">Read our rules</a> before going any further. We are a specific, niche server and some of our rules are unconventional.
+* Marines: You start off knowing <strong>nothing</strong> about Aliens. You must witness things before you understand infection, vent crawling, facehuggers, etc.
+* Marines: Get yourself assigned at the Logistics Officer's desk, get equipped, and then wait in the briefing room for your squad.
+* Aliens: Talk in Hivemind using <strong>:a</strong> (e.g. Say ":aMy life for the queen!")
+* Aliens: Do NOT use Harm intent on the marines unless the Queen tells you to. Use Disarm intent to knock 'em out and bring 'em back to your hive.
+* To play as an alien after the round has started: Join as an Observer, then toggle your Xenomorph candidacy in Preferences > Toggle SpecialRole Candidacy. You'll pop as a larva when a host is ready.
+* Use the buttons at the top of the screen (<a href="http://sscolonialmarines.wikia.com/">Wiki</a>, <a href="http://newedenstation.com/forumdisplay.php?fid=56">Forum</a>, <a href="http://newedenstation.com/showthread.php?tid=1363">Rules</a>, etc) for more info.
+<hr>
