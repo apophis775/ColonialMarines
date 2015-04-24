@@ -3,7 +3,7 @@
 	icon_state = "mecha_clamp"
 	equip_cooldown = 18
 	energy_drain = 20
-	var/dam_force = 45
+	var/dam_force = 60
 	var/obj/mecha/working/ripley/cargo_holder
 
 	can_attach(obj/mecha/working/ripley/M as obj)
@@ -55,7 +55,6 @@
 			if(M.stat>1) return
 			if(chassis.occupant.a_intent == "hurt")
 				M.take_overall_damage(dam_force)
-				M.adjustOxyLoss(round(dam_force/3))
 				M.updatehealth()
 				occupant_message("\red You squeeze [target] with [src.name]. Something cracks.")
 				chassis.visible_message("\red [chassis] squeezes [target].")
