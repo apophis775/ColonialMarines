@@ -16,7 +16,7 @@
 	tackle_chance = 40 //Should not be above 100% old chance 50
 	var/hasJelly = 0
 	var/jellyProgress = 0
-	var/jellyProgressMax = 1200
+	var/jellyProgressMax = 1000
 	psychiccost = 30
 	Stat()
 		..()
@@ -67,7 +67,7 @@
 			if(!Q.key && Q.brain_op_stage != 4)
 				continue
 			no_queen = 0
-		
+
 		if(queen_died > 0 && world.timeofday <= queen_died)
 			src << "A new queen can evolve in about [round((queen_died - world.timeofday)/600,1)] minutes."
 			return

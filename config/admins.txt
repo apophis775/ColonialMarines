@@ -1,32 +1,32 @@
 verbose lucidity - Host
 Apophis775 - Head Developer
 unknownmurder - Head Admin
+CampinKiller - Head Moderator
 
 
-sir octagon - Game Admin
 coroneljones - Game Admin
 Caryl - Game Admin
 minimike1220 - Game Admin
 Void00 - Game Admin
+Speedybast - Game Admin
+SASoperative - Game Admin
+obey_stylez - Game Admin
 
 
-Speedybast - Trial Admin
-SASoperative - Trial Admin
-obey_stylez - Trial Admin
 Rovernic - Trial Admin
 Razerwing - Trial Admin
-CampinKiller - Trial Admin
 
 
-Chief_Executive - Moderator
-Doctor Clockwork - Moderator
-tristan1333 - Moderator
 Lordekilly - Moderator
+mdom - Moderator
+felkvir - Moderator
+sir octagon -  Moderator
 
 
-mdom - Trial Moderator
 AncientV25 - Trial Moderator
-Shadowling1232 - Trial Moderator
+Andre1999 - Trial Moderator
+Kyrac - Trial Moderator
+Johnkilla56 - Trial Moderator
 
 
 Rahlzel - Developer

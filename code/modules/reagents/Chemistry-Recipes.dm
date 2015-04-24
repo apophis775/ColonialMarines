@@ -145,7 +145,7 @@ datum
 			name = "Space Lube"
 			id = "lube"
 			result = "lube"
-			required_reagents = list("water" = 1, "silicon" = 1, "oxygen" = 1)
+			// required_reagents = list("water" = 1, "silicon" = 1, "oxygen" = 1)
 			result_amount = 4
 
 		pacid

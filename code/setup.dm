@@ -676,6 +676,7 @@ var/list/TAGGERLOCATIONS = list("Disposals",
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
+/*
 #define BE_TRAITOR		1
 #define BE_OPERATIVE	2
 #define BE_CHANGELING	4
@@ -708,6 +709,41 @@ var/list/be_special_flags = list(
 	"Diona" = BE_PLANT,
 	"Vampire" = BE_VAMPIRE,
 	"Survivor" = BE_SURVIVOR
+	)
+ */
+
+#define BE_ALIEN      1
+#define BE_SURVIVOR   2
+#define BE_PAI        4
+#define BE_WIZARD     8
+#define BE_MALF       16
+#define BE_REV        32
+#define BE_TRAITOR    64
+#define BE_OPERATIVE  128
+#define BE_CULTIST    256
+#define BE_MONKEY     512
+#define BE_NINJA      1024
+#define BE_RAIDER     2048
+#define BE_PLANT      4096
+#define BE_VAMPIRE    8192
+#define BE_CHANGELING 16384
+
+var/list/be_special_flags = list(
+	"Xenomorph" = BE_ALIEN,
+	"Survivor" = BE_SURVIVOR,
+	"pAI" = BE_PAI,
+	"Wizard" = BE_WIZARD,
+	"Malf AI" = BE_MALF,
+	"Revolutionary" = BE_REV,
+	"Traitor" = BE_TRAITOR,
+	"Operative" = BE_OPERATIVE,
+	"Cultist" = BE_CULTIST,
+	"Monkey" = BE_MONKEY,
+	"Ninja" = BE_NINJA,
+	"Raider" = BE_RAIDER,
+	"Diona" = BE_PLANT,
+	"Vampire" = BE_VAMPIRE,
+	"Changeling" = BE_CHANGELING
 	)
 
 #define AGE_MIN 17			//youngest a character can be

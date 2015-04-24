@@ -144,23 +144,22 @@
 
 
 
-/obj/item/clothing/under/marine/PMC/leader/fluff/SAS
+
+/obj/item/clothing/under/marine/FLUFF/SAS
 	name = "Legion Suit"
 	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
-	item_state = "officer_jumpsuit_s"
-	icon_state = "officer_jumpsuit"
-	item_color = "officer_jumpsuit"
-	armor = list(melee = 20, bullet = 20, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
-	flags = FPRINT | TABLEPASS
-	siemens_coefficient = 0.9
+	icon_state = "ncr_uni"
+	item_state = "ncr_uni_s"
+	item_color = "ncr_uni"
 
 
-/obj/item/clothing/suit/storage/marine/PMCarmor/leader/fluff/SAS
+/obj/item/clothing/suit/storage/marine/fluff/SAS
 	name = "Legion Armor"
 	desc = "This armor was custom made to resemble the small growing Legion within the galaxy started by one man slowly making its way to becoming a larger Corperation.  DONOR ITEM."
-	icon = 'icons/PMC.dmi'
-	item_state = "officer_armor"
-	icon_state = "officer_armor"
+	item_state = "ncrjacket"
+	icon_state = "ncrjacket"
+	icon = 'icons/mob/suit.dmi'
+	icon_override = 'icons/obj/clothing/suits.dmi'
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	cold_protection = UPPER_TORSO|LOWER_TORSO
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
@@ -192,14 +191,15 @@
 	name = "Doom Uniform"
 	desc = "A uniform, of a famous Earth warrior... Donor Item"
 	icon_state = "doom_suit"
-	item_state = "doom_suit"
+	item_state = "doom_suit_s"
+	item_color = "doom_suit"
 
 
 /obj/item/clothing/shoes/FLUFF/mycroft
 	name = "Doom Shoes"
 	desc = "A uniform, of a famous Earth warrior... Donor Item"
 	icon_state = "doom_boots"
-	item_color = "doom_boots"
+	item_state = "doom_boots"
 
 /obj/item/clothing/head/fluff/mycroft
 	name = "Doom Helmet"
@@ -222,3 +222,51 @@
 	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 	allowed = list(/obj/item/weapon/gun/, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/lighter,/obj/item/weapon/grenade)
+
+
+/obj/item/clothing/under/marine/PMC/fluff/LEO
+	name = "PMC Suit"
+	desc = "A white colored PMC Suit, probably not the best color for a band of murderers....  DONOR ITEM."
+	icon_state = "pmc_jumpsuit"
+	item_state = "pmc_jumpsuit_s"
+	item_color = "pmc_jumpsuit"
+	armor = list(melee = 20, bullet = 20, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+	flags = FPRINT | TABLEPASS
+	siemens_coefficient = 0.9
+
+
+/obj/item/clothing/suit/storage/marine/PMCarmor/fluff/LEO
+	name = "PMC Armor"
+	desc = "Some white colored PMC gear.  DONOR ITEM."
+	icon = 'icons/PMC.dmi'
+	item_state = "pmc_armor"
+	icon_state = "pmc_armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECITON_TEMPERATURE
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+	allowed = list(/obj/item/weapon/gun/, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/lighter,/obj/item/weapon/grenade)
+
+
+/obj/item/clothing/mask/balaclava/LEO
+	name = "PMC Mask"
+	desc = "A white colored PMC Mask.  DONOR ITEM."
+	flags_inv = 0
+	icon = 'icons/PMC.dmi'
+	icon_override = 'icons/PMC.dmi'
+	item_state = "pmc_mask"
+	icon_state = "pmc_mask"
+
+/obj/item/clothing/head/fluff/sas2
+	name = "Juggernaut Helmet"
+	icon_state = "ncrhelmet"
+	item_state = "ncrhelmet"
+	item_color = "ncrhelmet"
+	desc = "A red helmet, for pairing with JuggerNaut Armor. DONOR ITEM"
+	flags = FPRINT|TABLEPASS
+	siemens_coefficient = 0
+
+
