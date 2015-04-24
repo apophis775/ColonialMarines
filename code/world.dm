@@ -249,7 +249,7 @@
 	//s += "" //Change this to wherever you want the hub to link to.
 	//s += "[config.server_version]"
 	//s += ")"
-//	s += "<br><img src=\"http://i.imgur.com/OQ5OIMJ.png\"><br>"   //REPLACE THIS WITH A LOGO EVENTUALLY
+	s += "<br><img src=\"http://i.imgur.com/gOh6F7M.jpg\"><br>"
 	s += "</a>"
 
 	var/list/features = list()
