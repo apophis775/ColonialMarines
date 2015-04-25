@@ -18,7 +18,7 @@
 	diary << "\n\nStarting up. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
 	diaryofmeanpeople << "\n\nStarting up. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
-	loginLog = file("data/logs/loginLog/ [date_string].log")
+	clockInLog = file("data/logs/ClockInLog/ [date_string].log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		world.log << "Your server's byond version does not meet the recommended requirements for this server. Please update BYOND"
