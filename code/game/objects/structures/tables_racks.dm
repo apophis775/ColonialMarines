@@ -439,23 +439,20 @@
 	if (get_turf(usr) == get_turf(src))
 		usr.visible_message("<span class='warning'>[usr] climbs onto \the [src]!</span>")
 
-/obj/structure/table/MouseDrop(over_object, src_location, over_location)
+/obj/structure/table/MouseDrop_T(mob/M as mob, mob/user as mob)
 	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))
-			return
-		if (!can_touch(usr))
-			return
+	if(!ishuman(usr))
+		return
+	if (!can_touch(usr))
+		return
 
-		usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")
+	usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")
 
-		if(!do_after(usr,25))
-			return
-
-		usr.loc = get_turf(src)
-		for(var/mob/living/M in get_turf(src))
-		if (get_turf(usr) == get_turf(src))
-			usr.visible_message("<span class='warning'>[usr] climbs onto \the [src]!</span>")
+	if(!do_after(usr,25))
+		return
+	usr.loc = get_turf(src)
+	if (get_turf(usr) == get_turf(src))
+		usr.visible_message("<span class='warning'>[usr] climbs onto \the [src]!</span>")
 
 /obj/structure/table/verb/do_flip()
 	set name = "Flip table"
