@@ -4,8 +4,7 @@
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]")
-	if(R_MOD || R_ADMIN)
-		admin_log("Staff Login: [key_name(src)]")
+
 	if(config.log_access)
 		for(var/mob/M in player_list)
 			if(M == src)	continue

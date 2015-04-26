@@ -254,8 +254,8 @@ var/DBConnection/dbcon_old = new()	//Tgstation database (Old database) - See the
 
 
 
-//login log
-var/loginLog = null //used to track when staff logs in and out of the server
+//Staff Clock log
+//var/clockInLog = null //used to track when staff logs in and out of the server
 
 //Queen respawn timer
 var/queen_died = 0

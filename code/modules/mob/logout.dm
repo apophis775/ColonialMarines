@@ -1,6 +1,5 @@
 /mob/Logout()
-	if(R_MOD || R_ADMIN)
-		admin_log("Staff Logout: [key_name(src)]")
+
 	nanomanager.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
 	player_list -= src
 	log_access("Logout: [key_name(src)]")

@@ -11,7 +11,6 @@
 	world.log << "## TESTING: [msg]"
 
 /proc/log_admin(text)
-	admin_log.Add(text)
 	if (config.log_admin)
 		diary << "\[[time_stamp()]]ADMIN: [text]"
 
@@ -37,9 +36,12 @@
 	if (config.log_access)
 		diary << "\[[time_stamp()]]ACCESS: [text]"
 
+
+/*  APOP CODE FOR REMOVAL
 /proc/admin_log(text) //To see when admins login/logout
 	if (config.log_access)
-		loginLog << "\[[time_stamp()]]ACCESS: [text]"
+		loginLog << "\[[time_stamp()]]ACCESS: [text]"*/
+
 
 /proc/log_say(text)
 	if (config.log_say)
