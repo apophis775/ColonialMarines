@@ -13,6 +13,7 @@
 
 /obj/item/alien_embryo/New()
 	..()
+	score_hosts_infected++
 	process_larva()
 	if(istype(loc, /mob/living))
 		affected_mob = loc

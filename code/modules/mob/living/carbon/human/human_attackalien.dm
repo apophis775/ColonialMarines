@@ -41,6 +41,7 @@
 			visible_message("\red <B>[M] has slashed at [src]!</B>")
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [M.name] ([M.ckey])</font>")
+			score_slashes_made++
 
 			apply_damage(damage, BRUTE, affecting, armor_block)
 
@@ -52,6 +53,7 @@
 				if (prob(20))
 					playsound(loc, 'sound/weapons/pierce.ogg', 25, 1, -1)
 					Weaken(rand(M.tacklemin,M.tacklemax))//Min and max tackle strenght. They are located in individual caste files.
+					score_tackles_made++
 					for(var/mob/O in viewers(src, null))
 						if ((O.client && !( O.blinded )))
 							O.show_message(text("\red <B>[] has tackled down []!</B>", M, src), 1)
@@ -63,6 +65,7 @@
 				if (prob(M.tackle_chance)) //Tackle_chance is now a special var for each caste.
 					playsound(loc, 'sound/weapons/pierce.ogg', 25, 1, -1)
 					Weaken(rand(M.tacklemin,M.tacklemax))
+					score_tackles_made++
 					for(var/mob/O in viewers(src, null))
 						if ((O.client && !( O.blinded )))
 							O.show_message(text("\red <B>[] has tackled down []!</B>", M, src), 1)

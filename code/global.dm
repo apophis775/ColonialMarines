@@ -259,3 +259,66 @@ var/DBConnection/dbcon_old = new()	//Tgstation database (Old database) - See the
 
 //Queen respawn timer
 var/queen_died = 0
+
+
+
+
+
+
+
+
+
+
+
+//Goonstyle scoreboard
+//Marines
+
+var/score_marinescore = 0 //overall var/score for marines
+var/score_marines_won = 0
+/*
+0 = fail
+1 = marine major
+2 = marine minor
+*/
+
+var/score_marines_mia = 0// dead bodies that are not on Sulaco
+var/score_marines_kia = 0 // dead bodies that are on Sulaco
+var/score_marines_survived = 0 // dead bodies that are on Sulaco
+var/score_aliens_killed = 0// killed aliens
+var/score_hit_called = 0// killed aliens
+
+var/score_rounds_fired = 0// rounds fired from guns
+var/score_rounds_hit = 0// rounds fired from guns
+var/score_aliens_clamped = 0// rounds fired from guns
+
+
+var/round_end_situation = 3
+/*
+1 = alien major victory
+2 = marine major victory
+3 = draw
+4 = alien minor victory
+5 = marine minor victory
+*/
+
+
+//Aliens
+var/score_alienscore = 0 //overall var/score for aliens
+var/score_aliens_won = 0
+/*
+0 = fail
+1 = alien major
+2 = aline minor
+*/
+
+var/score_aliens_dead = 0// dead aliens
+var/score_queens_dead = 0// dead queens
+var/score_aliens_survived = 0// live aliens
+var/score_queen_survived = 0// original queen is alive?
+var/score_eggs_made = 0// how many eggs were made?
+var/score_weeds_made = 0// how many weeds are there?
+var/score_hosts_infected = 0// how many hosts were infected
+
+var/score_resin_made = 0// how many hosts were infected
+var/score_tackles_made = 0// how many times did they tackle
+var/score_slashes_made = 0// how many times did thes slash

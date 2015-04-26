@@ -567,6 +567,7 @@ It can still be worn/put on as normal.
 /obj/effect/equip_e/human/done()	//TODO: And rewrite this :< ~Carn
 	target.cpr_time = 1
 	if(isanimal(source)) return //animals cannot strip people
+	if(islarva(source)) return //larvas cannot strip people
 	if(!source || !target) return		//Target or source no longer exist
 	if(source.loc != s_loc) return		//source has moved
 	if(target.loc != t_loc) return		//target has moved
@@ -584,11 +585,11 @@ It can still be worn/put on as normal.
 				strip_item = target.wear_mask
 		if("gloves")
 			slot_to_process = slot_gloves
-			if (target.gloves && target.gloves.canremove)
+			if (target.gloves && target.gloves.canremove && !isalienadult(source))
 				strip_item = target.gloves
 		if("eyes")
 			slot_to_process = slot_glasses
-			if (target.glasses)
+			if (target.glasses && !isalienadult(source))
 				strip_item = target.glasses
 		if("belt")
 			slot_to_process = slot_belt
@@ -604,15 +605,15 @@ It can still be worn/put on as normal.
 				strip_item = target.head
 		if("l_ear")
 			slot_to_process = slot_l_ear
-			if (target.l_ear)
+			if (target.l_ear && !isalienadult(source))
 				strip_item = target.l_ear
 		if("r_ear")
 			slot_to_process = slot_r_ear
-			if (target.r_ear)
+			if (target.r_ear && !isalienadult(source))
 				strip_item = target.r_ear
 		if("shoes")
 			slot_to_process = slot_shoes
-			if (target.shoes && target.shoes.canremove)
+			if (target.shoes && target.shoes.canremove && !isalienadult(source))
 				strip_item = target.shoes
 		if("l_hand")
 			if (istype(target, /obj/item/clothing/suit/straight_jacket))
@@ -628,7 +629,7 @@ It can still be worn/put on as normal.
 				strip_item = target.r_hand
 		if("uniform")
 			slot_to_process = slot_w_uniform
-			if(target.w_uniform && target.w_uniform.canremove)
+			if(target.w_uniform && target.w_uniform.canremove && !isalienadult(source))
 				strip_item = target.w_uniform
 		if("suit")
 			slot_to_process = slot_wear_suit
@@ -636,7 +637,7 @@ It can still be worn/put on as normal.
 				strip_item = target.wear_suit
 		if("id")
 			slot_to_process = slot_wear_id
-			if (target.wear_id)
+			if (target.wear_id && !isalienadult(source))
 				strip_item = target.wear_id
 		if("back")
 			slot_to_process = slot_back
@@ -644,11 +645,11 @@ It can still be worn/put on as normal.
 				strip_item = target.back
 		if("handcuff")
 			slot_to_process = slot_handcuffed
-			if (target.handcuffed)
+			if (target.handcuffed && !isalienadult(source))
 				strip_item = target.handcuffed
 		if("legcuff")
 			slot_to_process = slot_legcuffed
-			if (target.legcuffed)
+			if (target.legcuffed && !isalienadult(source))
 				strip_item = target.legcuffed
 		if("splints")
 			for(var/organ in list("l_leg","r_leg","l_arm","r_arm"))

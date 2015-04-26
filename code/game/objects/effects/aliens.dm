@@ -47,6 +47,7 @@
 	..()
 	var/turf/T = get_turf(src)
 	T.thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
+	score_resin_made++
 
 /obj/effect/alien/resin/Del()
 	var/turf/T = get_turf(src)
@@ -508,6 +509,7 @@ Alien plants should do something if theres a lot of poison
 	var/status = GROWING //can be GROWING, GROWN or BURST; all mutually exclusive
 
 	New()
+		score_eggs_made++
 		if(aliens_allowed)
 			..()
 			spawn(rand(MIN_GROWTH_TIME,MAX_GROWTH_TIME))
