@@ -12,5 +12,5 @@ Colonial Marines is a <strong>medium roleplay</strong> server. It's based on the
 * Aliens: Talk in Hivemind using <strong>:a</strong> (e.g. Say ":aMy life for the queen!")
 * Aliens: Do NOT use Harm intent on the marines unless the Queen tells you to. Use Disarm intent to knock 'em out and bring 'em back to your hive.
 * To play as an alien after the round has started: Join as an Observer, then toggle your Xenomorph candidacy in Preferences > Toggle SpecialRole Candidacy. You'll pop as a larva when a host is ready.
-* Use the buttons at the top of the screen (<a href="http://sscolonialmarines.wikia.com/">Wiki</a>, <a href="http://www.colonial-marines.com">Forum</a>, <a href="http://www.colonial-marines.com/viewtopic.php?f=57&t=1363">Rules</a>, etc) for more info.
+* Use the buttons at the top of the screen (<a href="http://www.colonial-marines.com/wiki/">Wiki</a>, <a href="http://www.colonial-marines.com">Forum</a>, <a href="http://www.colonial-marines.com/viewtopic.php?f=57&t=1363">Rules</a>, etc) for more info.
 <hr>

@@ -25,6 +25,11 @@
 		return 1
 	return 0
 
+/proc/isqueen(A)
+	if(istype(A, /mob/living/carbon/alien/humanoid/queen))
+		return 1
+	return 0
+
 /proc/islarva(A)
 	if(istype(A, /mob/living/carbon/alien/larva))
 		return 1

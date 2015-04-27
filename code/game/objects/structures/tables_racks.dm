@@ -340,12 +340,11 @@
 			return 1
 	return 1
 
-/obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
+/obj/structure/table/MouseDrop_T(mob/user as mob, obj/O as obj )
 	if ((!( istype(O, /obj/item/weapon) ) || user.get_active_hand() != O))
 		return
 	if(isrobot(user))
 		return
-	user.drop_item()
 	if (O.loc != src.loc)
 		step(O, get_dir(O, src))
 	return
@@ -437,7 +436,21 @@
 
 	usr.loc = get_turf(src)
 	for(var/mob/living/M in get_turf(src))
-		//M.Weaken(5)
+	if (get_turf(usr) == get_turf(src))
+		usr.visible_message("<span class='warning'>[usr] climbs onto \the [src]!</span>")
+
+/obj/structure/table/MouseDrop_T(mob/M as mob, mob/user as mob)
+	..()
+	if(!ishuman(usr))
+		return
+	if (!can_touch(usr))
+		return
+
+	usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")
+
+	if(!do_after(usr,25))
+		return
+	usr.loc = get_turf(src)
 	if (get_turf(usr) == get_turf(src))
 		usr.visible_message("<span class='warning'>[usr] climbs onto \the [src]!</span>")
 

@@ -58,6 +58,7 @@
 		return 2
 	if(!P.nodamage)
 		apply_damage((P.damage/(absorb+1)), P.damage_type, def_zone, absorb, 0, P)
+		score_rounds_hit++
 	P.on_hit(src, absorb)
 	return absorb
 

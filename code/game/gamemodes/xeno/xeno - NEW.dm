@@ -191,6 +191,7 @@ datum/game_mode/infestation/proc/check_alien_victory()
 			world << 'sound/misc/Game_Over_Man.ogg'
 		else
 			world << 'sound/misc/asses_kicked.ogg'
+		round_end_situation += 1
 
 	else if(finished == 2)
 		feedback_set_details("round_end_result","marine major victory - xenomorph infestation erradicated")
@@ -200,19 +201,24 @@ datum/game_mode/infestation/proc/check_alien_victory()
 			world << 'sound/misc/hardon.ogg'
 		else
 			world << 'sound/misc/hell_march.ogg'
+		round_end_situation += 2
 
 	else if(finished == 3)
 		feedback_set_details("round_end_result","marine minor victory - infestation stopped at a great cost")
 		world << "\red <FONT size = 3><B>Marine minor victory.</B></FONT>"
 		world << "\red <FONT size = 3><B>Both the marines and the aliens have been terminated. At least the infestation has been erradicated!</B></FONT>"
+
 	else if(finished == 4)
 		feedback_set_details("round_end_result","alien minor victory - infestation survives")
 		world << "\red <FONT size = 3><B>Alien minor victory.</B></FONT>"
 		world << "\red <FONT size = 3><B>The station has been evacuated... but the infestation remains!</B></FONT>"
+		round_end_situation += 4
+
 	else if(finished == 5)
 		feedback_set_details("round_end_result","draw - the station has been nuked")
 		world << "\red <FONT size = 3><B>Draw.</B></FONT>"
 		world << "\red <FONT size = 3><B>The station has blown by a nuclear fission device... there are no winners!</B></FONT>"
+		round_end_situation +=5
 
 	..()
 	return 1

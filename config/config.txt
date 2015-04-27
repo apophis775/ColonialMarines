@@ -154,7 +154,7 @@ GUEST_BAN
 FORUMURL http://www.colonial-marines.com
 
 ## Wiki address
-WIKIURL http://sscolonialmarines.wikia.com/wiki/Space_Station_Colonial_Marines_Wiki
+WIKIURL http://www.colonial-marines.com/wiki/
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 BANAPPEALS http://www.colonial-marines.com/viewforum.php?f=76
