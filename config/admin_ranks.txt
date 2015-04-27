@@ -36,10 +36,7 @@ Game Admin 	+@ +POSSESS +BUILDMODE +FUN +SOUND
 Developer	+@ +DEBUG
 Head Moderator 	+@ +PERMISSIONS
 Head Admin 	+EVERYTHING
-Head Developer  +@
-Auditor 	+@
-Retired Admin 	+ADMIN +STEALTH
 Host 		+EVERYTHING 
+Vice Host       +EVERYTHING
 Coder		+SERVER + REJUV +VAREDIT +BUILDMODE +SPAWN +MOD +DEBUG
 Mapper 		+VAREDIT + BUILDMODE +MOD +REJUV
-Retired Admin   +COLOR +REJUV +MOD +SERVER
