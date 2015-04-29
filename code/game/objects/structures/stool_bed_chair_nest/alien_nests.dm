@@ -34,6 +34,7 @@
 		sleep(50)
 /obj/structure/stool/bed/nest/New()
 	process_unbuckle()
+	score_resin_made++
 
 /obj/structure/stool/bed/nest/unbuckle()
 	..()
