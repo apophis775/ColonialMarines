@@ -103,6 +103,7 @@
 				bullet.yo = targloc.y - curloc.y
 				bullet.xo = targloc.x - curloc.x
 				ammo = ammo - 1
+				score_rounds_fired++
 				spawn()
 					if(bullet)
 						bullet.process()

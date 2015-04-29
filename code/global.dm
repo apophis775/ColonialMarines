@@ -281,15 +281,18 @@ var/score_marines_won = 0
 2 = marine minor
 */
 
-var/score_marines_mia = 0// dead bodies that are not on Sulaco
+var/score_marines_mia = 0// dead bodies that are not on Sulaco or Centcomm
 var/score_marines_kia = 0 // dead bodies that are on Sulaco
-var/score_marines_survived = 0 // dead bodies that are on Sulaco
-var/score_aliens_killed = 0// killed aliens
-var/score_hit_called = 0// killed aliens
+var/score_marines_survived = 0 // Alive, active marines
+var/score_survivors_rescued = 0 // Alive, active survivors
+var/score_hit_called = 0// Was hit called?
+var/score_marines_chestbursted = 0// How many marines got chestbursted
+var/score_marines_cloned = 0// How many marines got cloned
+var/score_larvas_extracted = 0
 
-var/score_rounds_fired = 0// rounds fired from guns
-var/score_rounds_hit = 0// rounds fired from guns
-var/score_aliens_clamped = 0// rounds fired from guns
+var/score_rounds_fired = 0// Rounds fired from guns
+var/score_rounds_hit = 0// Rounds hit
+var/score_aliens_clamped = 0// How many times did they clamp aliens
 
 
 var/round_end_situation = 3
@@ -312,13 +315,14 @@ var/score_aliens_won = 0
 */
 
 var/score_aliens_dead = 0// dead aliens
+var/score_larvas_dead = 0// dead larvas
 var/score_queens_dead = 0// dead queens
-var/score_aliens_survived = 0// live aliens
+var/score_aliens_survived = 0// Alive, active aliens
 var/score_queen_survived = 0// original queen is alive?
 var/score_eggs_made = 0// how many eggs were made?
 var/score_weeds_made = 0// how many weeds are there?
 var/score_hosts_infected = 0// how many hosts were infected
 
-var/score_resin_made = 0// how many hosts were infected
-var/score_tackles_made = 0// how many times did they tackle
-var/score_slashes_made = 0// how many times did thes slash
+var/score_resin_made = 0// how many resin structures were made?
+var/score_tackles_made = 0// how many times did they tackle?
+var/score_slashes_made = 0// how many times did thes slash?

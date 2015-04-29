@@ -513,6 +513,9 @@
 					continue
 				if(istype(M, /mob/living/carbon) && stat != 2)
 					if(M.stat == 2)
+						for(var/datum/mind/S in stomach_contents)
+							if (S.special_role != "Survivor")
+								score_marines_mia++ //Devoured marines are mia
 						M.death(1)
 						stomach_contents.Remove(M)
 						del(M)

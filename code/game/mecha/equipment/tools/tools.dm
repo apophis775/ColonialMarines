@@ -58,9 +58,11 @@
 				M.updatehealth()
 				occupant_message("\red You squeeze [target] with [src.name]. Something cracks.")
 				chassis.visible_message("\red [chassis] squeezes [target].")
+				if(isalien(M))
+					score_aliens_clamped++
 				if (prob(20))
 					M.Weaken(rand(2,4))
-					chassis.visible_message("\red [chassis] pushed [target] on the ground!")
+					chassis.visible_message("\red [chassis] pushed [target] to the ground!")
 			else
 				step_away(M,chassis)
 				occupant_message("You push [target] out of the way.")
