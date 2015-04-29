@@ -1,38 +1,54 @@
-verbose lucidity - Host
-Apophis775 - Head Developer
+Apophis775 - Host
+
+
+
+Rahlzel - Vice Host
+
+
+
 unknownmurder - Head Admin
+
+
+
 CampinKiller - Head Moderator
 
 
+
+
+
 coroneljones - Game Admin
-Caryl - Game Admin
-minimike1220 - Game Admin
-Void00 - Game Admin
+
 Speedybast - Game Admin
+
 SASoperative - Game Admin
-obey_stylez - Game Admin
 
 
-Rovernic - Trial Admin
-Razerwing - Trial Admin
+
+Rovernic - Game Admin
 
 
-Lordekilly - Moderator
+
 mdom - Moderator
+
 felkvir - Moderator
+
 sir octagon -  Moderator
 
+Kyrac - Moderator
 
-AncientV25 - Trial Moderator
-Andre1999 - Trial Moderator
-Kyrac - Trial Moderator
-Johnkilla56 - Trial Moderator
+Johnkilla56 - Moderator
 
 
-Rahlzel - Developer
+
+
 Allan1234 - Mapper
+
 Infernus44 - Mapper
+
 mewth - Mapper
+
 Slayerplayer99 - Coder
+
 Aztectornado - Coder
+
 SailorDave - Coder
