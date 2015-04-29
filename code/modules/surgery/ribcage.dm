@@ -178,7 +178,7 @@
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		user.visible_message("\red [user] rips the larva out of [target]'s ribcage!",
 							 "You rip the larva out of [target]'s ribcage!")
-
+		score_larvas_extracted++
 		for(var/obj/item/alien_embryo/A in target)
 			A.loc = A.loc.loc
 

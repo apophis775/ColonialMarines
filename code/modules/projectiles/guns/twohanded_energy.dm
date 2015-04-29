@@ -106,6 +106,7 @@
 		in_chamber.current = curloc
 		in_chamber.yo = targloc.y - curloc.y
 		in_chamber.xo = targloc.x - curloc.x
+		score_rounds_fired++
 
 		if(params)
 			var/list/mouse_control = params2list(params)

@@ -160,6 +160,8 @@
 		affected_mob.death()
 		affected_mob.stat = DEAD
 		src.protect = 1
+		if(ishuman(affected_mob))
+			score_marines_chestbursted++
 
 		for(var/mob/L in range(src, 10))
 			L << "\red <b>[new_xeno] crawls out of [affected_mob]!</b>"
