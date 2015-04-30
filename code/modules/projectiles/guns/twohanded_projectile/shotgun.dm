@@ -73,7 +73,7 @@
 
 
 //PUMP SHOTGUN FLASHLIGHT CODE
-/obj/item/weapon/gun/twohanded/projectile/shotgun/pump/riot/verb/toggle_light()
+/obj/item/weapon/gun/twohanded/projectile/shotgun/pump/verb/toggle_light()
 	set name = "Toggle Flashlight"
 	set category = "Weapon"
 
