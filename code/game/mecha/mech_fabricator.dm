@@ -52,7 +52,7 @@
 						/obj/item/robot_parts/robot_component/camera,
 						/obj/item/robot_parts/robot_component/armour
 					),
-	"Ripley"=list(
+/*	"Ripley"=list(
 						/obj/item/mecha_parts/chassis/ripley,
 						/obj/item/mecha_parts/part/ripley_torso,
 						/obj/item/mecha_parts/part/ripley_left_arm,
@@ -89,7 +89,7 @@
 						/obj/item/mecha_parts/part/durand_left_leg,
 						/obj/item/mecha_parts/part/durand_right_leg,
 						/obj/item/mecha_parts/part/durand_armour
-					),
+					),*/
 	/*"H.O.N.K"=list(
 						/obj/item/mecha_parts/chassis/honker,
 						/obj/item/mecha_parts/part/honker_torso,
