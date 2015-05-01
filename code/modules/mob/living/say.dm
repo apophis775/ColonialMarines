@@ -16,7 +16,7 @@ var/list/department_radio_keys = list(
 	  ":u" = "Supply",		"#u" = "Supply",		".u" = "Supply",
 	  ":g" = "changeling",	"#g" = "changeling",	".g" = "changeling",
 
-	  ":z" = "Sulaco",		"#z" = "Sulaco",		".z" = "Sulaco",
+	  ":x" = "Sulaco",		"#x" = "Sulaco",		".x" = "Sulaco",
 	  ":j" = "Hazteam Echo",		"#j" = "Hazteam Echo",		".j" = "Hazteam Echo",
 	  ":v" = "Marine Command",	"#v" = "Marine Command",	".v" = "Marine Command",
 	  ":q" = "Alpha Squad",	"#q" = "Alpha Squad",		".q" = "Alpha Squad",
@@ -41,7 +41,7 @@ var/list/department_radio_keys = list(
 	  ":U" = "Supply",		"#U" = "Supply",		".U" = "Supply",
 	  ":G" = "changeling",	"#G" = "changeling",	".G" = "changeling",
 
-	  ":Z" = "Sulaco",		"#Z" = "Sulaco",		".Z" = "Sulaco",
+	  ":X" = "Sulaco",		"#X" = "Sulaco",		".X" = "Sulaco",
 	  ":J" = "Hazteam Echo","#J" = "Hazteam Echo",	".J" = "Hazteam Echo",
 	  ":V" = "Marine Command","#V" = "Marine Command",".V" = "Marine Command",
 	  ":Q" = "Alpha Squad",	"#Q" = "Alpha Squad",	".Q" = "Alpha Squad",
@@ -67,6 +67,23 @@ var/list/department_radio_keys = list(
 	  ":å" = "Syndicate",	"#å" = "Syndicate",		".å" = "Syndicate",
 	  ":é" = "Supply",		"#é" = "Supply",		".é" = "Supply",
 	  ":ï" = "changeling",	"#ï" = "changeling",	".ï" = "changeling"
+
+	  ":î" = "Hazteam Echo",	"#j" = "Hazteam Echo",		".î" = "Hazteam Echo",
+	  ":ì" = "Marine Command",	"#ì" = "Marine Command",	".ì" = "Marine Command",
+	  ":é" = "Alpha Squad",	"#é" = "Alpha Squad",		".é" = "Alpha Squad",
+	  ":í" = "Bravo Squad",	"#í" = "Bravo Squad",	".í" = "Bravo Squad",
+	  ":à" = "Charlie Squad",	"#à" = "Charlie Squad",	".à" = "Charlie Squad",
+	  ":â" = "Delta Squad",	"#â" = "Delta Squad",	".â" = "Delta Squad",
+	  ":ç" = "Military Police",	"#ç" = "Military Police",	".ç" = "Military Police",
+
+	  ":×" = "Sulaco",		"#×" = "Sulaco",		".×" = "Sulaco",
+	  ":Î" = "Hazteam Echo","#Î" = "Hazteam Echo",	".Î" = "Hazteam Echo",
+	  ":Ì" = "Marine Command","#Ì" = "Marine Command",".Ì" = "Marine Command",
+	  ":É" = "Alpha Squad",	"#É" = "Alpha Squad",	".É" = "Alpha Squad",
+	  ":Í" = "Bravo Squad",	"#Í" = "Bravo Squad",	".Í" = "Bravo Squad",
+	  ":À" = "Charlie Squad","#À" = "Charlie Squad",".À" = "Charlie Squad",
+	  ":Â" = "Delta Squad",	"#Â" = "Delta Squad",	".Â" = "Delta Squad",
+	  ":Ç" = "Military Police","#Ç" = "Military Police",".Ç" = "Military Police",
 )
 
 /mob/living/proc/binarycheck()

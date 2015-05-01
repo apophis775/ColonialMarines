@@ -1,5 +1,5 @@
 ## Server name: This appears at the top of the screen in-game. In this case it will read "tgstation: station_name" where station_name is the randomly generated name of the station for the round. Remove the # infront of SERVERNAME and replace 'tgstation' with the name of your choice
-SERVERNAME Colonial Marines
+SERVERNAME Orange Liberty
 
 #Server version - Basically what revision the current server is on.
 SERVER_VERSION R1
@@ -129,7 +129,7 @@ ALLOW_AI
 
 
 ## disable abandon mob
- NORESPAWN
+#NORESPAWN
 
 ## disables calling del(src) on newmobs if they logout before spawnin in
 # DONT_DEL_NEWMOB
@@ -151,13 +151,13 @@ GUEST_BAN
 #SERVER play.colonial-marines.com:1400
 
 ## forum address
-FORUMURL http://www.colonial-marines.com
+FORUMURL http://kazachok.hol.es
 
 ## Wiki address
 WIKIURL http://www.colonial-marines.com/wiki/
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS http://www.colonial-marines.com/viewforum.php?f=76
+BANAPPEALS http://kazachok.hol.es/
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
@@ -228,4 +228,4 @@ USEALIENWHITELIST
 PYTHON_PATH C:/Python27/pythonw
 
 ## Automute the OOC channel
-AUTOOOCMUTE
+#AUTOOOCMUTE

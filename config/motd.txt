@@ -1,7 +1,7 @@
 </override>
 <hr>
-<h1>Welcome to Colonial Marines!</h1>
-Colonial Marines is a <strong>medium roleplay</strong> server. It's based on the <a href="http://en.wikipedia.org/wiki/Aliens_(film)">Aliens</a> film and heavily modified using <a href="http://baystation12.net/">Baystation 12</a>. If you're not sure how to roleplay, check out the <a href="http://wiki.baystation12.net/index.php?title=A_Crash_Course_In_Roleplaying">Crash Course in Roleplaying</a>.
+<h1>Welcome to Orange Liberty</h1>
+Orange Liberty is a <strong>medium roleplay</strong> server. It's based on the <a href="http://en.wikipedia.org/wiki/Aliens_(film)">Aliens</a> film and heavily modified using <a href="http://baystation12.net/">Baystation 12</a>. If you're not sure how to roleplay, check out the <a href="http://wiki.baystation12.net/index.php?title=A_Crash_Course_In_Roleplaying">Crash Course in Roleplaying</a>.
 
 <strong><font size="3"><font color="red">Our rules have changed! <a href="http://www.colonial-marines.com/viewtopic.php?f=57&t=1363">Read them here</a>. Ignorance is NOT an excuse!</strong>
 
@@ -13,4 +13,5 @@ Colonial Marines is a <strong>medium roleplay</strong> server. It's based on the
 * Aliens: Do NOT use Harm intent on the marines unless the Queen tells you to. Use Disarm intent to knock 'em out and bring 'em back to your hive.
 * To play as an alien after the round has started: Join as an Observer, then toggle your Xenomorph candidacy in Preferences > Toggle SpecialRole Candidacy. You'll pop as a larva when a host is ready.
 * Use the buttons at the top of the screen (<a href="http://www.colonial-marines.com/wiki/">Wiki</a>, <a href="http://www.colonial-marines.com">Forum</a>, <a href="http://www.colonial-marines.com/viewtopic.php?f=57&t=1363">Rules</a>, etc) for more info.
+Copyright Clonial Marines
 <hr>
