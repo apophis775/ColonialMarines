@@ -6,3 +6,6 @@
 *.lk
 data/
 scripts/voicequeue.txt
+code/world.dm
+code/hub.dm
+interface/interface.dm

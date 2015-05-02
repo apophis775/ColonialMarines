@@ -240,17 +240,15 @@
 
 /world/proc/update_status()
 	var/s = ""
-
 	if (config && config.server_name)
-		s += "<a href=\"http://www.colonial-marines.com\"><b>[config.server_name]</b> &#8212; "
-
-	s += "<b>NMV Sulaco</b> | Hosted by Apophis";
-	//s += " ("
-	//s += "" //Change this to wherever you want the hub to link to.
-	//s += "[config.server_version]"
-	//s += ")"
-	s += "<br><img src=\"http://i.imgur.com/VpW1jnJ.png?1\"><br>"
+		s += "<b>[config.server_name]</b> &#8212; "
+	s += "<b>[station_name()]</b>";
+	s += " ("
+	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
+//	s += "[game_version]"
+	s += "Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
+	s += ")"
 
 	var/list/features = list()
 
