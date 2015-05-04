@@ -137,6 +137,7 @@
 			user <<"\red You affix your bayonet LIKE A BADASS"
 			hasBayonet = 1
 			src.force+=bayonetDamage
+			del(K)
 	return
 
 

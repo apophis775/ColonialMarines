@@ -37,3 +37,9 @@ feodrich: Mycroft''Psycho''Macarthur: /obj/item/clothing/shoes/FLUFF/mycroft
 totalanarchy: Leo Backburn: /obj/item/clothing/mask/balaclava/LEO
 totalanarchy: Leo Backburn: /obj/item/clothing/suit/storage/marine/PMCarmor/fluff/LEO
 totalanarchy: Leo Backburn: /obj/item/clothing/under/marine/PMC/fluff/LEO
+kyrac: Marcus Ranchers:  /obj/item/clothing/under/fluff/turtleneck
+kyrac: Marcus Ranchers:  /obj/item/clothing/glasses/fluff/eyepatch
+sadokist: Tanya 'Aegis' Edenia: /obj/item/weapon/storage/backpack/marine/fluff/Sado
+sadokist: Tanya 'Aegis' Edenia: /obj/item/clothing/head/beret/fluff/Sado
+zynax: Isaac Miller: /obj/item/clothing/under/fluff/turtleneck
+zynax: Isaac Miller: /obj/item/clothing/mask/balaclava/fluff

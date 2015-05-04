@@ -24,6 +24,17 @@
 	name = "Black Ops Turtleneck"
 	desc = "A $900 black turtleneck woven from only the purest Azerbaijani cashmere wool.  DONOR ITEM"
 
+/obj/item/clothing/glasses/fluff/eyepatch
+	name = "An Eyepatch"
+	desc = "Badass +10"
+	icon_state = "eyepatch"
+	item_state = "eyepatch"
+
+/obj/item/clothing/mask/balaclava/fluff
+	name = "Black Ops Balaclava"
+	desc = "The latest fashion, when your hoping to try and hide your identity.  DONOR ITEM"
+	flags_inv = 0
+
 
 //Specific Items for Specific People
 
@@ -268,5 +279,18 @@
 	desc = "A red helmet, for pairing with JuggerNaut Armor. DONOR ITEM"
 	flags = FPRINT|TABLEPASS
 	siemens_coefficient = 0
+
+/obj/item/weapon/storage/backpack/marine/fluff/Sado
+	name = "Tanya's Backpack"
+	desc = "A large backpack, used by Tanya Edenia."
+	icon_state = "securitypack"
+	item_state = "securitypack"
+
+/obj/item/clothing/head/beret/fluff/Sado
+	name = "Tanya's Beret"
+	desc = "A bright red beret, owned by Tanya Edenia."
+	icon_state = "beret_badge"
+	flags = FPRINT | TABLEPASS
+
 
 
