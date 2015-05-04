@@ -51,7 +51,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 100, bio = 0, rad = 0)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	siemens_coefficient = 0
-	health = 30
+	health = 10
 
 /obj/item/clothing/suit/bomb_suit
 	name = "bomb suit"
