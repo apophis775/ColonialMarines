@@ -57,6 +57,13 @@
 				buckled_mob.nested = null
 				unbuckle()
 			else
+				if(resisting == 1)
+					buckled_mob.visible_message(\
+					"<span class='notice'>[user.name] tries to break free, and becomes more entangled...</span>",\
+					"<span class='notice'>You were already trying to escape, and the more you struggle, the more you get entangled...</span>",\
+					"<span class='notice'>You hear squelching...</span>")
+					buckletimemax+=300
+					return
 				buckled_mob.visible_message(\
 					"<span class='warning'>[buckled_mob.name] struggles to break free of the gelatinous resin...</span>",\
 					"<span class='warning'>You struggle to break free from the gelatinous resin...</span>",\

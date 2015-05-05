@@ -15,6 +15,7 @@
 	tacklemax = 5
 	tackle_chance = 70 //Should not be above 100%
 	psychiccost = 32
+	class = 3
 
 /mob/living/carbon/alien/humanoid/hivelord/New()
 	var/datum/reagents/R = new/datum/reagents(100)

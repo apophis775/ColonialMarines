@@ -579,9 +579,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					if(istype(hradio.keyslot2, squadb))
 						rendered = "[part_a][realname] <b>\[BLead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
 					if(istype(hradio.keyslot2, squadd))
-						rendered = "[part_a][realname] <b>\[CLead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
-					if(istype(hradio.keyslot2, squadc))
 						rendered = "[part_a][realname] <b>\[DLead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
+					if(istype(hradio.keyslot2, squadc))
+						rendered = "[part_a][realname] <b>\[CLead\]</b>[part_b]<b>[quotedmsg]</b>[part_c]"
 					if(istype(hradio.keyslot2, command))
 						rendered = "<font size='3'>[part_a][realname] <b>\[Command\]</b>[part_b]<b>[quotedmsg]</b>[part_c]</font>"
 

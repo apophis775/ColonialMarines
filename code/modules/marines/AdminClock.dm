@@ -26,8 +26,8 @@ var/clockInLog = null //Variable to track the log file
 	set category = "Admin"
 	set name = "Clock Out"
 	set desc = "Clock Out to end your time working"
-	clock_in("[key_name(usr)]")
-	message_admins("\blue [key_name_admin(usr)] has clocked in", 1)
+	clock_out("[key_name(usr)]")
+	message_admins("\blue [key_name_admin(usr)] has clocked out", 1)
 
 
 //THESE MUST BE ADDED TO THE MAIN CODE:

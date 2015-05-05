@@ -1,3 +1,4 @@
+//ALIEN SPITTER - UPDATED 30MAY2015 - APOPHIS
 /mob/living/carbon/alien/humanoid/spitter
 	name = "alien spitter"
 	caste = "Spitter"
@@ -17,6 +18,11 @@
 	tackle_chance = 75 //Should not be above 100% old was 65
 	heal_rate = 3
 	psychiccost = 25
+	class = 2
+	//TEMP VARIABLES
+	var/SPITCOOLDOWN = 10
+	var/usedspit = 0
+	//END TEMP VARIABLES
 	Stat()
 		..()
 		stat(null, "Jelly Progress: [progress]/[progressmax]")
@@ -90,3 +96,63 @@
 
 
 	return
+
+
+
+//Aimable Spit *********************************************************
+
+/mob/living/carbon/alien/humanoid/spitter/ClickOn(var/atom/A, params)
+
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"])
+		spit_neuro(A)
+
+		return
+	..()
+
+
+
+/mob/living/carbon/alien/humanoid/spitter/verb/spit_neuro(var/atom/T)
+
+	set name = "Spit Neurotoxin (75)"
+	set desc = "Spit Weak Neurotoxin."
+	set category = "Alien"
+	if(powerc(75))
+		if(usedspit <= world.time)
+			if(!T)
+				var/list/victims = list()
+				for(var/mob/living/carbon/human/C in oview(7))
+					victims += C
+				T = input(src, "Who should we spit Neurotoxin at?") as null|anything in victims
+
+			if(T)
+				usedspit = world.time + SPITCOOLDOWN * 15
+
+				src << "We spit at [T]"
+				visible_message("\red <B>[src] spits at [T]!</B>")
+
+				var/turf/curloc = src.loc
+				var/atom/targloc
+				if(!istype(T, /turf/))
+					targloc = get_turf(T)
+				else
+					targloc = T
+				if (!targloc || !istype(targloc, /turf) || !curloc)
+					return
+				if (targloc == curloc)
+					return
+				var/obj/item/projectile/energy/weak_neurotoxin/A = new /obj/item/projectile/energy/weak_neurotoxin(src.loc)
+				A.current = curloc
+				A.yo = targloc.y - curloc.y
+				A.xo = targloc.x - curloc.x
+				adjustToxLoss(-75)
+				A.process()
+
+			else
+				src << "\blue You cannot spit at nothing!"
+		else
+			src << "\red You need to wait before spitting!"
+	else
+		src << "\red You need more plasma."
+
+//END AIMABLE SPIT *****************************************

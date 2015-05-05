@@ -1,3 +1,4 @@
+//ALIEN PRAETORIAN - UPDATED 30MAY2015 - APOPHIS
 /mob/living/carbon/alien/humanoid/praetorian
 	name = "alien praetorian"
 	caste = "Accurate Praetorian"
@@ -17,6 +18,12 @@
 	var/progress = 0
 	var/progressmax = 500
 	psychiccost = 16
+	class = 3
+
+	//TEMP VARIABLES
+	var/SPITCOOLDOWN = 10
+	var/usedspit = 0
+	//END TEMP VARIABLES
 
 /*
 /mob/living/carbon/alien/humanoid/praetorian/Stat()
@@ -50,3 +57,62 @@
 	//src.transform = M
 	pixel_x = -16
 	..()
+
+
+//Aimable Spit *********************************************************
+
+/mob/living/carbon/alien/humanoid/praetorian/ClickOn(var/atom/A, params)
+
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"])
+		spit_neuro(A)
+
+		return
+	..()
+
+
+
+/mob/living/carbon/alien/humanoid/praetorian/verb/spit_neuro(var/atom/T)
+
+	set name = "Spit Neurotoxin (75)"
+	set desc = "Spit Weak Neurotoxin."
+	set category = "Alien"
+	if(powerc(75))
+		if(usedspit <= world.time)
+			if(!T)
+				var/list/victims = list()
+				for(var/mob/living/carbon/human/C in oview(7))
+					victims += C
+				T = input(src, "Who should we spit Neurotoxin at?") as null|anything in victims
+
+			if(T)
+				usedspit = world.time + SPITCOOLDOWN * 15
+
+				src << "We spit at [T]"
+				visible_message("\red <B>[src] spits at [T]!</B>")
+
+				var/turf/curloc = src.loc
+				var/atom/targloc
+				if(!istype(T, /turf/))
+					targloc = get_turf(T)
+				else
+					targloc = T
+				if (!targloc || !istype(targloc, /turf) || !curloc)
+					return
+				if (targloc == curloc)
+					return
+				var/obj/item/projectile/energy/weak_neurotoxin/A = new /obj/item/projectile/energy/weak_neurotoxin(src.loc)
+				A.current = curloc
+				A.yo = targloc.y - curloc.y
+				A.xo = targloc.x - curloc.x
+				adjustToxLoss(-75)
+				A.process()
+
+			else
+				src << "\blue You cannot spit at nothing!"
+		else
+			src << "\red You need to wait before spitting!"
+	else
+		src << "\red You need more plasma."
+
+//END AIMABLE SPIT *****************************************

@@ -1,4 +1,5 @@
 Apophis775 - Host
+ColonialMarines - Host
 
 
 
@@ -10,7 +11,7 @@ unknownmurder - Head Admin
 
 
 
-CampinKiller - Head Moderator
+SASoperative - Head Moderator
 
 
 
@@ -19,10 +20,6 @@ CampinKiller - Head Moderator
 coroneljones - Game Admin
 
 Speedybast - Game Admin
-
-SASoperative - Game Admin
-
-
 
 Rovernic - Game Admin
 
@@ -37,6 +34,8 @@ sir octagon -  Moderator
 Kyrac - Moderator
 
 Johnkilla56 - Moderator
+
+Caryl - Moderator
 
 
 

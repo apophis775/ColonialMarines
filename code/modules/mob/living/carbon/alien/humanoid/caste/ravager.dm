@@ -21,6 +21,7 @@
 	var/ATTACKTIME = 1.3 // in seconds
 	var/nextattack = 0
 	psychiccost = 32
+	class = 3
 
 /mob/living/carbon/alien/humanoid/ravager/New()
 	var/datum/reagents/R = new/datum/reagents(100)
