@@ -13,6 +13,7 @@
 	tacklemax = 6
 	tackle_chance = 90 //Should not be above 100%
 	heal_rate = 4
+	class = 2
 	var/usedpounce = 0
 
 	var/hasJelly = 1

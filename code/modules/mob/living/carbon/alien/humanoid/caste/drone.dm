@@ -18,6 +18,8 @@
 	var/jellyProgress = 0
 	var/jellyProgressMax = 1000
 	psychiccost = 30
+	class = 1
+
 	Stat()
 		..()
 		stat(null, "Jelly Progress: [jellyProgress]/[jellyProgressMax]")

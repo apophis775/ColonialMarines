@@ -16,6 +16,8 @@
 	tacklemax = 8
 	tackle_chance = 90 //Should not be above 100%
 	icon = 'icons/Xeno/2x2_Xenos.dmi'
+	class = 3
+
 
 /datum/hive_controller
 	var/mob/living/carbon/alien/humanoid/queen/active_queen
@@ -65,10 +67,10 @@
 	..(gibbed)
 	if(hive_controller)
 		hive_controller.psychicstrengthused -= src.psychiccost / 4
-	
+
 	for(var/mob/living/carbon/alien/A in living_mob_list)
 		A << "\red <font size=3><b>[name] has died! You feel the strength of your hivemind decrease.</b></font>"
-		
+
 
 /mob/living/carbon/alien/Stat()
 	..()
@@ -108,7 +110,7 @@
 	..()
 
 	queen_died = world.timeofday + 6000
-	
+
 
 //Queen verbs
 /mob/living/carbon/alien/humanoid/queen/verb/lay_egg()

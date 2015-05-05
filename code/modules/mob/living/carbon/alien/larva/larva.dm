@@ -19,6 +19,7 @@
 	var/obj/item/weapon/l_store = null
 	update_icon = 1
 	psychiccost = 4
+	class = 0
 /*
 /mob/living/carbon/alien/larva/proc/process()
 	var/list/candidates = list()

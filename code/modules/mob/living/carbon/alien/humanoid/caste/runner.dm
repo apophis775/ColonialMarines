@@ -16,6 +16,7 @@
 	heal_rate = 4
 	psychiccost = 25
 	var/usedpounce = 0
+	class = 1
 
 
 	//RUNNERS NOW USE JELLY, SINCE THEY EVOLVE INTO HUNTERS

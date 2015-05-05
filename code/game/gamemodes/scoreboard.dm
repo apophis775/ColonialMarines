@@ -1,5 +1,11 @@
 /datum/controller/gameticker/proc/scoreboard()
 //MARINES
+
+	// Was the shuttle called?
+	if(emergency_shuttle.location==2)
+		score_shuttle_called = 1
+
+
 	// Who is MIA
 	for (var/mob/living/carbon/human/I in mob_list)
 		if (I.stat == 2 && I.z != 6 && I.z != 2)  //Bodies not on Sulaco or centcomm are missing
@@ -7,22 +13,23 @@
 	// Who is KIA
 		else if (I.stat == 2)
 			score_marines_kia++
-	// Alive Active Marines
+
 	for(var/client/C in clients)
+		// Marines alive
 		if(ishuman(C.mob) && C.mob.stat != DEAD) //Not survivors
 			score_marines_survived++
+		// Marines evacuated
+		if(ishuman(C.mob) && C.mob.stat != DEAD && C.mob.z == 2)
+			score_crew_evacuated++
 	/*// Alive Active Survivors
 		if(ishuman(C.mob) && C.mob.stat != DEAD) //Survivors only
 			score_survivors_rescued++*/
-/*
-		var/special_role = C.special_role
- && C.mob.C.special_role != "Survivor"
 
 
- && C.mob.mind.special_role == "Survivor"
- */
+
+
 //End game score bonus
-	if (round_end_situation == 1)
+	if (round_end_situation == 1 || emergency_shuttle.location==2)
 		score_aliens_won = 1
 	else if (round_end_situation == 2)
 		score_marines_won = 1
@@ -57,15 +64,17 @@
 //-*------------------------------------------*-\\
 
 //MARINE SCORE
-	var/marine_mia_points = score_marines_mia * 500
-	var/marine_kia_points = score_marines_kia * 200
-	var/marine_survived_points = score_marines_survived * 100
-	var/marine_hit_called_points = score_hit_called * 2000
+	var/marine_mia_points = score_marines_mia * 350
+	var/marine_kia_points = score_marines_kia * 150
+	var/marine_survived_points = score_marines_survived * 200
+	var/marine_hit_called_points = score_hit_called * 5000
 	var/marine_won_points = score_marines_won * 5000
 	var/marine_rescue_points = score_survivors_rescued * 1000
 	var/marine_cloned_points = score_marines_cloned * 1000
 	var/marine_larvas_extracted_points = score_larvas_extracted * 500
 	var/marine_chestbursted_points = score_marines_chestbursted * 500
+	var/marine_shuttle_called_points = score_shuttle_called * 10000
+	var/marine_crew_evacuated_points = (score_marines_survived - score_crew_evacuated) * 1000
 
 //Calculate Marine Good Things
 	score_marinescore += marine_survived_points
@@ -80,10 +89,12 @@
 	score_marinescore -= marine_kia_points
 	score_marinescore -= marine_chestbursted_points
 	score_marinescore -= marine_hit_called_points
+	score_marinescore -= marine_crew_evacuated_points
+	score_marinescore -= marine_shuttle_called_points
 
 
 //ALIEN SCORE
-	var/alien_survived_points = score_aliens_survived * 200
+	var/alien_survived_points = score_aliens_survived * 500
 	var/alien_queen_survived_points = score_queen_survived * 5000
 	var/alien_dead_points = score_aliens_dead * 300
 	var/alien_queens_dead_points = score_queens_dead * 2000
@@ -132,7 +143,7 @@
 	else if (score_aliens_won == 2)
 		alien_win_message = "Infestation expands"
 	dat +={"<B>Infestation expanded?:</B>		[alien_win_message] 			([score_aliens_won * 5000] Points)<BR>
-	<B>Total live aliens:</B>					[score_aliens_survived]			 ([score_aliens_survived * 200] Points)<BR>
+	<B>Total live aliens:</B>					[score_aliens_survived]			 ([score_aliens_survived * 500] Points)<BR>
 	<B>Original queen survived:</B>				[score_queen_survived ? "Yes" : "No"] 			([score_queen_survived * 5000] Points)<BR>
 	<BR>
 	<B>Eggs produced:</B>						[score_eggs_made] 			([score_eggs_made * 25] Points)<BR>
@@ -171,14 +182,16 @@
 	<B>Larvas extracted</B> 					[score_larvas_extracted] ([score_larvas_extracted * 500] Points)<BR>
 	<BR>"}
 	dat += {"<U>THE BAD:</U><BR>
-	<B>Marines MIA:</B> 						[score_marines_mia] 			([-score_marines_mia * 500] Points)<BR>
-	<B>Marines KIA:</B> 						[score_marines_kia] 			([-score_marines_kia * 200] Points)<BR>
+	<B>Marines MIA:</B> 						[score_marines_mia] 			([-score_marines_mia * 350] Points)<BR>
+	<B>Marines KIA:</B> 						[score_marines_kia] 			([-score_marines_kia * 150] Points)<BR>
 	<B>Marines chestbursted:</B> 				[score_marines_chestbursted]			([-score_marines_chestbursted * 500] Points)<BR>
-	<BR>
-	<B>HIT called:</B>							[score_hit_called ? "Yes" : "No"] 			([-score_hit_called * 2000] Points)<BR>
-	<B>Sulaco evacuated:</B> 													(-) Points)<BR>
-	<B>Marines left behind:</B> 												(-) Points)<BR>
-	<BR>
+	<BR>"}
+	if (score_hit_called != 0)
+		dat += {"<B>HIT called:</B>							[score_hit_called ? "Yes" : "No"] 			([-score_hit_called * 5000] Points)<BR>"}
+	if (score_shuttle_called != 0)
+		dat += {"<B>Sulaco evacuated:</B> 					[score_shuttle_called ? "Yes" : "No"] 			([-score_shuttle_called * 10000] Points)<BR>
+	<B>Marines left behind:</B> 				[score_marines_survived - score_crew_evacuated] 			([(score_marines_survived - score_crew_evacuated) * -1000] Points)<BR>"}
+	dat += {"<BR>
 	<U>OTHER</U><BR>
 	<B>Rounds fired:</B> 						[score_rounds_fired]<BR>"}
 	if (score_rounds_fired != 0) //Let's not divide by 0 ever again
