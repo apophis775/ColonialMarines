@@ -292,5 +292,10 @@
 	icon_state = "beret_badge"
 	flags = FPRINT | TABLEPASS
 
+/obj/item/clothing/head/beret/fluff/Robin
+	name = "Robin Low's Beret"
+	desc = "A bright red beret, owned by Robin Low."
+	icon_state = "beret_badge"
+	flags = FPRINT | TABLEPASS
 
 
