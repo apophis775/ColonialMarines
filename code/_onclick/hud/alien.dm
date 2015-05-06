@@ -216,11 +216,11 @@
 	mymob.healths.name = "health"
 	mymob.healths.screen_loc = ui_alien_health
 
-	alien_plasma_display = new /obj/screen()
-	alien_plasma_display.icon = 'icons/mob/screen_gen.dmi'
-	alien_plasma_display.icon_state = "power_display2"
-	alien_plasma_display.name = "plasma stored"
-	alien_plasma_display.screen_loc = ui_alienplasmadisplay
+	mymob.alien_plasma_display = new /obj/screen()
+	mymob.alien_plasma_display.icon = 'icons/mob/screen_gen.dmi'
+	mymob.alien_plasma_display.icon_state = "power_display2"
+	mymob.alien_plasma_display.name = "plasma stored"
+	mymob.alien_plasma_display.screen_loc = ui_alienplasmadisplay
 
 	mymob.locate_queen = new /obj/screen()
 	mymob.locate_queen.icon = 'icons/mob/screen1_alien.dmi'
@@ -255,5 +255,5 @@
 
 	mymob.client.screen = null
 
-	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.toxin, mymob.fire, mymob.healths, alien_plasma_display, mymob.locate_queen, mymob.pullin, mymob.blind, mymob.flash) //, mymob.hands, mymob.rest, mymob.sleep, mymob.mach )
+	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.toxin, mymob.fire, mymob.healths, mymob.alien_plasma_display, mymob.locate_queen, mymob.pullin, mymob.blind, mymob.flash) //, mymob.hands, mymob.rest, mymob.sleep, mymob.mach )
 	mymob.client.screen += src.adding + src.other
