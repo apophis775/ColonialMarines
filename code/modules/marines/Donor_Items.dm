@@ -206,7 +206,7 @@
 	item_color = "doom_suit"
 
 
-/obj/item/clothing/shoes/FLUFF/mycroft
+/obj/item/clothing/shoes/marine/FLUFF/mycroft
 	name = "Doom Shoes"
 	desc = "A uniform, of a famous Earth warrior... Donor Item"
 	icon_state = "doom_boots"
@@ -298,4 +298,44 @@
 	icon_state = "beret_badge"
 	flags = FPRINT | TABLEPASS
 
+
+/obj/item/clothing/suit/storage/fluff/Vintage
+	name = "Vintage armor with ripples."
+	desc = "A vintage DONOR ITEM"
+	icon_state = "bulletproof"
+	item_state = "bulletproof"
+	name = "Doom Armor"
+	desc = "A uniform, of a famous Earth warrior... Donor Item"
+	item_state = "doom_armor"
+	icon_state = "doom_armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECITON_TEMPERATURE
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+	allowed = list(/obj/item/weapon/gun/, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/lighter,/obj/item/weapon/grenade)
+
+
+/obj/item/clothing/head/beret/fluff/Vintage
+	name = "Vintage Pimp Hat"
+	icon_state = "petehat"
+	item_state = "petehat"
+	desc = "A pimp hat, for the classic pimp. DONOR ITEM"
+	flags = FPRINT|TABLEPASS
+
+/obj/item/clothing/shoes/marine/Vintage
+	name = "Vintage Sandals"
+	desc = "Vintage Sandals, suitable for only the highest class of hipster.  DONOR ITEM"
+	icon_state = "wizard"
+	item_state = "wizard"
+
+
+/obj/item/clothing/under/marine/FLUFF/Vintage
+	name = "Vintage Pink Jumpsuit"
+	desc = "A jumpsuit that was either once red, or once white and washed with a load of colors... Donor Item"
+	icon_state = "pink"
+	item_state = "pnik_s"
+	item_color = "pink"
 
