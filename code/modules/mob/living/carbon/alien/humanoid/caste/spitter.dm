@@ -18,6 +18,7 @@
 	tackle_chance = 75 //Should not be above 100% old was 65
 	heal_rate = 3
 	psychiccost = 25
+	class = 2
 	//TEMP VARIABLES
 	var/SPITCOOLDOWN = 10
 	var/usedspit = 0

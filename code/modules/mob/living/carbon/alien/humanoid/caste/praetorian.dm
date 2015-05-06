@@ -18,6 +18,8 @@
 	var/progress = 0
 	var/progressmax = 500
 	psychiccost = 16
+	class = 3
+
 	//TEMP VARIABLES
 	var/SPITCOOLDOWN = 10
 	var/usedspit = 0

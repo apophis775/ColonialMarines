@@ -148,23 +148,13 @@ steam.start() -- spawns the effect
 // will always spawn at the items location.
 /////////////////////////////////////////////
 
+
 /obj/effect/effect/sparks
 	name = "sparks"
 	icon_state = "sparks"
 	var/amount = 6.0
 	anchored = 1.0
 	mouse_opacity = 0
-
-/obj/effect/effect/sparks/unpooled()
-	playsound(src.loc, "sparks", 100, 1)
-	var/turf/T = src.loc
-	if (istype(T, /turf))
-		T.hotspot_expose(1000,100)
-	spawn (100)
-		pool("spark", src)
-
-/obj/effect/effect/sparks/proc/init(newLoc)
-	loc = newLoc
 
 /obj/effect/effect/sparks/New()
 	..()
@@ -211,8 +201,7 @@ steam.start() -- spawns the effect
 			spawn(0)
 				if(holder)
 					src.location = get_turf(holder)
-				var/obj/effect/effect/sparks/sparks = unpool("spark", /obj/effect/effect/sparks)
-				sparks.init(src.location)
+				var/obj/effect/effect/sparks/sparks = new /obj/effect/effect/sparks(src.location)
 				src.total_sparks++
 				var/direction
 				if(src.cardinals)
@@ -223,7 +212,8 @@ steam.start() -- spawns the effect
 					sleep(5)
 					step(sparks,direction)
 				spawn(20)
-					pool("spark", sparks)
+					if(sparks)
+						sparks.delete()
 					src.total_sparks--
 
 

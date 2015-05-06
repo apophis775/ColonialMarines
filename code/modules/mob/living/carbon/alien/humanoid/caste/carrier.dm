@@ -17,6 +17,7 @@
 	tackle_chance = 60 //Should not be above 100%
 	var/THROWSPEED = 2
 	psychiccost = 32
+	class = 2
 
 /mob/living/carbon/alien/humanoid/carrier/New()
 	var/datum/reagents/R = new/datum/reagents(100)

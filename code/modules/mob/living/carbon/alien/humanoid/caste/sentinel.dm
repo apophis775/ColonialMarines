@@ -18,6 +18,7 @@
 	var/jellyProgress = 0
 	var/jellyProgressMax = 750
 	psychiccost = 25
+	class = 1
 	//TEMP VARIABLES
 	var/SPITCOOLDOWN = 10
 	var/usedspit = 0
