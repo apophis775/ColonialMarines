@@ -247,13 +247,14 @@
 	volume = 70
 	flags = FPRINT | OPENCONTAINER
 
-	attackby(var/obj/D, mob/user as mob)
+/////CLEANBOT DISABLED
+/*	attackby(var/obj/D, mob/user as mob)
 		if(isprox(D))
 			user << "You add [D] to [src]."
 			del(D)
 			user.put_in_hands(new /obj/item/weapon/bucket_sensor)
 			user.drop_from_inventory(src)
-			del(src)
+			del(src)*/
 
 // vials are defined twice, what?
 /*

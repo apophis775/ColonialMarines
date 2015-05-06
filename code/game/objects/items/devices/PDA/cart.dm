@@ -584,14 +584,15 @@ Code:
 					menu += "<h4>Located Cleanbots:</h4>"
 
 					ldat = null
-					for (var/obj/machinery/bot/cleanbot/B in world)
+					//////CLEANBOT DISABLED
+				/*	for (var/obj/machinery/bot/cleanbot/B in world)
 						var/turf/bl = get_turf(B)
 
 						if(bl)
 							if (bl.z != cl.z)
 								continue
 							var/direction = get_dir(src, B)
-							ldat += "Cleanbot - <b>\[[bl.x],[bl.y] ([uppertext(dir2text(direction))])\]</b> - [B.on ? "Online" : "Offline"]<br>"
+							ldat += "Cleanbot - <b>\[[bl.x],[bl.y] ([uppertext(dir2text(direction))])\]</b> - [B.on ? "Online" : "Offline"]<br>"*/
 
 					if (!ldat)
 						menu += "None"
