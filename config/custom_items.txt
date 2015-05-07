@@ -44,7 +44,7 @@ sadokist: Tanya 'Aegis' Edenia: /obj/item/clothing/head/beret/fluff/Sado
 zynax: Isaac Miller: /obj/item/clothing/under/fluff/turtleneck
 zynax: Isaac Miller: /obj/item/clothing/mask/balaclava/fluff
 robin63: Robin Low: /obj/item/clothing/head/beret/fluff/Robin
-vintagePalmer: William Thorp: /obj/item/clothing/suit/storage/fluff/Vintage
-vintagePalmer: William Thorp: /obj/item/clothing/head/beret/fluff/Vintage
-vintagePalmer: William Thorp: /obj/item/clothing/shoes/marine/Vintage
-vintagePalmer: William Thorp: /obj/item/clothing/under/marine/FLUFF/Vintage
+vintagepalmer: William Thorp: /obj/item/clothing/suit/storage/fluff/Vintage
+vintagepalmer: William Thorp: /obj/item/clothing/head/beret/fluff/Vintage
+vintagepalmer: William Thorp: /obj/item/clothing/shoes/marine/Vintage
+vintagepalmer: William Thorp: /obj/item/clothing/under/marine/FLUFF/Vintage

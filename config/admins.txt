@@ -23,6 +23,8 @@ Speedybast - Game Admin
 
 Rovernic - Game Admin
 
+Allan1234 - Trial Admin
+
 
 
 mdom - Moderator
@@ -47,7 +49,7 @@ Fickmacher - Trial Moderator
 
 
 
-Allan1234 - Mapper
+
 
 Infernus44 - Mapper
 
