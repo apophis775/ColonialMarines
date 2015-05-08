@@ -145,8 +145,8 @@ datum
 			name = "Space Lube"
 			id = "lube"
 			result = "lube"
-			// required_reagents = list("water" = 1, "silicon" = 1, "oxygen" = 1)
-			result_amount = 4
+			required_reagents = list("water" = 1, "silicon" = 1, "oxygen" = 1)
+			result_amount = 0
 
 		pacid
 			name = "Polytrinic acid"
@@ -380,7 +380,7 @@ datum
 			id = "napalm"
 			result = null
 			required_reagents = list("aluminum" = 1, "plasma" = 1, "sacid" = 1 )
-			result_amount = 1
+			result_amount = 0
 			on_reaction(var/datum/reagents/holder, var/created_volume)
 				var/turf/location = get_turf(holder.my_atom.loc)
 				for(var/turf/simulated/floor/target_tile in range(0,location))
