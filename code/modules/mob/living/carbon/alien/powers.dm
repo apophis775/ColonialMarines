@@ -45,7 +45,7 @@
 				if(L.mind.assigned_role == "Alien")
 					var/mob/M = L.mind.current
 					var/area/player_area = get_area(L)
-					if((M) && (pos) && (pos.z == src.z))
+					if((M) && (pos) && (pos.z == 1 || pos.z == 6))
 						dat += "<tr><td>[M.real_name][M.client ? "" : " <i>(mindless)</i>"][M.stat == 2 ? " <b><font color=red>(DEAD)</font></b>" : ""]</td>"
 						dat += "<td>[player_area.name] ([pos.x], [pos.y])</td></tr>"
 		dat += "</table>"
