@@ -21,17 +21,15 @@ coroneljones - Game Admin
 
 Speedybast - Game Admin
 
-Rovernic - Game Admin
+
+
 
 Allan1234 - Trial Admin
 
 
 
-mdom - Moderator
 
 felkvir - Moderator
-
-sir octagon -  Moderator
 
 Kyrac - Moderator
 
@@ -45,6 +43,12 @@ Caryl - Moderator
 TotalAnarchy - Trial Moderator
 
 Fickmacher - Trial Moderator
+
+Biolock - Trial Moderator
+
+Officialjake - Trial Moderator
+
+NijiShadow - Trial Moderator
 
 
 
