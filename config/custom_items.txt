@@ -41,6 +41,7 @@ kyrac: Marcus Ranchers:  /obj/item/clothing/under/fluff/turtleneck
 kyrac: Marcus Ranchers:  /obj/item/clothing/glasses/fluff/eyepatch
 sadokist: Tanya 'Aegis' Edenia: /obj/item/weapon/storage/backpack/marine/fluff/Sado
 sadokist: Tanya 'Aegis' Edenia: /obj/item/clothing/head/beret/fluff/Sado
+sadokist: Tanya 'Aegis' Edenia: /obj/item/clothing/glasses/fluff/sado
 zynax: Isaac Miller: /obj/item/clothing/under/fluff/turtleneck
 zynax: Isaac Miller: /obj/item/clothing/mask/balaclava/fluff
 robin63: Robin Low: /obj/item/clothing/head/beret/fluff/Robin
@@ -48,3 +49,13 @@ vintagepalmer: William Thorp: /obj/item/clothing/suit/storage/fluff/Vintage
 vintagepalmer: William Thorp: /obj/item/clothing/head/beret/fluff/Vintage
 vintagepalmer: William Thorp: /obj/item/clothing/shoes/marine/Vintage
 vintagepalmer: William Thorp: /obj/item/clothing/under/marine/FLUFF/Vintage
+johnkilla56: Angelo Huey: /obj/item/clothing/suit/storage/fluff/john56
+johnkilla56: Angelo Huey: /obj/item/clothing/under/marine/FLUFF/john56
+johnkilla56: Angelo Huey: /obj/item/clothing/head/fluff/john56
+johnkilla56: Angelo Huey: /obj/item/clothing/mask/fluff/john56
+haveatya: Connor Fletcher: /obj/item/clothing/under/fluff/turtleneck
+haveatya: Connor Fletcher: /obj/item/clothing/head/beret/fluff/haveatya
+haveatya: Connor Fletcher: /obj/item/clothing/glasses/fluff/haveatya
+biolock: Alex Crossman: /obj/item/clothing/suit/storage/marine/fluff/biolock
+biolock: Alex Crossman: /obj/item/clothing/head/helmet/marine/fluff/biolock
+radicalscorpion: Eron Black: /obj/item/clothing/mask/balaclava/fluff/radical

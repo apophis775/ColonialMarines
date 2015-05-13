@@ -304,10 +304,6 @@
 	desc = "A vintage DONOR ITEM"
 	icon_state = "bulletproof"
 	item_state = "bulletproof"
-	name = "Doom Armor"
-	desc = "A uniform, of a famous Earth warrior... Donor Item"
-	item_state = "doom_armor"
-	icon_state = "doom_armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	cold_protection = UPPER_TORSO|LOWER_TORSO
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
@@ -339,3 +335,85 @@
 	item_state = "pnik_s"
 	item_color = "pink"
 
+
+/obj/item/clothing/suit/storage/fluff/john56
+	name = "A red trenchcoat"
+	desc = "A special trenchcoat made famous for instilling fear into greytide everywhere. DONOR ITEM"
+	icon_state = "hos"
+	item_state = "hos"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECITON_TEMPERATURE
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+	allowed = list(/obj/item/weapon/gun/, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/lighter,/obj/item/weapon/grenade)
+
+/obj/item/clothing/under/marine/FLUFF/john56
+	name = "Pink Pride Jumpsuit"
+	desc = "A jumpsuit for showing your pride in pink... Donor Item"
+	icon_state = "pink"
+	item_state = "pnik_s"
+	item_color = "pink"
+
+/obj/item/clothing/head/fluff/john56
+	name = "Priest hood"
+	icon_state = "chaplain_hood"
+	item_state = "chaplain_hood"
+	desc = "Thought I walk through the valley in the shadow of death... Donor Item"
+	flags = FPRINT|TABLEPASS
+	siemens_coefficient = 0
+
+/obj/item/clothing/mask/fluff/john56
+	name = "Revan Mask"
+	desc = "A mask from a famous sith... Wait what?  DONOR ITEM."
+	flags_inv = 0
+	item_state = "revanmask"
+	icon_state = "revanmask"
+
+/obj/item/clothing/glasses/fluff/sado
+	name = "Tanya's Optics"
+	desc = "Custom Optics, owned by Tanya Edenia"
+	icon_state = "thermal"
+	item_state = "glasses"
+
+/obj/item/clothing/suit/storage/marine/fluff/biolock
+	name = "Medic Armor"
+	desc = "Medical armor, designed to protect medics from things that hurt medics.  DONOR ITEM."
+	item_state = "medarmor"
+	icon_state = "medarmor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECITON_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECITON_TEMPERATURE
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+	allowed = list(/obj/item/weapon/gun/, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/lighter,/obj/item/weapon/grenade)
+
+/obj/item/clothing/head/helmet/marine/fluff/biolock
+	name = "Medic Helmet"
+	desc = "Medical Helmet designed to protect the head of a medic.. DONOR ITEM"
+	icon_state = "helmetm"
+	item_state = "helmetm"
+	armor = list(melee = 50, bullet = 80, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/head/beret/fluff/haveatya
+	name = "Pararescue Beret"
+	desc = "A Pararescue Beret, issued only to the very best.  DONOR ITEM"
+	icon_state = "beret_badge"
+	flags = FPRINT | TABLEPASS
+
+/obj/item/clothing/glasses/fluff/haveatya
+	name = "Special Nightvision Goggles"
+	desc = "Disclaimer:  May not provide Night Vision.  DONOR ITEM"
+	icon_state = "night"
+	item_state = "glasses"
+
+/obj/item/clothing/mask/balaclava/fluff/radical
+	name = "Balaclava"
+	desc = "A black Balaclava used for hiding your face.  DISCLAIMER: May not actually hide your face... DONOR ITEM"
+	flags_inv = 0
+	item_state = "balaclava"
+	icon_state = "balaclava"
