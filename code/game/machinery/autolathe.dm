@@ -48,9 +48,7 @@ var/global/list/autolathe_recipes = list( \
 		new /obj/item/weapon/camera_assembly(), \
 	)
 
-var/global/list/autolathe_recipes_hidden = list( \
-		new /obj/item/weapon/flamethrower/full(), \
-		new /obj/item/weapon/rcd(), \
+var/global/list/autolathe_recipes_hidden = list(\
 		new /obj/item/device/radio/electropack(), \
 		new /obj/item/weapon/weldingtool/largetank(), \
 		new /obj/item/weapon/handcuffs(), \
