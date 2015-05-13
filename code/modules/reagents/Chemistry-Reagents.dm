@@ -1488,11 +1488,11 @@ datum
 				the_turf.assume_air(napalm)
 			reaction_turf(var/turf/T, var/volume)
 				src = null
-				var/datum/gas_mixture/napalm = new
-				var/datum/gas/volatile_fuel/fuel = new
-				fuel.moles = 5
-				napalm.trace_gases += fuel
-				T.assume_air(napalm)
+		//		var/datum/gas_mixture/napalm = new    //DISABLED TO PREVENT SHENANIGANS
+		//		var/datum/gas/volatile_fuel/fuel = new
+		//		fuel.moles = 5
+		//		napalm.trace_gases += fuel
+		//		T.assume_air(napalm)
 				return
 
 		toxin/lexorin
