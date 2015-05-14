@@ -8,10 +8,6 @@ lestatanderson: Ryder Mitchell: /obj/item/clothing/suit/storage/marine/fluff/cia
 kilinger: Danny Barrett: /obj/item/clothing/head/helmet/marine/fluff/goldshieldberet
 commandercookies: Elliot Renold: /obj/item/clothing/head/helmet/marine/fluff/elliotberet
 commandercookies: Elliot Renold: /obj/item/clothing/suit/storage/marine/fluff/armorammo
-sasoperative: Joseph Skinner: /obj/item/clothing/mask/balaclava/SAS
-sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/FLUFF/sas
-sasoperative: Joseph Skinner: /obj/item/clothing/suit/storage/marine/fluff/SAS
-sasoperative: Joseph Skinner: /obj/item/clothing/head/fluff/sas2
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/helmet/marine/fluff/santahat
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/storage/marine/fluff/santa
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/fluff/penguin
@@ -59,3 +55,7 @@ haveatya: Connor Fletcher: /obj/item/clothing/glasses/fluff/haveatya
 biolock: Alex Crossman: /obj/item/clothing/suit/storage/marine/fluff/biolock
 biolock: Alex Crossman: /obj/item/clothing/head/helmet/marine/fluff/biolock
 radicalscorpion: Eron Black: /obj/item/clothing/mask/balaclava/fluff/radical
+sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/FLUFF/sas3
+sasoperative: Joseph Skinner: /obj/item/clothing/mask/sas3
+sasoperative: Joseph Skinner: /obj/item/clothing/head/fluff/sas3
+sasoperative: Joseph Skinner: /obj/item/clothing/suit/armor/fluff/sas3

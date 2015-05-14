@@ -417,3 +417,36 @@
 	flags_inv = 0
 	item_state = "balaclava"
 	icon_state = "balaclava"
+
+
+/obj/item/clothing/suit/armor/fluff/sas3  //UNIQUE
+	name = "Elite Combat Armor"
+	desc = "A combat armor with blood stains on it from previous battles.  UNIQUE DONOR ITEM"
+	icon_state = "hecuarmor_u"
+	item_state = "hecuarmor_u"
+	blood_overlay_type = "armor"
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0
+
+
+/obj/item/clothing/head/fluff/sas3  //UNIQUE
+	name = "Elite Combat Helmet"
+	icon_state = "hecuhelm_u"
+	item_state = "hecuhelm_u"
+	desc = "A combat helmet, bearing the scars of many battles. UNIQUE DONOR ITEM"
+	flags = FPRINT|TABLEPASS
+	siemens_coefficient = 0
+
+/obj/item/clothing/mask/sas3  //UNIQUE
+	name = "Compact Gas Mask"
+	desc = "A compact Gas Mask with a pure red tint to it.  UNIQUE  DONOR ITEM."
+	flags_inv = 0
+	item_state = "hecumask_u"
+	icon_state = "hecumask_u"
+
+/obj/item/clothing/under/marine/FLUFF/sas3  //UNIQUE
+	name = "Black Fatigues"
+	desc = "Black camo Fatigues usually used on Night Operations.  UNIQUE DONOR ITEM."
+	icon_state = "hecu_u"
+	item_state = "hecu_u_s"
+	item_color = "hecu_u"
