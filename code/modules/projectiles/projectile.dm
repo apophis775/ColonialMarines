@@ -96,8 +96,8 @@
 				if (daddy.target && original in daddy.target) //As opposed to no-delay pew pew
 					miss_modifier += -30
 			def_zone = get_zone_with_miss_chance(def_zone, M, -30 + 8*distance)
-
-			if(!def_zone)
+			
+			if(!def_zone || get_adj_simple(firer,A))
 				visible_message("\blue \The [src] misses [M] narrowly!")
 				forcedodge = -1
 			else
@@ -203,3 +203,15 @@
 				M = locate() in get_step(src,target)
 				if(istype(M))
 					return 1
+
+//Abby -- Just check if they're 1 tile horizontal or vertical, no diagonals
+/proc/get_adj_simple(atom/Loc1 as turf|mob|obj,atom/Loc2 as turf|mob|obj)
+	var/dx = Loc1.x - Loc2.x
+	var/dy = Loc1.y - Loc2.y
+	if(dx == 0)
+		if(dy == -1 || dy == 1)
+			return 1
+	if(dy == 0)
+		if(dx == -1 || dx == 1)
+			return 1
+	return 0
