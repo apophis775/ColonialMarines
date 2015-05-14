@@ -1,3 +1,4 @@
+
 datum/pipeline
 	var/datum/gas_mixture/air
 
@@ -14,7 +15,7 @@ datum/pipeline
 
 		if(air && air.volume)
 			temporarily_store_air()
-			pool("gas_mixture", air)
+			del(air)
 
 		..()
 
@@ -34,26 +35,13 @@ datum/pipeline
 		//Update individual gas_mixtures by volume ratio
 
 		for(var/obj/machinery/atmospherics/pipe/member in members)
-			member.air_temporary = unpool("gas_mixture", /datum/gas_mixture)
+			member.air_temporary = new
+			member.air_temporary.copy_from(air)
 			member.air_temporary.volume = member.volume
-
-			member.air_temporary.oxygen = air.oxygen*member.volume/air.volume
-			member.air_temporary.nitrogen = air.nitrogen*member.volume/air.volume
-			member.air_temporary.phoron = air.phoron*member.volume/air.volume
-			member.air_temporary.carbon_dioxide = air.carbon_dioxide*member.volume/air.volume
-
-			member.air_temporary.temperature = air.temperature
-
-			if(air.trace_gases.len)
-				for(var/datum/gas/trace_gas in air.trace_gases)
-					var/datum/gas/corresponding = new trace_gas.type()
-					member.air_temporary.trace_gases += corresponding
-
-					corresponding.moles = trace_gas.moles*member.volume/air.volume
-			member.air_temporary.update_values()
+			member.air_temporary.multiply(member.volume / air.volume)
 
 	proc/build_pipeline(obj/machinery/atmospherics/pipe/base)
-		air = unpool("gas_mixture", /datum/gas_mixture)
+		air = new
 
 		var/list/possible_expansions = list(base)
 		members = list(base)
@@ -67,7 +55,7 @@ datum/pipeline
 			air = base.air_temporary
 			base.air_temporary = null
 		else
-			air = unpool("gas_mixture", /datum/gas_mixture)
+			air = new
 
 		while(possible_expansions.len>0)
 			for(var/obj/machinery/atmospherics/pipe/borderline in possible_expansions)
@@ -130,7 +118,7 @@ datum/pipeline
 
 		if(istype(target) && target.zone)
 			//Have to consider preservation of group statuses
-			var/datum/gas_mixture/turf_copy = unpool("gas_mixture", /datum/gas_mixture)
+			var/datum/gas_mixture/turf_copy = new
 
 			turf_copy.copy_from(target.zone.air)
 			turf_copy.volume = target.zone.air.volume //Copy a good representation of the turf from parent group
@@ -211,3 +199,21 @@ datum/pipeline
 				air.temperature -= heat/total_heat_capacity
 		if(network)
 			network.update = 1
+
+	//surface must be the surface area in m^2
+	proc/radiate_heat_to_space(surface, thermal_conductivity)
+//		var/gas_density = air.total_moles/air.volume
+//		thermal_conductivity *= min(gas_density / ( RADIATOR_OPTIMUM_PRESSURE/(R_IDEAL_GAS_EQUATION*GAS_CRITICAL_TEMPERATURE) ), 1) //mult by density ratio
+
+		// We only get heat from the star on the exposed surface area.
+		// If the HE pipes gain more energy from AVERAGE_SOLAR_RADIATION than they can radiate, then they have a net heat increase.
+//		var/heat_gain = AVERAGE_SOLAR_RADIATION * (RADIATOR_EXPOSED_SURFACE_AREA_RATIO * surface) * thermal_conductivity
+
+		// Previously, the temperature would enter equilibrium at 26C or 294K.
+		// Only would happen if both sides (all 2 square meters of surface area) were exposed to sunlight.  We now assume it aligned edge on.
+		// It currently should stabilise at 129.6K or -143.6C
+//		heat_gain -= surface * STEFAN_BOLTZMANN_CONSTANT * thermal_conductivity * (air.temperature - COSMIC_RADIATION_TEMPERATURE) ** 4
+
+//		air.add_thermal_energy(heat_gain)
+//		if(network)
+//			network.update = 1
