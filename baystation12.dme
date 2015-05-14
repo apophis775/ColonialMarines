@@ -19,6 +19,7 @@
 #define FILE_DIR "icons/48x48"
 #define FILE_DIR "icons/DONOR"
 #define FILE_DIR "icons/DONOR/processed"
+#define FILE_DIR "icons/DONOR/processed/UNIQUES"
 #define FILE_DIR "icons/effects"
 #define FILE_DIR "icons/mecha"
 #define FILE_DIR "icons/misc"
