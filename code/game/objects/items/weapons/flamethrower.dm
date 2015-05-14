@@ -33,18 +33,20 @@
 	return
 
 
-/obj/item/weapon/flamethrower/process()
-	if(!lit)
-		processing_objects.Remove(src)
-		return null
-	var/turf/location = loc
-	if(istype(location, /mob/))
-		var/mob/M = location
-		if(M.l_hand == src || M.r_hand == src)
-			location = M.loc
-	if(isturf(location)) //start a fire if possible
-		location.hotspot_expose(700, 2)
-	return
+//Abby's overhaul - Stop hotspot igniting, it's unnecessary.
+
+///obj/item/weapon/flamethrower/process()
+//	if(!lit)
+//		processing_objects.Remove(src)
+//		return null
+//	var/turf/location = loc
+//	if(istype(location, /mob/))
+//		var/mob/M = location
+//		if(M.l_hand == src || M.r_hand == src)
+//			location = M.loc
+//	if(isturf(location)) //start a fire if possible
+//		location.hotspot_expose(700, 2)
+//	return
 
 
 /obj/item/weapon/flamethrower/update_icon()
@@ -61,13 +63,15 @@
 	return
 
 /obj/item/weapon/flamethrower/afterattack(atom/target, mob/user, proximity)
-	if(!proximity) return
 	// Make sure our user is still holding us
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
 		if(target_turf)
 			var/turflist = getline(user, target_turf)
 			flame_turf(turflist)
+			for (var/mob/O in viewers(user, null))
+				O << "\red [user] unleashes a blast of flames!"
+
 
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
@@ -187,7 +191,9 @@
 
 //Called from turf.dm turf/dblclick
 /obj/item/weapon/flamethrower/proc/flame_turf(turflist)
-	if(!lit || operating)	return
+	if(!lit || operating)
+		return
+
 	operating = 1
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
@@ -206,19 +212,88 @@
 			attack_self(M)
 	return
 
+//Abby's flamethrower rewrite
+
+//Create a flame sprite object. Doesn't work like regular fire, ie. does not affect atmos or heat
+/obj/flamer_fire
+	name = "flamethrower fire"
+	desc = "Ouch!"
+	anchored = 1
+	mouse_opacity = 0
+	icon = 'icons/effects/fire.dmi'
+	icon_state = "1"
+	layer = TURF_LAYER
+	var/firelevel = 11 //Track how "hot" the fire is, flames die down eventually
+
+/obj/flamer_fire/process()
+	var/turf/simulated/T = loc
+
+	if (!istype(T)) //Is it a valid turf? Has to be simulated and on a floor
+		del(src)
+		return
+
+	if(firelevel > 10) //Change the icons and luminosity based on the fire's intensity
+		icon_state = "3"
+		SetLuminosity(7)
+	else if(firelevel > 5)
+		icon_state = "2"
+		SetLuminosity(5)
+	else if(firelevel > 0)
+		icon_state = "1"
+		SetLuminosity(3)
+	else  //Fire has burned out, firelevel is 0 or less. GET OUT. Shouldn't cause issues, unlike sleep() + Del
+		processing_objects.Remove(src)
+		del(src)
+		return
+
+	for(var/mob/living/carbon/M in loc)
+		M.adjustFireLoss(rand(5,10)+(firelevel*2))  //fwoom!
+		M.show_message(text("\red You are burned!"),1)
+
+	//This is shitty and inefficient, but the /alien/ parent obj doesn't have health.. sigh.
+	for(var/obj/effect/alien/weeds/W in loc)  //Melt dem weeds
+		if (istype(W)) //Just for safety
+			W.health -= (firelevel * 2)
+			W.healthcheck()
+	for(var/obj/effect/alien/resin/R in loc)  //Melt dem resins
+		if (istype(R)) //Just for safety
+			R.health -= (firelevel * 2)
+			R.healthcheck()
+	for(var/obj/effect/alien/egg/E in loc)  //Melt dem eggs
+		if (istype(E)) //Just for safety
+			E.health -= (firelevel * 2)
+			E.healthcheck()
+
+	for(var/obj/item/clothing/mask/facehugger/H in loc) //Melt dem huggers
+		if(!istype(H))
+			continue //somehow
+		H.health -= firelevel
+		H.healthcheck()
+
+	firelevel -= 1 //reduce the intensity, max is 11 pulses
+	return
+
 
 /obj/item/weapon/flamethrower/proc/ignite_turf(turf/target)
-	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
-	//Transfer 5% of current tank air contents to turf
-	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
-	//air_transfer.phoron = air_transfer.phoron * 5 // This is me not comprehending the air system. I realize this is retarded and I could probably make it work without fucking it up like this, but there you have it. -- TLE
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.phoron,get_dir(loc,target))
-	air_transfer.phoron = 0
-	target.assume_air(air_transfer)
-	//Burn it based on transfered gas
-	//target.hotspot_expose(part4.air_contents.temperature*2,300)
-	target.hotspot_expose((ptank.air_contents.temperature*2) + 380,500) // -- More of my "how do I shot fire?" dickery. -- TLE
-	//location.hotspot_expose(1000,500,1)
+
+	if(!ptank)
+		return //Shouldn't be possible, just to be safe though
+
+	if(ptank.air_contents.phoron <= 30) //The heck, did you attach an air tank to this thing??
+		playsound(src, 'sound/machines/hiss.ogg', 30, 0, 0)
+		return
+
+	ptank.air_contents.remove_ratio(0.1*(throw_amount/100)) //This should just strip out the gas
+	if (!locate(/obj/flamer_fire) in target) // No stacking flames!
+		var/obj/flamer_fire/F =  new/obj/flamer_fire(target)
+		processing_objects.Add(F)
+		F.firelevel = (throw_amount / 10) + 1
+		if(F.firelevel < 1 || F.firelevel > 15) //Unloading more than this is pointless, nozzle's only so big
+			F.firelevel = 15
+	for(var/mob/living/carbon/M in target) //Deal bonus damage if someone's caught directly in initial stream
+		M.adjustFireLoss(rand(40,60))  //fwoom!
+		M.show_message(text("\red Auuugh! You are roasted by the flamethrower!"), 1)
+
 	return
 
 /obj/item/weapon/flamethrower/full/New(var/loc)
