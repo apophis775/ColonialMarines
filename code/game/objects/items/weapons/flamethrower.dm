@@ -279,8 +279,7 @@
 	if(!ptank)
 		return //Shouldn't be possible, just to be safe though
 
-	if(ptank.air_contents.phoron <= 30) //The heck, did you attach an air tank to this thing??
-		playsound(src, 'sound/machines/hiss.ogg', 30, 0, 0)
+	if(ptank.air_contents.phoron <= 0.5) //The heck, did you attach an air tank to this thing??
 		return
 
 	ptank.air_contents.remove_ratio(0.1*(throw_amount/100)) //This should just strip out the gas
