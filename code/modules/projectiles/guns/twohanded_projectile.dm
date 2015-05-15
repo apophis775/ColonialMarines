@@ -10,13 +10,6 @@
 	var/max_shells = 7
 	var/load_method = SPEEDLOADER //0 = Single shells or quick loader, 1 = box, 2 = magazine
 	var/obj/item/ammo_magazine/empty_mag = null
-
-
-	//flashlight stuff
-	var/haslight = 0 //Is there a flashlight attached?
-	var/islighton = 0
-
-
 	//Bayonet
 	var/hasBayonet = 0 //Is there a bayonet?
 	var/bayonetDamage = 40 //Controls the bayonet Damage
@@ -91,6 +84,21 @@
 
 /obj/item/weapon/gun/twohanded/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
 	var/num_loaded = 0
+	if(istype(A, /obj/item/device/flashlight))
+		if(!istype(src,/obj/item/weapon/gun/twohanded/projectile/)) //Add guns here. Leaving it as all 2handers for now
+			user << "It doesn't fit."
+			return
+		if(haslight)
+			user << "It's already got a flashlight."
+			return
+		if(A:attachable)
+			user << "\red You attach [A] to [src]. Use 'toggle weapon light' in the Object tab to turn it on."
+			haslight = 1
+			del(A)
+			return
+		else
+			user << "Use a screwdriver to modify the flashlight first."
+			return
 	if(istype(A, /obj/item/ammo_magazine))
 		if((load_method == MAGAZINE) && loaded.len)	return
 		var/obj/item/ammo_magazine/AM = A
@@ -260,6 +268,9 @@
 		var/obj/item/weapon/twohanded/projectile/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
 			O.unwield()
+	if(haslight && islighton) //Transfer light to the gun
+		user.SetLuminosity(user.luminosity - gun_light)
+		SetLuminosity(gun_light)
 	return
 
 /obj/item/weapon/gun/twohanded/projectile/update_icon()
@@ -267,7 +278,17 @@
 
 /obj/item/weapon/gun/twohanded/projectile/pickup(mob/user)
 	unwield()
+	if(haslight && islighton) //Transfer light to the mob
+		user.SetLuminosity(user.luminosity + gun_light)
+		SetLuminosity(0)
 	return
+
+/obj/item/device/flashlight/pickup(mob/user)
+
+
+
+/obj/item/device/flashlight/dropped(mob/user)
+
 
 /obj/item/weapon/gun/twohanded/projectile/attack_self(mob/user as mob)
 	if( istype(user,/mob/living/carbon/monkey) )
@@ -300,15 +321,3 @@
 		O.desc = "Your second grip on the [initial(name)]"
 		user.put_in_inactive_hand(O)
 		return
-
-//NEW RIOT SHOTGUN FLASHLIGHT CODE APOPHIS775 05FEB2015
-/obj/item/weapon/gun/twohanded/projectile/shotgun/pump/attackby(var/obj/item/A as obj, mob/user as mob)
-	..()
-	if(istype(A, /obj/item/device/flashlight))
-		var/obj/item/device/flashlight/F = A
-		if(F.attachable)
-			src.contents += A
-			user << "\red You attach [A] to [src]."
-			haslight = 1
-			del(A)
-	return

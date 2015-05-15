@@ -17,7 +17,6 @@
 	var/load_method = SPEEDLOADER //0 = Single shells or quick loader, 1 = box, 2 = magazine
 	var/obj/item/ammo_magazine/empty_mag = null
 
-
 /obj/item/weapon/gun/projectile/New()
 	..()
 	for(var/i = 1, i <= max_shells, i++)
@@ -49,6 +48,21 @@
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
 	var/obj/item/ammo_magazine/AM = A
 	var/num_loaded = 0
+	if(istype(A, /obj/item/device/flashlight))
+		if(!istype(src,/obj/item/weapon/gun/projectile)) //Add gun types here to make them gun-specific
+			user << "It doesn't fit."
+			return
+		if(haslight)
+			user << "It's already got a flashlight."
+			return
+		if(A:attachable)
+			user << "\red You attach [A] to [src]. Use 'toggle weapon light' in the Object tab to turn it on."
+			haslight = 1
+			del(A)
+			return
+		else
+			user << "Use a screwdriver to modify the flashlight first."
+			return
 	if(istype(A, /obj/item/ammo_magazine))
 		if((load_method == MAGAZINE) && loaded.len)	return
 		for(var/obj/item/ammo_casing/AC in AM.stored_ammo)
@@ -122,16 +136,14 @@
 			bullets += 1
 	return bullets
 
+/obj/item/weapon/gun/projectile/dropped(mob/user as mob)
+	if(haslight && islighton) //Transfer light to the gun
+		user.SetLuminosity(user.luminosity - gun_light)
+		SetLuminosity(gun_light)
+	return
 
-//FLASHLIGHT CODE FOR M39 APOPHIS775 31JAN2015
-
-/obj/item/weapon/gun/projectile/automatic/Assault/attackby(var/obj/item/A as obj, mob/user as mob)
-	..()
-	if(istype(A, /obj/item/device/flashlight))
-		var/obj/item/device/flashlight/F = A
-		if(F.attachable)
-			src.contents += A
-			user << "\red You attach [A] to [src]."
-			haslight = 1
-			del(A)
+/obj/item/weapon/gun/projectile/pickup(mob/user)
+	if(haslight && islighton) //Transfer light to the mob
+		user.SetLuminosity(user.luminosity + gun_light)
+		SetLuminosity(0)
 	return

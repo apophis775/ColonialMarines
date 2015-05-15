@@ -126,16 +126,17 @@
 
 
 /obj/item/weapon/gun/projectile/twohanded/automatic/l6_saw/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(!cover_open)
-		user << "<span class='notice'>[src]'s cover is closed! You can't insert a new mag!</span>"
-		return
-	else if(cover_open && mag_inserted)
-		user << "<span class='notice'>[src] already has a magazine inserted!</span>"
-		return
-	else if(cover_open && !mag_inserted)
-		mag_inserted = 1
-		user << "<span class='notice'>You insert the magazine!</span>"
-		update_icon()
+	if(istype(A,/obj/item/ammo_magazine/a762))
+		if(!cover_open)
+			user << "<span class='notice'>[src]'s cover is closed! You can't insert a new mag!</span>"
+			return
+		else if(cover_open && mag_inserted)
+			user << "<span class='notice'>[src] already has a magazine inserted!</span>"
+			return
+		else if(cover_open && !mag_inserted)
+			mag_inserted = 1
+			user << "<span class='notice'>You insert the magazine!</span>"
+			update_icon()
 	..()
 
 
@@ -148,38 +149,37 @@
 
 
 //FLASHLIGHT CODE FOR M39 SMG APOPHIS775 - 31JAN2015
+//Moved to guns/projectile.dm and twohanded_projectile
 
-/obj/item/weapon/gun/projectile/automatic/Assault
-	//flashlight stuff
-	var/haslight = 0 //Is there a flashlight attached?
-	var/islighton = 0
-	var/gun_light = 5 //How bright will the light be?
+///obj/item/weapon/gun/projectile/automatic/Assault
+//	//flashlight stuff
+//	var/haslight = 0 //Is there a flashlight attached?
+//	var/islighton = 0
+//	var/gun_light = 5 //How bright will the light be?
+//
+//
+///obj/item/weapon/gun/projectile/automatic/Assault/verb/toggle_light()
+//	set name = "Toggle Flashlight"
+//	set category = "Weapon"
+//
+//	if(haslight && !islighton) //Turns the light on
+//		usr << "\blue You turn the flashlight on."
+//		usr.SetLuminosity(gun_light)
+//		islighton = 1
+//	else if(haslight && islighton) //Turns the light off
+//		usr << "\blue You turn the flashlight off."
+//		usr.SetLuminosity(0)
+//		islighton = 0
+//	else if(!haslight) //Points out how stupid you are
+//		usr << "\red You foolishly look at where the flashlight would be, if it was attached..."
+//
+///obj/item/weapon/gun/projectile/automatic/Assault/pickup(mob/user)//Transfers the lum to the user when picked up
+//	if(islighton)
+//		SetLuminosity(0)
+//		usr.SetLuminosity(gun_light)
 
-
-/obj/item/weapon/gun/projectile/automatic/Assault/verb/toggle_light()
-	set name = "Toggle Flashlight"
-	set category = "Weapon"
-
-	if(haslight && !islighton) //Turns the light on
-		usr << "\blue You turn the flashlight on."
-		usr.SetLuminosity(gun_light)
-		islighton = 1
-	else if(haslight && islighton) //Turns the light off
-		usr << "\blue You turn the flashlight off."
-		usr.SetLuminosity(0)
-		islighton = 0
-	else if(!haslight) //Points out how stupid you are
-		usr << "\red You foolishly look at where the flashlight would be, if it was attached..."
-
-/obj/item/weapon/gun/projectile/automatic/Assault/pickup(mob/user)//Transfers the lum to the user when picked up
-	if(islighton)
-		SetLuminosity(0)
-		usr.SetLuminosity(gun_light)
-
-/obj/item/weapon/gun/projectile/automatic/Assault/dropped(mob/user)//Transfers the Lum back to the gun when dropped
-	if(islighton)
-		SetLuminosity(gun_light)
-		usr.SetLuminosity(0)
-
-
+///obj/item/weapon/gun/projectile/automatic/Assault/dropped(mob/user)//Transfers the Lum back to the gun when dropped
+//	if(islighton)
+//		SetLuminosity(gun_light)
+//		usr.SetLuminosity(0)
 
