@@ -14,8 +14,7 @@
 	var/recentpump = 0 // to prevent spammage
 	var/pumped = 0
 	var/obj/item/ammo_casing/current_shell = null
-	var/gun_light = 6 // Defines how bright the light on the flashlight will be
-
+	recoil = 1
 
 	isHandgun()
 		return 0
@@ -62,8 +61,6 @@
 	max_shells = 8
 	origin_tech = "combat=5;materials=2"
 	ammo_type = "/obj/item/ammo_casing/shotgun"
-
-
 /obj/item/weapon/gun/twohanded/projectile/shotgun/pump/riot
 	name = "riot shotgun"
 	icon_state = "cshotgun"
@@ -72,28 +69,31 @@
 	ammo_type = "/obj/item/ammo_casing/shotgun/beanbag"
 
 
+
 //PUMP SHOTGUN FLASHLIGHT CODE
-/obj/item/weapon/gun/twohanded/projectile/shotgun/pump/verb/toggle_light()
-	set name = "Toggle Flashlight"
-	set category = "Weapon"
+// Moved to guns/projectile.dm
 
-	if(haslight && !islighton) //Turns the light on
-		usr << "\blue You turn the flashlight on."
-		usr.SetLuminosity(gun_light)
-		islighton = 1
-	else if(haslight && islighton) //Turns the light off
-		usr << "\blue You turn the flashlight off."
-		usr.SetLuminosity(0)
-		islighton = 0
-	else if(!haslight) //Points out how stupid you are
-		usr << "\red You foolishly look at where the flashlight would be, if it was attached..."
-
-/obj/item/weapon/gun/twohanded/projectile/shotgun/pump/riot/pickup(mob/user)//Transfers the lum to the user when picked up
-	if(islighton)
-		SetLuminosity(0)
-		usr.SetLuminosity(gun_light)
-
-/obj/item/weapon/gun/twohanded/projectile/shotgun/pump/riot/dropped(mob/user)//Transfers the Lum back to the gun when dropped
-	if(islighton)
-		SetLuminosity(gun_light)
-		usr.SetLuminosity(0)
+///obj/item/weapon/gun/twohanded/projectile/shotgun/pump/verb/toggle_light()
+//	set name = "Toggle Flashlight"
+//	set category = "Weapon"
+//
+//	if(haslight && !islighton) //Turns the light on
+//		usr << "\blue You turn the flashlight on."
+//		usr.SetLuminosity(gun_light)
+//		islighton = 1
+//	else if(haslight && islighton) //Turns the light off
+//		usr << "\blue You turn the flashlight off."
+//		usr.SetLuminosity(0)
+//		islighton = 0
+//	else if(!haslight) //Points out how stupid you are
+//		usr << "\red You foolishly look at where the flashlight would be, if it was attached..."
+//
+///obj/item/weapon/gun/twohanded/projectile/shotgun/pump/riot/pickup(mob/user)//Transfers the lum to the user when picked up
+//	if(islighton)
+//		SetLuminosity(0)
+//		usr.SetLuminosity(gun_light)
+//
+///obj/item/weapon/gun/twohanded/projectile/shotgun/pump/riot/dropped(mob/user)//Transfers the Lum back to the gun when dropped
+//	if(islighton)
+//		SetLuminosity(gun_light)
+//		usr.SetLuminosity(0)

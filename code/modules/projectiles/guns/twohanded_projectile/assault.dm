@@ -11,8 +11,6 @@
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	load_method = 2
 	fire_delay = 2
-	var/gun_light = 7 // Defines how bright the light on the flashlight will be
-
 
 	New()
 		..()
@@ -40,31 +38,31 @@
 		return
 
 ///////NEW FANCY FLASHLIGHT CODE MADE OF HOPES AND DREAMS./
+//Moved to guns/projectile.dm
 
-
-/obj/item/weapon/gun/twohanded/projectile/Assault/verb/toggle_light()
-	set name = "Toggle Flashlight"
-	set category = "Weapon"
-
-	if(haslight && !islighton) //Turns the light on
-		usr << "\blue You turn the flashlight on."
-		usr.SetLuminosity(gun_light)
-		islighton = 1
-	else if(haslight && islighton) //Turns the light off
-		usr << "\blue You turn the flashlight off."
-		usr.SetLuminosity(0)
-		islighton = 0
-	else if(!haslight) //Points out how stupid you are
-		usr << "\red You foolishly look at where the flashlight would be, if it was attached..."
-
-/obj/item/weapon/gun/twohanded/projectile/Assault/pickup(mob/user)//Transfers the lum to the user when picked up
-	..()
-	if(islighton)
-		SetLuminosity(0)
-		usr.SetLuminosity(gun_light)
-
-/obj/item/weapon/gun/twohanded/projectile/Assault/dropped(mob/user)//Transfers the Lum back to the gun when dropped
-	..()
-	if(islighton)
-		SetLuminosity(gun_light)
-		usr.SetLuminosity(0)
+///obj/item/weapon/gun/twohanded/projectile/Assault/verb/toggle_light()
+//	set name = "Toggle Flashlight"
+//	set category = "Weapon"
+//
+//	if(haslight && !islighton) //Turns the light on
+//		usr << "\blue You turn the flashlight on."
+//		usr.SetLuminosity(gun_light)
+//		islighton = 1
+//	else if(haslight && islighton) //Turns the light off
+//		usr << "\blue You turn the flashlight off."
+//		usr.SetLuminosity(0)
+//		islighton = 0
+//	else if(!haslight) //Points out how stupid you are
+//		usr << "\red You foolishly look at where the flashlight would be, if it was attached..."
+//
+///obj/item/weapon/gun/twohanded/projectile/Assault/pickup(mob/user)//Transfers the lum to the user when picked up
+//	..()
+//	if(islighton)
+//		SetLuminosity(0)
+//		usr.SetLuminosity(gun_light)
+//
+///obj/item/weapon/gun/twohanded/projectile/Assault/dropped(mob/user)//Transfers the Lum back to the gun when dropped
+//	..()
+//	if(islighton)
+//		SetLuminosity(gun_light)
+//		usr.SetLuminosity(0)

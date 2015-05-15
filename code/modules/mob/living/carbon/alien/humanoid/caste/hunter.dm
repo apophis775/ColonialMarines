@@ -9,9 +9,9 @@
 	plasma_rate = 8 //old plasma was 7
 	damagemin = 30
 	damagemax = 35
-	tacklemin = 4
-	tacklemax = 6
-	tackle_chance = 90 //Should not be above 100%
+	tacklemin = 3
+	tacklemax = 5
+	tackle_chance = 80 //Should not be above 100%
 	heal_rate = 4
 	class = 2
 	var/usedpounce = 0

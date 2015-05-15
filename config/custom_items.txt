@@ -37,6 +37,7 @@ kyrac: Marcus Ranchers:  /obj/item/clothing/glasses/fluff/eyepatch
 sadokist: Tanya 'Aegis' Edenia: /obj/item/weapon/storage/backpack/marine/fluff/Sado
 sadokist: Tanya 'Aegis' Edenia: /obj/item/clothing/head/beret/fluff/Sado
 sadokist: Tanya 'Aegis' Edenia: /obj/item/clothing/glasses/fluff/sado
+sadokist: Tanya 'Aegis' Edenia: /obj/item/clothing/suit/armor/fluff/Sado
 zynax: Isaac Miller: /obj/item/clothing/under/fluff/turtleneck
 zynax: Isaac Miller: /obj/item/clothing/mask/balaclava/fluff
 robin63: Robin Low: /obj/item/clothing/head/beret/fluff/Robin

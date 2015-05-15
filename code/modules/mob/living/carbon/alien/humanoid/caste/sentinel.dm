@@ -10,8 +10,8 @@
 	plasma_rate = 7
 	damagemin = 18
 	damagemax = 24
-	tacklemin = 2
-	tacklemax = 4
+	tacklemin = 1
+	tacklemax = 3
 	tackle_chance = 50 //Should not be above 100%
 	heal_rate = 6
 	var/hasJelly = 0
