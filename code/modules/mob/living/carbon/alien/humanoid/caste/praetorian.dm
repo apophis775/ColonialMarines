@@ -10,8 +10,8 @@
 	plasma_rate = 10
 	damagemin = 40
 	damagemax = 45
-	tacklemin = 4
-	tacklemax = 6
+	tacklemin = 3
+	tacklemax = 5
 	tackle_chance = 70 //Should not be above 100%
 	heal_rate = 5
 	icon = 'icons/Xeno/2x2_Xenos.dmi'

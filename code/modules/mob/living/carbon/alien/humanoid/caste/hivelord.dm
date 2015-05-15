@@ -11,8 +11,8 @@
 	max_plasma = 1000
 	damagemin = 10
 	damagemax = 15
-	tacklemin = 4
-	tacklemax = 5
+	tacklemin = 2
+	tacklemax = 4
 	tackle_chance = 70 //Should not be above 100%
 	psychiccost = 32
 	class = 3

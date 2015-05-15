@@ -2,11 +2,11 @@
 
 //TODO: Make these simple_animals
 
-var/const/MIN_IMPREGNATION_TIME = 300 //time it takes to impregnate someone
-var/const/MAX_IMPREGNATION_TIME = 500
+var/const/MIN_IMPREGNATION_TIME = 200 //time it takes to impregnate someone
+var/const/MAX_IMPREGNATION_TIME = 400
 
-var/const/MIN_ACTIVE_TIME = 150 //time between being dropped and going idle
-var/const/MAX_ACTIVE_TIME = 250
+var/const/MIN_ACTIVE_TIME = 100 //time between being dropped and going idle
+var/const/MAX_ACTIVE_TIME = 200
 
 /obj/item/clothing/mask/facehugger
 	name = "alien"

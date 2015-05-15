@@ -12,8 +12,8 @@
 	var/usedthrow = 0
 	damagemin = 20
 	damagemax = 30
-	tacklemin = 2
-	tacklemax = 4
+	tacklemin = 1
+	tacklemax = 3
 	tackle_chance = 60 //Should not be above 100%
 	var/THROWSPEED = 2
 	psychiccost = 32

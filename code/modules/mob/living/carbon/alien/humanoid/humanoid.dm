@@ -79,9 +79,9 @@
 	else if (istype(src, /mob/living/carbon/alien/humanoid/carrier))
 		speed = 0
 	else if (istype(src, /mob/living/carbon/alien/humanoid/runner))
-		speed = -2.5
+		speed = -2.3
 	else if (istype(src, /mob/living/carbon/alien/humanoid/hunter))
-		speed = -2
+		speed = -1.8
 	else if (istype(src, /mob/living/carbon/alien/humanoid/praetorian))
 		speed = 0
 	else if (istype(src, /mob/living/carbon/alien/humanoid/ravager))
