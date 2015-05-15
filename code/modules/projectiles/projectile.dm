@@ -86,7 +86,10 @@
 			if(!istype(A, /mob/living))
 				loc = A.loc
 				return 0// nope.avi
-
+			if(get_adj_simple(firer,A) && A.loc != get_step(firer,firer.dir))
+				bumped = 0
+				permutated.Add(A)
+				return 0
 			//Lower accurancy/longer range tradeoff. Distance matters a lot here, so at
 			// close distance, actually RAISE the chance to hit.
 			var/distance = get_dist(starting,loc)
@@ -96,8 +99,7 @@
 				if (daddy.target && original in daddy.target) //As opposed to no-delay pew pew
 					miss_modifier += -30
 			def_zone = get_zone_with_miss_chance(def_zone, M, -30 + 8*distance)
-
-			if(!def_zone || (get_adj_simple(firer,A) && A.loc != get_step(firer,firer.dir)))
+			if(!def_zone)
 				visible_message("\blue \The [src] misses [M] narrowly!")
 				forcedodge = -1
 			else
@@ -112,16 +114,15 @@
 				else
 					M.attack_log += "\[[time_stamp()]\] <b>UNKNOWN SUBJECT (No longer exists)</b> shot <b>[M]/[M.ckey]</b> with a <b>[src]</b>"
 					msg_admin_attack("UNKNOWN shot [M] ([M.ckey]) with a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[firer.x];Y=[firer.y];Z=[firer.z]'>JMP</a>)") //BS12 EDIT ALG
-
 		if(A)
 			if (!forcedodge)
 				forcedodge = A.bullet_act(src, def_zone) // searches for return value
 			if(forcedodge == -1) // the bullet passes through a dense object!
 				bumped = 0 // reset bumped variable!
-				if(istype(A, /turf))
-					loc = A
-				else
-					loc = A.loc
+//				if(istype(A, /turf))
+//					loc = A
+//				else
+//					loc = A.loc
 				permutated.Add(A)
 				return 0
 			if(istype(A,/turf))
