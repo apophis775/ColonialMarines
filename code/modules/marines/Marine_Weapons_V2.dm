@@ -15,7 +15,7 @@
 	damage = 30
 
 /obj/item/projectile/bullet/m37 //M37 Pump Shotgun
-	damage = 80
+	damage = 40
 
 ///***Ammo***///
 

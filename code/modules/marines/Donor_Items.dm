@@ -450,3 +450,18 @@
 	icon_state = "hecu_u"
 	item_state = "hecu_u_s"
 	item_color = "hecu_u"
+
+/obj/item/clothing/head/beret/fluff/officialjake
+	name = "Timothy's Beret"
+	desc = "A fancy red beret owned by Timothy Seidner.  DONOR ITEM"
+	icon_state = "beret_badge"
+	flags = FPRINT | TABLEPASS
+
+/obj/item/clothing/suit/armor/fluff/Sado
+	name = "Heavy Security Hardsuit"
+	desc = "Heavily armored security hardsuit.  DONOR ITEM"
+	icon_state = "rig-secTG"
+	item_state = "rig-secTG"
+	blood_overlay_type = "armor"
+	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0
