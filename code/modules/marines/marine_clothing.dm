@@ -366,6 +366,7 @@ v
 		"/obj/item/ammo_magazine/c9mm",
 		"/obj/item/ammo_magazine/a357",
 		"/obj/item/ammo_magazine/c38",
+		"/obj/item/ammo_magazine/m44m",
 		"/obj/item/weapon/melee/baton",
 		"/obj/item/weapon/melee/stunprod",
 		"/obj/item/weapon/restraints",

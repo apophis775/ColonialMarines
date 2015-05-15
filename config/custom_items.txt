@@ -11,7 +11,6 @@ commandercookies: Elliot Renold: /obj/item/clothing/suit/storage/marine/fluff/ar
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/helmet/marine/fluff/santahat
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/storage/marine/fluff/santa
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/fluff/penguin
-tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/fluff/penguin
 docdemo: Kristofferson: /obj/item/clothing/head/helmet/marine/fluff/goldtrimberet
 obeystylez: Marshall Mathers: /obj/item/clothing/under/fluff/turtleneck
 obeystylez: Marshall Mathers: /obj/item/clothing/mask/balaclava/obey
@@ -59,3 +58,4 @@ sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/FLUFF/sas3
 sasoperative: Joseph Skinner: /obj/item/clothing/mask/sas3
 sasoperative: Joseph Skinner: /obj/item/clothing/head/fluff/sas3
 sasoperative: Joseph Skinner: /obj/item/clothing/suit/armor/fluff/sas3
+officialjake: Timothy Seidner: /obj/item/clothing/head/beret/fluff/officialjake
