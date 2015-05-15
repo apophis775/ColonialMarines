@@ -66,7 +66,7 @@ var/list/department_radio_keys = list(
 	  ":ô" = "alientalk",	"#ô" = "alientalk",		".ô" = "alientalk",
 	  ":å" = "Syndicate",	"#å" = "Syndicate",		".å" = "Syndicate",
 	  ":é" = "Supply",		"#é" = "Supply",		".é" = "Supply",
-	  ":ï" = "changeling",	"#ï" = "changeling",	".ï" = "changeling"
+	  ":ï" = "changeling",	"#ï" = "changeling",	".ï" = "changeling",
 
 	  ":î" = "Hazteam Echo",	"#j" = "Hazteam Echo",		".î" = "Hazteam Echo",
 	  ":ì" = "Marine Command",	"#ì" = "Marine Command",	".ì" = "Marine Command",
