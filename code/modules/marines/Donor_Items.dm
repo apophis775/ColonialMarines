@@ -74,7 +74,6 @@
 	flags = FPRINT|TABLEPASS
 	siemens_coefficient = 0
 
-
 /obj/item/clothing/suit/fluff/penguin
 	name = "Trenchcoat"
 	desc = "An 18th-century trenchcoat. Someone who wears this means serious business.  DONOR ITEM"
@@ -111,14 +110,12 @@
 	armor = list(melee = 50, bullet = 80, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0
 
-
 /obj/item/clothing/head/helmet/marine/fluff/tristan
 	name = "Fancy Helmet"
 	desc = "That's not red paint. That's real blood. DONOR ITEM"
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	armor = list(melee = 50, bullet = 80, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
-
 
 /obj/item/clothing/under/fluff/tristan
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."

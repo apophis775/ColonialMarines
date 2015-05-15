@@ -4,7 +4,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "flashlight"
 	item_state = "flashlight"
-	w_class = 3
+	w_class = 2
 	flags = FPRINT | TABLEPASS | CONDUCT
 	slot_flags = SLOT_BELT
 	m_amt = 50
@@ -153,7 +153,7 @@
 /obj/item/device/flashlight/flare
 	name = "flare"
 	desc = "A red Nanotrasen issued flare. There are instructions on the side, it reads 'pull cord, make light'."
-	w_class = 3
+	w_class = 2
 	brightness_on = 7 // Pretty bright.
 	icon_state = "flare"
 	item_state = "flare"
