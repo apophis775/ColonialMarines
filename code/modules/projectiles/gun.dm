@@ -32,6 +32,10 @@
 						//1 for keep shooting until aim is lowered
 	var/fire_delay = 6
 	var/last_fired = 0
+		//flashlight stuff
+	var/haslight = 0 //Is there a flashlight attached?
+	var/islighton = 0
+	var/gun_light = 5 //How bright will the light be?
 
 	proc/ready_to_fire()
 		if(world.time >= last_fired + fire_delay)
@@ -220,3 +224,25 @@
 			return
 	else
 		return ..() //Pistolwhippin'
+
+/obj/item/weapon/gun/verb/toggle_light()
+	set name = "Toggle Weapon Light"
+	set category = "Object"
+
+	if(!haslight)
+		usr << "There's no flashlight attached. Use a screwdriver on a flashlight to attach one."
+		return
+	if(islighton)
+		playsound(usr, 'sound/weapons/empty.ogg', 100, 1)
+		islighton = 0
+		if(loc == usr)
+			usr.SetLuminosity(usr.luminosity - gun_light)
+		else
+			SetLuminosity(gun_light)
+	else
+		islighton = 1
+		playsound(usr, 'sound/weapons/empty.ogg', 100, 1)
+		if(loc == usr)
+			usr.SetLuminosity(usr.luminosity + gun_light)
+		else
+			SetLuminosity(0)
