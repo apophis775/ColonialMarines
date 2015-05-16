@@ -97,15 +97,15 @@
 		return ..()
 
 
-/obj/item/device/flashlight/pickup(mob/user)
+/obj/item/device/flashlight/pickup(mob/usr)
 	if(on)
-		user.SetLuminosity(user.luminosity + brightness_on)
+		usr.SetLuminosity(usr.luminosity + brightness_on)
 		SetLuminosity(0)
 
 
-/obj/item/device/flashlight/dropped(mob/user)
+/obj/item/device/flashlight/dropped(mob/usr)
 	if(on)
-		user.SetLuminosity(user.luminosity - brightness_on)
+		usr.SetLuminosity(usr.luminosity - brightness_on)
 		SetLuminosity(brightness_on)
 
 

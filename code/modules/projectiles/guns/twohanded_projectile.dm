@@ -283,12 +283,6 @@
 		SetLuminosity(0)
 	return
 
-/obj/item/device/flashlight/pickup(mob/user)
-
-
-
-/obj/item/device/flashlight/dropped(mob/user)
-
 
 /obj/item/weapon/gun/twohanded/projectile/attack_self(mob/user as mob)
 	if( istype(user,/mob/living/carbon/monkey) )
