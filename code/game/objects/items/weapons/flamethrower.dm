@@ -253,15 +253,16 @@
 
 	//This is shitty and inefficient, but the /alien/ parent obj doesn't have health.. sigh.
 	for(var/obj/effect/alien/weeds/W in loc)  //Melt dem weeds
-		if (istype(W)) //Just for safety
+		if(istype(W)) //Just for safety
 			W.health -= (firelevel * 2)
-			W.healthcheck()
+			if(W.health < 0)
+				del(W) //Just deleterize it
 	for(var/obj/effect/alien/resin/R in loc)  //Melt dem resins
-		if (istype(R)) //Just for safety
+		if(istype(R)) //Just for safety
 			R.health -= (firelevel * 2)
 			R.healthcheck()
 	for(var/obj/effect/alien/egg/E in loc)  //Melt dem eggs
-		if (istype(E)) //Just for safety
+		if(istype(E)) //Just for safety
 			E.health -= (firelevel * 2)
 			E.healthcheck()
 
