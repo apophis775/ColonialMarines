@@ -64,14 +64,20 @@
 
 /obj/item/weapon/flamethrower/afterattack(atom/target, mob/user, proximity)
 	// Make sure our user is still holding us
+	..()
 	if(user && user.get_active_hand() == src)
 		var/turf/target_turf = get_turf(target)
 		if(target_turf)
 			var/turflist = getline(user, target_turf)
 			flame_turf(turflist)
-			for (var/mob/O in viewers(user, null))
-				O << "\red [user] unleashes a blast of flames!"
-
+			if(ptank)
+				if(ptank.air_contents.phoron <= 0.5)
+					usr << "\red You try to get your flame on, but nothing happens. You're all out of burn juice!"
+				else
+					for (var/mob/O in viewers(user, null))
+						O << "\red [user] unleashes a blast of flames!"
+			else
+				usr << "Attach a tank first!"
 
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
@@ -167,7 +173,9 @@
 	usr.set_machine(src)
 	if(href_list["light"])
 		if(!ptank)	return
-		if(ptank.air_contents.phoron < 1)	return
+		if(ptank.air_contents.phoron < 0.5)
+			usr << "There's not enough gas left to ignite the flamethrower."
+			return
 		if(!status)	return
 		lit = !lit
 		if(lit)
@@ -248,7 +256,7 @@
 		return
 
 	for(var/mob/living/carbon/M in loc)
-		M.adjustFireLoss(rand(5,10)+(firelevel*2))  //fwoom!
+		M.adjustFireLoss(rand(5,10) + firelevel)  //fwoom!
 		M.show_message(text("\red You are burned!"),1)
 
 	//This is shitty and inefficient, but the /alien/ parent obj doesn't have health.. sigh.
@@ -284,17 +292,16 @@
 	if(ptank.air_contents.phoron <= 0.5) //The heck, did you attach an air tank to this thing??
 		return
 
-	ptank.air_contents.remove_ratio(0.1*(throw_amount/100)) //This should just strip out the gas
+	ptank.air_contents.remove_ratio(0.2*(throw_amount/100)) //This should just strip out the gas
 	if (!locate(/obj/flamer_fire) in target) // No stacking flames!
 		var/obj/flamer_fire/F =  new/obj/flamer_fire(target)
 		processing_objects.Add(F)
 		F.firelevel = (throw_amount / 10) + 1
-		if(F.firelevel < 1 || F.firelevel > 15) //Unloading more than this is pointless, nozzle's only so big
-			F.firelevel = 15
+		if(F.firelevel < 1) F.firelevel = 1
+		if(F.firelevel > 11) F.firelevel = 11
 	for(var/mob/living/carbon/M in target) //Deal bonus damage if someone's caught directly in initial stream
-		M.adjustFireLoss(rand(40,60))  //fwoom!
+		M.adjustFireLoss(rand(15,25))  //fwoom!
 		M.show_message(text("\red Auuugh! You are roasted by the flamethrower!"), 1)
-
 	return
 
 /obj/item/weapon/flamethrower/full/New(var/loc)
