@@ -229,6 +229,7 @@
 	var/turf/simulated/T = loc
 
 	if (!istype(T)) //Is it a valid turf? Has to be simulated and on a floor
+		processing_objects.Remove(src)
 		del(src)
 		return
 
@@ -255,7 +256,7 @@
 		if(istype(W)) //Just for safety
 			W.health -= (firelevel * 2)
 			if(W.health < 0)
-			del(W) //Just deleterize it
+				del(W) //Just deleterize it
 	for(var/obj/effect/alien/resin/R in loc)  //Melt dem resins
 		if(istype(R)) //Just for safety
 			R.health -= (firelevel * 2)
