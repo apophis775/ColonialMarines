@@ -41,15 +41,13 @@ var/can_call_ert
 		usr << "\red No. The emergency shuttle has been called."
 		return
 	if(count_humans > count_aliens)
-		// var/confirm = alert(src, "There are more humans than aliens! This is NOT recommended! Are you POSITIVE?","Confirm","Yes","No")
-		src << "No. There are more humans than aliens."
-		// if(confirm != "Yes")
-		return
+		var/confirm = alert(src, "There are more humans than aliens! This is NOT recommended! Are you POSITIVE?","Confirm","Yes","No") 
+		if(confirm != "Yes")
+			return
 	if(count_observers < 5)
-		// var/confirm2 = alert(src, "There are less than 5 observers! This is NOT recommended! Are you ABSOLUTELY SURE?","Confirm","Yes","No")
-		src << "No. There are less than 5 observers."
-		// if(confirm2 != "Yes")
-		return
+		var/confirm2 = alert(src, "There are less than 5 observers! This is NOT recommended! Are you ABSOLUTELY SURE?","Confirm","Yes","No") 
+		if(confirm2 != "Yes")
+			return
 	if(alert("FINAL CHANCE - Call the Heavy Infantry Team?",,"Yes","No") != "Yes")
 		return
 	if(send_infantry_team)
