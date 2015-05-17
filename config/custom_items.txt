@@ -58,4 +58,28 @@ wrightthewrong: John Wright: /obj/item/clothing/suit/storage/marine/fluff/wright
 wrightthewrong: John Wright: /obj/item/clothing/under/marine/fluff/turtleneck
 zynax: Isaac Miller: /obj/item/clothing/mask/fluff/balaclava
 zynax: Isaac Miller: /obj/item/clothing/under/marine/fluff/turtleneck
+juniho77: Sheet Curity: /obj/item/clothing/head/helmet/marine/fluff/juniho
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
