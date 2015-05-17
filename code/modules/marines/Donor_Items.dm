@@ -256,6 +256,12 @@
 	desc = "A dark maroon beret"
 	icon_state = "eberet"
 
+/obj/item/clothing/head/helmet/marine/fluff/juniho
+	name = "Sheet's Hat"
+	desc = "A hat, very closely affiliated with accuasions of people being bad at security...  DONOR ITEM" //Add UNIQUE if Unique
+	icon_state = "detective"
+	item_state = "detective"
+
 //	UNIFORM/JUMPSUIT COSMETICS  ////////////////////////////////////////////////
 
 //UNIFORM TEMPLATE (for uniforms/jumpsuits)  ONLY TAKE NAME, DESC, ICON_STATE, ITEM_STATE,  AND ITEM_COLOR.  Make a copy of those, and put the ckey of the person at the end after fluff
