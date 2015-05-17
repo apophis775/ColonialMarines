@@ -53,7 +53,7 @@
 	if(world.port == 1401)
 		hub = "Exadv1.spacestation13"
 		hub_password = "none"
-		name = "Marines Test"
+		name = "null"
 
 	sun = new /datum/sun()
 	radio_controller = new /datum/controller/radio()
@@ -242,9 +242,9 @@
 	var/s = ""
 
 	if (config && config.server_name)
-		s += "<a href=\"http://www.colonial-marines.com\"><b>[config.server_name]</b> &#8212; "
+		s += "<a href=\"http://www.google.com\"><b>[config.server_name]</b> &#8212; "
 
-	s += "<b>NMV Sulaco</b> | Hosted by Apophis";
+	s += "Hosted by: ";
 	//s += " ("
 	//s += "" //Change this to wherever you want the hub to link to.
 	//s += "[config.server_version]"
@@ -288,7 +288,7 @@
 	*/
 
 	if (!host && config && config.hostedby)
-		features += "hosted by <b>Apophis775</b>"
+		features += "hosted by </b>"
 
 	if (features)
 		s += ": [dd_list2text(features, ", ")]"

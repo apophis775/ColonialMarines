@@ -6,3 +6,10 @@
 *.lk
 data/
 scripts/voicequeue.txt
+code/hub.dm
+code/world.dm
+interface/interface.dm
+config/admins.txt
+config/config.txt
+config/motd.txt
+config/custom_items.txt
