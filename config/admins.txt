@@ -11,8 +11,8 @@ unknownmurder - Head Admin
 
 
 
-SASoperative - Head Moderator
 
+SASoperative - Head Moderator
 
 
 
@@ -28,6 +28,8 @@ Rovernic - Game Admin
 
 Allan1234 - Trial Admin
 
+Caryl - Moderator
+
 
 
 
@@ -37,21 +39,20 @@ Kyrac - Moderator
 
 Johnkilla56 - Moderator
 
-Caryl - Moderator
+TotalAnarchy - Moderator
+
+Fickmacher - Moderator
+
+Biolock - Moderator
+
+Officialjake -Moderator
 
 
 
-
-TotalAnarchy - Trial Moderator
-
-Fickmacher - Trial Moderator
-
-Biolock - Trial Moderator
-
-Officialjake - Trial Moderator
 
 NijiShadow - Trial Moderator
 
+Ordukai - Trial Moderator
 
 
 
