@@ -1,5 +1,0 @@
-</override>
-<hr>
-<h1>Colonial Marines - Random Host Code</h1>
-
-<hr>
