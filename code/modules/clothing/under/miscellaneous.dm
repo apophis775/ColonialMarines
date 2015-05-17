@@ -231,13 +231,7 @@
 	item_color = "hawking"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
-/obj/item/clothing/under/leeeverett
-	name = "Rugged Outfit"
-	desc = "It's covered in blood and smells terrible. Who died in this?"
-	icon_state = "rugged"
-	item_state = "rugged"
-	item_color = "rugged"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
 /obj/item/clothing/under/kilt
 	name = "kilt"
 	desc = "Includes shoes and plaid"

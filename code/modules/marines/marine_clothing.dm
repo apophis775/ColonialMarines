@@ -9,32 +9,8 @@
 	health = 5
 	flags = FPRINT|TABLEPASS|HEADCOVERSEYES|HEADCOVERSMOUTH|BLOCKHAIR
 
-/obj/item/clothing/head/helmet/marine/fluff/anthonycarmine
-	name = "Anthony's helmet"
-	desc = "COG helmet owned by Anthony Carmine"
-	icon_state = "anthonycarmine"
-	item_state = "anthonycarmine"
-	item_color = "anthonycarmine"
 
-/obj/item/clothing/head/helmet/marine/fluff/goldshieldberet
-	name = "beret"
-	desc = "A military black beret with a gold shield."
-	icon_state = "gberet"
 
-/obj/item/clothing/head/helmet/marine/fluff/goldtrimberet
-	name = "beret"
-	desc = "A maroon beret with gold trim"
-	icon_state = "gtberet"
-
-/obj/item/clothing/head/helmet/marine/fluff/elliotberet
-	name = "Elliots Beret"
-	desc = "A dark maroon beret"
-	icon_state = "eberet"
-
-/obj/item/clothing/head/helmet/marine/fluff/santahat
-	name = "Santa's hat"
-	desc = "Ho ho ho. Merrry X-mas!"
-	icon_state = "santahat"
 
 /obj/item/clothing/head/soft/marine
 	name = "marine sergeant cap"
