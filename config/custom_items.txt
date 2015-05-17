@@ -36,7 +36,7 @@ sadokist: Tanya 'Aegis' Edenia: /obj/item/weapon/storage/backpack/marine/fluff/S
 sasoperative: Joseph Skinner: /obj/item/clothing/head/helmet/marine/fluff/sas3
 sasoperative: Joseph Skinner: /obj/item/clothing/mask/fluff/sas3
 sasoperative: Joseph Skinner: /obj/item/clothing/suit/storage/marine/fluff/sas3
-sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/FLUFF/sas3
+sasoperative: Joseph Skinner: /obj/item/clothing/under/marine/fluff/sas3
 theflagbearer: Lee Everett: /obj/item/clothing/under/marine/fluff/leeeverett
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/head/helmet/marine/fluff/santahat
 tophatpenguin: Osalaa Wooki: /obj/item/clothing/suit/storage/marine/fluff/penguin
