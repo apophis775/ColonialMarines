@@ -23,6 +23,19 @@
  * Text sanitization
  */
 
+#define JA         "ÿ"
+#define JA_TEMP    "¶"
+#define JA_CHAT    "&#255;"
+
+/proc/fix_ja_input(var/text)
+	return replacetext(text, JA, JA_TEMP)
+
+/proc/fix_ja_output(var/text)
+	return replacetext(text, JA_TEMP, JA_CHAT)
+
+/proc/fix_ja_simple(var/text)
+	return replacetext(text, JA, JA_CHAT)
+
 //Simply removes < and > and limits the length of the message
 /proc/strip_html_simple(var/t,var/limit=MAX_MESSAGE_LEN)
 	var/list/strip_chars = list("<",">")
@@ -35,17 +48,17 @@
 	return t
 
 //Removes a few problematic characters
-/proc/sanitize_simple(var/t,var/list/repl_chars = list("\n"="#","\t"="#","ï¿½"="ï¿½"))
+/proc/sanitize_simple(var/t,var/list/repl_chars = list("\n"="#","\t"="#"))
 	for(var/char in repl_chars)
 		var/index = findtext(t, char)
 		while(index)
 			t = copytext(t, 1, index) + repl_chars[char] + copytext(t, index+1)
 			index = findtext(t, char)
-	return t
+	return fix_ja_input(t)
 
 //Runs byond's sanitization proc along-side sanitize_simple
 /proc/sanitize(var/t,var/list/repl_chars = null)
-	return html_encode(sanitize_simple(t,repl_chars))
+	return fix_ja_output(html_encode(sanitize_simple(t,repl_chars)))
 
 //Runs sanitize and strip_html_simple
 //I believe strip_html_simple() is required to run first to prevent '<' from displaying as '&lt;' after sanitize() calls byond's html_encode()

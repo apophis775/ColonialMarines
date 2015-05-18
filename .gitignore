@@ -6,17 +6,13 @@
 *.lk
 data/
 scripts/voicequeue.txt
-config/admins.txt
-config/config.txt
 config/motd.txt
 config/custom_items.txt
 config/access levels.txt
-config/admin_ranks.txt
 config/alienwhitelist.txt
 config/custom_sprites.txt
 config/dbconfig.txt
 config/forumdbconfig.txt
-config/game_options.txt
 config/jobs.txt
 config/moderators.txt
 config/svndir.txt

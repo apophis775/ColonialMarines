@@ -68,9 +68,10 @@
 		return
 
 	//clean the message if it's not sent by a high-rank admin
-	if(!check_rights(R_SERVER|R_DEBUG,0))
-		msg = sanitize(copytext(msg,1,MAX_MESSAGE_LEN))
-		if(!msg)	return
+	//if(!check_rights(R_SERVER|R_DEBUG,0))
+
+	msg = sanitize(copytext(msg,1,MAX_MESSAGE_LEN))
+	if(!msg)	return
 
 	if(C.holder)
 		if(holder)	//both are admins
