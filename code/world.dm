@@ -243,14 +243,12 @@
 	var/s = ""
 
 	if (config && config.server_name)
-		s += "<a href=\"http://www.google.com\"><b>[config.server_name]</b> &#8212; "
+		s += "<a href=\"http://tauceti.ru\"><b>[config.server_name]</b> &#8212;"
 
 	s += "Hosted by: ";
-	//s += " ("
-	//s += "" //Change this to wherever you want the hub to link to.
-	//s += "[config.server_version]"
-	//s += ")"
-	s += "<br><img src=\"http://i.imgur.com/VpW1jnJ.png?1\"><br>"
+	s += " ("
+	s += "tauceti.ru"
+	s += ")"
 	s += "</a>"
 
 	var/list/features = list()
