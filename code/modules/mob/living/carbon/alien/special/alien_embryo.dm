@@ -156,7 +156,7 @@
 
 		new_xeno.key = picked
 		new_xeno << sound('sound/voice/hiss5.ogg',0,0,0,100)	//To get the player's attention
-
+		affected_mob.update_icons()
 		affected_mob.death()
 		affected_mob.stat = DEAD
 		src.protect = 1

@@ -128,10 +128,10 @@ Please contact me on #coderbus IRC. ~Carn x
 #define L_HAND_LAYER			21
 #define R_HAND_LAYER			22
 #define TARGETED_LAYER			23		//BS12: Layer for the target overlay from weapon targeting system
-#define TOTAL_LAYERS			23
+#define CHESTBUSTER_OVERLAY		24
+#define TOTAL_LAYERS			24
+
 //////////////////////////////////
-
-
 /mob/living/carbon/human
 	var/list/overlays_standing[TOTAL_LAYERS]
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
@@ -139,6 +139,7 @@ Please contact me on #coderbus IRC. ~Carn x
 	var/icon/deform_icon
 	var/matrix/lyingmatrix = matrix()
 	var/matrix/standingmatrix = matrix()
+
 	New()
 		..()
 		lyingmatrix.Turn(90)
@@ -356,7 +357,8 @@ proc/get_damage_icon_part(damage_state, body_part)
 		human_icon_cache[icon_key] = base_icon
 
 		log_debug("Generated new cached mob icon ([icon_key] \icon[human_icon_cache[icon_key]]) for [src]. [human_icon_cache.len] cached mob icons.")
-
+		if(birth)
+			overlays_standing[CHESTBUSTER_OVERLAY]	=	image('icons/mob/alien.dmi', icon_state = "bursted_lie")
 	//END CACHED ICON GENERATION.
 
 	stand_icon.Blend(base_icon,ICON_OVERLAY)

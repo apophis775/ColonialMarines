@@ -115,12 +115,6 @@
 
 	pulse = handle_pulse()
 
-	if(src.lying && src.birth)
-		src.overlays += image('icons/mob/alien.dmi', loc = src, icon_state = "bursted_lie")
-	else if(!src.lying && src.birth)
-		src.overlays += image('icons/mob/alien.dmi', loc = src, icon_state = "bursted_stand")
-
-
 	// Grabbing
 	for(var/obj/item/weapon/grab/G in src)
 		G.process()
@@ -1360,7 +1354,7 @@
 				var/obj/item/clothing/glasses/welding/O = glasses
 				if(!O.up && tinted_weldhelh)
 					client.screen += global_hud.darkMask
-				
+
 			if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
 				blind.layer = 18
 
