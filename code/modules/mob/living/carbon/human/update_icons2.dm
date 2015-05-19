@@ -161,6 +161,8 @@ Please contact me on #coderbus IRC. ~Carn x
 		if(S.active)
 			stealth = 1
 			break
+	if(birth)
+		overlays_standing[CHESTBUSTER_OVERLAY]	=	image('icons/mob/alien.dmi', icon_state = "bursted_stand")
 	if(stealth)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
@@ -357,8 +359,7 @@ proc/get_damage_icon_part(damage_state, body_part)
 		human_icon_cache[icon_key] = base_icon
 
 		log_debug("Generated new cached mob icon ([icon_key] \icon[human_icon_cache[icon_key]]) for [src]. [human_icon_cache.len] cached mob icons.")
-		if(birth)
-			overlays_standing[CHESTBUSTER_OVERLAY]	=	image('icons/mob/alien.dmi', icon_state = "bursted_lie")
+
 	//END CACHED ICON GENERATION.
 
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
