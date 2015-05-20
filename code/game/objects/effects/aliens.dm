@@ -451,7 +451,7 @@
 	gender = PLURAL
 	name = "acid"
 	desc = "Burbling corrossive stuff."
-	icon = 'icons/effects/effects.dmi'
+	icon = 'icons/Xeno/Effects.dmi'
 	icon_state = "acid"
 	density = 0
 	opacity = 0
