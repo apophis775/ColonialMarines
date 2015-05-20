@@ -232,21 +232,10 @@
 			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 
 	health -= damage
-	deathcheck()
+	healthcheck()
 
 
 /obj/effect/alien/weeds/proc/healthcheck()
-	while(1)
-		if(istype(src, /obj/effect/alien/weeds/node))
-			return
-		sleep(3)
-		lifetick++
-		if(lifetick >= 75)
-			lifetick = 0
-			health--
-			deathcheck()
-
-/obj/effect/alien/weeds/proc/deathcheck()
 	if(health <= 0)
 		del(src)
 
