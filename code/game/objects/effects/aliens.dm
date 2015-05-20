@@ -232,7 +232,7 @@
 			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 
 	health -= damage
-	deathcheck()
+	healthcheck()
 
 
 /obj/effect/alien/weeds/proc/healthcheck()
