@@ -230,7 +230,7 @@
 	mouse_opacity = 0
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "1"
-	layer = TURF_LAYER
+	layer = 2.03
 	var/firelevel = 11 //Track how "hot" the fire is, flames die down eventually
 
 /obj/flamer_fire/process()
