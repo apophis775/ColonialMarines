@@ -4,7 +4,7 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
+	layer = 2.03
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "shards"
 

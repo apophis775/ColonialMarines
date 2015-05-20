@@ -5,7 +5,7 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
+	layer = 2.03
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "floor1"
 	random_icon_states = list("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "floor7")
@@ -97,7 +97,7 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
+	layer = 2.03
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gibbl5"
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
@@ -140,7 +140,7 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
+	layer = 2.03
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
 	random_icon_states = list("mucus")

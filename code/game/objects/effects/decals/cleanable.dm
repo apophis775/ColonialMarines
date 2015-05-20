@@ -1,4 +1,5 @@
 /obj/effect/decal/cleanable
+	layer = 2.03
 	var/list/random_icon_states = list()
 
 /obj/effect/decal/cleanable/New()
