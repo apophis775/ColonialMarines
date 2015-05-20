@@ -83,7 +83,7 @@ Doesn't work on other aliens/AI.*/
 	set category = "Alien"
 
 	if(powerc(100))
-		if(locate(/obj/effect/alien/weak_acid) in get_turf(O))
+		if(locate(/obj/effect/alien/acid/weak) in get_turf(O))
 			src << "There is already acid there."
 			return
 		if(O in oview(1))
@@ -112,7 +112,7 @@ Doesn't work on other aliens/AI.*/
 				return
 
 			adjustToxLoss(-100)
-			new /obj/effect/alien/weak_acid(get_turf(O), O)
+			new /obj/effect/alien/acid/weak(get_turf(O), O)
 			visible_message("\green <B>[src] vomits globs of vile stuff all over [O]. It begins to sizzle and melt under the bubbling mess of acid!</B>")
 		else
 			src << "\green Target is too far away."
@@ -129,7 +129,7 @@ Doesn't work on other aliens/AI.*/
 	set category = "Alien"
 
 	if(powerc(200))
-		if(locate(/obj/effect/alien/weak_acid) in get_turf(O))
+		if(locate(/obj/effect/alien/acid/weak) in get_turf(O))
 			src << "There is already acid there."
 			return
 		if(O in oview(1))
@@ -172,7 +172,7 @@ Doesn't work on other aliens/AI.*/
 	set category = "Alien"
 
 	if(powerc(300))
-		if(locate(/obj/effect/alien/weak_acid) in get_turf(O))
+		if(locate(/obj/effect/alien/acid/weak) in get_turf(O))
 			src << "There is already acid there."
 			return
 		if(O in oview(1))
@@ -197,7 +197,7 @@ Doesn't work on other aliens/AI.*/
 				return
 
 			adjustToxLoss(-300)
-			new /obj/effect/alien/superacid(get_turf(O), O)
+			new /obj/effect/alien/acid/super(get_turf(O), O)
 			visible_message("\green <B>[src] vomits globs of vile stuff all over [O]. It begins to sizzle and melt under the bubbling mess of acid!</B>")
 		else
 			src << "\green Target is too far away."
