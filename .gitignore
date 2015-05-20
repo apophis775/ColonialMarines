@@ -6,7 +6,6 @@
 *.lk
 data/
 scripts/voicequeue.txt
-config/motd.txt
 config/custom_items.txt
 config/access levels.txt
 config/alienwhitelist.txt
