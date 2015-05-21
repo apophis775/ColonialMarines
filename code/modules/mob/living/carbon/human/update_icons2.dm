@@ -160,6 +160,8 @@ Please contact me on #coderbus IRC. ~Carn x
 		if(S.active)
 			stealth = 1
 			break
+//	if(birth)
+//		overlays_standing[CHESTBUSTER_OVERLAY]	=	image('icons/mob/alien.dmi', icon_state = "bursted_stand")     //This needs to be checked/adjusted?
 	if(stealth)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"

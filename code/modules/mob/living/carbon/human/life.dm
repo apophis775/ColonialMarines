@@ -1360,7 +1360,7 @@
 				var/obj/item/clothing/glasses/welding/O = glasses
 				if(!O.up && tinted_weldhelh)
 					client.screen += global_hud.darkMask
-				
+
 			if(istype(wear_mask, /obj/item/clothing/mask/facehugger))
 				blind.layer = 18
 
@@ -1400,7 +1400,7 @@
 			for (var/ID in virus2)
 				var/datum/disease2/disease/V = virus2[ID]
 				V.cure(src)
-
+/*
 		for(var/obj/effect/decal/cleanable/blood/B in view(1,src))
 			if(B.virus2.len)
 				for (var/ID in B.virus2)
@@ -1412,7 +1412,7 @@
 				for (var/ID in M.virus2)
 					var/datum/disease2/disease/V = M.virus2[ID]
 					infect_virus2(src,V)
-
+*/
 		for (var/ID in virus2)
 			var/datum/disease2/disease/V = virus2[ID]
 			if(isnull(V)) // Trying to figure out a runtime error that keeps repeating

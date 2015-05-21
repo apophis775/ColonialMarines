@@ -231,7 +231,7 @@
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "1"
 	layer = TURF_LAYER
-	var/firelevel = 11 //Track how "hot" the fire is, flames die down eventually
+	var/firelevel = 12 //Track how "hot" the fire is, flames die down eventually
 
 /obj/flamer_fire/process()
 	var/turf/simulated/T = loc
@@ -249,42 +249,61 @@
 		SetLuminosity(5)
 	else if(firelevel > 0)
 		icon_state = "1"
-		SetLuminosity(3)
+		SetLuminosity(2)
 	else  //Fire has burned out, firelevel is 0 or less. GET OUT. Shouldn't cause issues, unlike sleep() + Del
 		processing_objects.Remove(src)
 		del(src)
 		return
 
 	for(var/mob/living/carbon/M in loc)
+		if(istype(M,/mob/living/carbon/human))
+			if(istype(M:wear_suit, /obj/item/clothing/suit/fire) || istype(M:wear_suit,/obj/item/clothing/suit/space/rig/atmos))
+				M.show_message(text("Your suit protects you from the flames."),1)
+				continue
+		if(istype(M,/mob/living/carbon/alien/humanoid/queen))
+			M.show_message(text("Your extra-thick exoskeleton you from the flames."),1)
+			continue
+		if(istype(M,/mob/living/carbon/alien/humanoid/ravager))
+			M.adjustToxLoss(firelevel * 5)
+			M:usedcharge = world.time //Force it: we know ravagers have this var
+			M.show_message(text("\red The heat of the fire roars in your veins! KILL! CHARGE! DESTROY!"),1)
+			if(rand(1,100) < 70)
+				M.emote("roar")
+			continue
 		M.adjustFireLoss(rand(5,10) + firelevel)  //fwoom!
 		M.show_message(text("\red You are burned!"),1)
 
 	//This is shitty and inefficient, but the /alien/ parent obj doesn't have health.. sigh.
 	for(var/obj/effect/alien/weeds/W in loc)  //Melt dem weeds
 		if(istype(W)) //Just for safety
-			W.health -= (firelevel * 2)
+			W.health -= (30 + (firelevel * 2))
 			if(W.health < 0)
 				del(W) //Just deleterize it
 	for(var/obj/effect/alien/resin/R in loc)  //Melt dem resins
 		if(istype(R)) //Just for safety
-			R.health -= (firelevel * 2)
+			R.health -= (30 + (firelevel * 2))
 			R.healthcheck()
 	for(var/obj/effect/alien/egg/E in loc)  //Melt dem eggs
 		if(istype(E)) //Just for safety
-			E.health -= (firelevel * 2)
+			E.health -= (30 + (firelevel * 2))
 			E.healthcheck()
-
+	for(var/obj/structure/stool/bed/nest/N in loc)  //Melt dem nests
+		if(istype(N)) //Just for safety
+			N.health -= (30 + (firelevel * 2))
+			N.healthcheck()
 	for(var/obj/item/clothing/mask/facehugger/H in loc) //Melt dem huggers
 		if(!istype(H))
 			continue //somehow
-		H.health -= firelevel
+		H.health -= (firelevel + 5)
 		H.healthcheck()
 
-	firelevel -= 1 //reduce the intensity, max is 11 pulses
+	firelevel -= 2 //reduce the intensity by 2 per tick
 	return
 
 
 /obj/item/weapon/flamethrower/proc/ignite_turf(turf/target)
+	if(isnull(target)) //Basic logic checking, should not be possible
+		return
 
 	if(!ptank)
 		return //Shouldn't be possible, just to be safe though
@@ -292,15 +311,20 @@
 	if(ptank.air_contents.phoron <= 0.5) //The heck, did you attach an air tank to this thing??
 		return
 
-	ptank.air_contents.remove_ratio(0.2*(throw_amount/100)) //This should just strip out the gas
+	ptank.air_contents.remove_ratio(0.08*(throw_amount/100)) //This should just strip out the gas
 	if (!locate(/obj/flamer_fire) in target) // No stacking flames!
 		var/obj/flamer_fire/F =  new/obj/flamer_fire(target)
 		processing_objects.Add(F)
 		F.firelevel = (throw_amount / 10) + 1
 		if(F.firelevel < 1) F.firelevel = 1
-		if(F.firelevel > 11) F.firelevel = 11
+		if(F.firelevel > 30) F.firelevel = 30
 	for(var/mob/living/carbon/M in target) //Deal bonus damage if someone's caught directly in initial stream
-		M.adjustFireLoss(rand(15,25))  //fwoom!
+		if(istype(M,/mob/living/carbon/alien/humanoid/ravager) || istype(M,/mob/living/carbon/alien/humanoid/queen))
+			continue
+		if(istype(M,/mob/living/carbon/human))
+			if(istype(M:wear_suit, /obj/item/clothing/suit/fire) || istype(M:wear_suit,/obj/item/clothing/suit/space/rig/atmos))
+				continue
+		M.adjustFireLoss(rand(10,15))  //fwoom!
 		M.show_message(text("\red Auuugh! You are roasted by the flamethrower!"), 1)
 	return
 
