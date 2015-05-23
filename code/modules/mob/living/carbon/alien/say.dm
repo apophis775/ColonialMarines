@@ -17,6 +17,14 @@
 			return ..(message)
 	else
 
+/mob/living/carbon/alien/say_understands(var/mob/other,var/datum/language/speaking)
+	if (istype(other, /mob/living/carbon/alien))
+		return 1
+	..(other, speaking)
+
+
+
+say_understands
 /mob/living/proc/alien_talk(var/message)
 
 	log_say("[key_name(src)] : [message]")
