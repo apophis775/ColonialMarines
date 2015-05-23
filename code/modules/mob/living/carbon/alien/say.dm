@@ -23,8 +23,6 @@
 	..(other, speaking)
 
 
-
-say_understands
 /mob/living/proc/alien_talk(var/message)
 
 	log_say("[key_name(src)] : [message]")
