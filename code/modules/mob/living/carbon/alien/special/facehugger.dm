@@ -151,7 +151,7 @@ var/const/MAX_ACTIVE_TIME = 200
 	return
 
 /obj/item/clothing/mask/facehugger/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.damage
+	Die()
 	return
 
 /obj/item/clothing/mask/facehugger/ex_act(severity)
@@ -220,7 +220,8 @@ var/const/MAX_ACTIVE_TIME = 200
 		var/mob/living/carbon/human/H = L
 		var/obj/item/clothing/head/head = H.head
 		if(head && head.flags & HEADCOVERSMOUTH)
-			if(head.health <= 10)
+			head.take_damage(rand(1,3))
+			if(head.health <= 2)
 				H.visible_message("\red \b [src] smashes against [H]'s [head], and rips it off in the process!")
 				H.drop_from_inventory(head)
 			else
@@ -230,8 +231,7 @@ var/const/MAX_ACTIVE_TIME = 200
 			else
 				H.visible_message("\red [src] bounces off of the [head]!")
 				GoIdle(15)
-			if(hascall(head, "take_damage"))
-				head.take_damage(5)
+
 
 			return
 

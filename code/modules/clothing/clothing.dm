@@ -151,11 +151,19 @@ BLIND     // can't see anything
 	icon = 'icons/obj/clothing/hats.dmi'
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
-	health = 50
+	health = 2
+
 /obj/item/clothing/head/proc/take_damage(var/amt)
 	health = health - amt
+	var/atom/this = src
 	if(health <= 0)
-		del src
+		slot_flags = 0
+		name = "broken " + name
+		desc = desc + " This one looks shattered and cannot be used anymore."
+		if(istype(this.loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/user = this.loc
+			user.drop_from_inventory(src)
+
 //Mask
 /obj/item/clothing/mask
 	name = "mask"
