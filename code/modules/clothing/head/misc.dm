@@ -103,7 +103,7 @@
 	item_state = "cardborg_h"
 	flags = FPRINT | TABLEPASS | HEADCOVERSEYES | HEADCOVERSMOUTH
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
-	health = 10
+	health = 1
 
 /obj/item/clothing/head/justice
 	name = "justice hat"

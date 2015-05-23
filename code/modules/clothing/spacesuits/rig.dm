@@ -13,7 +13,7 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECITON_TEMPERATURE
 	species_restricted = list("exclude","Unathi","Tajaran","Skrell","Diona","Vox")
-	health = 20
+	health = 5
 
 	attack_self(mob/user)
 		if(!isturf(user.loc))
@@ -57,7 +57,7 @@
 	icon_state = "rig0-white"
 	item_state = "ce_helm"
 	item_color = "white"
-	health = 30
+	health = 6
 
 /obj/item/clothing/suit/space/rig/elite
 	icon_state = "rig-white"

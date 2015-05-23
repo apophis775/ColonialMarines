@@ -24,7 +24,7 @@
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	icon_action_button = "action_welding"
 	siemens_coefficient = 0.9
-	health = 40
+	health = 8
 
 /obj/item/clothing/head/welding/attack_self()
 	toggle()
@@ -126,7 +126,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	var/brightness_on = 2 //luminosity when on
 	var/on = 0
-	health = 40
+	health = 4
 	attack_self(mob/user)
 		if(!isturf(user.loc))
 			user << "You cannot turn the light on while in this [user.loc]" //To prevent some lighting anomalities.

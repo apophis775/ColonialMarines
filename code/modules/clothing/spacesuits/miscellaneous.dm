@@ -35,7 +35,7 @@
 	item_state = "deathsquad"
 	armor = list(melee = 75, bullet = 80, laser = 50,energy = 20, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0.2
-	health = 100
+	health = 12
 
 /obj/item/clothing/head/helmet/space/deathsquad/beret
 	name = "officer's beret"
