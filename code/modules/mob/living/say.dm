@@ -25,6 +25,10 @@ var/list/department_radio_keys = list(
 	  ":d" = "Delta Squad",	"#d" = "Delta Squad",	".d" = "Delta Squad",
 	  ":p" = "Military Police",	"#p" = "Military Police",	".p" = "Military Police",
 
+
+
+
+
 	  ":R" = "right ear",	"#R" = "right ear",		".R" = "right ear",
 	  ":L" = "left ear",	"#L" = "left ear",		".L" = "left ear",
 	  ":I" = "intercom",	"#I" = "intercom",		".I" = "intercom",
@@ -66,7 +70,26 @@ var/list/department_radio_keys = list(
 	  ":ô" = "alientalk",	"#ô" = "alientalk",		".ô" = "alientalk",
 	  ":å" = "Syndicate",	"#å" = "Syndicate",		".å" = "Syndicate",
 	  ":é" = "Supply",		"#é" = "Supply",		".é" = "Supply",
-	  ":ï" = "changeling",	"#ï" = "changeling",	".ï" = "changeling"
+	  ":ï" = "changeling",	"#ï" = "changeling",	".ï" = "changeling",
+
+	  ":ÿ" = "Sulaco",		"#ÿ" = "Sulaco",		".ÿ" = "Sulaco",
+	  ":î" = "Hazteam Echo",		"#î" = "Hazteam Echo",		".î" = "Hazteam Echo",
+	  ":ì" = "Marine Command",	"#ì" = "Marine Command",	".ì" = "Marine Command",
+	  ":é" = "Alpha Squad",	"#é" = "Alpha Squad",		".é" = "Alpha Squad",
+	  ":í" = "Bravo Squad",	"#í" = "Bravo Squad",	".í" = "Bravo Squad",
+	  ":à" = "Charlie Squad",	"#à" = "Charlie Squad",	".à" = "Charlie Squad",
+	  ":â" = "Delta Squad",	"#â" = "Delta Squad",	".â" = "Delta Squad",
+	  ":ç" = "Military Police",	"#ç" = "Military Police",	".ç" = "Military Police",
+
+	  ":ß" = "Sulaco",		"#ß" = "Sulaco",		".ß" = "Sulaco",
+	  ":Î" = "Hazteam Echo","#Î" = "Hazteam Echo",	".Î" = "Hazteam Echo",
+	  ":Ì" = "Marine Command","#Ì" = "Marine Command",".Ì" = "Marine Command",
+	  ":É" = "Alpha Squad",	"#É" = "Alpha Squad",	".É" = "Alpha Squad",
+	  ":Í" = "Bravo Squad",	"#Í" = "Bravo Squad",	".Í" = "Bravo Squad",
+	  ":À" = "Charlie Squad","#À" = "Charlie Squad",".À" = "Charlie Squad",
+	  ":Â" = "Delta Squad",	"#Â" = "Delta Squad",	".Â" = "Delta Squad",
+	  ":Ç" = "Military Police","#Ç" = "Military Police",".Ç" = "Military Police"
+
 )
 
 /mob/living/proc/binarycheck()
