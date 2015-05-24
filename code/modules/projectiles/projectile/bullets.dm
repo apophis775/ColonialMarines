@@ -50,7 +50,7 @@
 	stutter = 10
 
 /obj/item/projectile/bullet/a762
-	damage = 25
+	damage = 20
 
 /obj/item/projectile/bullet/cal50
 	damage = 50

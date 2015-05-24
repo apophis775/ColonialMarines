@@ -123,7 +123,7 @@ var/list/department_radio_keys = list(
 		if(dongle.translate_binary) return 1
 
 /mob/living/say(var/message)
-	var/accent = "en-us"
+	/*var/accent = "en-us"
 	var/voice = "m7"
 	var/speed = 175
 	var/pitch = 0
@@ -142,8 +142,12 @@ var/list/department_radio_keys = list(
 		name = "\ref[src]"
 	else
 		name = src.ckey
-	src:texttospeech(message, speed, pitch, accent, "+[voice]", echo, name)
+	src:texttospeech(message, speed, pitch, accent, "+[voice]", echo, name)*/
 
+	if(src.real_name == "" || !src.real_name)
+		name = "\ref[src]"
+	else
+		name = src.real_name
 
 	/*
 		Formatting and sanitizing.

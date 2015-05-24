@@ -82,6 +82,7 @@
 	ammo_type = "/obj/item/ammo_casing/a762"
 	fire_sound = 'sound/weapons/Gunshot.ogg'
 	load_method = 2
+	fire_delay = 0
 	var/cover_open = 0
 	var/mag_inserted = 1
 
