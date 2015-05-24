@@ -60,7 +60,7 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 		C.remove_admin_verbs()
 		C.holder = null
 	admins.Cut()
-
+	world.log << config.admin_legacy_system
 	if(config.admin_legacy_system)
 		load_admin_ranks()
 
@@ -96,7 +96,7 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 
 	else
 		//The current admin system uses SQL
-
+		world.log << "Establing connection"
 		establish_db_connection()
 		if(!dbcon.IsConnected())
 			world.log << "Failed to connect to database in load_admins(). Reverting to legacy system."
@@ -104,10 +104,11 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 			config.admin_legacy_system = 1
 			load_admins()
 			return
-
+		world.log << "have DB connection"
 		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, rank, level, flags FROM erro_admin")
 		query.Execute()
 		while(query.NextRow())
+			world.log << "GOT ROW"
 			var/ckey = query.item[1]
 			var/rank = query.item[2]
 			if(rank == "Removed")	continue	//This person was de-adminned. They are only in the admin list for archive purposes.
@@ -125,16 +126,15 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 			load_admins()
 			return
 
-	#ifdef TESTING
+#ifdef TESTING
 	var/msg = "Admins Built:\n"
 	for(var/ckey in admin_datums)
 		var/rank
 		var/datum/admins/D = admin_datums[ckey]
 		if(D)	rank = D.rank
 		msg += "\t[ckey] - [rank]\n"
-	testing(msg)
-	#endif
-
+	world.log << msg
+#endif
 
 #ifdef TESTING
 /client/verb/changerank(newrank in admin_ranks)
