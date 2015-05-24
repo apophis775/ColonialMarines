@@ -27,6 +27,15 @@
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
 
 	load_configuration()
+	if(!setup_database_connection())
+		world.log << "Your server failed to establish a connection with the feedback database."
+	else
+		world.log << "Feedback database connection established."
+
+	if(!setup_old_database_connection())
+		world.log << "Your server failed to establish a connection with the SQL database."
+	else
+		world.log << "SQL database connection established."
 	load_mode()
 	load_motd()
 	load_admins()
@@ -61,15 +70,7 @@
 	data_core = new /obj/effect/datacore()
 	paiController = new /datum/paiController()
 
-	if(!setup_database_connection())
-		world.log << "Your server failed to establish a connection with the feedback database."
-	else
-		world.log << "Feedback database connection established."
 
-	if(!setup_old_database_connection())
-		world.log << "Your server failed to establish a connection with the SQL database."
-	else
-		world.log << "SQL database connection established."
 	initialize_marine_armor()
 	plmaster = new /obj/effect/overlay()
 	plmaster.icon = 'icons/effects/tile_effects.dmi'

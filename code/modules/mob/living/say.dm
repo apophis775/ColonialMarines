@@ -145,7 +145,10 @@ var/list/department_radio_keys = list(
 	src:texttospeech(message, speed, pitch, accent, "+[voice]", echo, name)*/
 
 	if(src.real_name == "" || !src.real_name)
-		name = "\ref[src]"
+		if(src.name == "" || !src.name)
+			name = "\ref[src]"
+		else
+			name = src.name
 	else
 		name = src.real_name
 
