@@ -126,7 +126,7 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 			load_admins()
 			return
 
-
+#ifdef TESTING
 	var/msg = "Admins Built:\n"
 	for(var/ckey in admin_datums)
 		var/rank
@@ -134,7 +134,7 @@ var/list/admin_ranks = list()								//list of all ranks with associated rights
 		if(D)	rank = D.rank
 		msg += "\t[ckey] - [rank]\n"
 	world.log << msg
-
+#endif
 
 #ifdef TESTING
 /client/verb/changerank(newrank in admin_ranks)
