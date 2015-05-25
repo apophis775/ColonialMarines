@@ -7,6 +7,7 @@
 	pressure_resistance = 4*ONE_ATMOSPHERE
 	anchored = 1.0
 	flags = ON_BORDER
+	var/exproof = 0
 	var/health = 14.0
 	var/ini_dir = null
 	var/state = 0
@@ -26,6 +27,8 @@
 
 
 /obj/structure/window/ex_act(severity)
+	if(exproof)
+		return
 	switch(severity)
 		if(1.0)
 			del(src)
@@ -377,7 +380,7 @@
 	name = "reinforced window"
 	icon_state = "rwindow"
 	reinf = 1
-	
+
 /obj/structure/window/reinforced/magic
 	name = "bulletproof window"
 	icon_state = "rwindow"
@@ -386,6 +389,7 @@
 	unacidable = 1
 	dir = 5
 	color = "#ff0000"
+	exproof = 1
 
 /obj/structure/window/reinforced/tinted
 	name = "tinted window"

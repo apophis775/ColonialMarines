@@ -66,18 +66,23 @@
 	// Make sure our user is still holding us
 	..()
 	if(user && user.get_active_hand() == src)
+		if(!lit)
+			usr << "Light your flamethrower first!"
+			return
+		if(!ptank)
+			usr << "No tank attached!"
+			lit = 0
+			return
+		if(ptank.air_contents.phoron <= 0.5)
+			usr << "You try to get your flame on, but nothing happens. You're all out of burn juice!"
+			lit = 0
+			return
 		var/turf/target_turf = get_turf(target)
 		if(target_turf)
 			var/turflist = getline(user, target_turf)
+			for (var/mob/O in viewers(user, null))
+				O << "\red [user] unleashes a blast of flames!"
 			flame_turf(turflist)
-			if(ptank)
-				if(ptank.air_contents.phoron <= 0.5)
-					usr << "\red You try to get your flame on, but nothing happens. You're all out of burn juice!"
-				else
-					for (var/mob/O in viewers(user, null))
-						O << "\red [user] unleashes a blast of flames!"
-			else
-				usr << "Attach a tank first!"
 
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
@@ -150,8 +155,6 @@
 		return
 	..()
 	return
-
-
 /obj/item/weapon/flamethrower/attack_self(mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
 	user.set_machine(src)
@@ -162,8 +165,6 @@
 	user << browse(dat, "window=flamethrower;size=600x300")
 	onclose(user, "flamethrower")
 	return
-
-
 /obj/item/weapon/flamethrower/Topic(href,href_list[])
 	if(href_list["close"])
 		usr.unset_machine()
@@ -195,17 +196,20 @@
 			attack_self(M)
 	update_icon()
 	return
-
-
-//Called from turf.dm turf/dblclick
 /obj/item/weapon/flamethrower/proc/flame_turf(turflist)
 	if(!lit || operating)
 		return
-
 	operating = 1
 	for(var/turf/T in turflist)
 		if(T.density || istype(T, /turf/space))
 			break
+		if(!isnull(usr))
+			if(DirBlocked(T,usr.dir))
+				break
+			else if(DirBlocked(T,turn(usr.dir,180)))
+				break
+		if(locate(/obj/effect/alien/resin/wall,T) || locate(/obj/structure/mineral_door/resin,T) || locate(/obj/effect/alien/resin/membrane,T))
+			break //Nope.avi
 		if(!previousturf && length(turflist)>1)
 			previousturf = get_turf(src)
 			continue	//so we don't burn the tile we be standin on
@@ -270,32 +274,31 @@
 			if(rand(1,100) < 70)
 				M.emote("roar")
 			continue
-		M.adjustFireLoss(rand(5,10) + firelevel)  //fwoom!
+		M.adjustFireLoss(rand(10,12) + firelevel)  //fwoom!
 		M.show_message(text("\red You are burned!"),1)
 
 	//This is shitty and inefficient, but the /alien/ parent obj doesn't have health.. sigh.
 	for(var/obj/effect/alien/weeds/W in loc)  //Melt dem weeds
 		if(istype(W)) //Just for safety
-			W.health -= (30 + (firelevel * 2))
+			W.health -= (30 + (firelevel * 3))
 			if(W.health < 0)
 				del(W) //Just deleterize it
 	for(var/obj/effect/alien/resin/R in loc)  //Melt dem resins
 		if(istype(R)) //Just for safety
-			R.health -= (30 + (firelevel * 2))
+			R.health -= (30 + (firelevel * 3))
 			R.healthcheck()
 	for(var/obj/effect/alien/egg/E in loc)  //Melt dem eggs
 		if(istype(E)) //Just for safety
-			E.health -= (30 + (firelevel * 2))
+			E.health -= (30 + (firelevel * 3))
 			E.healthcheck()
 	for(var/obj/structure/stool/bed/nest/N in loc)  //Melt dem nests
 		if(istype(N)) //Just for safety
-			N.health -= (30 + (firelevel * 2))
+			N.health -= (30 + (firelevel * 3))
 			N.healthcheck()
 	for(var/obj/item/clothing/mask/facehugger/H in loc) //Melt dem huggers
-		if(!istype(H))
-			continue //somehow
-		H.health -= (firelevel + 5)
-		H.healthcheck()
+		if(istype(H))
+			H.health -= (firelevel + 5)
+			H.healthcheck()
 
 	firelevel -= 2 //reduce the intensity by 2 per tick
 	return
@@ -311,20 +314,20 @@
 	if(ptank.air_contents.phoron <= 0.5) //The heck, did you attach an air tank to this thing??
 		return
 
-	ptank.air_contents.remove_ratio(0.08*(throw_amount/100)) //This should just strip out the gas
-	if (!locate(/obj/flamer_fire) in target) // No stacking flames!
+	ptank.air_contents.remove_ratio(0.12*(throw_amount/100)) //This should just strip out the gas
+	if(!locate(/obj/flamer_fire) in target) // No stacking flames!
 		var/obj/flamer_fire/F =  new/obj/flamer_fire(target)
 		processing_objects.Add(F)
 		F.firelevel = (throw_amount / 10) + 1
 		if(F.firelevel < 1) F.firelevel = 1
-		if(F.firelevel > 30) F.firelevel = 30
+		if(F.firelevel > 16) F.firelevel = 16
 	for(var/mob/living/carbon/M in target) //Deal bonus damage if someone's caught directly in initial stream
 		if(istype(M,/mob/living/carbon/alien/humanoid/ravager) || istype(M,/mob/living/carbon/alien/humanoid/queen))
 			continue
 		if(istype(M,/mob/living/carbon/human))
 			if(istype(M:wear_suit, /obj/item/clothing/suit/fire) || istype(M:wear_suit,/obj/item/clothing/suit/space/rig/atmos))
 				continue
-		M.adjustFireLoss(rand(10,15))  //fwoom!
+		M.adjustFireLoss(rand(15,25))  //fwoom!
 		M.show_message(text("\red Auuugh! You are roasted by the flamethrower!"), 1)
 	return
 

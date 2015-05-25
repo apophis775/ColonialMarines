@@ -56,6 +56,7 @@ var/list/helmetmarkings_sql = list()
 var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(0,0,255))
 
 
+
 /proc/initialize_marine_armor()
 	var/i
 	for(i=1, i<5, i++)
@@ -93,6 +94,8 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 	proc/get_squad(var/obj/item/weapon/card/id/card)
 		rank = 0
 		squad = 0
+		if(!card)
+			return
 		if(findtext(card.assignment, "Leader") != 0)
 			rank = 1
 		if(findtext(card.assignment, "Alpha") != 0)
@@ -103,28 +106,22 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 			squad = 3
 		if(findtext(card.assignment, "Delta") != 0)
 			squad = 4
-
 		return
 
-	proc/update_helmet()
-		spawn while(1)
-			if(istype(wornby) && src.loc == wornby)
-				var/obj/item/weapon/card/id/card = wornby.wear_id
-				var/currsquad = squad
-				var/currrank = rank
-				if(istype(card))
-					get_squad(card)
-					if(currsquad != squad || currrank != rank)
-						update_icon()
-			sleep(50)
+	proc/update_helmet(var/obj/item/weapon/card/id/card = null)
+		if(!card)
+			if(wornby && wornby.wear_id)
+				card = wornby.wear_id
+		get_squad(card)
+		update_icon()
 
 	New(loc)
 		..(loc)
-		update_helmet()
 
 	equipped(var/mob/living/carbon/human/mob, slot)
 		if(slot == slot_head)
 			wornby = mob
+			update_helmet()
 			if(istype(markingoverlay))
 				mob.overlays_standing += markingoverlay
 		else
@@ -179,6 +176,8 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 	proc/get_squad(var/obj/item/weapon/card/id/card)
 		rank = 0
 		squad = 0
+		if(!card)
+			return
 		if(findtext(card.assignment, "Leader") != 0)
 			rank = 1
 		if(findtext(card.assignment, "Alpha") != 0)
@@ -189,30 +188,24 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 			squad = 3
 		if(findtext(card.assignment, "Delta") != 0)
 			squad = 4
-
 		return
 
-	proc/update_armor()
-		spawn while(1)
-			if(istype(wornby) && src.loc == wornby && wornby.wear_suit == src)
-				var/obj/item/weapon/card/id/card = wornby.wear_id
-				var/currsquad = squad
-				var/currrank = rank
-				if(istype(card))
-					get_squad(card)
-					if(currsquad != squad || currrank != rank)
-						update_icon()
-			sleep(50)
+	proc/update_armor(var/obj/item/weapon/card/id/card = null)
+		if(!card)
+			if(wornby && wornby.wear_id)
+				card = wornby.wear_id
+		get_squad(card)
+		update_icon()
 
 	New(loc)
 		..(loc)
-		update_armor()
 		icon_state = "[rand(1,6)]"
 		item_state = icon_state
 
 	equipped(var/mob/living/carbon/human/mob, slot)
 		if(slot == slot_wear_suit)
 			wornby = mob
+			update_armor()
 			if(istype(markingoverlay))
 				mob.overlays_standing += markingoverlay
 		else
@@ -240,3 +233,21 @@ var/list/squad_colors = list(rgb(255,0,0), rgb(255,255,0), rgb(160,32,240), rgb(
 				overlays += markingoverlay
 				wornby.overlays_standing += markingoverlay
 		wornby.update_icons()
+
+/obj/item/weapon/card/id/equipped(var/mob/living/carbon/human/mob, slot)
+	if(slot == slot_wear_id)
+		if(mob.wear_suit && istype(mob.wear_suit, /obj/item/clothing/suit/storage/marine2))
+			var/obj/item/clothing/suit/storage/marine2/armor = mob.wear_suit
+			armor.update_armor(src)
+		if(mob.head && istype(mob.head, /obj/item/clothing/head/helmet/marine2))
+			var/obj/item/clothing/head/helmet/marine2/helmet = mob.head
+			helmet.update_helmet(src)
+
+/obj/item/weapon/card/id/dropped(var/mob/living/carbon/human/mob)
+	if(!mob.wear_id)
+		if(mob.wear_suit && istype(mob.wear_suit, /obj/item/clothing/suit/storage/marine2))
+			var/obj/item/clothing/suit/storage/marine2/armor = mob.wear_suit
+			armor.update_icon()
+		if(mob.head && istype(mob.head, /obj/item/clothing/head/helmet/marine2))
+			var/obj/item/clothing/head/helmet/marine2/helmet = mob.head
+			helmet.update_icon()

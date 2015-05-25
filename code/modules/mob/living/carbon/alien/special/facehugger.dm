@@ -28,6 +28,18 @@ var/const/MAX_ACTIVE_TIME = 200
 	var/nextwalk = 0
 	var/mob/living/carbon/human/target = null
 
+/obj/item/clothing/mask/facehugger/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			Die()
+			return
+		if(2.0)
+			Die()
+			return
+		if(3.0)
+			Die()
+			return
+
 /obj/item/clothing/mask/facehugger/Del()
 	processing_objects.Remove(src)
 	..()

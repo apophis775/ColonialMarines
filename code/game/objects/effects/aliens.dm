@@ -513,6 +513,8 @@ Alien plants should do something if theres a lot of poison
 		if(aliens_allowed)
 			..()
 			spawn(rand(MIN_GROWTH_TIME,MAX_GROWTH_TIME))
+				if(status == BURST)
+					return
 				Grow()
 		else
 			del(src)
@@ -564,6 +566,18 @@ Alien plants should do something if theres a lot of poison
 							child.Attach(M)
 							break
 
+/obj/effect/alien/egg/ex_act(severity)
+	switch(severity)
+		if(1.0)
+			Burst()
+			return
+		if(2.0)
+			Burst()
+			return
+		if(3.0)
+			if (prob(60))
+				Burst()
+				return
 
 /obj/effect/alien/egg/bullet_act(var/obj/item/projectile/Proj)
 	health -= Proj.damage
