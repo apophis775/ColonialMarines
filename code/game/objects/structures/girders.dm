@@ -2,7 +2,7 @@
 	icon_state = "girder"
 	anchored = 1
 	density = 1
-	layer = 2
+	layer = 2.2
 	var/state = 0
 
 	attackby(obj/item/W as obj, mob/user as mob)
