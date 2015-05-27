@@ -115,6 +115,12 @@
 
 	pulse = handle_pulse()
 
+	if(src.lying && src.birth)
+		src.overlays += image('icons/mob/alien.dmi', loc = src, icon_state = "bursted_lie")
+	else if(!src.lying && src.birth)
+		src.overlays += image('icons/mob/alien.dmi', loc = src, icon_state = "bursted_stand")
+
+
 	// Grabbing
 	for(var/obj/item/weapon/grab/G in src)
 		G.process()
@@ -1394,7 +1400,7 @@
 			for (var/ID in virus2)
 				var/datum/disease2/disease/V = virus2[ID]
 				V.cure(src)
-	/*
+/*
 		for(var/obj/effect/decal/cleanable/blood/B in view(1,src))
 			if(B.virus2.len)
 				for (var/ID in B.virus2)
@@ -1406,7 +1412,7 @@
 				for (var/ID in M.virus2)
 					var/datum/disease2/disease/V = M.virus2[ID]
 					infect_virus2(src,V)
-	*/
+*/
 		for (var/ID in virus2)
 			var/datum/disease2/disease/V = virus2[ID]
 			if(isnull(V)) // Trying to figure out a runtime error that keeps repeating

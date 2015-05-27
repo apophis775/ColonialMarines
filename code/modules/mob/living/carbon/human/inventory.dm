@@ -687,7 +687,8 @@ It can still be worn/put on as normal.
 				S.inuse = 0
 		if("pockets")
 			slot_to_process = slot_l_store
-			strip_item = target.l_store		//We'll do both
+			if (target.l_store && !isalienadult(source))
+				strip_item = target.l_store		//We'll do both
 		if("internal")
 			if (target.internal)
 				target.internal.add_fingerprint(source)
