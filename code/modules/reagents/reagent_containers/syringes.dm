@@ -232,7 +232,10 @@
 				for(var/mob/O in viewers(world.view, user))
 					O.show_message(text("\red <B>[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!</B>"), 1)
 				user.u_equip(src)
-				del(src)
+				src.desc += " It is broken."
+				src.mode = SYRINGE_BROKEN
+				src.add_fingerprint(usr)
+				src.update_icon()
 				return
 
 			for(var/mob/O in viewers(world.view, user))
@@ -244,13 +247,14 @@
 		else
 			for(var/mob/O in viewers(world.view, user))
 				O.show_message(text("\red <B>[user] stabs [target] with [src.name]!</B>"), 1)
-			target.take_organ_damage(3)// 7 is the same as crowbar punch
+			target.take_organ_damage(5)// 7 is the same as crowbar punch
 
 		src.reagents.reaction(target, INGEST)
-		var/syringestab_amount_transferred = rand(0, (reagents.total_volume - 5)) //nerfed by popular demand
+		var/syringestab_amount_transferred = reagents.total_volume //nerfed by popular demand
 		src.reagents.trans_to(target, syringestab_amount_transferred)
-		src.desc += " It is broken."
-		src.mode = SYRINGE_BROKEN
+		if(prob(25))
+			src.desc += " It is broken."
+			src.mode = SYRINGE_BROKEN
 		src.add_blood(target)
 		src.add_fingerprint(usr)
 		src.update_icon()
