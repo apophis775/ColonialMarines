@@ -167,42 +167,42 @@
 	return
 
 
-/obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/screwdriver))
-		if(welding)
-			user << "\red Stop welding first!"
-			return
-		status = !status
-		if(status)
-			user << "\blue You resecure the welder."
-		else
-			user << "\blue The welder can now be attached and modified."
-		src.add_fingerprint(user)
-		return
-
-	if((!status) && (istype(W,/obj/item/stack/rods)))
-		var/obj/item/stack/rods/R = W
-		R.use(1)
-		var/obj/item/weapon/flamethrower/F = new/obj/item/weapon/flamethrower(user.loc)
-		src.loc = F
-		F.weldtool = src
-		if (user.client)
-			user.client.screen -= src
-		if (user.r_hand == src)
-			user.u_equip(src)
-		else
-			user.u_equip(src)
-		src.master = F
-		src.layer = initial(src.layer)
-		user.u_equip(src)
-		if (user.client)
-			user.client.screen -= src
-		src.loc = F
-		src.add_fingerprint(user)
-		return
-
-	..()
-	return
+///obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
+//	if(istype(W,/obj/item/weapon/screwdriver))
+//		if(welding)
+//			user << "\red Stop welding first!"
+//			return
+//		status = !status
+//		if(status)
+//			user << "\blue You resecure the welder."
+//		else
+//			user << "\blue The welder can now be attached and modified."
+//		src.add_fingerprint(user)
+//		return
+//
+//	if((!status) && (istype(W,/obj/item/stack/rods)))
+//		var/obj/item/stack/rods/R = W
+//		R.use(1)
+//		var/obj/item/weapon/flamethrower/F = new/obj/item/weapon/flamethrower(user.loc)
+//		src.loc = F
+//		F.weldtool = src
+//		if (user.client)
+//			user.client.screen -= src
+//		if (user.r_hand == src)
+//			user.u_equip(src)
+//		else
+//			user.u_equip(src)
+//		src.master = F
+//		src.layer = initial(src.layer)
+//		user.u_equip(src)
+//		if (user.client)
+//			user.client.screen -= src
+//		src.loc = F
+//		src.add_fingerprint(user)
+//		return
+//
+//	..()
+//	return
 
 
 /obj/item/weapon/weldingtool/process()

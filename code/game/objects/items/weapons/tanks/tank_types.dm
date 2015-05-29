@@ -110,18 +110,6 @@
 	src.air_contents.update_values()
 	return
 
-/obj/item/weapon/tank/plasma/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-
-	if (istype(W, /obj/item/weapon/flamethrower))
-		var/obj/item/weapon/flamethrower/F = W
-		if ((!F.status)||(F.ptank))	return
-		src.master = F
-		F.ptank = src
-		user.before_take_item(src)
-		src.loc = F
-	return
-
 /*
  * Emergency Oxygen
  */
