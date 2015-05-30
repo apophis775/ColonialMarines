@@ -288,7 +288,7 @@
 		return
 
 	bullet_act(var/obj/item/projectile/Proj)
-		health -= Proj.damage
+		health -= Proj.damage / 2
 		..()
 		healthcheck()
 

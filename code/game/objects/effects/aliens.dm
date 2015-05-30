@@ -76,7 +76,7 @@
 
 
 /obj/effect/alien/resin/bullet_act(obj/item/projectile/Proj)
-	health -= Proj.damage
+	health -= Proj.damage / 2
 	..()
 	healthcheck()
 
@@ -323,7 +323,7 @@
 		Grow()
 
 /obj/effect/alien/egg/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.damage
+	health -= Proj.damage / 2
 	..()
 	healthcheck()
 	return
