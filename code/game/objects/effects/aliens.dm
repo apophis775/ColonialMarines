@@ -107,7 +107,7 @@
 		var/obj/O = AM
 		tforce = O.throwforce
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
-	health -= tforce
+	health -= tforce / 2
 	healthcheck()
 
 
@@ -132,7 +132,7 @@
 
 
 /obj/effect/alien/resin/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	var/aforce = W.force
+	var/aforce = W.force / 2
 	health = max(0, health - aforce)
 	playsound(loc, 'sound/effects/attackblob.ogg', 30, 1, -4)
 	healthcheck()
