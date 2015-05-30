@@ -101,7 +101,7 @@ DBQuery
 DBQuery/proc/Connect(DBConnection/connection_handler) src.db_connection = connection_handler
 
 DBQuery/proc/Execute(sql_query=src.sql,cursor_handler=default_cursor)
-	log_admin(sql_query)
+	//log_admin(sql_query)
 	Close()
 	return _dm_db_execute(_db_query,sql_query,db_connection._db_con,cursor_handler,null)
 
