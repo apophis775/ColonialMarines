@@ -277,8 +277,15 @@
 					O.show_message("\red [user] slices the [name] apart!", 1)
 			healthcheck()
 			return
-		else 
+		else
 			return TryToSwitchState(user)
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		var/aforce = W.force
+		health = max(0, health - aforce)
+		playsound(loc, 'sound/effects/attackblob.ogg', 30, 1, -4)
+		healthcheck()
+		return
 
 	bullet_act(var/obj/item/projectile/Proj)
 		health -= Proj.damage

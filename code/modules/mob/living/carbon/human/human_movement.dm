@@ -2,8 +2,8 @@
 	var/tally = 0
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
-
-
+	if(locate(/obj/effect/alien/weeds) in loc)
+		tally += 1
 
 	if(reagents.has_reagent("hyperzine")) return -1
 
