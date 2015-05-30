@@ -59,4 +59,4 @@
 			if("crossbow")
 				new /obj/item/weapon/gun/energy/crossbow(get_turf(H))
 			if("saw")
-				new /obj/item/weapon/gun/projectile/twohanded/automatic/l6_saw(get_turf(H))
+				new /obj/item/weapon/gun/projectile/automatic/l6_saw(get_turf(H))
