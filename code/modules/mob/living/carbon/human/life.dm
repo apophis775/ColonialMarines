@@ -114,12 +114,12 @@
 	handle_regular_hud_updates()
 
 	pulse = handle_pulse()
-
+/*
 	if(src.lying && src.birth)
 		src.overlays += image('icons/mob/alien.dmi', loc = src, icon_state = "bursted_lie")
 	else if(!src.lying && src.birth)
 		src.overlays += image('icons/mob/alien.dmi', loc = src, icon_state = "bursted_stand")
-
+*/
 
 	// Grabbing
 	for(var/obj/item/weapon/grab/G in src)
