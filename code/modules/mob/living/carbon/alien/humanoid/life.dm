@@ -72,7 +72,7 @@
 	//Status updates, death etc.
 	handle_regular_status_updates()
 	update_canmove()
-
+	handle_overlay()
 	neutralised--
 	if(neutralised <= 0)
 		neutralised = 0
@@ -553,3 +553,13 @@
 						if(!(status_flags & GODMODE))
 							M.adjustBruteLoss(5)
 						nutrition += 10
+
+	proc/handle_overlay()
+		if(src.client && rand(3) == 1)
+			src.client.images.Cut()
+			for(var/mob/living/L in mob_list)
+				if(iscorgi(L) || iscarbon(L))
+					if(L.status_flags & XENO_HOST && L.stat != DEAD)
+						for(var/obj/item/alien_embryo/embryo in L)
+							var/I = image('icons/mob/alien.dmi', loc = L, icon_state = "infected[embryo.stage]")
+							src.client.images += I
