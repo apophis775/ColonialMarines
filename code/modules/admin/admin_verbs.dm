@@ -71,7 +71,8 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/show_skills,
 	/client/proc/check_customitem_activity,
 	/client/proc/man_up,
-	/client/proc/global_man_up
+	/client/proc/global_man_up,
+	/client/proc/allow_character_respawn    /* Allows a ghost to respawn */
 	)
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
