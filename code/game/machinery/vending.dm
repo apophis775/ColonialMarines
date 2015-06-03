@@ -145,6 +145,23 @@
 		coin = W
 		user << "\blue You insert the [W] into the [src]"
 		return
+	else if(istype(W, /obj/item/weapon/wrench))
+		if(do_after(user, 20))
+			if(!src) return
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			switch (anchored)
+				if (0)
+					anchored = 1
+					user.visible_message("[user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
+					if ( powered() )
+						icon_state = initial(icon_state)
+						stat &= ~NOPOWER
+				if (1)
+					user.visible_message("[user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
+					anchored = 0
+					src.icon_state = "[initial(icon_state)]-off"
+					stat |= NOPOWER		
+		return
 	else if(istype(W, /obj/item/weapon/card) && currently_vending)
 		var/obj/item/weapon/card/I = W
 		scan_card(I)
@@ -446,7 +463,7 @@
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 	else
-		if( powered() )
+		if( powered() & src.anchored )
 			icon_state = initial(icon_state)
 			stat &= ~NOPOWER
 		else
