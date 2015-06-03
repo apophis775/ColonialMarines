@@ -206,6 +206,59 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 
 	IonStorm(0)
 	feedback_add_details("admin_verb","ION") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+/*
+Allow admins to set players to be able to respawn/bypass 30 min wait, without the admin having to edit variables directly
+Ccomp's first proc.
+*/
+
+/client/proc/get_ghosts(var/notify = 0,var/what = 2)
+	// what = 1, return ghosts ass list.
+	// what = 2, return mob list
+
+	var/list/mobs = list()
+	var/list/ghosts = list()
+	var/list/sortmob = sortAtom(mob_list)                           // get the mob list.
+	/var/any=0
+	for(var/mob/dead/observer/M in sortmob)
+		mobs.Add(M)                                             //filter it where it's only ghosts
+		any = 1                                                 //if no ghosts show up, any will just be 0
+	if(!any)
+		if(notify)
+			src << "There doesn't appear to be any ghosts for you to select."
+		return
+
+	for(var/mob/M in mobs)
+		var/name = M.name
+		ghosts[name] = M                                        //get the name of the mob for the popup list
+	if(what==1)
+		return ghosts
+	else
+		return mobs
+
+
+/client/proc/allow_character_respawn()
+	set category = "Special Verbs"
+	set name = "Allow player to respawn"
+	set desc = "Let's the player bypass the 30 minute wait to respawn or allow them to re-enter their corpse."
+	if(!holder)
+		src << "Only administrators may use this command."
+	var/list/ghosts= get_ghosts(1,1)
+
+	var/target = input("Please, select a ghost!", "COME BACK TO LIFE!", null, null) as null|anything in ghosts
+	if(!target)
+		src << "Hrm, appears you didn't select a ghost"		// Sanity check, if no ghosts in the list we don't want to edit a null variable and cause a runtime error.
+		return
+
+	var/mob/dead/observer/G = ghosts[target]
+	G.timeofdeath=-19999						/* time of death is checked in /mob/verb/abandon_mob() which is the Respawn verb.
+									   timeofdeath is used for bodies on autopsy but since we're messing with a ghost I'm pretty sure
+									   there won't be an autopsy.
+									*/
+	G.can_reenter_corpse = 1
+
+	G:show_message(text("\blue <B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
+	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the 30 minute respawn limit")
+	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit", 1)
 
 
 //I use this proc for respawn character too. /N
