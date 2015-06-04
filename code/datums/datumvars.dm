@@ -259,6 +259,9 @@ client
 			body += "<option value='?_src_=vars;regenerateicons=\ref[D]'>Regenerate Icons</option>"
 			body += "<option value='?_src_=vars;addlanguage=\ref[D]'>Add Language</option>"
 			body += "<option value='?_src_=vars;remlanguage=\ref[D]'>Remove Language</option>"
+			body += "<option value='?_src_=vars;addverb=\ref[D]'>Add Verb</option>"
+			body += "<option value='?_src_=vars;remverb=\ref[D]'>Remove Verb</option>"			
+			body += "<option value='?_src_=vars;setckey=\ref[D]'>Set Client</option>"
 			if(ishuman(D))
 				body += "<option value>---</option>"
 				body += "<option value='?_src_=vars;setmutantrace=\ref[D]'>Set Mutantrace</option>"
@@ -268,9 +271,6 @@ client
 				body += "<option value='?_src_=vars;makemonkey=\ref[D]'>Make monkey</option>"
 				body += "<option value='?_src_=vars;makealien=\ref[D]'>Make alien</option>"
 				body += "<option value='?_src_=vars;makeslime=\ref[D]'>Make slime</option>"
-				body += "<option value='?_src_=vars;addverb=\ref[D]'>Add Verb</option>"
-				body += "<option value='?_src_=vars;remverb=\ref[D]'>Remove Verb</option>"			
-				body += "<option value='?_src_=vars;setckey=\ref[D]'>Set Client</option>"
 			body += "<option value>---</option>"
 			body += "<option value='?_src_=vars;gib=\ref[D]'>Gib</option>"
 		if(isobj(D))
