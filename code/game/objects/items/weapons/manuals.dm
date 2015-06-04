@@ -813,7 +813,7 @@
 <tr>
 <th>Sentence</th>
 <th>Description</th>
-<th>Punishment</th>
+<th>Max Punishment</th>
 </tr>
 <tr>
 <td>Insubordination</td>
@@ -826,11 +826,6 @@
 <td>5 minutes</td>
 </tr>
 <tr>
-<td>Neglect of duty</td>
-<td>Failure to perform their role to an acceptable standard. For example, a Commander failing to properly organize and ensure his personnel are given orders.</td>
-<td>Demotion/removal of command (if squad leader+), Up to 25 minutes</td>
-</tr>
-<tr>
 <td>Trespassing</td>
 <td>Unauthorized access of an area restricted by Command personnel or an area which a person does not have access to.</td>
 <td>10 minutes.</td>
@@ -841,24 +836,34 @@
 <td>10 minutes, confiscation of contraband items.</td>
 </tr>
 <tr>
+<td>Theft</td>
+<td>To retain possession of items belonging to another marine.</td>
+<td>10 minutes.</td>
+</tr>
+<tr>
 <td>Assault</td>
 <td>To threaten or use physical force against someone without intent to kill. </td>
 <td>15 minutes.</td>
 </tr>
 <tr>
-<td>Assault with a deadly weapon</td>
-<td>To enact physical force against someone with a lethal weapon, such as a sidearm, blade, or rifle.</td>
-<td>30 minutes</td>
+<td>Neglect of duty</td>
+<td>Failure to perform their role to an acceptable standard. For example, a Commander failing to properly organize and ensure his personnel are given orders.</td>
+<td>Demotion/removal of command<br>Up to 25 minutes</td>
 </tr>
 <tr>
-<td>Murder</td>
-<td>To attempt or succeed in the attempts of killing someone with malicious intent.</td>
-<td>Execution or permanent detention</td>
+<td>Assault with a deadly weapon</td>
+<td>To enact physical force against someone with a lethal weapon, such as a sidearm, blade, or rifle.</td>
+<td>Demotion/removal of command<br>30 minutes</td>
 </tr>
 <tr>
 <td>Manslaughter</td>
-<td>To be the cause of another persons death without malicious intent.</td>
-<td>Demotion/removal of command (if squad leader+), 45 minutes</td>
+<td>To be the cause of another person's death without malicious intent.</td>
+<td>Demotion/removal of command<br>Up to 45 minutes</td>
+</tr>
+<tr>
+<td>Murder or Unauthorized Execution</td>
+<td>To attempt or succeed in the attempts of killing someone with malicious intent. Executions are only authorized with permission from and in the presence of the acting Commander.</td>
+<td>Execution or permanent detention</td>
 </tr>
 <tr>
 <td>Mutiny</td>

@@ -6,24 +6,28 @@
 		score_shuttle_called = 1
 
 
-	// Who is MIA
+
 	for (var/mob/living/carbon/human/I in mob_list)
-		if (I.stat == 2 && I.z != 6 && I.z != 2)  //Bodies not on Sulaco or centcomm are missing
+		// Some human mobs have no mind, while clients always have
+		if(isnull(I.mind))
+			return
+		// Who is MIA
+		if (I.stat == 2 && I.z != 6 && I.z != 2 && I.mind.special_role != "survivor")  //Bodies not on Sulaco or centcomm are missing
 			score_marines_mia++
-	// Who is KIA
-		else if (I.stat == 2)
+		// Who is KIA
+		else if (I.stat == 2 && I.mind.special_role != "survivor")
 			score_marines_kia++
 
 	for(var/client/C in clients)
-		// Marines alive
-		if(ishuman(C.mob) && C.mob.stat != DEAD) //Not survivors
+		// Alive Active Marines
+		if(ishuman(C.mob) && C.mob.stat != DEAD && C.mob.mind.special_role != "survivor") //Not survivors
 			score_marines_survived++
-		// Marines evacuated
+		// Alive Active Marines Evacuated
 		if(ishuman(C.mob) && C.mob.stat != DEAD && C.mob.z == 2)
 			score_crew_evacuated++
-	/*// Alive Active Survivors
-		if(ishuman(C.mob) && C.mob.stat != DEAD) //Survivors only
-			score_survivors_rescued++*/
+		// Alive Active Survivors
+		if(ishuman(C.mob) && C.mob.stat != DEAD && C.mob.mind.special_role == "survivor") //Survivors only
+			score_survivors_rescued++
 
 
 
@@ -66,10 +70,10 @@
 //MARINE SCORE
 	var/marine_mia_points = score_marines_mia * 350
 	var/marine_kia_points = score_marines_kia * 150
-	var/marine_survived_points = score_marines_survived * 200
+	var/marine_survived_points = score_marines_survived * 500
 	var/marine_hit_called_points = score_hit_called * 5000
 	var/marine_won_points = score_marines_won * 5000
-	var/marine_rescue_points = score_survivors_rescued * 1000
+	var/marine_rescue_points = score_survivors_rescued * 2500
 	var/marine_cloned_points = score_marines_cloned * 1000
 	var/marine_larvas_extracted_points = score_larvas_extracted * 500
 	var/marine_chestbursted_points = score_marines_chestbursted * 500
@@ -89,9 +93,9 @@
 	score_marinescore -= marine_kia_points
 	score_marinescore -= marine_chestbursted_points
 	score_marinescore -= marine_hit_called_points
-	score_marinescore -= marine_crew_evacuated_points
 	score_marinescore -= marine_shuttle_called_points
-
+	if (score_shuttle_called != 0)
+		score_marinescore -= marine_crew_evacuated_points
 
 //ALIEN SCORE
 	var/alien_survived_points = score_aliens_survived * 500
@@ -174,8 +178,8 @@
 	else if (score_marines_won == 2)
 		marine_win_message = "Infestation cleared"
 	dat +={"<B>Infestation eradicated?:</B> 				[marine_win_message] 			([score_marines_won * 5000] Points)<BR>
-	<B>Survivors saved:</B> 					[score_survivors_rescued] ([score_survivors_rescued * 1000] Points)<BR>
-	<B>Marines survived:</B> 					[score_marines_survived] ([score_marines_survived * 100] Points)<BR>
+	<B>Survivors saved:</B> 					[score_survivors_rescued] ([score_survivors_rescued * 2500] Points)<BR>
+	<B>Marines survived:</B> 					[score_marines_survived] ([score_marines_survived * 500] Points)<BR>
 	<BR>
 	<B>Marines revived:</B> 													(-) Points)<BR>
 	<B>Marines cloned</B> 						[score_marines_cloned] ([score_marines_cloned * 1000] Points)<BR>

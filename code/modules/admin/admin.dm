@@ -1008,9 +1008,9 @@ var/global/floorIsLava = 0
 	set desc = "Pacify ALL the marines"
 	set name = "Riot Control"
 
-	new /obj/item/weapon/grenade/flashbang/clusterbang/segment(usr.loc)
-	new /obj/item/weapon/grenade/flashbang/clusterbang/segment(usr.loc)
-	new /obj/item/weapon/grenade/flashbang/clusterbang/segment(usr.loc)
+	new /obj/item/weapon/grenade/flashbang/cluster(usr.loc)
+	new /obj/item/weapon/grenade/flashbang/cluster(usr.loc)
+	new /obj/item/weapon/grenade/flashbang/cluster(usr.loc)
 
 	log_admin("[key_name(usr)] has used the riot control command at ([usr.x],[usr.y],[usr.z])")
 	message_admins("\blue [key_name(usr)] is using the riot control command at ([usr.x],[usr.y],[usr.z])", 1)
