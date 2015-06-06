@@ -254,26 +254,60 @@ BLIND     // can't see anything
 	var/obj/item/clothing/tie/hastie = null
 	var/displays_id = 1
 
+	
 /obj/item/clothing/under/attackby(obj/item/I, mob/user)
+	if(hastie)
+		hastie.attackby(I, user)
+		return
+
 	if(!hastie && istype(I, /obj/item/clothing/tie))
 		user.drop_item()
 		hastie = I
-		I.loc = src
-		user << "<span class='notice'>You attach [I] to [src].</span>"
-
-		if (istype(hastie,/obj/item/clothing/tie/holster))
-			verbs += /obj/item/clothing/under/proc/holster
-
-		if (istype(hastie,/obj/item/clothing/tie/storage))
-			verbs += /obj/item/clothing/under/proc/storage
+		hastie.on_attached(src, user)
 
 		if(istype(loc, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = loc
 			H.update_inv_w_uniform()
-
+		action_button_name = "Use inventory."
+		icon_action_button = "under_use"
 		return
 
 	..()
+
+/obj/item/clothing/under/attack_hand(mob/user as mob)
+	//only forward to the attached accessory if the clothing is equipped (not in a storage)
+	if(hastie && src.loc == user)
+		hastie.attack_hand(user)
+		return
+
+	..()
+
+/obj/item/clothing/under/attack_self(mob/user)
+	if(hastie && src.loc == user)
+		if (istype(hastie, /obj/item/clothing/tie/holster))
+			hastie.attack_hand(user)
+		if (istype(hastie, /obj/item/clothing/tie/storage))
+			hastie.attack_hand(user)
+
+//This is to ensure people can take off suits when there is an attached accessory
+/obj/item/clothing/under/MouseDrop(obj/over_object as obj)
+	if (ishuman(usr) || ismonkey(usr))
+		//makes sure that the clothing is equipped so that we can't drag it into our hand from miles away.
+		if (!(src.loc == usr))
+			return
+
+		if (!( usr.restrained() ) && !( usr.stat ))
+			switch(over_object.name)
+				if("r_hand")
+					usr.u_equip(src)
+					usr.put_in_r_hand(src)
+				if("l_hand")
+					usr.u_equip(src)
+					usr.put_in_l_hand(src)
+			src.add_fingerprint(usr)
+			return
+	return
+
 
 /obj/item/clothing/under/examine()
 	set src in view()
