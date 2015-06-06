@@ -462,7 +462,7 @@ turf/simulated/floor/proc/update_icon()
 				new floor_tile.type(src)
 
 		make_plating()
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 80, 1)
+		playsound(src, 'sound/items/Crowbar.ogg', 80, 1)
 
 		return
 
@@ -475,7 +475,7 @@ turf/simulated/floor/proc/update_icon()
 				new floor_tile.type(src)
 
 		make_plating()
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 80, 1)
+		playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
 
 		return
 
@@ -486,7 +486,7 @@ turf/simulated/floor/proc/update_icon()
 				user << "\blue Reinforcing the floor..."
 				if(do_after(user, 30) && R && R.amount >= 2 && is_plating())
 					ChangeTurf(/turf/simulated/floor/engine)
-					playsound(src.loc, 'sound/items/Deconstruct.ogg', 80, 1)
+					playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 					R.use(2)
 					return
 			else
@@ -519,7 +519,7 @@ turf/simulated/floor/proc/update_icon()
 				T.use(1)
 				update_icon()
 				levelupdate()
-				playsound(src.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+				playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			else
 				user << "\blue This section is too damaged to support a tile. Use a welder to fix the damage."
 
@@ -546,7 +546,7 @@ turf/simulated/floor/proc/update_icon()
 			if(broken || burnt)
 				if(welder.remove_fuel(0,user))
 					user << "\red You fix some dents on the broken plating."
-					playsound(src.loc, 'sound/items/Welder.ogg', 80, 1)
+					playsound(src, 'sound/items/Welder.ogg', 80, 1)
 					icon_state = "plating"
 					burnt = 0
 					broken = 0
