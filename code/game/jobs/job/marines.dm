@@ -49,7 +49,7 @@
 	selection_color = "#ffeeee"
 	access = list()
 	minimal_access = list()
-	minimal_player_age = 7
+	minimal_player_age = 0
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		switch(H.backbag)
@@ -77,7 +77,7 @@
 	selection_color = "#ffeeee"
 	access = list(access_logistics, access_sulaco_brig, access_sulaco_cells)
 	minimal_access = list(access_logistics, access_sulaco_brig, access_sulaco_cells)
-	minimal_player_age = 7
+	minimal_player_age = 3
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		H.equip_to_slot_or_del(new /obj/item/device/radio/headset/mmpo(H), slot_l_ear)
@@ -122,7 +122,7 @@
 	selection_color = "#ffeeee"
 	access = list(access_medical_bay, access_medical_chem, access_medical_surgery, access_medical_genetics, access_medical_storage)
 	minimal_access = list(access_medical_bay, access_medical_chem, access_medical_surgery, access_medical_genetics, access_medical_storage)
-	minimal_player_age = 7
+	minimal_player_age = 3
 	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		H.equip_to_slot_or_del(new /obj/item/clothing/under/pj/red(H), slot_w_uniform)

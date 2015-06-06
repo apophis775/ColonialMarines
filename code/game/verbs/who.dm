@@ -2,10 +2,10 @@
 /client/verb/who()
 	set name = "Who"
 	set category = "OOC"
-	
+
 	var/count_observers = 0
 	for(var/client/C in clients)
-		if(isobserver(C.mob) && !C.holder)		
+		if(isobserver(C.mob) && !C.holder)
 			count_observers++
 	var/count_humans = 0
 	var/count_infectedhumans = 0
@@ -23,7 +23,7 @@
 
 	var/list/Lines = list()
 
-	if(holder)
+	if(holder && (R_ADMIN & holder.rights || R_MOD & holder.rights))
 		for(var/client/C in clients)
 			var/entry = "\t[C.key]"
 			if(C.holder && C.holder.fakekey)
@@ -41,6 +41,20 @@
 							entry += " - <font color='black'><b>DEAD</b></font>"
 					else
 						entry += " - <font color='black'><b>DEAD</b></font>"
+
+			var/age
+			if(isnum(C.player_age))
+				age = C.player_age
+			else
+				age = 0
+
+			if(age <= 1)
+				age = "<font color='#ff0000'><b>[age]</b></font>"
+			else if(age < 10)
+				age = "<font color='#ff8c00'><b>[age]</b></font>"
+
+			entry += " - [age]"
+
 			if(is_special_character(C.mob))
 				entry += " - <b><font color='red'>Antagonist</font></b>"
 			entry += " (<A HREF='?_src_=holder;adminmoreinfo=\ref[C.mob]'>?</A>)"
