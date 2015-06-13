@@ -301,6 +301,8 @@
 			return !density
 		else
 			return 1
+	if(locate(/obj/structure/table) in get_turf(mover))
+		return 1
 	return 0
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
