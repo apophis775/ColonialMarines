@@ -199,6 +199,9 @@
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/canister/attack_paw(var/mob/user as mob)
+	if(istype(user,/mob/living/carbon/alien))
+		user << "\red You can't understand how it works."
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
