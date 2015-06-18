@@ -237,6 +237,10 @@
 	if(health <= -50)
 		src << "You can't vent crawl whilst in critical condition!"
 		return
+		
+	/*if(var/obj/structure/closet in loc)
+		src << "You can't vent crawl from inside a closet!"
+		return */
 
 	if(vent_found) // one was passed in, probably from vent/AltClick()
 		if(vent_found.welded)
