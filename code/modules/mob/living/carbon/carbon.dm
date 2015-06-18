@@ -238,9 +238,9 @@
 		src << "You can't vent crawl whilst in critical condition!"
 		return
 		
-	/*if(var/obj/structure/closet in loc)
+	if(istype(loc, /obj/structure/closet))
 		src << "You can't vent crawl from inside a closet!"
-		return */
+		return
 
 	if(vent_found) // one was passed in, probably from vent/AltClick()
 		if(vent_found.welded)
