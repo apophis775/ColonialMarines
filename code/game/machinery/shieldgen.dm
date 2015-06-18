@@ -392,7 +392,15 @@
 		user.visible_message("[user] turned the shield generator off.", \
 			"You turn off the shield generator.", \
 			"You hear heavy droning fade out.")
-		src.cleanup()
+		spawn(1)
+			src.cleanup(1)
+		spawn(2)
+			src.cleanup(2)
+		spawn(3)
+			src.cleanup(4)
+		spawn(4)
+			src.cleanup(8)
+
 	else
 		src.active = 1
 		icon_state = "Shield_Gen +a"
