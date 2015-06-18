@@ -215,12 +215,13 @@
 		return
 
 
-	verb/toggle(mob/user)
+	verb/toggle()
 		set category = "Object"
 		set name = "Eject current magazine"
 		set src in usr
-		playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
-		user << "\blue You eject the magazine from \the [src]!"
+
+		playsound(usr, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
+		usr << "\blue You eject the magazine from \the [src]!"
 		empty_mag.desc = "There are [getAmmo()] shells left"
 
 		if(usr.canmove && !usr.stat && !usr.restrained())
