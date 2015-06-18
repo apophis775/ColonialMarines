@@ -271,13 +271,13 @@
 		return
 
 	attackby(obj/item/W, mob/user)
-		if(istype(user, /mob/living/carbon/alien))
+		/*if(istype(user, /mob/living/carbon/alien))
 			welded = 0
 			update_icon()
 			user.visible_message( \
 				"[user] claws at \the [src].", \
 				"\blue You have unwelded \the [src] with your claws.", \
-				"You hear a scraping of metal.")
+				"You hear a scraping of metal.") */
 		if(istype(W, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/WT = W
 			if (WT.remove_fuel(0,user))
