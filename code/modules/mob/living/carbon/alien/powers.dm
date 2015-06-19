@@ -19,6 +19,7 @@
 	set category = "Alien"
 
 	if(powerc(120))
+		adjustToxLoss(-120)
 		var/obj/machinery/atmospherics/unary/vent_pump/V
 		V = O
 		if(O in oview(1))
