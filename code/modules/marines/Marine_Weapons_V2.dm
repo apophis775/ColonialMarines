@@ -219,7 +219,6 @@
 		set category = "Object"
 		set name = "Eject current magazine"
 		set src in usr
-
 		playsound(usr, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
 		usr << "\blue You eject the magazine from \the [src]!"
 		empty_mag.desc = "There are [getAmmo()] shells left"
