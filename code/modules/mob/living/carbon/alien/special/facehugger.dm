@@ -360,7 +360,7 @@ var/const/MAX_ACTIVE_TIME = 200
 
 /proc/CanHug(var/mob/M)
 
-	if(iscorgi(M))
+	if(iscorgi(M) && !(istype(M.wear_mask, /obj/item/clothing/mask/facehugger) || M.status_flags & XENO_HOST))
 		return 1
 
 	if(!iscarbon(M) || isalien(M))
