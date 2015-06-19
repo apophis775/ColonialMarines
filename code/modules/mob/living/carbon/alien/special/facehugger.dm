@@ -251,16 +251,31 @@ var/const/MAX_ACTIVE_TIME = 200
 		var/mob/living/carbon/target = L
 
 		if(target.wear_mask)
-			if(prob(20))	return
+
 			var/obj/item/clothing/mask/facehugger/F
 			var/obj/item/clothing/W = target.wear_mask
-			if(!W.canremove)	return
-			if(!W == F)	return
+			if(prob(20))
+				target.visible_message("\red \b [src] fails to tear [W] off of [target]'s face!")
+				return
+			if(!W.canremove)
+				target.visible_message("\red \b [src] fails to tear [W] off of [target]'s face!")
+				return
+			if(!W == F)
+				target.visible_message("\red \b [src] fails to tear [W] off of [target]'s face!")
+				return
 			target.drop_from_inventory(W)
 
 			target.visible_message("\red \b [src] tears [W] off of [target]'s face!")
 
-		target.equip_to_slot(src, slot_wear_mask)
+		if(icon_state == "[initial(icon_state)]_thrown")
+			icon_state = "[initial(icon_state)]"
+
+		if (ismonkey(M))
+			src.loc = L
+			L.wear_mask = src
+			L.regenerate_icons()
+		else
+			target.equip_to_slot(src, slot_wear_mask)
 
 		if(!sterile) L.Sleeping((preggers/10)+10) //something like 25 ticks = 20 seconds with the default settings
 	else if (iscorgi(M))
