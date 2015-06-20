@@ -142,5 +142,8 @@
 /obj/structure/stool/bed/nest/proc/healthcheck()
 	if(health <=0)
 		density = 0
+		buckled_mob.pixel_y = 0
+		buckled_mob.nested = null
+		unbuckle()
 		del(src)
 	return
