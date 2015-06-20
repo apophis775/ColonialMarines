@@ -88,6 +88,10 @@
 	for(var/mob/O in viewers(src, null))
 		O.show_message(text("\green <B>[src] begins to twist and contort!</B>"), 1)
 	if(mind)	mind.transfer_to(new_xeno)
+	var/obj/item/A = l_hand
+	var/obj/item/B = r_hand
+	src.drop_from_inventory(A)
+	src.drop_from_inventory(B)
 
 	del(src)
 
