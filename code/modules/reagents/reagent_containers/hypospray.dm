@@ -15,7 +15,15 @@
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/reagent_containers/hypospray/attack_paw(mob/user as mob)
-	return src.attack_hand(user)
+	if (!isalien(user))
+		return src.attack_hand(user)
+	else
+		var/mob/living/carbon/alien/A = user
+
+		if(!A.has_fine_manipulation || w_class >= 4)
+			if(src in A.contents) // To stop Aliens having items stuck in their pockets
+				A.drop_from_inventory(src)
+			user << "Your claws aren't capable of such fine manipulation."
 
 
 /obj/item/weapon/reagent_containers/hypospray/New() //comment this to make hypos start off empty

@@ -55,49 +55,49 @@
 
 
 //Now applying sound
-		if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
-			if(ear_safety > 0)
-				M.Stun(2)
-				M.Weaken(1)
-			else
-				M.Stun(10)
-				M.Weaken(3)
-				if ((prob(14) || (M == src.loc && prob(70))))
-					M.ear_damage += rand(1, 10)
+		if (!istype(M, /mob/living/carbon/alien)) //Aliens are not supposed to go deaf in Colonial Marines.
+			if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
+				if(ear_safety > 0)
+					M.Stun(2)
+					M.Weaken(1)
 				else
-					M.ear_damage += rand(0, 5)
-					M.ear_deaf = max(M.ear_deaf,15)
-
-		else if(get_dist(M, T) <= 5)
-			if(!ear_safety)
-				M.Stun(8)
-				M.ear_damage += rand(0, 3)
-				M.ear_deaf = max(M.ear_deaf,10)
-
-		else if(!ear_safety)
-			M.Stun(4)
-			M.ear_damage += rand(0, 1)
-			M.ear_deaf = max(M.ear_deaf,5)
-
-//This really should be in mob not every check
-		if (M.eye_stat >= 20)
-			M << "\red Your eyes start to burn badly!"
-			M.disabilities |= NEARSIGHTED
-			if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
-				if (prob(M.eye_stat - 20 + 1))
-					M << "\red You can't see anything!"
-					M.sdisabilities |= BLIND
-		if (M.ear_damage >= 15)
-			M << "\red Your ears start to ring badly!"
-			if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
-				if (prob(M.ear_damage - 10 + 5))
-					M << "\red You can't hear anything!"
-					M.sdisabilities |= DEAF
-		else
-			if (M.ear_damage >= 5)
-				M << "\red Your ears start to ring!"
-		M.update_icons()
-
+					M.Stun(10)
+					M.Weaken(3)
+					if ((prob(14) || (M == src.loc && prob(70))))
+						M.ear_damage += rand(1, 10)
+					else
+						M.ear_damage += rand(0, 5)
+						M.ear_deaf = max(M.ear_deaf,15)
+	
+			else if(get_dist(M, T) <= 5)
+				if(!ear_safety)
+					M.Stun(8)
+					M.ear_damage += rand(0, 3)
+					M.ear_deaf = max(M.ear_deaf,10)
+	
+			else if(!ear_safety)
+				M.Stun(4)
+				M.ear_damage += rand(0, 1)
+				M.ear_deaf = max(M.ear_deaf,5)
+	
+	//This really should be in mob not every check
+			if (M.eye_stat >= 20)
+				M << "\red Your eyes start to burn badly!"
+				M.disabilities |= NEARSIGHTED
+				if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
+					if (prob(M.eye_stat - 20 + 1))
+						M << "\red You can't see anything!"
+						M.sdisabilities |= BLIND
+			if (M.ear_damage >= 15)
+				M << "\red Your ears start to ring badly!"
+				if(!banglet && !(istype(src , /obj/item/weapon/grenade/flashbang/clusterbang)))
+					if (prob(M.ear_damage - 10 + 5))
+						M << "\red You can't hear anything!"
+						M.sdisabilities |= DEAF
+			else
+				if (M.ear_damage >= 5)
+					M << "\red Your ears start to ring!"
+			M.update_icons()
 
 /obj/item/weapon/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
 	desc = "Use of this weapon may constiute a war crime in your area, consult your local captain."

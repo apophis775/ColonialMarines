@@ -119,6 +119,10 @@
 			if("Carrier")
 				new_xeno = new /mob/living/carbon/alien/humanoid/carrier(loc)
 		if(mind)	mind.transfer_to(new_xeno)
+		var/obj/item/A = l_hand
+		var/obj/item/B = r_hand
+		src.drop_from_inventory(A)
+		src.drop_from_inventory(B)
 		del(src)
 		return
 	else

@@ -428,9 +428,10 @@
 
 	if (!can_touch(usr))
 		return
-
+	if (usr.anchored)
+		return
+	
 	usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")
-
 	if(!do_after(usr,25))
 		return
 
@@ -444,6 +445,8 @@
 	if(!ishuman(usr))
 		return
 	if (!can_touch(usr))
+		return
+	if (usr.anchored)
 		return
 
 	usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")
