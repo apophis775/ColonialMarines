@@ -13,6 +13,7 @@
 	//Bayonet
 	var/hasBayonet = 0 //Is there a bayonet?
 	var/bayonetDamage = 40 //Controls the bayonet Damage
+	var/wieldsprite = 0 //Change inhand sprite when wielded?
 
 /obj/item/weapon/twohanded/projectile/offhand
 	w_class = 5.0
@@ -95,6 +96,8 @@
 			user << "\red You attach [A] to [src]. Use 'toggle weapon light' in the Object tab to turn it on."
 			haslight = 1
 			del(A)
+			user.update_inv_l_hand()
+			user.update_inv_r_hand()
 			return
 		else
 			user << "Use a screwdriver to modify the flashlight first."
@@ -146,6 +149,8 @@
 			hasBayonet = 1
 			src.force+=bayonetDamage
 			del(K)
+			user.update_inv_l_hand()
+			user.update_inv_r_hand()
 	return
 
 
@@ -204,7 +209,7 @@
 	in_chamber.firer = user
 	in_chamber.def_zone = user.zone_sel.selecting
 	if(targloc == curloc)
-		user.bullet_act(in_chamber)
+		target.bullet_act(in_chamber)
 		del(in_chamber)
 		update_icon()
 		return
@@ -265,6 +270,10 @@
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user && wielded)
 		unwield()
+		if (wieldsprite)
+			item_state = "[initial(item_state)][wielded]"//Update inhand icons
+			user.update_inv_l_hand()
+			user.update_inv_r_hand()
 		var/obj/item/weapon/twohanded/projectile/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
 			O.unwield()
@@ -292,6 +301,10 @@
 	..()
 	if(wielded) //Trying to unwield it
 		unwield()
+		if (wieldsprite)
+			item_state = "[initial(item_state)][wielded]"//Update inhand icons
+			user.update_inv_l_hand()
+			user.update_inv_r_hand()
 		user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
 		if (src.unwieldsound)
 			playsound(src.loc, unwieldsound, 50, 1)
@@ -306,6 +319,10 @@
 			user << "<span class='warning'>You need your other hand to be empty</span>"
 			return
 		wield()
+		if (wieldsprite)
+			item_state = "[initial(item_state)][wielded]"//Update inhand icons
+			user.update_inv_l_hand()
+			user.update_inv_r_hand()
 		user << "<span class='notice'>You grab the [initial(name)] with both hands.</span>"
 		if (src.wieldsound)
 			playsound(src.loc, wieldsound, 50, 1)

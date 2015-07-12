@@ -57,8 +57,14 @@
 					src.throwing = 0
 			if(isobj(A))
 				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
-					src.throw_impact(A,speed)
-					src.throwing = 0
+					if(istype(A,/obj/structure/window)) // DONE. Anything else?
+						if(!A.CanPass(src, get_turf(src.thrower)) || (!A.CheckExit(src, get_turf(src.thrower))))
+							src.throw_impact(A,speed)
+							src.throwing = 0
+
+					else
+						src.throw_impact(A,speed)
+						src.throwing = 0
 
 /atom/movable/proc/throw_at(atom/target, range, speed, thrower)
 	if(!target || !src)	return 0

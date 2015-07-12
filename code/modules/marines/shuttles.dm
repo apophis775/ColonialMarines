@@ -141,6 +141,8 @@ proc/move_marine_b_shuttle()
 	var/hacked = 0
 	var/location = 0
 	var/disabled = 0
+	exproof = 1
+	bulletproof = 1
 	use_power = 0
 	unacidable = 1
 
@@ -255,6 +257,8 @@ proc/move_marine_b_shuttle()
 	var/hacked = 0
 	var/location = 0
 	var/disabled = 0
+	exproof = 1
+	bulletproof = 1
 	use_power = 0
 	unacidable = 1
 

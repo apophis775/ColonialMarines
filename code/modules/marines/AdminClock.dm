@@ -15,7 +15,7 @@ var/clockInLog = null //Variable to track the log file
 		clockInLog << "\[[time_stamp()]] Clock Out: [text]"
 
 
-/client/proc/Clock_In() // Proc to clock in
+/*/client/proc/Clock_In() // Proc to clock in
 	set category = "Admin"
 	set name = "Clock In"
 	set desc = "Clock In to track your time working"
@@ -28,7 +28,7 @@ var/clockInLog = null //Variable to track the log file
 	set desc = "Clock Out to end your time working"
 	clock_out("[key_name(usr)]")
 	message_admins("\blue [key_name_admin(usr)] has clocked out", 1)
-
+*/
 
 //THESE MUST BE ADDED TO THE MAIN CODE:
 

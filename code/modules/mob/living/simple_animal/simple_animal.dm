@@ -376,19 +376,22 @@
 				return
 			gib()
 	else
-		if(O.force)
+		if(O.force && !istype (O, /obj/item/clothing/mask/facehugger))
 			var/damage = O.force
 			if (O.damtype == HALLOSS)
 				damage = 0
-			adjustBruteLoss(damage)
+			health -= damage
 			for(var/mob/M in viewers(src, null))
 				if ((M.client && !( M.blinded )))
 					M.show_message("\red \b [src] has been attacked with the [O] by [user]. ")
+		else if(istype (O, /obj/item/clothing/mask/facehugger)) //It's a facehugger, not a toy.
+			..()
 		else
 			usr << "\red This weapon is ineffective, it does no damage."
 			for(var/mob/M in viewers(src, null))
 				if ((M.client && !( M.blinded )))
 					M.show_message("\red [user] gently taps [src] with the [O]. ")
+
 
 
 

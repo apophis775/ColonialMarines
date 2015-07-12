@@ -144,7 +144,7 @@
 	if ((user.client && user.s_active != src))
 		user.client.screen -= W
 	src.orient2hud(user)
-	W.dropped(user)
+//	W.dropped(user) Lit items put into a suit are decreasing the user's luminosity twice, so this line is probably unecessary.
 	add_fingerprint(user)
 	show_to(user)
 

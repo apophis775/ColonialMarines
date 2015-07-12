@@ -17,11 +17,11 @@
 		new /obj/item/weapon/storage/belt/marine(src)
 		new /obj/item/clothing/head/helmet/marine2(src)
 		new /obj/item/device/flashlight(src)
-		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/clothing/shoes/marine(src)
 		new /obj/item/clothing/gloves/marine(src)
 		new /obj/item/clothing/under/marine2(src)
 		new /obj/item/device/radio/headset/msulaco(src)
+		new /obj/item/weapon/storage/backpack/marine(src)
 		return
 
 //MARINE COMMAND CLOSET
@@ -160,7 +160,6 @@
 		new /obj/item/weapon/storage/belt/marine(src)
 		new /obj/item/clothing/head/helmet/marine2(src)
 		new /obj/item/device/flashlight(src)
-		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/device/radio/headset/malpha(src)
 		return
 
@@ -184,7 +183,6 @@
 		new /obj/item/weapon/storage/belt/marine(src)
 		new /obj/item/clothing/head/helmet/marine2(src)
 		new /obj/item/device/flashlight(src)
-		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/device/radio/headset/mbravo(src)
 		return
 
@@ -208,7 +206,6 @@
 		new /obj/item/weapon/storage/belt/marine(src)
 		new /obj/item/clothing/head/helmet/marine2(src)
 		new /obj/item/device/flashlight(src)
-		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/device/radio/headset/mcharlie(src)
 		return
 
@@ -232,7 +229,6 @@
 		new /obj/item/weapon/storage/belt/marine(src)
 		new /obj/item/clothing/head/helmet/marine2(src)
 		new /obj/item/device/flashlight(src)
-		new /obj/item/clothing/glasses/sunglasses(src)
 		new /obj/item/device/radio/headset/mdelta(src)
 		return
 

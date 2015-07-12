@@ -255,7 +255,7 @@
 	if(usr)
 		if (usr.client && usr.s_active != src)
 			usr.client.screen -= W
-		W.dropped(usr)
+	//	W.dropped(usr) Items put into a backpack are decreasing the user's luminosity twice, so this line is probably unecessary.
 		add_fingerprint(usr)
 
 		if(!prevent_warning && !istype(W, /obj/item/weapon/gun/energy/crossbow))
@@ -328,7 +328,8 @@
 				W.loc = user.loc
 				if ((user.client && user.s_active != src))
 					user.client.screen -= W
-				W.dropped(user)
+			//	W.dropped(user) Items put into a backpack are decreasing the user's luminosity twice, so this line is probably unecessary.
+			// 					And yeah, I know this part of the code handles trays. But I don't care.
 				user << "\red God damnit!"
 
 	handle_item_insertion(W)

@@ -1045,7 +1045,7 @@ datum/preferences
 								limb = "r_hand"
 								third_limb = "r_arm"
 
-						var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in list("Normal","Amputated","Prothesis")
+						var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in list("Normal",/*"Amputated",*/"Prothesis")
 						if(!new_state) return
 
 						switch(new_state)

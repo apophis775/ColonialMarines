@@ -474,27 +474,27 @@
 			if (stat !=2)
 				switch(plasma)
 					if(100 to INFINITY)
-						alien_plasma_display.icon_state = "power_display2_9"
-					if(70 to 99)
-						alien_plasma_display.icon_state = "power_display2_8"
+						alien_plasma_display.icon_state = "plasma8"
+					if(80 to 99)
+						alien_plasma_display.icon_state = "plasma7"
+					if(70 to 80)
+						alien_plasma_display.icon_state = "plasma6"
 					if(60 to 70)
-						alien_plasma_display.icon_state = "power_display2_7"
+						alien_plasma_display.icon_state = "plasma5"
 					if(50 to 60)
-						alien_plasma_display.icon_state = "power_display2_6"
+						alien_plasma_display.icon_state = "plasma4"
 					if(40 to 50)
-						alien_plasma_display.icon_state = "power_display2_5"
+						alien_plasma_display.icon_state = "plasma3"
 					if(30 to 40)
-						alien_plasma_display.icon_state = "power_display2_4"
-					if(20 to 30)
-						alien_plasma_display.icon_state = "power_display2_3"
-					if(10 to 20)
-						alien_plasma_display.icon_state = "power_display2_2"
-					if(0 to 10)
-						alien_plasma_display.icon_state = "power_display2_1"
+						alien_plasma_display.icon_state = "plasma2"
+					if(15 to 30)
+						alien_plasma_display.icon_state = "plasma1"
+					if(0 to 15)
+						alien_plasma_display.icon_state = "plasma0"
 					else
-						alien_plasma_display.icon_state = "power_display2"
+						alien_plasma_display.icon_state = "plasma0"
 			else
-				alien_plasma_display.icon_state = "power_display2"
+				alien_plasma_display.icon_state = "plasma0"
 
 		if(pullin)	pullin.icon_state = "pull[pulling ? 1 : 0]"
 

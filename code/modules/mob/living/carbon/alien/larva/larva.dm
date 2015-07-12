@@ -50,17 +50,32 @@
 	//processing_objects.Add(src)
 	..()
 
-
+/mob/living/carbon/alien/larva/start_pulling(var/atom/movable/AM)
+	src << "<span class='warning'>You can't pull anything.</span>"
+	return
 
 //This is fine, works the same as a human
+//SCRATCH THAT! Larvae don't push.
 /mob/living/carbon/alien/larva/Bump(atom/movable/AM as mob|obj, yes)
 
 	spawn( 0 )
 		if ((!( yes ) || now_pushing))
 			return
-		now_pushing = 1
+		now_pushing = 0
 		if(ismob(AM))
 			var/mob/tmob = AM
+
+			//They can still friendly-bump other aliens, though.
+			if(istype(tmob, /mob/living/carbon/alien/) && (src.a_intent == "help") && (tmob.a_intent == "help") )
+				var/turf/oldloc = loc
+				loc = tmob.loc
+				tmob.loc = oldloc
+				now_pushing = 0
+				return
+
+		if(istype(AM, /obj/structure/mineral_door/resin))
+			..()
+			/*
 			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
 				if(prob(70))
 					src << "\red <B>You fail to push [tmob]'s fat ass out of the way.</B>"
@@ -81,6 +96,7 @@
 				var/t = get_dir(src, AM)
 				step(AM, t)
 			now_pushing = null
+		*/	return
 		return
 	return
 

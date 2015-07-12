@@ -57,6 +57,13 @@
 		if(clown_check(user))
 			user << "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>"
 
+			//Now add that to the logs
+			var/turf/start_T = get_turf(loc) //Get the start tile for the descriptors
+			if(start_T)
+				var/start_T_descriptor = "<font color='#6b5d00'>at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
+
+				user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has primed a <font color='blue'>[name]</font> [start_T_descriptor].</font>")
+
 			activate(user)
 			add_fingerprint(user)
 			if(iscarbon(user))

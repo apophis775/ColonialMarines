@@ -8,6 +8,8 @@
 	active_power_usage = 300
 	var/obj/item/weapon/circuitboard/circuit = null //if circuit==null, computer can't disassembly
 	var/processing = 0
+	var/exproof = 0
+	var/bulletproof = 0
 	var/aliens_understand = 0
 
 /obj/machinery/computer/New()
@@ -47,6 +49,8 @@
 
 
 /obj/machinery/computer/ex_act(severity)
+	if(exproof)
+		return
 	switch(severity)
 		if(1.0)
 			del(src)
@@ -68,6 +72,8 @@
 	return
 
 /obj/machinery/computer/bullet_act(var/obj/item/projectile/Proj)
+	if(bulletproof)
+		return
 	if(prob(Proj.damage))
 		set_broken()
 	..()

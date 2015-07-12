@@ -416,7 +416,7 @@
 				counter = 0
 		jobs += "</tr></table>"
 
-/*	//Security (Red)
+	//Security (Red)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 		jobs += "<tr bgcolor='ffddf0'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban3=securitydept;jobban4=\ref[M]'>Security Positions</a></th></tr><tr align='center'>"
@@ -435,7 +435,7 @@
 			if(counter >= 5) //So things dont get squiiiiished!
 				jobs += "</tr><tr align='center'>"
 				counter = 0
-		jobs += "</tr></table>"*/
+		jobs += "</tr></table>"
 
 			//Security (Red)
 		counter = 0

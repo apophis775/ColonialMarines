@@ -198,6 +198,17 @@
 				if(!do_mob(user, affecting)||!do_after(user, 30)) return
 			else
 				if(!do_mob(user, affecting)||!do_after(user, 100)) return
+
+			if (locate(/obj/structure/stool/bed/nest) in affecting.loc)//Pull from nest and then devour.
+				var/obj/structure/stool/bed/nest/N = locate(/obj/structure/stool/bed/nest) in affecting.loc
+				if (N.buckled_mob == affecting)
+					N.manual_unbuckle(user)
+
+			if (affecting.anchored) //If even after being unbuckled the mob is still anchored, let them be.
+				user << "\blue You cannot devour a buckled target."
+
+				return
+
 			user.visible_message("<span class='danger'>[user] devours [affecting]!</span>")
 			affecting.loc = user
 			attacker.stomach_contents.Add(affecting)

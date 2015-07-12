@@ -800,7 +800,7 @@
 
 /obj/item/weapon/book/manual/millaw
 	name = "Marine law"
-	icon_state ="bookNuclear"
+	icon_state ="bookSpaceLaw"
 	author = "Nanotrasen Military"
 	title = "Marine law"
 
@@ -889,7 +889,7 @@
 
 /obj/item/weapon/book/manual/milmanual
 	name = "Military Police manual"
-	icon_state ="bookNuclear"
+	icon_state ="bookHacking"
 	author = "Nanotrasen Military"
 	title = "Military Police manual"
 

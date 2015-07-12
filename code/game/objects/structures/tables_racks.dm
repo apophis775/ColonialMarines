@@ -428,6 +428,9 @@
 
 	if (!can_touch(usr))
 		return
+	if (usr.anchored)
+		usr << "<span class='notice'>You can't climb onto a table while buckled!</span>"	
+		return
 
 	usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")
 
@@ -444,6 +447,9 @@
 	if(!ishuman(usr))
 		return
 	if (!can_touch(usr))
+		return
+	if (usr.anchored)
+		usr << "<span class='notice'>You can't climb onto a table while buckled!</span>"	
 		return
 
 	usr.visible_message("<span class='warning'>[usr] starts climbing onto \the [src]!</span>")

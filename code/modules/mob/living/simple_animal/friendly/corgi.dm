@@ -47,7 +47,7 @@
 	return
 
 /mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(inventory_head && inventory_back)
+	if(inventory_head && inventory_back && !istype(O, /obj/item/clothing/mask/facehugger)) //facehuggers should hug, not tap.
 		//helmet and armor = 100% protection
 		if( istype(inventory_head,/obj/item/clothing/head/helmet) && istype(inventory_back,/obj/item/clothing/suit/armor) )
 			if( O.force )

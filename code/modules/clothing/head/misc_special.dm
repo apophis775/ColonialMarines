@@ -24,7 +24,7 @@
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	icon_action_button = "action_welding"
 	siemens_coefficient = 0.9
-	health = 40
+	health = 20
 
 /obj/item/clothing/head/welding/attack_self()
 	toggle()

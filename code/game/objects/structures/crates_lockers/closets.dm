@@ -39,6 +39,15 @@
 	for(var/obj/structure/closet/closet in get_turf(src))
 		if(closet != src)
 			return 0
+
+	//Preventing big aliens from getting into lockers:
+	for(var/mob/living/carbon/alien/humanoid/M in get_turf(src))
+		switch(M.caste)
+			if ("Hivelord")				return 0
+			if ("Ravager") 				return 0
+			if ("Accurate Praetorian") 	return 0
+			if ("Accurate Queen") 		return 0
+
 	return 1
 
 /obj/structure/closet/proc/dump_contents()

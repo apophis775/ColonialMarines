@@ -52,6 +52,7 @@
 	growJelly()
 	verbs -= /atom/movable/verb/pull
 	verbs -= /mob/living/carbon/alien/humanoid/verb/plant
+	verbs -= /mob/living/carbon/alien/verb/unweld_vent
 	//var/matrix/M = matrix()
 	//M.Scale(1.15,1.1)
 	//src.transform = M
@@ -89,6 +90,10 @@
 		O.show_message(text("\green <B>[src] begins to twist and contort!</B>"), 1)
 	if(mind)	mind.transfer_to(new_xeno)
 
+	var/obj/item/A = l_hand
+	var/obj/item/B = r_hand
+	src.drop_from_inventory(A)
+	src.drop_from_inventory(B)
 	del(src)
 
 

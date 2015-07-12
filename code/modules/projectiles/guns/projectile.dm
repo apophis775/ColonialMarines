@@ -59,6 +59,8 @@
 			user << "\red You attach [A] to [src]. Use 'toggle weapon light' in the Object tab to turn it on."
 			haslight = 1
 			del(A)
+			user.update_inv_l_hand()
+			user.update_inv_r_hand()
 			return
 		else
 			user << "Use a screwdriver to modify the flashlight first."
@@ -74,7 +76,8 @@
 				loaded += AC
 				num_loaded++
 				empty_mag = AM	//a temporary solution to get rid of magazines from mob hand
-				user.remove_from_mob(AM) //
+				if(!AM.stored_ammo.len) // We don't want speedloadeds dropping after you load one round into your revolver.
+					user.remove_from_mob(AM)
 		if(load_method == MAGAZINE)
 			playsound(user, 'sound/weapons/unload.ogg', 40, 1)
 			user.remove_from_mob(AM)

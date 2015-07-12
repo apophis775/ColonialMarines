@@ -33,16 +33,16 @@
 		charge_tick++
 		if(charge_tick < recharge_time) return 0
 		charge_tick = 0
-		
+
 		if(!power_supply) return 0 //sanity
 		if(power_supply.charge >= power_supply.maxcharge) return 0 // check if we actually need to recharge
-		
+
 		if(isrobot(src.loc))
 			var/mob/living/silicon/robot/R = src.loc
 			if(R && R.cell)
 				R.cell.use(charge_cost) 		//Take power from the borg...
 				power_supply.give(charge_cost)	//... to recharge the shot
-				
+
 		update_icon()
 		return 1
 
@@ -68,7 +68,7 @@
 	m_amt = 2000
 	origin_tech = "combat=2;magnets=2;syndicate=5"
 	silenced = 1
-	fire_sound = 'sound/weapons/Genhit.ogg'
+//	fire_sound = 'sound/weapons/Genhit.ogg'
 	projectile_type = "/obj/item/projectile/energy/bolt"
 	cell_type = "/obj/item/weapon/cell/crap"
 	var/charge_tick = 0

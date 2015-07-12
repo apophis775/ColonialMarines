@@ -83,6 +83,10 @@
 				A << "\red <font size=3><b>A new queen has evolved!</b></font>"
 			var/mob/living/carbon/alien/humanoid/queen/new_xeno = new (loc)
 			mind.transfer_to(new_xeno)
+			var/obj/item/A = l_hand
+			var/obj/item/B = r_hand
+			src.drop_from_inventory(A)
+			src.drop_from_inventory(B)
 			del(src)
 		else
 			src << "<span class='notice'>We already have an alive queen.</span>"

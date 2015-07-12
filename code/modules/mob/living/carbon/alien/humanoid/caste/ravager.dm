@@ -31,7 +31,7 @@
 		name = text("alien ravager ([rand(1, 1000)])")
 	real_name = name
 	var/matrix/M = matrix()
-	M.Scale(1.15,1.15)
+	M.Scale(1,1)
 	src.transform = M
 	verbs -= /mob/living/carbon/alien/verb/ventcrawl
 	verbs -= /mob/living/carbon/alien/humanoid/verb/plant

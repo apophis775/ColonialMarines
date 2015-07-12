@@ -8,7 +8,7 @@
 	m_amt = 50
 	g_amt = 50
 
-	req_access = list(access_engine)
+	req_one_access = list(access_alpha_eprep, access_bravo_eprep, access_charlie_eprep, access_delta_eprep)
 
 	var/list/conf_access = null
 	var/one_access = 0 //if set to 1, door would receive req_one_access instead of req_access

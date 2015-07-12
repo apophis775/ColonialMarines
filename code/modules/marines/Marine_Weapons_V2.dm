@@ -187,6 +187,7 @@
 	load_method = 2
 	force = 10.0
 	ejectshell = 0 //Caseless
+	wieldsprite = 1 //Change inhand sprite when wielded
 	fire_delay = 4
 	slot_flags = SLOT_BACK
 
@@ -194,6 +195,7 @@
 		..()
 		empty_mag = new /obj/item/ammo_magazine/m41/empty(src)
 		update_icon()
+		item_state = "[initial(item_state)][wielded]" //So it can switch correctly
 		return
 
 
@@ -215,15 +217,23 @@
 		return
 
 
-	verb/toggle(mob/user)
+	verb/toggle()
 		set category = "Object"
 		set name = "Eject current magazine"
 		set src in usr
-		playsound(user, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
-		user << "\blue You eject the magazine from \the [src]!"
-		empty_mag.desc = "There are [getAmmo()] shells left"
 
-		if(usr.canmove && !usr.stat && !usr.restrained())
+		//The weapon must be in the source's active hand to be reloaded.
+		if (istype(usr.get_active_hand(), /obj/item/weapon/gun/twohanded/projectile/Assault/m41))
+			src = usr.get_active_hand() //This is necessary because sometimes you may carry two different M41As at the same time, and the proc might go for the one in your suit storage.
+		else
+			usr << "\red Your weapon must be in your active hand!"
+			return
+
+		if((usr.canmove && !usr.stat && !usr.restrained()) && (loaded.len))
+			playsound(usr, 'sound/weapons/smg_empty_alarm.ogg', 40, 1)
+			usr << "\blue You eject the magazine from \the [src]!"
+			empty_mag.desc = "There are [getAmmo()] shells left"
+
 			var/obj/item/ammo_magazine/AM = empty_mag
 			for (var/obj/item/ammo_casing/AC in loaded)
 				AM.stored_ammo += AC
@@ -231,6 +241,11 @@
 				AM.loc = get_turf(src)
 				empty_mag = null
 				update_icon()
+
+		else if(!loaded.len)
+			usr << "\red Nothing loaded in \the [src]!"
+
+
 /*
 	verb/toggle(mob/user)
 		set category = "Object"

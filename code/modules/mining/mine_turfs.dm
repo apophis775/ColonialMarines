@@ -332,7 +332,7 @@ commented out in r5061, I left it because of the shroom thingies
 			return
 		last_act = world.time
 
-		playsound(user, P.drill_sound, 20, 1)
+//		playsound(user, P.drill_sound, 20, 1)
 
 		//handle any archaeological finds we might uncover
 		var/fail_message

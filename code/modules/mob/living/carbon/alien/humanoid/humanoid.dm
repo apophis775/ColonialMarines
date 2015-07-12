@@ -48,7 +48,23 @@
 
 		if (ismob(AM))
 			var/mob/tmob = AM
-			tmob.LAssailant = src
+
+			//Letting aliens walk through each other:
+			if(istype(tmob, /mob/living/carbon/alien/humanoid/) && (src.a_intent == "help") && (tmob.a_intent == "help") )
+				var/turf/oldloc = loc
+				loc = tmob.loc
+				tmob.loc = oldloc
+				now_pushing = 0
+				return
+			else if (istype(tmob, /mob/living/carbon/alien/larva)) // If it's a larva, intents don't matter: they always get out of the way
+				var/turf/oldloc = loc
+				loc = tmob.loc
+				tmob.loc = oldloc
+				now_pushing = 0
+				return
+			else
+				tmob.LAssailant = src
+
 
 		if (!now_pushing)
 			now_pushing = 1
@@ -132,8 +148,8 @@
 				Paralyse(5)
 			f_loss += (rand(50,80))
 
-			ear_damage += 30
-			ear_deaf += 120
+		/*	ear_damage += 30	Aliens shouldn't go deaf.
+			ear_deaf += 120    */
 
 		if(3.0)
 			b_loss += (rand(60,165))
@@ -141,8 +157,8 @@
 			if (prob(70) && !shielded)
 				Paralyse(rand(1,3))
 
-			ear_damage += 15
-			ear_deaf += 60
+		/*	ear_damage += 15	Aliens shouldn't go deaf.
+			ear_deaf += 60 */
 
 	adjustBruteLoss(b_loss)
 	adjustFireLoss(f_loss)

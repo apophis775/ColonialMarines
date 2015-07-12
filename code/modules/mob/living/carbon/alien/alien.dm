@@ -77,13 +77,15 @@
 			adjustBruteLoss(-heal_rate)
 			adjustFireLoss(-heal_rate)
 			adjustOxyLoss(-heal_rate * 2)
+
 //Prevents alien camping in space.
-	if(istype(get_turf(src), /turf/space))
-		if(health > -100)
-			if (storedPlasma <= 0) //If you have no plasma, slowly die
-				adjustBruteLoss(4)
+	if(istype(get_turf(src), /turf/space) || (istype(get_area(src), /area/solar)))
+		if(stat != 2)
+			if (storedPlasma < 5) //If you have no plasma, slowly die
+				adjustFireLoss(maxHealth * 2 / 100)//They already take double fire damage
+				updatehealth()
 			else
-				adjustToxLoss(-6)  //Else remove plasma untill you have none
+				adjustToxLoss(-max_plasma * 4 / 100)  //4% or 25 seconds to deplete
 
 	if(!environment)
 		return

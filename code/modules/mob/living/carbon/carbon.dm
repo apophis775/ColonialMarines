@@ -14,6 +14,14 @@
 
 /mob/living/carbon/relaymove(var/mob/user, direction)
 	if(user in src.stomach_contents)
+
+		if (src.stat == DEAD) //If the alien is dead, let the poor human go.
+			for(var/atom/movable/A in stomach_contents)
+				A.loc = loc
+				stomach_contents.Remove(A)
+			src.gib()
+			return
+
 		if(prob(40))
 			for(var/mob/M in hearers(4, src))
 				if(M.client)
@@ -41,6 +49,13 @@
 						A.loc = loc
 						stomach_contents.Remove(A)
 					src.gib()
+
+			else if (!I)
+				user << "\blue You can't get out of here with your bare hands! Grab something heavy or sharp!"
+
+			else if (I.force == 0)
+				user << "\blue You should get something heavier than \a [I.name] if you want to get out of here."
+
 
 /mob/living/carbon/gib()
 	for(var/mob/M in src)
@@ -116,7 +131,7 @@
 /mob/living/carbon/proc/swap_hand()
 	var/obj/item/item_in_hand = src.get_active_hand()
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
-		if(istype(item_in_hand,/obj/item/weapon/twohanded))
+		if(istype(item_in_hand,/obj/item/weapon/twohanded) || (istype(item_in_hand,/obj/item/weapon/gun/twohanded)))
 			if(item_in_hand:wielded == 1)
 				usr << "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>"
 				return
@@ -225,17 +240,27 @@
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
-/mob/living/carbon/proc/handle_ventcrawl(var/obj/machinery/atmospherics/unary/vent_pump/vent_found = null) // -- TLE -- Merged by Carn
+/mob/living/carbon/proc/can_vent_crawl()
 	if(stat)
 		src << "You must be conscious to do this!"
-		return
+		return 0
 
 	if(lying)
 		src << "You can't vent crawl while you're stunned!"
-		return
+		return 0
 
-	if(health <= -50)
+	if(health <= 0)
 		src << "You can't vent crawl whilst in critical condition!"
+		return 0
+
+	if(!istype(loc, /turf/))
+		src << "You can't vent crawl from inside \the [src.loc.name]"
+		return 0
+
+	return 1
+
+/mob/living/carbon/proc/handle_ventcrawl(var/obj/machinery/atmospherics/unary/vent_pump/vent_found = null) // -- TLE -- Merged by Carn
+	if(!can_vent_crawl())
 		return
 
 	if(vent_found) // one was passed in, probably from vent/AltClick()
@@ -283,6 +308,9 @@
 
 	if(!vent_found.Adjacent(src))
 		src << "Never mind, you left."
+		return
+
+	if(!can_vent_crawl())
 		return
 
 	for(var/obj/item/carried_item in contents)//If the monkey got on objects.
@@ -371,6 +399,7 @@
 
 	if(!item) return
 
+
 	if (istype(item, /obj/item/weapon/grab))
 		var/obj/item/weapon/grab/G = item
 		item = G.throw() //throw the person instead of the grab
@@ -386,6 +415,18 @@
 				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>")
 				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
 
+
+	if(istype(item, /obj/item/weapon/grenade)) //Adding logs for throwing grenades and flashbangs.
+		var/obj/item/weapon/grenade/O = item
+		if (O.active) //We only want logs for ACTIVE grenades.
+			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
+			var/turf/end_T = get_turf(target)
+			if(start_T && end_T)
+				var/start_T_descriptor = "<font color='#6b5d00'>tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)]</font>"
+				var/end_T_descriptor = "<font color='#6b4400'>[end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
+
+				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has thrown a <font color='blue'>[item.name]</font> from [start_T_descriptor] with the target [end_T_descriptor]</font>")
+				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown a [item.name] from a [start_T_descriptor] towards [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
 	if(!item) return //Grab processing has a chance of returning null
 
 	item.layer = initial(item.layer)
@@ -396,8 +437,14 @@
 		item.loc = src.loc
 		if(src.client)
 			src.client.screen -= item
+
+		/*These next lines are unecessary, for the game apparently already considers thrown items as dropped.
+
+		In fact, it caused flashlights to execute the dropped(mob/usr) action twice, decreasing the user's luminosity two times
 		if(istype(item, /obj/item))
 			item:dropped(src) // let it know it's been dropped
+
+		*/
 
 	//actually throw it!
 	if (item)

@@ -65,8 +65,10 @@
 
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"])
-		spit_neuro(A)
-
+		if (quickspit)
+			spit_neuro(A)
+		else
+			..()
 		return
 	..()
 

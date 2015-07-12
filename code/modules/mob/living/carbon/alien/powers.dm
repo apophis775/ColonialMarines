@@ -23,6 +23,7 @@
 		V = O
 		if(O in oview(1))
 			if(istype(O, /obj/machinery/atmospherics/unary/vent_pump))
+				adjustToxLoss(-120)
 				V.welded = 0
 				V.update_icon()
 				V.visible_message( \

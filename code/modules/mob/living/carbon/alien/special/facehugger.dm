@@ -8,6 +8,10 @@ var/const/MAX_IMPREGNATION_TIME = 400
 var/const/MIN_ACTIVE_TIME = 100 //time between being dropped and going idle
 var/const/MAX_ACTIVE_TIME = 200
 
+var/const/FACEHUGGERS_FIGHT = 0 //If 0, facehuggers no longer fight for room [FightHuggers() proc]
+var/const/MAX_HUGGERS_TURF = 3 //Maximum number of facehuggers you can have on a turf before fights start
+var/const/MAX_HUGGERS_CLOSET = 5 //Maximum number of facehuggers you can have in a closet
+
 /obj/item/clothing/mask/facehugger
 	name = "alien"
 	desc = "It has some sort of a tube at the end of its tail."
@@ -46,6 +50,9 @@ var/const/MAX_ACTIVE_TIME = 200
 
 /obj/item/clothing/mask/facehugger/process()
 	healthcheck()
+//	if (FACEHUGGERS_FIGHT)
+//		FightHuggers()
+
 
 
 // HUGGER MOVEMENT AI
@@ -109,6 +116,11 @@ var/const/MAX_ACTIVE_TIME = 200
 	if((stat == CONSCIOUS && !sterile) && !isalien(user))
 		Attach(user)
 		return
+
+	else if (loc == user && !isalien(user) && !sterile && stat != DEAD) //Can't rip a living facehugger off your own face. Sorry, bro.
+		user << "You can't rip it off by yourself!"
+		return
+
 	else
 		var/mob/living/carbon/alien/humanoid/carrier/carr = user
 
@@ -118,8 +130,8 @@ var/const/MAX_ACTIVE_TIME = 200
 				..()
 				return
 			if(stat != DEAD)
-				carr << "You pick up a facehugger"
 				carr.facehuggers += 1
+				carr << "You scoop up the facehugger and carry it for safekeeping. Now sheltering: [carr.facehuggers] / 6."
 				del(src)
 
 			else
@@ -135,9 +147,12 @@ var/const/MAX_ACTIVE_TIME = 200
 		Die()
 
 /obj/item/clothing/mask/facehugger/attack(mob/living/M as mob, mob/user as mob)
-	..()
-	user.drop_from_inventory(src)
-	Attach(M)
+	if (!istype(M.wear_mask, /obj/item/clothing/mask/facehugger))
+		user.drop_from_inventory(src)
+		Attach(M)
+	else
+		user<< "\blue There's already a facehugger there."
+
 
 /obj/item/clothing/mask/facehugger/New()
 	if(aliens_allowed)
@@ -158,12 +173,17 @@ var/const/MAX_ACTIVE_TIME = 200
 		usr << "\red \b It looks like the proboscis has been removed."
 	return
 
-/obj/item/clothing/mask/facehugger/attackby()
-	Die()
-	return
+/obj/item/clothing/mask/facehugger/attackby(obj/item/O as obj, mob/user as mob)
+	if (istype(O, /obj/item/clothing/mask/facehugger))
+		user << "\blue There is already one in your hand!"
+		return
+	else
+		Die()
+		return
 
 /obj/item/clothing/mask/facehugger/bullet_act(var/obj/item/projectile/Proj)
 	health -= Proj.damage
+	healthcheck()
 	return
 
 /obj/item/clothing/mask/facehugger/ex_act(severity)
@@ -250,25 +270,40 @@ var/const/MAX_ACTIVE_TIME = 200
 	if(iscarbon(M))
 		var/mob/living/carbon/target = L
 
+		var/obj/item/clothing/mask/facehugger/F
+		var/obj/item/clothing/W = target.wear_mask
 		if(target.wear_mask)
-			if(prob(20))	return
-			var/obj/item/clothing/mask/facehugger/F
-			var/obj/item/clothing/W = target.wear_mask
-			if(!W.canremove)	return
-			if(!W == F)	return
+			if(prob(20))
+				target.visible_message("\red [src] fails to tear [W] off of [target]'s face!")
+				return
+			if(!W.canremove)
+				target.visible_message("\red [src] fails to tear [W] off of [target]'s face!")
+				return
+			if(!W == F)
+				target.visible_message("\red [src] fails to tear [W] off of [target]'s face!")
+				return
 			target.drop_from_inventory(W)
 
 			target.visible_message("\red \b [src] tears [W] off of [target]'s face!")
 
-		target.equip_to_slot(src, slot_wear_mask)
+		if(icon_state == "[initial(icon_state)]_thrown")
+			icon_state = "[initial(icon_state)]"
 
-		if(!sterile) L.Sleeping((preggers/10)+10) //something like 25 ticks = 20 seconds with the default settings
+		if (ismonkey(M))
+			src.loc = L
+			L.wear_mask = src
+			L.regenerate_icons()
+		else
+			target.equip_to_slot(src, slot_wear_mask)
+
+		if( (!sterile) && (stat != DEAD) )
+			L.Sleeping((preggers/10)+10) //something like 25 ticks = 20 seconds with the default settings
 	else if (iscorgi(M))
 		var/mob/living/simple_animal/corgi/C = M
 		src.loc = C
 		C.facehugger = src
 		C.wear_mask = src
-		//C.regenerate_icons()
+		C.regenerate_icons()
 
 	GoIdle(150) //so it doesn't jump the people that tear it off
 
@@ -281,7 +316,7 @@ var/const/MAX_ACTIVE_TIME = 200
 	if(!target || target.wear_mask != src || target.stat == DEAD) //was taken off or something
 		return
 
-	if(!sterile)
+	if( (!sterile) && (stat != DEAD) )
 		//target.contract_disease(new /datum/disease/alien_embryo(0)) //so infection chance is same as virus infection chance
 		var/obj/item/alien_embryo/E = new (target)
 		target.status_flags |= XENO_HOST
@@ -345,7 +380,7 @@ var/const/MAX_ACTIVE_TIME = 200
 
 /proc/CanHug(var/mob/M)
 
-	if(iscorgi(M))
+	if(iscorgi(M) && !(istype(M.wear_mask, /obj/item/clothing/mask/facehugger) || M.status_flags & XENO_HOST))
 		return 1
 
 	if(!iscarbon(M) || isalien(M))
@@ -359,3 +394,49 @@ var/const/MAX_ACTIVE_TIME = 200
 		//if(H.head && H.head.flags & HEADCOVERSMOUTH)
 			//return 0
 	return 1
+
+/obj/item/clothing/mask/facehugger/proc/FightHuggers()
+	if (stat == DEAD) // Can't fight much if you're dead.
+		return
+
+	if (istype(loc, /mob/))// Don't wanna be killing any huggers inside carriers
+		return
+
+	if (prob(5)) /* Each facehugger has a 5% chance of trying to try to start a fight. Fights always kill the facehugger, but can only start if you exceed the maximum number of huggers.
+	That 5% chance per hugger gives about 18.5% (1 - .95^4 = 18.5%) chance of starting a fight each tick if there are four huggers on the same tile. The more huggers, the more likely a fight is to start.
+	Up to five can stay in a closet without starting a fight, but you must open and close it quickly, else they will start fighting and dying on the floor.*/
+
+
+		var/datum/i = 0		//Hugger counter
+		var/datum/max_i = MAX_HUGGERS_TURF	//Max huggers in a turf
+
+
+		if (istype(loc, /obj/structure/closet/))
+			max_i = MAX_HUGGERS_CLOSET
+
+		if (locate(/obj/effect/alien/egg) in loc) //Grown eggs take 1 facehugger space.
+			var/obj/effect/alien/egg/E = locate(/obj/effect/alien/egg) in loc
+			if(E.status == GROWN)
+				max_i -= 1
+
+		for(var/obj/item/clothing/mask/facehugger/Hugger in loc)
+			if (Hugger.stat != DEAD)
+				i++
+				if (i > max_i)
+					if (istype(loc, /obj/structure/closet/))
+						loc.visible_message("\blue The facehuggers in the [loc.name] start fighting for room and one of them dies.")
+					else
+						visible_message("\red The facehuggers start fighting for room and one of them dies.")
+
+
+					//Killing the facehugger. Basically a copy/paste of the Die() proc without its message (alien curls up in a ball).
+					//I skipped the message because I didn't want to clutter the chat window.
+					if(stat == DEAD)
+						return
+					target = null
+					processing_objects.Remove(src)
+					icon_state = "[initial(icon_state)]_dead"
+					stat = DEAD
+
+					break
+

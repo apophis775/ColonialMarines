@@ -168,6 +168,9 @@ atom/movable/Del()
 //If we have no light it will create one.
 //If we are setting luminosity to 0 the light will be cleaned up and delted once all its queues are complete
 //if we have a light already it is merely updated
+
+
+/* This code is... Not so great.
 atom/proc/SetLuminosity(new_luminosity, max_luminosity = LIGHTING_MAX_LUMINOSITY)
 	if(new_luminosity < 0)
 		new_luminosity = 0
@@ -176,6 +179,35 @@ atom/proc/SetLuminosity(new_luminosity, max_luminosity = LIGHTING_MAX_LUMINOSITY
 		new_luminosity = max_luminosity
 //		if(luminosity != new_luminosity)
 //			world.log << "## WARNING: [type] - LIGHT_MAX_LUMINOSITY exceeded"
+*/
+
+/atom/var/luminosity_actual = 0
+
+atom/proc/SetLuminosity(new_luminosity, max_luminosity = LIGHTING_MAX_LUMINOSITY)
+
+	luminosity_actual += new_luminosity - luminosity  // Calculate the change in luminosity and store it into the variable luminosity_actual.
+	if(luminosity_actual < 0) //This should never happen, but still...
+		luminosity_actual = 0
+		new_luminosity = 0
+//		world.log << "## WARNING: [type] - luminosity cannot be negative"
+	else if(max_luminosity < luminosity_actual) //Make sure we don't go over the max_luminosity
+		new_luminosity = max_luminosity
+	else
+		new_luminosity = luminosity_actual
+//		if(luminosity != new_luminosity)
+//			world.log << "## WARNING: [type] - LIGHT_MAX_LUMINOSITY exceeded"
+
+	if(isturf(loc))
+		if(light)
+			if(luminosity != new_luminosity)	//TODO: remove lights from the light list when they're not luminous? DONE in add_effect
+				light.changed = 1
+		else
+			if(new_luminosity)
+				light = new(src)
+
+	luminosity = new_luminosity
+
+
 
 	if(isturf(loc))
 		if(light)

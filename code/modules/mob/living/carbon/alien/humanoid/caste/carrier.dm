@@ -27,7 +27,7 @@
 		name = text("alien carrier ([rand(1, 1000)])")
 	real_name = name
 	var/matrix/M = matrix()
-	M.Scale(1.1,1.15)
+	M.Scale(1,1)
 	src.transform = M
 	pixel_y = 3
 	verbs -= /mob/living/carbon/alien/verb/ventcrawl

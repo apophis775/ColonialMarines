@@ -217,8 +217,8 @@
 	mymob.healths.screen_loc = ui_alien_health
 
 	mymob.alien_plasma_display = new /obj/screen()
-	mymob.alien_plasma_display.icon = 'icons/mob/screen_gen.dmi'
-	mymob.alien_plasma_display.icon_state = "power_display2"
+	mymob.alien_plasma_display.icon = 'icons/mob/screen1_alien.dmi'
+	mymob.alien_plasma_display.icon_state = "plasma0"
 	mymob.alien_plasma_display.name = "plasma stored"
 	mymob.alien_plasma_display.screen_loc = ui_alienplasmadisplay
 

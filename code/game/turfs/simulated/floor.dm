@@ -519,7 +519,7 @@ turf/simulated/floor/proc/update_icon()
 				T.use(1)
 				update_icon()
 				levelupdate()
-				playsound(src.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+			//	playsound(src.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 			else
 				user << "\blue This section is too damaged to support a tile. Use a welder to fix the damage."
 

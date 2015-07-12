@@ -126,6 +126,30 @@
 			user << "\green You slice the [name] to pieces."
 			for(var/mob/O in oviewers(src))
 				O.show_message("\red [user] slices the [name] apart!", 1)
+
+			//Add to logs
+			if (ishuman(buckled_mob))
+				var/mob/target = buckled_mob
+				var/turf/end_T = get_turf(target)
+
+				//Is the target braindead?
+				var/braindead_descriptor = "braindead"
+				if (target.client)
+					braindead_descriptor = "online"
+
+				//Is he conscious?
+				var/stat_descriptor = "conscious"
+				if (target.stat == UNCONSCIOUS)
+					stat_descriptor = "unconscious"
+				else if (target.stat == DEAD)
+					stat_descriptor = "dead"
+
+				if (end_T)
+					var/end_T_descriptor = "<font color='#6b4400'>[end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
+					user.attack_log +=  text("\[[time_stamp()]\]<font color='purple'> Destroyed an alien nest which held <font color='blue'>[target.name] ([braindead_descriptor] and [stat_descriptor])</font> at [end_T_descriptor]</font>")
+					target.attack_log += text("\[[time_stamp()]\]<font color='purple'> Has been released from an alien nest <font color='blue'>(while [braindead_descriptor] and [stat_descriptor])</font> by <font color='red'>[user.name]</font> at [end_T_descriptor]</font>")
+					msg_admin_attack("[user.name] ([user.ckey]) released <font color='red'>[target.name] ([braindead_descriptor] and [stat_descriptor])</font> from an alien nest at [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)")
+
 		healthcheck()
 		return
 	else
@@ -135,6 +159,30 @@
 			"<span class='notice'>You hear squelching...</span>")
 		buckled_mob.pixel_y = 0
 		buckled_mob.nested = null
+
+		//Add to logs
+		if (ishuman(buckled_mob))
+			var/mob/target = buckled_mob
+			var/turf/end_T = get_turf(target)
+
+			//Is the target braindead?
+			var/braindead_descriptor = "braindead"
+			if (target.client)
+				braindead_descriptor = "online"
+
+			//Is he conscious?
+			var/stat_descriptor = "conscious"
+			if (target.stat == UNCONSCIOUS)
+				stat_descriptor = "unconscious"
+			else if (target.stat == DEAD)
+				stat_descriptor = "dead"
+
+			if (end_T)
+				var/end_T_descriptor = "<font color='#6b4400'>[end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
+				user.attack_log +=  text("\[[time_stamp()]\]<font color='purple'> Released <font color='blue'>[target.name] ([braindead_descriptor] and [stat_descriptor])</font> from an alien nest at [end_T_descriptor]</font>")
+				target.attack_log += text("\[[time_stamp()]\]<font color='purple'> Has been released from an alien nest <font color='blue'>(while [braindead_descriptor] and [stat_descriptor])</font> by <font color='red'>[user.name]</font> at [end_T_descriptor]</font>")
+				msg_admin_attack("[user.name] ([user.ckey]) released <font color='red'>[target.name] ([braindead_descriptor] and [stat_descriptor])</font> from an alien nest at [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)")
+
 		unbuckle()
 
 
@@ -142,5 +190,9 @@
 /obj/structure/stool/bed/nest/proc/healthcheck()
 	if(health <=0)
 		density = 0
+		if (buckled_mob)
+			buckled_mob.pixel_y = 0
+			buckled_mob.nested = null
+			unbuckle()
 		del(src)
 	return
