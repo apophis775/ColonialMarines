@@ -4,18 +4,23 @@
 ///***Bullets***///
 /obj/item/projectile/bullet/m4a3 //Colt 45 Pistol
 	damage = 25
+	PROJECTILESPEED = 0.01
 
 /obj/item/projectile/bullet/m44m //44 Magnum Peacemaker
 	damage = 45
+	PROJECTILESPEED = 0.01
 
 /obj/item/projectile/bullet/m39 // M39 SMG
 	damage = 20
+	PROJECTILESPEED = 0.01
 
 /obj/item/projectile/bullet/m41 //M41 Assault Rifle
 	damage = 30
+	PROJECTILESPEED = 0.01
 
 /obj/item/projectile/bullet/m37 //M37 Pump Shotgun
 	damage = 40
+	PROJECTILESPEED = 0.01
 
 ///***Ammo***///
 
