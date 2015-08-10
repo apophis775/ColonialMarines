@@ -51,8 +51,6 @@
 
 /obj/item/projectile/bullet/a762
 	damage = 25
-	PROJECTILESPEED = 0.01
 
 /obj/item/projectile/bullet/cal50
 	damage = 50
-	PROJECTILESPEED = 0.01
