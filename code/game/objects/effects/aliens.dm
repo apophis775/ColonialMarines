@@ -158,6 +158,7 @@
 	desc = "A thick resin surface covers the floor."
 	icon_state = "weeds"
 	anchored = 1
+	mouse_opacity = 0
 	density = 0
 	layer = 2.02
 	var/health = 25
@@ -284,6 +285,7 @@
 	name = "glowing resin"
 	desc = "Blue bioluminescence shines from beneath the surface."
 	icon_state = "weednode"
+	mouse_opacity = 0
 	luminosity = 1
 	var/node_range = NODERANGE
 
