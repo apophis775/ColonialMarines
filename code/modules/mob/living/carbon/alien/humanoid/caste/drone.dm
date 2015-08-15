@@ -87,6 +87,7 @@
 			var/obj/item/B = r_hand
 			src.drop_from_inventory(A)
 			src.drop_from_inventory(B)
+			new_xeno.attack_log = src.attack_log
 			del(src)
 		else
 			src << "<span class='notice'>We already have an alive queen.</span>"
@@ -123,6 +124,7 @@
 			if("Carrier")
 				new_xeno = new /mob/living/carbon/alien/humanoid/carrier(loc)
 		if(mind)	mind.transfer_to(new_xeno)
+		new_xeno.attack_log = src.attack_log
 		del(src)
 		return
 	else

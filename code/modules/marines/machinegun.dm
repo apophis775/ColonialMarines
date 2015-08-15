@@ -2,7 +2,14 @@
 	var/obj/structure/machinegun/mounted
 
 	ClickOn(var/atom/A, params)
+
 		if(mounted)
+			//Let marines unbuckle themselves
+			if(src.anchored)
+				if (istype(A, /obj/structure/stool/))
+					if (A.loc == loc)
+						..()
+
 			if(mounted.loc == src.loc)
 				if(A && mounted.nextshot <= world.time && mounted.anchored)
 					mounted.shoot(get_turf(A))

@@ -118,12 +118,17 @@ Doesn't work on other aliens/AI.*/
 			// Now let's add it to the logs.
 			target = O
 			target.add_fingerprint(usr)
+
 			var/turf/end_T = get_turf(target)
 			if (end_T)
 				var/end_T_descriptor = "<font color='#6b4400'> [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 				usr.attack_log +=  text("\[[time_stamp()]\]<font color='green'> Spat acid on a <font color='blue'>[target.name]</font> at [end_T_descriptor]</font>")
 				if(!istype(target, /obj/item)) //We don't want to permanently log ALL melts, only the ones that matter (structures and devices, mostly). We don't care much if a jumpsuit was melted.
 					msg_admin_attack("[usr.name] ([usr.ckey]) spat acid on a <font color='red'>[target.name]</font> at [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)")
+
+					//Also add fingerprints to the spitter's turf, otherwise admins can't check for fingerprints if the structure has already been destroyed.
+					var/turf/ST = usr.loc
+					ST.add_fingerprint(usr)
 
 		else
 			src << "\green Target is too far away."
@@ -175,12 +180,17 @@ Doesn't work on other aliens/AI.*/
 			// Now let's add it to the logs.
 			target = O
 			target.add_fingerprint(usr)
+
 			var/turf/end_T = get_turf(target)
 			if (end_T)
 				var/end_T_descriptor = "<font color='#6b4400'> [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
 				usr.attack_log +=  text("\[[time_stamp()]\]<font color='green'> Spat acid on a <font color='blue'>[target.name]</font> at [end_T_descriptor]</font>")
 				if(!istype(target, /obj/item)) //We don't want to permanently log ALL melts, only the ones that matter (structures and devices, mostly). We don't care much if a jumpsuit was melted.
 					msg_admin_attack("[usr.name] ([usr.ckey]) spat acid on a <font color='red'>[target.name]</font> at [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)")
+
+					//Also add fingerprints to the spitter's turf: admins can't check for fingerprints if the wall has been destroyed.
+					var/turf/ST = usr.loc
+					ST.add_fingerprint(usr)
 
 		else
 			src << "\green Target is too far away."
@@ -225,6 +235,7 @@ Doesn't work on other aliens/AI.*/
 			// Now let's add it to the logs.
 			target = O
 			target.add_fingerprint(usr)
+
 			var/turf/end_T = get_turf(target)
 			if (end_T)
 				var/end_T_descriptor = "<font color='#6b4400'> [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]</font>"
@@ -232,6 +243,9 @@ Doesn't work on other aliens/AI.*/
 				if(!istype(target, /obj/item)) //We don't want to permanently log ALL melts, only the ones that matter (structures and devices, mostly). We don't care much if a jumpsuit was melted.
 					msg_admin_attack("[usr.name] ([usr.ckey]) spat acid on a <font color='red'>[target.name]</font> at [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>)")
 
+					//Also add fingerprints to the spitter's turf: admins can't check for fingerprints if the wall has been destroyed.
+					var/turf/ST = usr.loc
+					ST.add_fingerprint(usr)
 		else
 			src << "\green Target is too far away."
 	return

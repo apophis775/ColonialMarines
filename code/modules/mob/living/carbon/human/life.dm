@@ -1040,9 +1040,10 @@
 						sleeping = max(sleeping-1, 0)
 				blinded = 1
 				stat = UNCONSCIOUS
-				if( prob(2) && health && !hal_crit )
-					spawn(0)
-						emote("snore")
+				if (mind)
+					if( prob(2) && health && !hal_crit )
+						spawn(0)
+							emote("snore")
 				if(mind)
 					if(mind.vampire)
 						if(istype(loc, /obj/structure/closet/coffin))

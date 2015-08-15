@@ -93,6 +93,7 @@
 	var/obj/item/B = r_hand
 	src.drop_from_inventory(A)
 	src.drop_from_inventory(B)
+	new_xeno.attack_log = src.attack_log
 	del(src)
 
 
